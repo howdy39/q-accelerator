@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "q-tool",
+  "short_name":"q-tool",
+  "description": "Qiitaをより便利に活用するためのChrome拡張機能",
+  "version": "0.0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://qiita.com/*/items/*",
+        "https://qiita.com/*/items/*"
+      ],
+      "js": ["js/article-content.js"]
+    }
+  ],
+  "permissions": [
+    "unlimitedStorage",
+    "storage"
+  ],
+  "options_page": "assets/preferences.html"
+}
