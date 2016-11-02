@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rimraf extension",
     "lint": "eslint test src --fix",
-    "test": "npm-run-all clean lint test:mocha",
+    "test": "npm-run-all test:mocha",
     "test:mocha": "mocha --require intelli-espower-loader test/**/*.js",
     "build": "npm-run-all clean lint build:webpack build:copy",
     "build:webpack": "webpack",
@@ -28,7 +28,6 @@
   "devDependencies": {
     "eslint": "^3.8.1",
     "gulp": "^3.9.1",
-    "gulp-eslint": "^3.0.1",
     "gulp-webpack": "^1.5.0",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^3.1.2",
