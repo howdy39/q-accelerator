@@ -10,7 +10,6 @@
     "require": false,
     "module": false,
     "describe": false,
-    "beforeEach": false,
     "it": false,
     "chrome": false
   },

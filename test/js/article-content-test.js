@@ -1,23 +1,13 @@
 const assert = require('power-assert');
-const sinon = require('sinon');
-const ArticleContent = require('../../src/js/article-content');
+const Util = require('../../src/js/util');
 
-describe('article-content.run()', function() {
-  beforeEach(function() {
-    this.articleContent = new ArticleContent();
-    this.mock = sinon.mock(this.articleContent);
+describe('parseUrl', function() {
 
-    this.getLocationHrefStub = sinon.stub(this.articleContent, 'getLocationHref');
+  it('userIdとItemIdが取れること', function() {
+    const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
+    const { userId, itemId} = Util.parseUrl(URL);
+    assert(userId === 'howdy39');
+    assert(itemId === '35729490b024ca295d6c');
   });
 
-  it('getLocationHref()の返り値がsaveUrl()の引数に渡されていること', function() {
-    const URL = "http://example.com/";
-
-    this.getLocationHrefStub.returns(URL);
-    this.mock.expects("saveUrl").withArgs(URL);
-
-    this.articleContent.run();
-
-    assert(this.mock.verify());
-  });
 });

@@ -44,36 +44,14 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const ArticleContent = __webpack_require__(1);
-	const articleContent = new ArticleContent();
+	const Util = __webpack_require__(1);
 
-	articleContent.run();
+	const url = window.location.href;
+	console.info(url);
+	Util.saveUrl(url);
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	class ArticleContent {
-	  run() {
-	    const url = this.getLocationHref();
-	    this.saveUrl(url);
-	  }
-
-	  getLocationHref() {
-	    return window.location.href;
-	  }
-
-	  saveUrl(url) {
-	    const Util = __webpack_require__(2);
-	    Util.saveUrl(url);
-	  }
-	}
-
-	module.exports = ArticleContent;
-
-
-/***/ },
-/* 2 */
 /***/ function(module, exports) {
 
 	class Util {
@@ -88,25 +66,15 @@
 	    return `${userId}.${itemId}`;
 	  }
 
-	  static createItemEntity(url) {
+	  static saveUrl(url, cb = function(){} ) {
 	    const itemKey = Util.getItemKey(url);
-	    const entity = {};
-	    entity[itemKey] = itemKey;
-	    return entity;
-	  }
-
-	  static saveUrl(url, cb = function() {} ) {
-	    const entity = this.createItemEntity(url);
+	    const entity = {itemKey};
 
 	    chrome.storage.local.set(entity, function() {
-	      let itemKey;
-	      for (let key in entity) {
-	        itemKey = key;
-	      }
 	      console.info('stored', itemKey);
 	      cb();
 	    });
-	  }
+	  } 
 	}
 	module.exports = Util;
 

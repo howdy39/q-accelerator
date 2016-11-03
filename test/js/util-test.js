@@ -1,7 +1,7 @@
 const assert = require('power-assert');
 const Util = require('../../src/js/util');
 
-describe('util.parseUrl()', function() {
+describe('parseUrl', function() {
 
   it('userIdとItemIdが取れること', function() {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
@@ -41,22 +41,12 @@ describe('util.parseUrl()', function() {
 });
 
 
-describe('util.getItemKey()', function() {
+describe('getItemKey', function() {
 
-  it('返り値がuserId.ItemIdの形式であること', function() {
+  it('userId.ItemIdの形式であること', function() {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
     const itemKey = Util.getItemKey(URL);
     assert(itemKey === 'howdy39.35729490b024ca295d6c');
-  });
-
-});
-
-describe('util.createItemEntity()', function() {
-
-  it('返り値が{userId.ItemId: userId.ItemId}の形式であること', function() {
-    const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
-    const entity = Util.createItemEntity(URL);
-    assert(entity['howdy39.35729490b024ca295d6c'] === 'howdy39.35729490b024ca295d6c');
   });
 
 });
