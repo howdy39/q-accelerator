@@ -10,11 +10,21 @@ class Util {
     return `${userId}.${itemId}`;
   }
 
-  static saveUrl(url, cb = function() {} ) {
+  static createItemEntity(url) {
     const itemKey = Util.getItemKey(url);
-    const entity = {itemKey};
+    const entity = {};
+    entity[itemKey] = itemKey;
+    return entity;
+  }
+
+  static saveUrl(url, cb = function() {} ) {
+    const entity = this.createItemEntity(url);
 
     chrome.storage.local.set(entity, function() {
+      let itemKey;
+      for (let key in entity) {
+        itemKey = key;
+      }
       console.info('stored', itemKey);
       cb();
     });
