@@ -10,7 +10,7 @@ describe('article-content.run()', function() {
     this.getLocationHrefStub = sinon.stub(this.articleContent, 'getLocationHref');
   });
 
-  it('getLocationHref()の返り値がsaveUrl()の引数に渡されていること', function() {
+  it('getLocationHref()の返り値がsaveUrl()の引数に渡されていることa', function() {
     const URL = "http://example.com/";
 
     this.getLocationHrefStub.returns(URL);
