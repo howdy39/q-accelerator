@@ -1,3 +1,5 @@
+import Util from './util';
+
 class ArticleContent {
   run() {
     const url = this.getLocationHref();
@@ -9,7 +11,6 @@ class ArticleContent {
   }
 
   saveUrl(url) {
-    const Util = require('./util.js');
     Util.saveUrl(url);
   }
 }
