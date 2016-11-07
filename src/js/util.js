@@ -1,4 +1,4 @@
-class Util {
+export default class Util {
   static parseUrl(url) {
     const ITEM_MATCH = 'https?://qiita.com/([^/]+)/items/([^/?]+).*';
     const [ , userId, itemId] = url.match(ITEM_MATCH);
@@ -30,4 +30,3 @@ class Util {
     });
   }
 }
-module.exports = Util;

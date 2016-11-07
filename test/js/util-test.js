@@ -1,5 +1,7 @@
-const assert = require('power-assert');
-const Util = require('../../src/js/util');
+/* eslint-disable import/no-extraneous-dependencies */
+
+import assert from 'power-assert';
+import Util from '../../src/js/util';
 
 describe('util.parseUrl()', function() {
 

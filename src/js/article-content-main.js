@@ -1,4 +1,4 @@
-const ArticleContent = require('./article-content.js');
-const articleContent = new ArticleContent();
+import ArticleContent from './article-content.js';
 
+const articleContent = new ArticleContent();
 articleContent.run();

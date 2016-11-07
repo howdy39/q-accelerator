@@ -1,6 +1,6 @@
-const assert = require('power-assert');
-const sinon = require('sinon');
-const ArticleContent = require('../../src/js/article-content');
+import assert from 'power-assert';
+import sinon from 'sinon';
+import ArticleContent from '../../src/js/article-content';
 
 describe('article-content.run()', function() {
   beforeEach(function() {
