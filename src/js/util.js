@@ -1,6 +1,6 @@
 export default class Util {
   static parseUrl(url) {
-    const ITEM_MATCH = 'https?://qiita.com/([^/]+)/items/([^/?]+).*';
+    const ITEM_MATCH = 'https?://qiita.com/([^/]+)/items/([^/#?]+).*';
     const [ , userId, itemId] = url.match(ITEM_MATCH);
     return {userId, itemId};
   }

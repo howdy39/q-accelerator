@@ -40,6 +40,13 @@ describe('util.parseUrl()', function() {
     assert(itemId === '35729490b024ca295d6c');
   });
 
+  it('userIdとItemIdが取れること（ハッシュフラグメントあり）', function() {
+    const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c#%E3%81%93%E3%81%93%E3%81%BE%E3%81%A7%E3%81%AE%E5%9B%B3%E8%A7%A3';
+    const {userId, itemId} = Util.parseUrl(URL);
+    assert(userId === 'howdy39');
+    assert(itemId === '35729490b024ca295d6c');
+  });
+
 });
 
 

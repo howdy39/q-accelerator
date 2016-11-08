@@ -123,7 +123,7 @@
 	  _createClass(Util, null, [{
 	    key: 'parseUrl',
 	    value: function parseUrl(url) {
-	      var ITEM_MATCH = 'https?://qiita.com/([^/]+)/items/([^/?]+).*';
+	      var ITEM_MATCH = 'https?://qiita.com/([^/]+)/items/([^/#?]+).*';
 
 	      var _url$match = url.match(ITEM_MATCH),
 	          _url$match2 = _slicedToArray(_url$match, 3),
