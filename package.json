@@ -10,7 +10,8 @@
     "build": "npm-run-all lint test build:webpack build:copy",
     "build:babel": "npm-run-all clean && babel src --out-dir dest/src && babel test --out-dir dest/test",
     "build:webpack": "webpack",
-    "build:copy": "gulp copy"
+    "build:copy": "gulp copy",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -41,5 +42,9 @@
     "rimraf": "^2.5.4",
     "sinon": "^1.17.6",
     "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "vue": "^1.0.28",
+    "vue-mdl": "^0.10.0"
   }
 }
