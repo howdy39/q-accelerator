@@ -10,7 +10,8 @@
     "build": "npm-run-all lint test build:webpack build:copy",
     "build:babel": "npm-run-all clean && babel src --out-dir dest/src && babel test --out-dir dest/test",
     "build:webpack": "webpack",
-    "build:copy": "gulp copy"
+    "build:copy": "gulp copy",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
