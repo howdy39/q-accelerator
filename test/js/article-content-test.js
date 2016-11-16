@@ -11,10 +11,10 @@ describe('article-content.run()', function() {
   });
 
   it('getLocationHref()の返り値がsaveUrl()の引数に渡されていること', function() {
-    const URL = "http://example.com/";
+    const URL = 'http://example.com/';
 
     this.getLocationHrefStub.returns(URL);
-    this.mock.expects("saveUrl").withArgs(URL);
+    this.mock.expects('saveUrl').withArgs(URL);
 
     this.articleContent.run();
 
