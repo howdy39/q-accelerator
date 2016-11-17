@@ -2,11 +2,12 @@ import Vue from 'vue';
 import VueMdl from 'vue-mdl';
 
 Vue.use(VueMdl);
-console.log("hogehoge");
+console.log('hogehoge');
 
 new Vue({
-  el: '#settings',
+  el: '#overview',
   data: {
-    message: "めっせーじ3"
+    message: 'めっせーじ3',
+    alreadyReaded: 'smoke'
   }
 });

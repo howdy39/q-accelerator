@@ -57,12 +57,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_vue2.default.use(_vueMdl2.default);
-	console.log("hogehoge");
+	console.log('hogehoge');
 
 	new _vue2.default({
-	  el: '#settings',
+	  el: '#overview',
 	  data: {
-	    message: "めっせーじ3"
+	    message: 'めっせーじ3',
+	    alreadyReaded: 'smoke'
 	  }
 	});
 
