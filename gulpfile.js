@@ -2,18 +2,11 @@ const gulp = require('gulp');
 const exec = require('child_process').exec;
 
 gulp.task('watch', () => {
-  gulp.watch(['src/**/*'], ['lint', 'build']);
-});
-
-gulp.task('lint', (callback) => {
-  exec(`npm run lint`, (error, stdout) => {
-    console.log(stdout);
-    return callback(error);
-  });
+  gulp.watch(['src/**/*'], ['build']);
 });
 
 gulp.task('build', (callback) => {
-  exec(`npm run build`, (error, stdout) => {
+  exec('npm run build', (error, stdout) => {
     console.log(stdout);
     return callback(error);
   });
@@ -21,5 +14,5 @@ gulp.task('build', (callback) => {
 
 gulp.task('copy', () =>
   gulp.src(['./src/**/*', '!./src/**/*.js'])
-    .pipe(gulp.dest('extension')) 
+    .pipe(gulp.dest('extension'))
 );
