@@ -44,7 +44,7 @@
     "webpack": "^1.13.3"
   },
   "dependencies": {
-    "vue": "^1.0.28",
+    "vue": "^1.0.28-csp",
     "vue-mdl": "^0.10.0"
   }
 }

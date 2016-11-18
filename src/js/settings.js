@@ -4,10 +4,11 @@ import VueMdl from 'vue-mdl';
 Vue.use(VueMdl);
 console.log('hogehoge');
 
-new Vue({
-  el: '#overview',
+const displayVM = new Vue({
+  el: '#display',
   data: {
     message: 'めっせーじ3',
     alreadyReaded: 'smoke'
   }
 });
+displayVM;

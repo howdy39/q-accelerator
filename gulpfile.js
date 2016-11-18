@@ -13,6 +13,6 @@ gulp.task('build', (callback) => {
 });
 
 gulp.task('copy', () =>
-  gulp.src(['./src/**/*', '!./src/**/*.js'])
+  gulp.src(['./src/**/*', '!./src/js/*.js'])
     .pipe(gulp.dest('extension'))
 );
