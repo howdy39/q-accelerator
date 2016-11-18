@@ -68,6 +68,22 @@
 	});
 	displayVM;
 
+	chrome.storage.local.get('index', function (items) {
+	  console.log(items.index);
+
+	  // for (let [key, value] of Object.entries(items.index)) {
+	  //   console.log(key, value);
+	  // }
+
+	  var historyVM = new _vue2.default({
+	    el: '#history',
+	    data: {
+	      items: Object.values(items.index)
+	    }
+	  });
+	  historyVM;
+	});
+
 /***/ },
 /* 1 */,
 /* 2 */,

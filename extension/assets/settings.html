@@ -58,6 +58,24 @@
             </div>
           </section>
         </div>
+        <div class="mdl-layout__tab-panel" id="history">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>既読履歴</h4>
+                既に読んだ記事を表示しています。
+                <div>
+                 {{test}}
+                 <ul>
+                  <template v-for="item in items">
+                    <li>{{ item }}</li>
+                  </template>
+                </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
     <script src="../lib/material.min.js"></script>

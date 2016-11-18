@@ -156,7 +156,7 @@
 
 	      var entity = this.createItemEntity(url);
 
-	      chrome.storage.local.set(entity, function () {
+	      chrome.storage.local.set({ 'index': entity }, function () {
 	        var itemKey = void 0;
 	        for (var key in entity) {
 	          itemKey = key;

@@ -20,7 +20,7 @@ export default class Util {
   static saveUrl(url, cb = function() {} ) {
     const entity = this.createItemEntity(url);
 
-    chrome.storage.local.set(entity, function() {
+    chrome.storage.local.set({'index': entity}, function() {
       let itemKey;
       for (let key in entity) {
         itemKey = key;
