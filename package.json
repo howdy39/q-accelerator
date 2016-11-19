@@ -2,6 +2,9 @@
   "name": "q-tool",
   "version": "1.0.0",
   "description": "",
+  "directories": {
+    "test": "dest/"
+  },
   "scripts": {
     "clean": "rimraf extension dest",
     "lint": "eslint test src --fix",
