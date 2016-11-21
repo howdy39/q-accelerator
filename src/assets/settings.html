@@ -68,7 +68,10 @@
                  {{test}}
                  <ul>
                   <template v-for="item in items">
-                    <li>{{ item }}</li>
+                    <li>
+                      <a href="http://qiita.com/{{item.userId}}/items/{{item.itemId}}" target="_blank">{{ item.title }}</a>
+                      {{ item.date }}<br>
+                    </li>
                   </template>
                 </ul>
                 </div>

@@ -6,14 +6,12 @@
   },
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
   "globals": {
     "require": false,
     "module": false,
-    "describe": false,
-    "it": false,
-    "beforeEach": false,
     "chrome": false
   },
   "rules": {

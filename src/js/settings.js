@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueMdl from 'vue-mdl';
+import Util from './util';
 
 Vue.use(VueMdl);
 console.log('hogehoge');
@@ -13,19 +14,12 @@ const displayVM = new Vue({
 });
 displayVM;
 
-chrome.storage.local.get('index', function(items) {
-  console.log(items.index);
-
-  // for (let [key, value] of Object.entries(items.index)) {
-  //   console.log(key, value);
-  // }
-
+Util.getHisotry((history) => {
   const historyVM = new Vue({
     el: '#history',
     data: {
-      items: Object.values(items.index)
+      items: Object.values(history)
     }
   });
   historyVM;
 });
-
