@@ -70,7 +70,7 @@
                   <template v-for="item in items">
                     <li>
                       <a href="http://qiita.com/{{item.userId}}/items/{{item.itemId}}" target="_blank">{{ item.title }}</a>
-                      {{ item.date }}<br>
+                      {{ item.date | moment "YYYY-MM-DD HH:mm"}}
                     </li>
                   </template>
                 </ul>
