@@ -6,20 +6,17 @@
   },
   "env": {
     "browser": true,
-    "es6": true,
-    "mocha": true
+    "es6": true
   },
   "globals": {
-    "require": false,
-    "module": false,
     "chrome": false
   },
   "rules": {
-    "block-spacing": ["error"],
+    "block-spacing": "error",
     "comma-spacing": ["error", { "before": false, "after": true }],
     "indent": ["error", 2],
     "no-console": "off",
-    "no-trailing-spaces": ["error"],
+    "no-trailing-spaces": "error",
     "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
     "quotes": ["error", "single"]
   }
