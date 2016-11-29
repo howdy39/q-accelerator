@@ -9,7 +9,7 @@ Vue.use(VueMoment);
 const displayVM = new Vue({
   el: '#display',
   data: {
-    alreadyReaded: 'smoke'
+    invisible: true
   }
 });
 displayVM;

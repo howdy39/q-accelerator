@@ -43,16 +43,7 @@
                 <a href="http://qiita.com/popular-items" target="_blank">人気の投稿ページ</a>の表示をカスタマイズします。
                 <div>
                   <h5>既に読んだ記事</h5>
-                  <mdl-switch :checked.sync="checked" class="mdl-js-ripple-effect">Ripple Effect</mdl-switch>
-                  <div>
-                    <mdl-radio :checked.sync="alreadyReaded" class="mdl-js-ripple-effect" value="visible">表示</mdl-radio>
-                  </div>
-                  <div>
-                    <mdl-radio :checked.sync="alreadyReaded" class="mdl-js-ripple-effect" value="smoke">グレー表示</mdl-radio>
-                  </div>
-                  <div>
-                    <mdl-radio :checked.sync="alreadyReaded" class="mdl-js-ripple-effect" value="invisible">非表示</mdl-radio>
-                  </div>
+                  <mdl-switch :checked.sync="invisible" class="mdl-js-ripple-effect">非表示にする</mdl-switch>
                 </div>
               </div>
             </div>
