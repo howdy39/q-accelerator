@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "q-tool",
-  "short_name":"q-tool",
-  "description": "Qiitaをより便利に活用するためのChrome拡張機能",
+  "name": "Q Accelerator",
+  "short_name":"QA",
+  "description": "Qiitaでの活動を加速させるChrome拡張機能",
   "version": "0.0.1",
   "content_scripts": [
     {
@@ -11,6 +11,13 @@
         "https://qiita.com/*/items/*"
       ],
       "js": ["js/article-content.js"]
+    },
+    {
+      "matches": [
+        "http://qiita.com/popular-items*",
+        "https://qiita.com/popular-items*"
+      ],
+      "js": ["js/popular-items-content.js"]
     }
   ],
   "permissions": [

@@ -22,7 +22,6 @@ export default class Util {
     return entity;
   }
 
-  // TODO: RENAME
   static saveHistory(url, title, date, callback = function() {} ) {
     const entity = this.createItemEntity(url, title, date);
 
@@ -31,7 +30,7 @@ export default class Util {
       ChromeStorage.saveHistory(
         history,
         () => {
-          console.log('saved:' + url);
+          this.infoLog('saved:' + url);
           callback();
         }
       );
@@ -45,4 +44,7 @@ export default class Util {
     });
   }
 
+  static infoLog(message) {
+    console.info(`Q Accelerator | ${message}`);
+  }
 }
