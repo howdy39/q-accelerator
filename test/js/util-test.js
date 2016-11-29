@@ -22,6 +22,14 @@ describe('util.parseUrl()', function() {
     assert(itemId === '35729490b024ca295d6c');
   });
 
+  it('userIdとitemIdが取れること（相対パス）', function() {
+    const URL = '/howdy39/items/35729490b024ca295d6c';
+    const {userId, itemId} = Util.parseUrl(URL);
+    assert(userId === 'howdy39');
+    assert(itemId === '35729490b024ca295d6c');
+  });
+
+
   it('userIdとitemIdが取れること（末尾スラッシュあり）', function() {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c/';
     const {userId, itemId} = Util.parseUrl(URL);
