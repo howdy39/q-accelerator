@@ -1,15 +1,22 @@
 import Vue from 'vue';
 import VueMdl from 'vue-mdl';
+import VueMoment from 'vue-moment';
 import Util from './util';
 
 Vue.use(VueMdl);
-console.log('hogehoge');
+Vue.use(VueMoment);
 
 const displayVM = new Vue({
   el: '#display',
   data: {
-    message: 'めっせーじ3',
-    alreadyReaded: 'smoke'
+    invisible: true
+  },
+  methods: {
+  },
+  watch: {
+    invisible: function(val) {
+      Util.saveSetting('popular-items-already-read-invisible', val);
+    }
   }
 });
 displayVM;
