@@ -6,13 +6,13 @@ gulp.task('watch', () => {
 });
 
 gulp.task('build', (callback) => {
-  exec(`npm run build`, (error, stdout) => {
+  exec('npm run build', (error, stdout) => {
     console.log(stdout);
     return callback(error);
   });
 });
 
 gulp.task('copy', () =>
-  gulp.src(['./src/**/*', '!./src/**/*.js'])
-    .pipe(gulp.dest('extension')) 
+  gulp.src(['./src/**/*', '!./src/js/*.js'])
+    .pipe(gulp.dest('extension'))
 );

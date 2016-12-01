@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Option</title>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../lib/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>q-accelerator</h3>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#display" class="mdl-layout__tab is-active">表示の調整</a>
+          <a href="#history" class="mdl-layout__tab">既読履歴</a>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="display">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>人気の投稿</h4>
+                <a href="http://qiita.com/popular-items" target="_blank">人気の投稿ページ</a>の表示をカスタマイズします。
+                <div>
+                  <h5>既に読んだ記事</h5>
+                  <mdl-switch :checked.sync="checked" class="mdl-js-ripple-effect">Ripple Effect</mdl-switch>
+                  <div>
+                    <mdl-radio :checked.sync="alreadyReaded" class="mdl-js-ripple-effect" value="visible">表示</mdl-radio>
+                  </div>
+                  <div>
+                    <mdl-radio :checked.sync="alreadyReaded" class="mdl-js-ripple-effect" value="smoke">グレー表示</mdl-radio>
+                  </div>
+                  <div>
+                    <mdl-radio :checked.sync="alreadyReaded" class="mdl-js-ripple-effect" value="invisible">非表示</mdl-radio>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="history">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>既読履歴</h4>
+                既に読んだ記事を表示しています。
+                <div>
+                 {{test}}
+                 <ul>
+                  <template v-for="item in items">
+                    <li>
+                      <a href="http://qiita.com/{{item.userId}}/items/{{item.itemId}}" target="_blank">{{ item.title }}</a>
+                      {{ item.date }}<br>
+                    </li>
+                  </template>
+                </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="../lib/material.min.js"></script>
+    <script src="../js/settings.js"></script>
+  </body>
+</html>

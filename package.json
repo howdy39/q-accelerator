@@ -2,6 +2,9 @@
   "name": "q-tool",
   "version": "1.0.0",
   "description": "",
+  "directories": {
+    "test": "dest/"
+  },
   "scripts": {
     "clean": "rimraf extension dest",
     "lint": "eslint test src --fix",
@@ -42,5 +45,9 @@
     "rimraf": "^2.5.4",
     "sinon": "^1.17.6",
     "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "vue": "^1.0.28-csp",
+    "vue-mdl": "^0.10.0"
   }
 }

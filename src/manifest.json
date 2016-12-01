@@ -17,5 +17,5 @@
     "unlimitedStorage",
     "storage"
   ],
-  "options_page": "assets/preferences.html"
+  "options_page": "assets/settings.html"
 }
