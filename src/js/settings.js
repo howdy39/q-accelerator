@@ -10,6 +10,13 @@ const displayVM = new Vue({
   el: '#display',
   data: {
     invisible: true
+  },
+  methods: {
+  },
+  watch: {
+    invisible: function(val) {
+      Util.saveSetting('popular-items-already-read-invisible', val);
+    }
   }
 });
 displayVM;

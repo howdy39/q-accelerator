@@ -44,6 +44,32 @@ export default class Util {
     });
   }
 
+  // TODO: TEST
+  static saveSetting(key, value, callback = function() {}) {
+    let entity = {};
+    entity[key] = value;
+
+    this.getSettings(settings => {
+      Object.assign(settings, entity);
+      ChromeStorage.saveSettings(
+        settings,
+        () => {
+          const message = JSON.stringify(entity);
+          console.log(entity);
+          this.infoLog(`saved: ${message}`);
+          callback();
+        }
+      )
+    });
+  }
+
+  // TODO: TEST
+  static getSettings(callback) {
+    ChromeStorage.getSettings(settings => {
+      callback(settings);
+    });
+  }
+
   static infoLog(message) {
     console.info(`Q Accelerator | ${message}`);
   }
