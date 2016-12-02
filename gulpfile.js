@@ -11,8 +11,3 @@ gulp.task('build', (callback) => {
     return callback(error);
   });
 });
-
-gulp.task('copy', () =>
-  gulp.src(['./src/**/*', '!./src/js/*.js'])
-    .pipe(gulp.dest('extension'))
-);
