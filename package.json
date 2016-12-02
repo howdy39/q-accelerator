@@ -13,7 +13,7 @@
     "build": "npm-run-all lint test build:webpack build:copy",
     "build:babel": "npm-run-all clean && babel src --out-dir dest/src && babel test --out-dir dest/test",
     "build:webpack": "webpack",
-    "build:copy": "gulp copy",
+    "build:copy": "cpx \"./src/assets/**\" \"./extension/assets/\" && cpx \"./src/lib/**\" \"./extension/lib/\" && cpx \"./src/manifest.json\" \"./extension/\"",
     "watch": "gulp watch"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
+    "cpx": "^1.5.0",
     "eslint": "^3.8.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
