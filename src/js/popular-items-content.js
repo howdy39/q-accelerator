@@ -2,7 +2,7 @@ import Util from './util';
 
 Util.getSettings(settings => {
   if (settings['popular-items-already-read-invisible']) {
-    Util.getHisotry((historiesObj) => {
+    Util.getHistories((historiesObj) => {
       const histories = Object.values(historiesObj);
 
       const articleLinkElements = Array.from(

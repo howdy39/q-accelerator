@@ -61,14 +61,14 @@ describe('util.parseUrl()', function() {
 });
 
 
-describe('util.createItemEntity()', function() {
+describe('util.createHistoryEntity()', function() {
 
   it('返り値が{userId.itemId: {userId, itemId, title, date}の形式であること', function() {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
     const TITLE = '図で理解するJavaScriptのプロトタイプチェーン';
     const DATE = '1479563977777';
 
-    const entity = Util.createItemEntity(URL, TITLE, DATE);
+    const entity = Util.createHistoryEntity(URL, TITLE, DATE);
     const expectedEntity = {
       'howdy39.35729490b024ca295d6c': {
         'userId': 'howdy39',
@@ -85,24 +85,24 @@ describe('util.createItemEntity()', function() {
 
 
 describe('util.saveHistory()', function() {
-  let savedHitory;
+  let savedHitories;
 
   const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
   const TITLE = '図で理解するJavaScriptのプロトタイプチェーン';
   const DATE = '1479563977777';
 
   beforeEach(function () {
-    this.getHistoryStub = sinon.stub(
+    this.getHistoriesStub = sinon.stub(
       ChromeStorage,
-      'getHistory',
+      'getHistories',
       (callback) => {
-        callback(savedHitory);
+        callback(savedHitories);
       }
     );
 
-    this.saveHistoryStub = sinon.stub(
+    this.saveHistoriesStub = sinon.stub(
       ChromeStorage,
-      'saveHistory',
+      'saveHistories',
       (history, callback) => {
         callback();
       }
@@ -110,15 +110,15 @@ describe('util.saveHistory()', function() {
   });
 
   afterEach(function () {
-    ChromeStorage.getHistory.restore();
-    ChromeStorage.saveHistory.restore();
+    ChromeStorage.getHistories.restore();
+    ChromeStorage.saveHistories.restore();
   });
 
 
   describe('履歴がない場合', function() {
 
     beforeEach(function () {
-      savedHitory = {};
+      savedHitories = {};
     });
 
     it('履歴が登録できること', function() {
@@ -133,7 +133,7 @@ describe('util.saveHistory()', function() {
         };
 
       Util.saveHistory(URL, TITLE, DATE);
-      assert(JSON.stringify(this.saveHistoryStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
+      assert(JSON.stringify(this.saveHistoriesStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
     });
 
   });
@@ -142,7 +142,7 @@ describe('util.saveHistory()', function() {
   describe('履歴がある場合', function() {
 
     beforeEach(function () {
-      savedHitory = {
+      savedHitories = {
         'howdy39.3b2b14ce73ec44c54f7b': {
           'userId': 'howdy39',
           'itemId': '3b2b14ce73ec44c54f7b',
@@ -154,7 +154,7 @@ describe('util.saveHistory()', function() {
 
     it('履歴が追加できること', function() {
       const expectedHistory = Object.assign({},
-        savedHitory,
+        savedHitories,
         {
           'howdy39.35729490b024ca295d6c': {
             'userId': 'howdy39',
@@ -166,7 +166,7 @@ describe('util.saveHistory()', function() {
       );
 
       Util.saveHistory(URL, TITLE, DATE);
-      assert(JSON.stringify(this.saveHistoryStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
+      assert(JSON.stringify(this.saveHistoriesStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
     });
 
     it('同じ主キー(userId, itemId)の履歴がある場合にtitle, dateが更新されること', function() {
@@ -184,7 +184,7 @@ describe('util.saveHistory()', function() {
 
       Util.saveHistory(HISTORY_URL, NEW_TITLE, NEW_DATE);
 
-      assert(JSON.stringify(this.saveHistoryStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
+      assert(JSON.stringify(this.saveHistoriesStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
     });
 
   });

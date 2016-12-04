@@ -21,7 +21,7 @@ const displayVM = new Vue({
 });
 displayVM;
 
-Util.getHisotry((history) => {
+Util.getHistories((history) => {
   const historyVM = new Vue({
     el: '#history',
     data: {
