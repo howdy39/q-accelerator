@@ -8,7 +8,7 @@ export default class Util {
     return {userId, itemId};
   }
 
-  static createItemEntity(url, title, date) {
+  static createHistoryEntity(url, title, date) {
     const {userId, itemId} = Util.parseUrl(url);
 
     const itemKey = `${userId}.${itemId}`;
@@ -23,12 +23,12 @@ export default class Util {
   }
 
   static saveHistory(url, title, date, callback = function() {} ) {
-    const entity = this.createItemEntity(url, title, date);
+    const entity = this.createHistoryEntity(url, title, date);
 
-    ChromeStorage.getHistory((history) => {
-      Object.assign(history, entity);
-      ChromeStorage.saveHistory(
-        history,
+    this.getHistories((histories) => {
+      Object.assign(histories, entity);
+      ChromeStorage.saveHistories(
+        histories,
         () => {
           this.infoLog('saved:' + url);
           callback();
@@ -38,9 +38,9 @@ export default class Util {
   }
 
   // TODO: TEST
-  static getHisotry(callback) {
-    ChromeStorage.getHistory((history) => {
-      callback(history);
+  static getHistories(callback) {
+    ChromeStorage.getHistories((histories) => {
+      callback(histories);
     });
   }
 
