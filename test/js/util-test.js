@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import assert from 'power-assert';
 import sinon from 'sinon';
 import Util from '../../src/js/util';
