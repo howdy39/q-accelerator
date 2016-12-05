@@ -26,6 +26,18 @@ Util.getHistories((history) => {
     el: '#history',
     data: {
       items: Object.values(history)
+    },
+    methods: {
+      clearHistoriesClick: function() {
+        this.$refs.clearHistoriesConfirm.open();
+      },
+      clearHistories: function() {
+        Util.clearHistories(() => {
+          console.log('消しました');
+          this.$refs.clearHistoriesConfirm.close();
+          this.$data.items = [];
+        });
+      }
     }
   });
   historyVM;
