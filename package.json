@@ -33,6 +33,7 @@
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "cpx": "^1.5.0",
     "eslint": "^3.8.1",
@@ -49,7 +50,7 @@
   },
   "dependencies": {
     "moment": "^2.16.0",
-    "vue": "^1.0.28-csp",
+    "vue": "^1.0.28",
     "vue-mdl": "^0.10.0",
     "vue-moment": "^2.0.2"
   }
