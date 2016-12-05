@@ -112,7 +112,6 @@ describe('util.saveHistory()', function() {
     ChromeStorage.saveHistories.restore();
   });
 
-
   describe('履歴がない場合', function() {
 
     beforeEach(function () {
@@ -135,7 +134,6 @@ describe('util.saveHistory()', function() {
     });
 
   });
-
 
   describe('履歴がある場合', function() {
 
@@ -185,6 +183,68 @@ describe('util.saveHistory()', function() {
       assert(JSON.stringify(this.saveHistoriesStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
     });
 
+  });
+
+  it('callbackを渡した場合に呼ばれること', function() {
+    const callback = sinon.spy(function() {});
+
+    Util.clearHistories(callback);
+
+    assert(callback.called === true);
+  });
+
+});
+
+
+describe('util.getHistories()', function() {
+
+  beforeEach(function () {
+    this.getHistoriesStub = sinon.stub(
+      ChromeStorage,
+      'getHistories',
+      (callback) => {
+        callback();
+      }
+    );
+  });
+
+  afterEach(function () {
+    ChromeStorage.getHistories.restore();
+  });
+
+  it('callbackを渡した場合に呼ばれること', function() {
+    const callback = sinon.spy(function() {});
+
+    Util.getHistories(callback);
+
+    assert(callback.called === true);
+  });
+
+});
+
+
+describe('util.clearHistories()', function() {
+
+  beforeEach(function () {
+    this.saveHistoriesStub = sinon.stub(
+      ChromeStorage,
+      'saveHistories',
+      (history, callback) => {
+        callback();
+      }
+    );
+  });
+
+  afterEach(function () {
+    ChromeStorage.saveHistories.restore();
+  });
+
+  it('callbackを渡した場合に呼ばれること', function() {
+    const callback = sinon.spy(function() {});
+
+    Util.clearHistories(callback);
+
+    assert(callback.called === true);
   });
 
 });

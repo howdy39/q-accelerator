@@ -37,11 +37,20 @@ export default class Util {
     });
   }
 
-  // TODO: TEST
-  static getHistories(callback) {
+  static getHistories(callback = function() {}) {
     ChromeStorage.getHistories((histories) => {
       callback(histories);
     });
+  }
+
+  static clearHistories(callback = function() {}) {
+    ChromeStorage.saveHistories(
+      {},
+      () => {
+        this.infoLog('clear histories');
+        callback();
+      }
+    );
   }
 
   // TODO: TEST
@@ -64,7 +73,7 @@ export default class Util {
   }
 
   // TODO: TEST
-  static getSettings(callback) {
+  static getSettings(callback = function() {}) {
     ChromeStorage.getSettings(settings => {
       callback(settings);
     });
