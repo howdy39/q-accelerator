@@ -31,7 +31,7 @@
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="#display" class="mdl-layout__tab is-active">表示の調整</a>
-          <a href="#history" class="mdl-layout__tab">既読履歴</a>
+          <a href="#history" class="mdl-layout__tab">閲覧履歴</a>
         </div>
       </header>
       <main class="mdl-layout__content">
@@ -53,10 +53,9 @@
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
-                <h4>既読履歴</h4>
-                既に読んだ記事を表示しています。
+                <h4>閲覧履歴</h4>
+                既に読んだ記事を表示しています。<mdl-button colored v-mdl-ripple-effect @click="clearHistoriesClick">閲覧履歴を消去する</mdl-button>
                 <div>
-                 {{test}}
                  <ul>
                   <template v-for="item in items">
                     <li>
@@ -68,6 +67,13 @@
                 </div>
               </div>
             </div>
+            <mdl-dialog v-ref:clear-histories-confirm title="閲覧履歴の消去">
+              <p>閲覧履歴を完全に消去します。よろしいですか？</p>
+              <template slot="actions">
+                <mdl-button @click="clearHistories">消去する</mdl-button>
+                <mdl-button @click="$refs.clearHistoriesConfirm.close">キャンセル</mdl-button>
+              </template>
+            </mdl-dialog>
           </section>
         </div>
       </main>
