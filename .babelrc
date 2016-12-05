@@ -1,4 +1,11 @@
 {
   "plugins": [],
-  "presets": ["latest"]
+  "presets": ["latest"],
+  "env": {
+    "development": {
+      "presets": [
+        "power-assert"
+      ]
+    }
+  }
 }
