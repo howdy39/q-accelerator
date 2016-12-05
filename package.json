@@ -7,7 +7,7 @@
     "lint": "eslint test src --fix",
     "test": "npm-run-all test:mocha",
     "test:mocha": "mocha --compilers js:babel-register test/**/*.js",
-    "build": "npm-run-all lint test build:webpack build:copy",
+    "build": "npm-run-all lint test build:babel build:webpack build:copy",
     "build:babel": "npm-run-all clean && babel src --out-dir dest/src && babel test --out-dir dest/test",
     "build:webpack": "webpack",
     "build:copy": "cpx \"./src/assets/**\" \"./extension/assets/\" && cpx \"./src/lib/**\" \"./extension/lib/\" && cpx \"./src/manifest.json\" \"./extension/\"",
