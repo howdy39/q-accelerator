@@ -64,7 +64,6 @@ export default class Util {
         settings,
         () => {
           const message = JSON.stringify(entity);
-          console.log(entity);
           this.infoLog(`saved: ${message}`);
           callback();
         }
@@ -75,6 +74,7 @@ export default class Util {
   // TODO: TEST
   static getSettings(callback = function() {}) {
     ChromeStorage.getSettings(settings => {
+      // TODO: Default設定
       callback(settings);
     });
   }
