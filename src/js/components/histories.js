@@ -31,7 +31,8 @@ export default function (histories) {
             </mdl-dialog>
           </section>`,
     data: () => {
-      return {items: Object.values(histories)};
+      const items = Object.values(histories).sort((itemA, itemB) => itemA.date < itemB.date);
+      return {items};
     },
     methods: {
       clearHistoriesClick: function() {
