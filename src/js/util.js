@@ -1,5 +1,6 @@
 import ChromeStorage from './chrome-storage';
 
+
 export default class Util {
 
   static parseUrl(url) {

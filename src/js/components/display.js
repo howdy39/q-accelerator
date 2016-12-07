@@ -1,6 +1,6 @@
 import Vue from 'vue';
-
 import PopularItemsComponent from './display/popular-items.js';
+
 
 export default function (settings) {
   const component = Vue.extend({

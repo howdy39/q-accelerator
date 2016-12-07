@@ -2,9 +2,9 @@ import Vue from 'vue';
 import VueMdl from 'vue-mdl';
 import VueMoment from 'vue-moment';
 import Util from './util';
-
 import DisplayComponent from './components/display.js';
 import HistoriesComponent from './components/histories.js';
+
 
 Vue.use(VueMdl);
 Vue.use(VueMoment);
