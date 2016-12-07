@@ -101,7 +101,7 @@ describe('util.saveHistory()', function() {
     this.saveHistoriesStub = sinon.stub(
       ChromeStorage,
       'saveHistories',
-      (history, callback) => {
+      (histories, callback) => {
         callback();
       }
     );
