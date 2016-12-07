@@ -30,51 +30,16 @@
           <h3>q-accelerator</h3>
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-          <a href="#display" class="mdl-layout__tab is-active">表示の調整</a>
-          <a href="#history" class="mdl-layout__tab">閲覧履歴</a>
+          <a href="#display" class="mdl-layout__tab is-active">表示設定</a>
+          <a href="#histories" class="mdl-layout__tab">閲覧履歴</a>
         </div>
       </header>
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="display">
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__supporting-text">
-                <h4>人気の投稿</h4>
-                <a href="http://qiita.com/popular-items" target="_blank">人気の投稿ページ</a>の表示をカスタマイズします。
-                <div>
-                  <h5>既に読んだ記事</h5>
-                  <mdl-switch :checked.sync="invisible" class="mdl-js-ripple-effect">非表示にする</mdl-switch>
-                </div>
-              </div>
-            </div>
-          </section>
+          <display></display>
         </div>
-        <div class="mdl-layout__tab-panel" id="history">
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__supporting-text">
-                <h4>閲覧履歴</h4>
-                既に読んだ記事を表示しています。<mdl-button colored v-mdl-ripple-effect @click="clearHistoriesClick">閲覧履歴を消去する</mdl-button>
-                <div>
-                 <ul>
-                  <template v-for="item in items">
-                    <li>
-                      <a href="http://qiita.com/{{item.userId}}/items/{{item.itemId}}" target="_blank">{{ item.title }}</a>
-                      {{ item.date | moment "YYYY-MM-DD HH:mm"}}
-                    </li>
-                  </template>
-                </ul>
-                </div>
-              </div>
-            </div>
-            <mdl-dialog v-ref:clear-histories-confirm title="閲覧履歴の消去">
-              <p>閲覧履歴を完全に消去します。よろしいですか？</p>
-              <template slot="actions">
-                <mdl-button @click="clearHistories">消去する</mdl-button>
-                <mdl-button @click="$refs.clearHistoriesConfirm.close">キャンセル</mdl-button>
-              </template>
-            </mdl-dialog>
-          </section>
+        <div class="mdl-layout__tab-panel" id="histories">
+          <histories></histories>
         </div>
       </main>
     </div>
