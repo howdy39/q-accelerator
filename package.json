@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rimraf extension",
     "build": "npm-run-all lint test clean build:webpack build:copy",
-    "build:copy": "cpx \"./src/assets/**\" \"./extension/assets/\" && cpx \"./src/lib/**\" \"./extension/lib/\" && cpx \"./src/manifest.json\" \"./extension/\"",
+    "build:copy": "cpx \"./src/assets/**\" \"./extension/assets/\" && cpx \"./src/background/**\" \"./extension/background/\" && cpx \"./src/manifest.json\" \"./extension/\"",
     "build:webpack": "webpack",
     "lint": "eslint test src --fix",
     "test": "npm-run-all test:mocha",
