@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "Qiitaでの活動を加速させるChrome拡張機能",
   "scripts": {
-    "clean": "rimraf extension dest",
+    "clean": "rimraf extension",
+    "build": "npm-run-all lint test clean build:webpack build:copy",
+    "build:copy": "cpx \"./src/assets/**\" \"./extension/assets/\" && cpx \"./src/background/**\" \"./extension/background/\" && cpx \"./src/manifest.json\" \"./extension/\"",
+    "build:webpack": "webpack",
     "lint": "eslint test src --fix",
     "test": "npm-run-all test:mocha",
     "test:mocha": "mocha --compilers js:babel-register test/**/*.js",
-    "build": "npm-run-all lint test build:babel build:webpack build:copy",
-    "build:babel": "npm-run-all clean && babel src --out-dir dest/src && babel test --out-dir dest/test",
-    "build:webpack": "webpack",
-    "build:copy": "cpx \"./src/assets/**\" \"./extension/assets/\" && cpx \"./src/lib/**\" \"./extension/lib/\" && cpx \"./src/manifest.json\" \"./extension/\"",
     "watch": "gulp watch"
   },
   "repository": {
@@ -30,6 +29,7 @@
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.9",
     "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-power-assert": "^1.0.0",
