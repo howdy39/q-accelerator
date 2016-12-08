@@ -1,7 +1,7 @@
 import Util from './util';
 
 Util.getSettings(settings => {
-  if (settings['popular-items-already-read-invisible']) {
+  if (settings['already-read-invisible']) {
     Util.getHistories((historiesObj) => {
       const histories = Object.values(historiesObj);
 
