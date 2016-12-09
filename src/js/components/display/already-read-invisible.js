@@ -19,7 +19,7 @@ export default function (settings) {
       return {invisible};
     },
     watch: {
-      invisible: function(val) {
+      invisible: function (val) {
         Util.saveSetting('already-read-invisible', val);
       }
     }
