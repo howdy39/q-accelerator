@@ -3,9 +3,9 @@ import sinon from 'sinon';
 import ArticleContent from '../../src/js/article-content';
 import Util from '../../src/js/util';
 
-describe('article-content.run()', function() {
+describe('article-content.run()', function () {
 
-  beforeEach(function() {
+  beforeEach(function () {
     this.articleContent = new ArticleContent();
 
     this.getLocationHrefStub = sinon.stub(this.articleContent, 'getLocationHref');
@@ -17,7 +17,7 @@ describe('article-content.run()', function() {
     Util.saveHistory.restore();
   });
 
-  it('getLocationHref(), getTitle(), (new Date()).getTime()の返り値が、Util.saveHistory()の引数に渡されていること', function() {
+  it('getLocationHref(), getTitle(), (new Date()).getTime()の返り値が、Util.saveHistory()の引数に渡されていること', function () {
     const URL = 'http://example.com/';
     const TITLE = 'タイトル';
     const clock = sinon.useFakeTimers((new Date()).getTime());

@@ -23,7 +23,7 @@ export default class Util {
     return entity;
   }
 
-  static saveHistory(url, title, date, callback = function() {} ) {
+  static saveHistory(url, title, date, callback = function () {} ) {
     const entity = this.createHistoryEntity(url, title, date);
 
     this.getHistories((histories) => {
@@ -38,13 +38,13 @@ export default class Util {
     });
   }
 
-  static getHistories(callback = function() {}) {
+  static getHistories(callback = function () {}) {
     ChromeStorage.getHistories((histories) => {
       callback(histories);
     });
   }
 
-  static clearHistories(callback = function() {}) {
+  static clearHistories(callback = function () {}) {
     ChromeStorage.saveHistories(
       {},
       () => {
@@ -55,7 +55,7 @@ export default class Util {
   }
 
   // TODO: TEST
-  static saveSetting(key, value, callback = function() {}) {
+  static saveSetting(key, value, callback = function () {}) {
     let entity = {};
     entity[key] = value;
 
@@ -73,9 +73,14 @@ export default class Util {
   }
 
   // TODO: TEST
-  static getSettings(callback = function() {}) {
+  static getSettings(callback = function () {}) {
     ChromeStorage.getSettings(settings => {
-      // TODO: Default設定
+      // const defaultSettings = {
+      //   'user-article-invisible': true,
+      //   'user-comment-invisible': true,
+      //   'already-read-invisible': true
+      // };
+
       callback(settings);
     });
   }

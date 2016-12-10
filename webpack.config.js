@@ -1,10 +1,12 @@
+const BACKGROUND_DIR = './src/background/';
 const JS_DIR = './src/js/';
 
 module.exports = {
   entry: {
-    'settings': ['babel-polyfill', JS_DIR + 'settings.js'],
-    'article-content': ['babel-polyfill', JS_DIR + 'article-content-main.js'],
-    'popular-items-content': ['babel-polyfill', JS_DIR + 'popular-items-content.js']
+    'background/background': ['babel-polyfill', BACKGROUND_DIR + 'background.js'],
+    'js/settings': ['babel-polyfill', JS_DIR + 'settings.js'],
+    'js/article-content': ['babel-polyfill', JS_DIR + 'article-content-main.js'],
+    'js/popular-items-content': ['babel-polyfill', JS_DIR + 'popular-items-content.js']
   },
   module: {
     loaders: [
@@ -16,7 +18,7 @@ module.exports = {
     ]
   },
   output: {
-    path: 'extension/js',
+    path: 'extension',
     filename: '[name].js'
   },
   resolve: {

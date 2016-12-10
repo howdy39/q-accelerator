@@ -4,6 +4,10 @@
   "short_name":"QA",
   "description": "Qiitaでの活動を加速させるChrome拡張機能",
   "version": "0.0.1",
+  "background": {
+    "persistent": false,
+    "page": "background/background.html"
+  },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
     {

@@ -35,10 +35,10 @@ export default function (histories) {
       return {items};
     },
     methods: {
-      clearHistoriesClick: function() {
+      clearHistoriesClick: function () {
         this.$refs.clearHistoriesConfirm.open();
       },
-      clearHistories: function() {
+      clearHistories: function () {
         Util.clearHistories(() => {
           console.log('消しました');
           this.$refs.clearHistoriesConfirm.close();
