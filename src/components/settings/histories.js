@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Util from '../js/util';
+import Util from '../../js/util';
 
 
 export default function (histories) {
