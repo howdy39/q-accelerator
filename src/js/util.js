@@ -38,7 +38,7 @@ export default class Util {
     });
   }
 
-  static getHistories(callback = function () {}) {
+  static getHistories(callback) {
     ChromeStorage.getHistories((histories) => {
       callback(histories);
     });
@@ -72,16 +72,17 @@ export default class Util {
     });
   }
 
-  // TODO: TEST
-  static getSettings(callback = function () {}) {
+  static getSettings(callback) {
     ChromeStorage.getSettings(settings => {
-      // const defaultSettings = {
-      //   'user-article-invisible': true,
-      //   'user-comment-invisible': true,
-      //   'already-read-invisible': true
-      // };
+      const defaultSettings = {
+        'user-article-invisible': true,
+        'user-comment-invisible': true,
+        'already-read-invisible': true
+      };
 
-      callback(settings);
+      Object.assign(defaultSettings, settings);
+
+      callback(defaultSettings);
     });
   }
 
