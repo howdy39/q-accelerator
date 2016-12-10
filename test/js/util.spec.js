@@ -203,7 +203,7 @@ describe('util.getHistories()', function () {
       ChromeStorage,
       'getHistories',
       (callback) => {
-        callback();
+        callback({});
       }
     );
   });
@@ -254,28 +254,75 @@ describe('util.saveSetting()', function () {
 
 });
 
-describe('util.getHistories()', function () {
+describe('util.getSettings()', function () {
 
-  beforeEach(function () {
-    this.getHistoriesStub = sinon.stub(
-      ChromeStorage,
-      'getHistories',
-      (callback) => {
-        callback();
-      }
-    );
+  describe('設定が登録されていない場合', function () {
+    beforeEach(function () {
+      this.getSettingsStub = sinon.stub(
+        ChromeStorage,
+        'getSettings',
+        (callback) => {
+          callback({});
+        }
+      );
+    });
+
+    afterEach(function () {
+      ChromeStorage.getSettings.restore();
+    });
+
+    it('callbackを渡した場合に呼ばれること', function () {
+      const callback = sinon.spy(function () {});
+
+      Util.getSettings(callback);
+
+      assert(callback.called === true);
+    });
+
+    it('デフォルト設定で上書きされること', function () {
+      const callback = sinon.spy(function () {});
+      const expectedSettings = {
+        'user-article-invisible': true,
+        'user-comment-invisible': true,
+        'already-read-invisible': true
+      };
+
+      Util.getSettings(callback);
+
+      const settings = callback.firstCall.args[0];
+      assert(JSON.stringify(settings) === JSON.stringify(expectedSettings));
+
+    });
   });
 
-  afterEach(function () {
-    ChromeStorage.getHistories.restore();
-  });
+  describe('設定が一部登録されている場合', function () {
+    beforeEach(function () {
+      this.getSettingsStub = sinon.stub(
+        ChromeStorage,
+        'getSettings',
+        (callback) => {
+          callback({'user-comment-invisible': false});
+        }
+      );
+    });
 
-  it('callbackを渡した場合に呼ばれること', function () {
-    const callback = sinon.spy(function () {});
+    afterEach(function () {
+      ChromeStorage.getSettings.restore();
+    });
 
-    Util.getHistories(callback);
+    it('デフォルト設定で上書きされること', function () {
+      const callback = sinon.spy(function () {});
+      const expectedSettings = {
+        'user-article-invisible': true,
+        'user-comment-invisible': false,
+        'already-read-invisible': true
+      };
 
-    assert(callback.called === true);
+      Util.getSettings(callback);
+
+      const settings = callback.firstCall.args[0];
+      assert(JSON.stringify(settings) === JSON.stringify(expectedSettings));
+    });
   });
 
 });

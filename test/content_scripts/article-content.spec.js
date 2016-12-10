@@ -1,6 +1,6 @@
 import assert from 'power-assert';
 import sinon from 'sinon';
-import ArticleContent from '../../src/js/article-content';
+import ArticleContent from '../../src/content_scripts/article-content';
 import Util from '../../src/js/util';
 
 describe('article-content.run()', function () {
