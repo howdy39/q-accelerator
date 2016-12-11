@@ -15,14 +15,14 @@
         "http://qiita.com/*/items/*",
         "https://qiita.com/*/items/*"
       ],
-      "js": ["js/article-content.js"]
+      "js": ["content_scripts/article-content.js"]
     },
     {
       "matches": [
         "http://qiita.com/popular-items*",
         "https://qiita.com/popular-items*"
       ],
-      "js": ["js/popular-items-content.js"]
+      "js": ["content_scripts/popular-items-content.js"]
     }
   ],
   "permissions": [

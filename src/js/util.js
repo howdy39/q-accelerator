@@ -75,9 +75,10 @@ export default class Util {
   static getSettings(callback) {
     ChromeStorage.getSettings(settings => {
       const defaultSettings = {
-        'user-article-invisible': true,
-        'user-comment-invisible': true,
-        'already-read-invisible': true
+        'mute-users': [],
+        'mute-user-article': true,
+        'mute-user-comment': true,
+        'mute-already-read-article': true
       };
 
       Object.assign(defaultSettings, settings);
@@ -86,7 +87,15 @@ export default class Util {
     });
   }
 
-  static infoLog(message) {
-    console.info(`Q Accelerator | ${message}`);
+  static infoLog(message, divName = '') {
+    let resultMessage = '';
+
+    if (divName) {
+      resultMessage = `Q Accelerator | ${divName} | ${message}`;
+    } else {
+      resultMessage = `Q Accelerator | ${message}`;
+    }
+
+    console.info(resultMessage);
   }
 }

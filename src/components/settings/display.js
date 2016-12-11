@@ -1,19 +1,19 @@
 import Vue from 'vue';
-import MuteComponent from './display/mute.js';
-import AlreadyReadInvisibleComponent from './display/already-read-invisible.js';
+import MuteUserComponent from './display/mute-user.js';
+import MuteAlreadyReadArticleComponent from './display/mute-already-read-article.js';
 
 
 export default function (settings) {
   const component = Vue.extend({
     template: `<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                 <mute></mute>
+                 <mute-user></mute-user>
                </section>
                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                 <already-read-invisible></already-read-invisible>
+                 <mute-already-read-article></mute-already-read-article>
                </section>`,
     components: {
-      'mute' : MuteComponent(settings),
-      'already-read-invisible': AlreadyReadInvisibleComponent(settings)
+      'mute-user' : MuteUserComponent(settings),
+      'mute-already-read-article': MuteAlreadyReadArticleComponent(settings)
     }
   });
 
