@@ -282,9 +282,10 @@ describe('util.getSettings()', function () {
     it('デフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
       const expectedSettings = {
-        'user-article-invisible': true,
-        'user-comment-invisible': true,
-        'already-read-invisible': true
+        'mute-users': [],
+        'mute-user-article': true,
+        'mute-user-comment': true,
+        'mute-already-read-article': true
       };
 
       Util.getSettings(callback);
@@ -301,7 +302,7 @@ describe('util.getSettings()', function () {
         ChromeStorage,
         'getSettings',
         (callback) => {
-          callback({'user-comment-invisible': false});
+          callback({'mute-user-comment': false});
         }
       );
     });
@@ -313,9 +314,10 @@ describe('util.getSettings()', function () {
     it('デフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
       const expectedSettings = {
-        'user-article-invisible': true,
-        'user-comment-invisible': false,
-        'already-read-invisible': true
+        'mute-users': [],
+        'mute-user-article': true,
+        'mute-user-comment': false,
+        'mute-already-read-article': true
       };
 
       Util.getSettings(callback);
