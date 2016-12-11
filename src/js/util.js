@@ -38,7 +38,7 @@ export default class Util {
     });
   }
 
-  static getHistories(callback = function () {}) {
+  static getHistories(callback) {
     ChromeStorage.getHistories((histories) => {
       callback(histories);
     });
@@ -72,20 +72,30 @@ export default class Util {
     });
   }
 
-  // TODO: TEST
-  static getSettings(callback = function () {}) {
+  static getSettings(callback) {
     ChromeStorage.getSettings(settings => {
-      // const defaultSettings = {
-      //   'user-article-invisible': true,
-      //   'user-comment-invisible': true,
-      //   'already-read-invisible': true
-      // };
+      const defaultSettings = {
+        'mute-users': [],
+        'mute-user-article': true,
+        'mute-user-comment': true,
+        'mute-already-read-article': true
+      };
 
-      callback(settings);
+      Object.assign(defaultSettings, settings);
+
+      callback(defaultSettings);
     });
   }
 
-  static infoLog(message) {
-    console.info(`Q Accelerator | ${message}`);
+  static infoLog(message, divName = '') {
+    let resultMessage = '';
+
+    if (divName) {
+      resultMessage = `Q Accelerator | ${divName} | ${message}`;
+    } else {
+      resultMessage = `Q Accelerator | ${message}`;
+    }
+
+    console.info(resultMessage);
   }
 }

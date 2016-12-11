@@ -1,4 +1,4 @@
-import Util from './util';
+import Util from '../../js/util';
 
 export default class ArticleContent {
 

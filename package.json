@@ -4,13 +4,14 @@
   "description": "Qiitaでの活動を加速させるChrome拡張機能",
   "scripts": {
     "clean": "rimraf extension",
-    "build": "npm-run-all lint test clean build:webpack build:copy",
+    "build": "npm-run-all lint test clean build:copy build:webpack",
     "build:copy": "cpx \"./src/assets/**\" \"./extension/assets/\" && cpx \"./src/background/background.html\" \"./extension/background/\" && cpx \"./src/manifest.json\" \"./extension/\"",
     "build:webpack": "webpack",
     "lint": "eslint test src --fix",
     "test": "npm-run-all test:mocha",
-    "test:mocha": "mocha --compilers js:babel-register test/**/*.js",
-    "watch": "gulp watch"
+    "test:mocha": "mocha --compilers js:babel-register --reporter nyan test/**/*.js",
+    "watch": "npm-run-all clean build:copy watch:webpack",
+    "watch:webpack": " webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -36,9 +37,6 @@
     "babel-register": "^6.18.0",
     "cpx": "^1.5.0",
     "eslint": "^3.8.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-webpack": "^1.5.0",
     "mocha": "^3.1.2",
     "npm-run-all": "^3.1.1",
     "power-assert": "^1.4.1",
