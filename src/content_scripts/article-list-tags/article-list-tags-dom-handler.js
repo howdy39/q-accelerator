@@ -4,13 +4,12 @@ import Util from '../../js/util';
 export default class ArticleListTagsDomHandler {
 
   constructor() {
-    this.articleObjects = [];
+    this.articles = [];
 
     const articleLinkElements = Array.from(
       document.querySelectorAll('.ItemLink__title a'));
 
-    articleLinkElements.forEach((element) => {
-      console.log(element);
+    articleLinkElements.forEach(element => {
       const baseElement = element.parentElement.parentElement.parentElement;
       let likeCount = 0;
       let likeLi;
@@ -33,12 +32,12 @@ export default class ArticleListTagsDomHandler {
         tags
       };
 
-      this.articleObjects.push(article);
+      this.articles.push(article);
     }, this);
   }
 
-  getArticleObjects() {
-    return this.articleObjects;
+  getArticles() {
+    return this.articles;
   }
 
   unShow(article, divName) {
