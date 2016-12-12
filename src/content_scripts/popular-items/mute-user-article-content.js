@@ -8,7 +8,7 @@ export default class MuteUserArticleContent {
 
     handler.getArticleObjects().forEach(article => {
       const hasMuteUser = muteUserIds.some(muteUserId => muteUserId === article.userId);
-      if (hasMuteUser) handler.unShow(article, '特定ユーザーの投稿を非表示');
+      if (hasMuteUser) handler.unShow(article, `特定ユーザーの投稿を非表示(${article.userId})`);
     });
 
   }
