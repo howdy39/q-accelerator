@@ -56,6 +56,13 @@ describe('util.parseUrl()', function () {
     assert(itemId === '35729490b024ca295d6c');
   });
 
+  it('userIdとitemIdが取れること（非公開記事）', function () {
+    const URL = 'http://qiita.com/howdy39/private/6dce297363c0c1beb6e1';
+    const {userId, itemId} = Util.parseUrl(URL);
+    assert(userId === 'howdy39');
+    assert(itemId === '6dce297363c0c1beb6e1');
+  });
+
 });
 
 
