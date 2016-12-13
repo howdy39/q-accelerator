@@ -5,7 +5,7 @@ import PopularItemsDomHandler from './popular-items-dom-handler.js';
 export default class MuteAlreadyReadArticleContent {
 
   run() {
-    Util.getHistories((historiesObj) => {
+    Util.getHistories(historiesObj => {
       const histories = Object.values(historiesObj);
       const handler = new PopularItemsDomHandler();
 

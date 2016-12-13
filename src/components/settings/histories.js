@@ -11,15 +11,17 @@ export default function (histories) {
                 <h4>閲覧履歴</h4>
                 既に読んだ記事を表示しています。<mdl-button colored v-mdl-ripple-effect @click="clearHistoriesClick">閲覧履歴を消去する</mdl-button>
                 <div>
-                 <ul>
-                  <template v-for="item in items">
+                  <mdl-textfield floating-label="検索文字列" :value.sync="search"></mdl-textfield>
+                </div>
+                <ul>
+                  <template v-for="item in items | filterBy search">
                     <li>
                       <a href="http://qiita.com/{{item.userId}}/items/{{item.itemId}}" target="_blank">{{ item.title }}</a>
+                      @{{ item.userId }}
                       {{ item.date | moment "YYYY-MM-DD HH:mm"}}
                     </li>
                   </template>
                 </ul>
-                </div>
               </div>
             </div>
             <mdl-dialog v-ref:clear-histories-confirm title="閲覧履歴の消去">
@@ -32,7 +34,11 @@ export default function (histories) {
           </section>`,
     data: () => {
       const items = Object.values(histories).sort((itemA, itemB) => itemA.date < itemB.date);
-      return {items};
+      const search = '';
+      return {
+        items,
+        search
+      };
     },
     methods: {
       clearHistoriesClick: function () {

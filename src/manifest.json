@@ -12,6 +12,26 @@
   "content_scripts": [
     {
       "matches": [
+        "http://qiita.com/",
+        "https://qiita.com/",
+        "http://qiita.com/items",
+        "https://qiita.com/items",
+        "http://qiita.com/stock",
+        "https://qiita.com/stock",
+        "http://qiita.com/mine",
+        "https://qiita.com/mine"
+      ],
+      "js": ["content_scripts/article-list-stream-content.js"]
+    },
+    {
+      "matches": [
+        "http://qiita.com/tags/*",
+        "https://qiita.com/tags/*"
+      ],
+      "js": ["content_scripts/article-list-tags-content.js"]
+    },
+    {
+      "matches": [
         "http://qiita.com/*/items/*",
         "https://qiita.com/*/items/*"
       ],
