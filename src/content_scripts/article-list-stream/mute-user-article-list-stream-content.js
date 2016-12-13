@@ -1,3 +1,4 @@
+import Util from '../../js/util';
 import ArticleListStreamDomHandler from './article-list-stream-dom-handler.js'
 
 
@@ -12,7 +13,10 @@ export default class MuteUserArticleListStreamContent {
 
       handler.getArticles().forEach(article => {
         const hasUserId = muteUserIds.includes(article.userId);
-        if (hasUserId) handler.unShow(article, `特定ユーザーの投稿を非表示(${article.userId})`);
+        if (hasUserId) {
+          handler.unShow(article);
+          Util.infoLog(`特定ユーザーの投稿を非表示(${article.userId})`, `"${article.title}"の記事を非表示にしました`);
+        }
       });
     });
 

@@ -22,7 +22,7 @@ export default class ArticleListTagsDomHandler {
       const href = element.getAttribute('href');
       const {userId, itemId} = Util.parseUrl(href);
 
-      let article = {
+      const article = {
         baseElement,
         href,
         itemId,
@@ -40,9 +40,8 @@ export default class ArticleListTagsDomHandler {
     return this.articles;
   }
 
-  unShow(article, divName) {
+  unShow(article) {
     article.baseElement.style.display = 'none';
-    Util.infoLog(`"${article.title}"を非表示にしました`, divName);
   }
 
 }

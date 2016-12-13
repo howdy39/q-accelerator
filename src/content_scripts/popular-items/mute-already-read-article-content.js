@@ -11,7 +11,10 @@ export default class MuteAlreadyReadArticleContent {
 
       handler.getArticleObjects().forEach(article => {
         const hasHistory = histories.some(history => history.userId === article.userId && history.itemId === article.itemId);
-        if (hasHistory) handler.unShow(article, '既読記事を非表示');
+        if (hasHistory) {
+          handler.unShow(article, '既読記事を非表示');
+          Util.infoLog('既読記事を非表示', `"${article.title}"を記事を非表示にしました`);
+        }
       });
     });
   }

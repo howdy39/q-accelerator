@@ -31,7 +31,7 @@ export default class Util {
       ChromeStorage.saveHistories(
         histories,
         () => {
-          this.infoLog('saved:' + url);
+          this.infoLog('閲覧履歴を保存', url);
           callback();
         }
       );
@@ -48,7 +48,7 @@ export default class Util {
     ChromeStorage.saveHistories(
       {},
       () => {
-        this.infoLog('clear histories');
+        this.infoLog('閲覧履歴を消去');
         callback();
       }
     );
@@ -65,7 +65,7 @@ export default class Util {
         settings,
         () => {
           const message = JSON.stringify(entity);
-          this.infoLog(`saved: ${message}`);
+          this.infoLog('設定を保存', message);
           callback();
         }
       )
@@ -87,15 +87,9 @@ export default class Util {
     });
   }
 
-  static infoLog(message, divName = '') {
-    let resultMessage = '';
-
-    if (divName) {
-      resultMessage = `Q Accelerator | ${divName} | ${message}`;
-    } else {
-      resultMessage = `Q Accelerator | ${message}`;
-    }
-
+  static infoLog(...messages) {
+    messages.unshift('');
+    let resultMessage = 'Q Accelerator' + messages.join(' | ')
     console.info(resultMessage);
   }
 }

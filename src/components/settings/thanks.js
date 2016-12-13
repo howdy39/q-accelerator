@@ -9,7 +9,7 @@ export default function () {
               <div class="mdl-card__supporting-text">
                 <h4>Thanks</h4>
                 <p>
-                  本拡張機能の機能の一部は以下の記事で書かれていた内容を参考にさせてもらいましたm(_ _)m
+                  以下の記事で書かれていた内容を参考にさせてもらいましたm(_ _)m
                 </p>
                 <ul>
                   <template v-for="item in items">
