@@ -49,5 +49,8 @@
     "unlimitedStorage",
     "storage"
   ],
-  "options_page": "assets/settings.html"
+  "options_ui": {
+    "page": "assets/settings.html",
+    "open_in_tab": true
+  }
 }
