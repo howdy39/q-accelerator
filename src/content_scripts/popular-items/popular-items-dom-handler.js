@@ -19,7 +19,7 @@ export default class PopularItemsDomHandler {
       const href = element.getAttribute('href');
       const {userId, itemId} = Util.parseUrl(href);
 
-      let article = {
+      const article = {
         baseElement,
         description,
         href,
@@ -40,9 +40,8 @@ export default class PopularItemsDomHandler {
     return this.articleObjects;
   }
 
-  unShow(article, divName) {
+  unShow(article) {
     article.baseElement.style.display = 'none';
-    Util.infoLog(`"${article.title}"を非表示にしました`, divName);
   }
 
 }

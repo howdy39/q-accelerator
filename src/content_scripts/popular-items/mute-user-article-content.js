@@ -1,3 +1,4 @@
+import Util from '../../js/util';
 import PopularItemsDomHandler from './popular-items-dom-handler.js';
 
 
@@ -7,8 +8,11 @@ export default class MuteUserArticleContent {
     const handler = new PopularItemsDomHandler();
 
     handler.getArticleObjects().forEach(article => {
-      const hasMuteUser = muteUserIds.some(muteUserId => muteUserId === article.userId);
-      if (hasMuteUser) handler.unShow(article, `特定ユーザーの投稿を非表示(${article.userId})`);
+      const hasUserId = muteUserIds.some(muteUserId => muteUserId === article.userId);
+      if (hasUserId) {
+        handler.unShow(article);
+        Util.infoLog(`特定ユーザーの投稿を非表示(${article.userId})`, `"${article.title}"を記事を非表示にしました`);
+      }
     });
 
   }
