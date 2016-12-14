@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueMdl from 'vue-mdl';
 import VueMoment from 'vue-moment';
 import Util from '../js/util';
-import DisplayComponent from './settings/display.js';
+import ExtendComponent from './settings/extend.js';
 import HistoriesComponent from './settings/histories.js';
 import ThanksComponent from './settings/thanks.js';
 
@@ -12,9 +12,9 @@ Vue.use(VueMoment);
 
 Util.getSettings((settings) => {
   new Vue({
-    el: '#display',
+    el: '#extend',
     components: {
-      'display' : DisplayComponent(settings)
+      'extend' : ExtendComponent(settings)
     }
   });
 });
