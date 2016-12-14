@@ -289,6 +289,8 @@ describe('util.getSettings()', function () {
     it('デフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
       const expectedSettings = {
+        'auto-like': false,
+        'auto-stock': false,
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': true,
@@ -321,6 +323,8 @@ describe('util.getSettings()', function () {
     it('デフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
       const expectedSettings = {
+        'auto-like': false,
+        'auto-stock': false,
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': false,

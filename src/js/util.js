@@ -75,6 +75,8 @@ export default class Util {
   static getSettings(callback) {
     ChromeStorage.getSettings(settings => {
       const defaultSettings = {
+        'auto-like': false,
+        'auto-stock': false,
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': true,
