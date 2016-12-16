@@ -9,7 +9,7 @@ export default function () {
               <div class="mdl-card__supporting-text">
                 <h4>Thanks</h4>
                 <p>
-                  以下の記事で書かれていた内容を参考にさせてもらいましたm(_ _)m
+                  本拡張機能は以下の記事で書かれていたコードやアイデアを参考にさせてもらいました。感謝します。
                 </p>
                 <ul>
                   <template v-for="item in items">
@@ -29,7 +29,13 @@ export default function () {
           articleUrl: 'http://qiita.com/khsk/items/392ec147c4962caed9ca',
           userId: 'khsk',
           userUrl: 'http://qiita.com/khsk'
-        }
+        },
+        {
+          articleTitle: 'Qiitaの「いいね」について思った事',
+          articleUrl: 'http://qiita.com/kinpira/items/189d4ee1bafd5876e007',
+          userId: 'kinpira',
+          userUrl: 'http://qiita.com/kinpira'
+        },
       ]
       return {
         items

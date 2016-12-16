@@ -5,9 +5,17 @@ export default class ArticleListTagsDomHandler {
 
   constructor() {
     this.article = {
+      likeButton: null,
+      stockButton: null,
       comments: [],
       references: []
     };
+
+    // いいねボタン
+    this.article.likeButton = document.querySelector('button.p-button');
+
+    // ストックボタン
+    this.article.stockButton = document.querySelector('div.js-stockButton.StockButton');
 
     // コメント部分
     const commentLinkElements = Array.from(document.querySelectorAll('.comment'));
@@ -46,6 +54,30 @@ export default class ArticleListTagsDomHandler {
 
   getArticle() {
     return this.article;
+  }
+
+  isLiked() {
+    return this.article.likeButton.className.indexOf('liked') > 0;
+  }
+
+  isStocked() {
+    return this.article.stockButton.className.indexOf('StockButton--stocked') > 0;
+  }
+
+  addLike() {
+    this.article.likeButton.click();
+  }
+
+  addStock() {
+    this.article.stockButton.click();
+  }
+
+  addLikeButtonClickListener(listener) {
+    this.article.likeButton.addEventListener('click', listener);
+  }
+
+  addStockButtonClickListener(listener) {
+    this.article.stockButton.addEventListener('click', listener);
   }
 
   unShowComment(comment) {
