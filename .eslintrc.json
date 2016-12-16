@@ -20,6 +20,7 @@
     "no-console": "off",
     "no-trailing-spaces": "error",
     "quotes": ["error", "single"],
+    "semi": "error",
     "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
     "space-before-function-paren": ["error", { "anonymous": "always", "named": "never", "asyncArrow": "never"}]
   }
