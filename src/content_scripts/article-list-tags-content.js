@@ -8,8 +8,14 @@ import MuteUserArticleListTagsContent from './article-list-tags/mute-user-articl
 
 
 Util.getSettings(settings => {
-  if (settings['mute-users'] && settings['mute-user-article']) {
-    new MuteUserArticleListTagsContent().run(settings['mute-users']);
+
+  try {
+    if (settings['mute-users'] && settings['mute-user-article']) {
+      new MuteUserArticleListTagsContent().run(settings['mute-users']);
+    }
+  } catch (e) {
+    Util.errorLog(e);
   }
+
 });
 

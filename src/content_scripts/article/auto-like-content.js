@@ -1,5 +1,5 @@
 import Util from '../../js/util';
-import ArticleDomHandler from './article-dom-handler.js'
+import ArticleDomHandler from './article-dom-handler.js';
 
 
 export default class AutoLikeContent {
