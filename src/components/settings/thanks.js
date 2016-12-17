@@ -36,7 +36,13 @@ export default function () {
           userId: 'kinpira',
           userUrl: 'http://qiita.com/kinpira'
         },
-      ]
+        {
+          articleTitle: 'Qiitaのコードの左側に選択不可能な行番号を追加するユーザースクリプト',
+          articleUrl: 'http://qiita.com/khsk/items/89fc40321f1387829135#_reference-491bbbf2aa388d83a35a',
+          userId: 'khsk',
+          userUrl: 'http://qiita.com/khsk'
+        }
+      ];
       return {
         items
       };

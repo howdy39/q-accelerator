@@ -294,7 +294,8 @@ describe('util.getSettings()', function () {
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': true,
-        'mute-already-read-article': true
+        'mute-already-read-article': true,
+        'show-line-number': true,
       };
 
       Util.getSettings(callback);
@@ -328,7 +329,8 @@ describe('util.getSettings()', function () {
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': false,
-        'mute-already-read-article': true
+        'mute-already-read-article': true,
+        'show-line-number': true,
       };
 
       Util.getSettings(callback);

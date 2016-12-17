@@ -33,7 +33,9 @@
     {
       "matches": [
         "http://qiita.com/*/items/*",
-        "https://qiita.com/*/items/*"
+        "https://qiita.com/*/items/*",
+        "http://qiita.com/*/private/*",
+        "https://qiita.com/*/private/*"
       ],
       "js": ["content_scripts/article-content.js"]
     },

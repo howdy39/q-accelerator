@@ -11,8 +11,14 @@ import MuteUserArticleListStreamContent from './article-list-stream/mute-user-ar
 
 
 Util.getSettings(settings => {
-  if (settings['mute-users'] && settings['mute-user-article']) {
-    new MuteUserArticleListStreamContent().run(settings['mute-users']);
+
+  try {
+    if (settings['mute-users'] && settings['mute-user-article']) {
+      new MuteUserArticleListStreamContent().run(settings['mute-users']);
+    }
+  } catch (e) {
+    Util.errorLog(e);
   }
+
 });
 

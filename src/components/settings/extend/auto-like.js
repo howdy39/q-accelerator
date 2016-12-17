@@ -12,7 +12,7 @@ export default function (settings) {
                    <p>
                      自動いいね: 「ストック」したときに「いいね」を自動でおこないます。<br>
                      自動ストック: 「いいね」したときに「ストック」を自動でおこないます。<br>
-                     ※「ストック（いいね）」を外したときに自動ではすすことはしません。
+                     ※「ストック」や「いいね」をはずしたときに自動ではすすことはしません。
                    </p>
                    <mdl-switch :checked.sync="autoLike" class="mdl-js-ripple-effect">自動いいね</mdl-switch>
                    <mdl-switch :checked.sync="autoStock" class="mdl-js-ripple-effect">自動ストック</mdl-switch>

@@ -68,7 +68,7 @@ export default class Util {
           this.infoLog('設定を保存', message);
           callback();
         }
-      )
+      );
     });
   }
 
@@ -80,7 +80,8 @@ export default class Util {
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': true,
-        'mute-already-read-article': true
+        'mute-already-read-article': true,
+        'show-line-number': true
       };
 
       Object.assign(defaultSettings, settings);
@@ -91,7 +92,17 @@ export default class Util {
 
   static infoLog(...messages) {
     messages.unshift('');
-    let resultMessage = 'Q Accelerator' + messages.join(' | ')
+    let resultMessage = 'Q Accelerator' + messages.join(' | ');
     console.info(resultMessage);
+  }
+
+  static errorLog(e) {
+    let messages = [
+      '',
+      e.message,
+      e.stack
+    ];
+    let resultMessage = 'Q Accelerator' + messages.join(' | ');
+    console.error(resultMessage);
   }
 }

@@ -1,5 +1,5 @@
 import Util from '../../js/util';
-import ArticleListStreamDomHandler from './article-list-stream-dom-handler.js'
+import ArticleListStreamDomHandler from './article-list-stream-dom-handler.js';
 
 
 export default class MuteUserArticleListStreamContent {
