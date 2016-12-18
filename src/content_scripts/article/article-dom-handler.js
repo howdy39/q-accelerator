@@ -56,6 +56,13 @@ export default class ArticleListTagsDomHandler {
     return this.article;
   }
 
+  /**
+   * 自身が投稿した記事は「いいね」ができないためその判定に使用する
+   */
+  isLikeButtonAvailable() {
+    return (this.article.likeButton !== null);
+  }
+
   isLiked() {
     return this.article.likeButton.className.indexOf('liked') > 0;
   }

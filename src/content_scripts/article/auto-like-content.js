@@ -7,6 +7,10 @@ export default class AutoLikeContent {
   run(autoLike, autoStock) {
     const handler = new ArticleDomHandler();
 
+    if (!handler.isLikeButtonAvailable()) {
+      return false;
+    }
+
     if (autoLike) {
       handler.addStockButtonClickListener(() => {
         if (!handler.isLiked() && !handler.isStocked()) {
