@@ -1,12 +1,12 @@
 import Util from '../js/util';
-import ArticleContent from './article/article-content.js';
+import SaveHisotoryContent from './article/save-history.js';
 import AutoLikeContent from './article/auto-like-content.js';
 import MuteUserCommentContent from './article/mute-user-comment-content.js';
 import ShowLineNumberContent from './article/show-line-number-content.js';
 
 
 
-new ArticleContent().run();
+new SaveHisotoryContent().run();
 
 Util.getSettings(settings => {
 
