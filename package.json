@@ -11,6 +11,7 @@
     "test": "npm-run-all test:mocha",
     "test:mocha": "mocha --compilers js:babel-register --reporter nyan test/**/*.js",
     "watch": "npm-run-all clean build:copy watch:webpack",
+    "watch:test": "npm-run-all 'test:mocha -- --watch'",
     "watch:webpack": " webpack --watch"
   },
   "repository": {
