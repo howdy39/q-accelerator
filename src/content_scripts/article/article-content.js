@@ -1,19 +1,15 @@
 import Util from '../../js/util';
+import ArticleDomHandler from './article-dom-handler.js';
 
 export default class ArticleContent {
 
   run() {
-    const url = this.getLocationHref();
-    const title = this.getTitle();
+    const handler = new ArticleDomHandler();
+    const article = handler.getArticle();
+
+    const url = article.url;
+    const title = article.title;
     const date = (new Date()).getTime();
     Util.saveHistory(url, title, date);
-  }
-
-  getLocationHref() {
-    return window.location.href;
-  }
-
-  getTitle() {
-    return document.querySelector('.col-sm-9 > h1').textContent;
   }
 }
