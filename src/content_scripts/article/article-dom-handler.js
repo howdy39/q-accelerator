@@ -5,11 +5,19 @@ export default class ArticleListTagsDomHandler {
 
   constructor() {
     this.article = {
+      url: '',
+      title: '',
       likeButton: null,
       stockButton: null,
       comments: [],
       references: []
     };
+
+    // URL
+    this.url = window.location.href;
+
+    // タイトル
+    this.title = document.querySelector('.col-sm-9 > h1').textContent;
 
     // いいねボタン
     this.article.likeButton = document.querySelector('button.p-button');
