@@ -1,7 +1,7 @@
 import Util from '../../js/util';
 import ArticleDomHandler from './article-dom-handler.js';
 
-export default class ArticleContent {
+export default class SaveHistoryContent {
 
   run() {
     const handler = new ArticleDomHandler();
