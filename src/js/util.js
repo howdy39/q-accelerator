@@ -75,8 +75,9 @@ export default class Util {
   static getSettings(callback) {
     ChromeStorage.getSettings(settings => {
       const defaultSettings = {
-        'auto-like': false,
-        'auto-stock': false,
+        'auto-like': true,
+        'auto-stock': true,
+        'copy-code': true,
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': true,
@@ -88,6 +89,27 @@ export default class Util {
 
       callback(defaultSettings);
     });
+  }
+
+  /**
+   * markdownのDiff構文を解析
+   * -（マイナス）で始まる行を消す
+   * +（プラス）で始まる行の+を消す
+   */
+  static parseDiffCode(code) {
+    const lines = code.split('\n');
+    const MINUS_REGEXP = /^-+.*$/;
+    const PLUS_REGEXP = /^\++(.*$)/;
+
+    const newLines = lines
+      .filter(line => !MINUS_REGEXP.test(line))
+      .map(line => {
+        if (!PLUS_REGEXP.test(line)) return line;
+
+        const [, newLine] = line.match(/^\++(.*$)/);
+        return newLine;
+      });
+    return newLines.join('\n');
   }
 
   static infoLog(...messages) {

@@ -4,7 +4,7 @@ import Util from '../../src/js/util';
 import ChromeStorage from '../../src/js/chrome-storage';
 
 
-describe('util.parseUrl()', function () {
+describe('Util.parseUrl()', function () {
 
   it('userIdとitemIdが取れること', function () {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
@@ -66,7 +66,7 @@ describe('util.parseUrl()', function () {
 });
 
 
-describe('util.createHistoryEntity()', function () {
+describe('Util.createHistoryEntity()', function () {
 
   it('返り値が{userId.itemId: {userId, itemId, title, date}の形式であること', function () {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
@@ -89,7 +89,7 @@ describe('util.createHistoryEntity()', function () {
 });
 
 
-describe('util.saveHistory()', function () {
+describe('Util.saveHistory()', function () {
   let savedHitories;
 
   const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
@@ -203,7 +203,7 @@ describe('util.saveHistory()', function () {
 });
 
 
-describe('util.getHistories()', function () {
+describe('Util.getHistories()', function () {
 
   beforeEach(function () {
     this.getHistoriesStub = sinon.stub(
@@ -230,7 +230,7 @@ describe('util.getHistories()', function () {
 });
 
 
-describe('util.clearHistories()', function () {
+describe('Util.clearHistories()', function () {
 
   beforeEach(function () {
     this.saveHistoriesStub = sinon.stub(
@@ -257,11 +257,11 @@ describe('util.clearHistories()', function () {
 });
 
 
-describe('util.saveSetting()', function () {
+describe('Util.saveSetting()', function () {
 
 });
 
-describe('util.getSettings()', function () {
+describe('Util.getSettings()', function () {
 
   describe('設定が登録されていない場合', function () {
     beforeEach(function () {
@@ -289,8 +289,9 @@ describe('util.getSettings()', function () {
     it('デフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
       const expectedSettings = {
-        'auto-like': false,
-        'auto-stock': false,
+        'auto-like': true,
+        'auto-stock': true,
+        'copy-code': true,
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': true,
@@ -324,8 +325,9 @@ describe('util.getSettings()', function () {
     it('デフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
       const expectedSettings = {
-        'auto-like': false,
-        'auto-stock': false,
+        'auto-like': true,
+        'auto-stock': true,
+        'copy-code': true,
         'mute-users': [],
         'mute-user-article': true,
         'mute-user-comment': false,
@@ -338,6 +340,50 @@ describe('util.getSettings()', function () {
       const settings = callback.firstCall.args[0];
       assert(JSON.stringify(settings) === JSON.stringify(expectedSettings));
     });
+  });
+
+});
+
+
+describe('Util.parseDiffCode()', function () {
+
+  it('-（マイナス）行を除外すること', function () {
+    const code =
+`
+-   マイナス1つ
+--   マイナス2つ
+---   マイナス3つ
+ -   行頭スペースあり
+`;
+    const expectedCode =
+`
+ -   行頭スペースあり
+`;
+
+    const res = Util.parseDiffCode(code);
+
+    assert(res === expectedCode);
+  });
+
+  it('+（プラス）を除いて行を残すこと', function () {
+    const code =
+`
++   プラス1つ
+++   プラス2つ
++++   プラス3つ
+ +   行頭ハイフンあり
+`;
+    const expectedCode =
+`
+   プラス1つ
+   プラス2つ
+   プラス3つ
+ +   行頭ハイフンあり
+`;
+
+    const res = Util.parseDiffCode(code);
+
+    assert(res === expectedCode);
   });
 
 });

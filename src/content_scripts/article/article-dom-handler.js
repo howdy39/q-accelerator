@@ -9,21 +9,25 @@ export default class ArticleListTagsDomHandler {
       title: '',
       likeButton: null,
       stockButton: null,
+      codeFrames: [],
       comments: [],
       references: []
     };
 
     // URL
-    this.url = window.location.href;
+    this.article.url = window.location.href;
 
     // タイトル
-    this.title = document.querySelector('.col-sm-9 > h1').textContent;
+    this.article.title = document.querySelector('.col-sm-9 > h1').textContent;
 
     // いいねボタン
     this.article.likeButton = document.querySelector('button.p-button');
 
     // ストックボタン
     this.article.stockButton = document.querySelector('div.js-stockButton.StockButton');
+
+    // コードフレーム
+    this.article.codeFrames = document.getElementsByClassName('code-frame');
 
     // コメント部分
     const commentLinkElements = Array.from(document.querySelectorAll('.comment'));

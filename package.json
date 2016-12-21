@@ -50,6 +50,7 @@
     "webpack": "^1.13.3"
   },
   "dependencies": {
+    "clipboard": "^1.5.16",
     "moment": "^2.16.0",
     "vue": "^1.0.28",
     "vue-mdl": "^0.10.0",
