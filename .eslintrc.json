@@ -17,6 +17,7 @@
     "comma-spacing": ["error", { "before": false, "after": true }],
     "func-call-spacing": ["error"],
     "indent": ["error", 2],
+    "keyword-spacing": ["error"],
     "no-console": "off",
     "no-trailing-spaces": "error",
     "quotes": ["error", "single"],
