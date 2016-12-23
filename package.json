@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/howdy39/q-tool.git"
+    "url": "git+https://github.com/howdy39/q-accelerator.git"
   },
   "keywords": [
     "chrome-extension",
@@ -25,9 +25,9 @@
   "author": "Tatsuya Nakano",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/howdy39/q-tool/issues"
+    "url": "https://github.com/howdy39/q-accelerator/issues"
   },
-  "homepage": "https://github.com/howdy39/q-tool#readme",
+  "homepage": "https://github.com/howdy39/q-accelerator#readme",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
