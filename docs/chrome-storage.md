@@ -44,7 +44,7 @@
 
 ### 形式
 
-```
+```json
 {
   "settings": {
     "auto-like": 自動良いね（true or false）,
@@ -62,7 +62,7 @@
 
 ### 例
 
-```
+```json
 {
   "settings": {
     "auto-like": true,
