@@ -5,17 +5,18 @@ export default class Util {
 
   static parseUrl(url) {
     const ITEM_MATCH = '(https?://qiita.com)?/([^/]+)/(items|private)/([^/#?]+).*';
-    const [ , , userId, , itemId] = url.match(ITEM_MATCH);
-    return {userId, itemId};
+    const [ , , userId, itemKind, itemId] = url.match(ITEM_MATCH);
+    return {userId, itemKind, itemId};
   }
 
   static createHistoryEntity(url, title, date) {
-    const {userId, itemId} = Util.parseUrl(url);
+    const {userId, itemKind, itemId} = Util.parseUrl(url);
 
     const itemKey = `${userId}.${itemId}`;
     const entity = {};
     entity[itemKey] = {
       userId,
+      itemKind,
       itemId,
       title,
       date

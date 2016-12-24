@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Util from '../../js/util';
 
-
 export default function (histories) {
   const component = Vue.extend({
     template: `
@@ -16,7 +15,7 @@ export default function (histories) {
                 <ul>
                   <template v-for="item in items | filterBy search">
                     <li>
-                      <a href="http://qiita.com/{{item.userId}}/items/{{item.itemId}}" target="_blank">{{ item.title }}</a>
+                      <a href="http://qiita.com/{{item.userId}}/{{item.itemKind}}/{{item.itemId}}" target="_blank">{{ item.title }}</a>
                       @{{ item.userId }}
                       {{ item.date | moment "YYYY-MM-DD HH:mm"}}
                     </li>
@@ -46,7 +45,7 @@ export default function (histories) {
       },
       clearHistories: function () {
         Util.clearHistories(() => {
-          console.log('消しました');
+          Util.infoLog('履歴を消しました');
           this.$refs.clearHistoriesConfirm.close();
           this.$data.items = [];
         });
