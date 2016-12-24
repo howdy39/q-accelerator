@@ -8,58 +8,66 @@ describe('Util.parseUrl()', function () {
 
   it('userIdとitemIdが取れること', function () {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'items');
     assert(itemId === '35729490b024ca295d6c');
   });
 
   it('userIdとitemIdが取れること（https）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'items');
     assert(itemId === '35729490b024ca295d6c');
   });
 
   it('userIdとitemIdが取れること（相対パス）', function () {
     const URL = '/howdy39/items/35729490b024ca295d6c';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'items');
     assert(itemId === '35729490b024ca295d6c');
   });
 
 
   it('userIdとitemIdが取れること（末尾スラッシュあり）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c/';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'items');
     assert(itemId === '35729490b024ca295d6c');
   });
 
   it('userIdとitemIdが取れること（GETパラメータあり）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'items');
     assert(itemId === '35729490b024ca295d6c');
   });
 
   it('userIdとitemIdが取れること（末尾スラッシュ/GETパラメータあり）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c/?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'items');
     assert(itemId === '35729490b024ca295d6c');
   });
 
   it('userIdとitemIdが取れること（ハッシュフラグメントあり）', function () {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c#%E3%81%93%E3%81%93%E3%81%BE%E3%81%A7%E3%81%AE%E5%9B%B3%E8%A7%A3';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'items');
     assert(itemId === '35729490b024ca295d6c');
   });
 
   it('userIdとitemIdが取れること（非公開記事）', function () {
     const URL = 'http://qiita.com/howdy39/private/6dce297363c0c1beb6e1';
-    const {userId, itemId} = Util.parseUrl(URL);
+    const {userId, itemKind, itemId} = Util.parseUrl(URL);
     assert(userId === 'howdy39');
+    assert(itemKind === 'private');
     assert(itemId === '6dce297363c0c1beb6e1');
   });
 
@@ -77,6 +85,7 @@ describe('Util.createHistoryEntity()', function () {
     const expectedEntity = {
       'howdy39.35729490b024ca295d6c': {
         'userId': 'howdy39',
+        'itemKind': 'items',
         'itemId': '35729490b024ca295d6c',
         'title': TITLE,
         'date': DATE
@@ -130,6 +139,7 @@ describe('Util.saveHistory()', function () {
         {
           'howdy39.35729490b024ca295d6c': {
             'userId': 'howdy39',
+            'itemKind': 'items',
             'itemId': '35729490b024ca295d6c',
             'title': TITLE,
             'date': DATE
@@ -148,6 +158,7 @@ describe('Util.saveHistory()', function () {
       savedHitories = {
         'howdy39.3b2b14ce73ec44c54f7b': {
           'userId': 'howdy39',
+          'itemKind': 'items',
           'itemId': '3b2b14ce73ec44c54f7b',
           'title': 'GoogleのWebAPI設計とWebAPI設計のベストプラクティスを比較してみる',
           'date': '1479563912537'
@@ -161,6 +172,7 @@ describe('Util.saveHistory()', function () {
         {
           'howdy39.35729490b024ca295d6c': {
             'userId': 'howdy39',
+            'itemKind': 'items',
             'itemId': '35729490b024ca295d6c',
             'title': TITLE,
             'date': DATE
@@ -179,6 +191,7 @@ describe('Util.saveHistory()', function () {
       const expectedHistory = {
         'howdy39.3b2b14ce73ec44c54f7b': {
           'userId': 'howdy39',
+          'itemKind': 'items',
           'itemId': '3b2b14ce73ec44c54f7b',
           'title': NEW_TITLE,
           'date': NEW_DATE
