@@ -1,5 +1,4 @@
-// Karma configuration
-// Generated on Sun Dec 25 2016 00:21:59 GMT+0900 (JST)
+/*global process*/
 
 module.exports = function (config) {
   var webpackConfig = require('./webpack.config');
@@ -7,7 +6,13 @@ module.exports = function (config) {
   config.set({
 
     basePath: '',
-    browsers: ['PhantomJS'],
+    browsers: [process.env.TRAVIS ? 'Chrome_travis_ci' : 'Chrome'],
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
       {pattern: 'test/**/*.spec.js', watched: false}
