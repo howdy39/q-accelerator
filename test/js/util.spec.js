@@ -1,78 +1,84 @@
-import assert from 'power-assert';
-import sinon from 'sinon';
+import objectAssign from 'object-assign';
 import Util from '../../src/js/util';
 import ChromeStorage from '../../src/js/chrome-storage';
 
 
 describe('Util.parseUrl()', function () {
 
-  it('userIdとitemIdが取れること', function () {
+  it('userId,itemKind,itemIdが取れること', function () {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'items');
-    assert(itemId === '35729490b024ca295d6c');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('items');
+    expect(itemId).to.equal('35729490b024ca295d6c');
   });
 
-  it('userIdとitemIdが取れること（https）', function () {
+  it('userId,itemKind,itemIdが取れること（https）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'items');
-    assert(itemId === '35729490b024ca295d6c');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('items');
+    expect(itemId).to.equal('35729490b024ca295d6c');
   });
 
-  it('userIdとitemIdが取れること（相対パス）', function () {
+  it('userId,itemKind,itemIdが取れること（相対パス）', function () {
     const URL = '/howdy39/items/35729490b024ca295d6c';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'items');
-    assert(itemId === '35729490b024ca295d6c');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('items');
+    expect(itemId).to.equal('35729490b024ca295d6c');
   });
 
 
-  it('userIdとitemIdが取れること（末尾スラッシュあり）', function () {
+  it('userId,itemKind,itemIdが取れること（末尾スラッシュあり）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c/';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'items');
-    assert(itemId === '35729490b024ca295d6c');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('items');
+    expect(itemId).to.equal('35729490b024ca295d6c');
   });
 
-  it('userIdとitemIdが取れること（GETパラメータあり）', function () {
+  it('userId,itemKind,itemIdが取れること（GETパラメータあり）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'items');
-    assert(itemId === '35729490b024ca295d6c');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('items');
+    expect(itemId).to.equal('35729490b024ca295d6c');
   });
 
-  it('userIdとitemIdが取れること（末尾スラッシュ/GETパラメータあり）', function () {
+  it('userId,itemKind,itemIdが取れること（末尾スラッシュ/GETパラメータあり）', function () {
     const URL = 'https://qiita.com/howdy39/items/35729490b024ca295d6c/?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'items');
-    assert(itemId === '35729490b024ca295d6c');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('items');
+    expect(itemId).to.equal('35729490b024ca295d6c');
   });
 
-  it('userIdとitemIdが取れること（ハッシュフラグメントあり）', function () {
+  it('userId,itemKind,itemIdが取れること（ハッシュフラグメントあり）', function () {
     const URL = 'http://qiita.com/howdy39/items/35729490b024ca295d6c#%E3%81%93%E3%81%93%E3%81%BE%E3%81%A7%E3%81%AE%E5%9B%B3%E8%A7%A3';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'items');
-    assert(itemId === '35729490b024ca295d6c');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('items');
+    expect(itemId).to.equal('35729490b024ca295d6c');
   });
 
-  it('userIdとitemIdが取れること（非公開記事）', function () {
+  it('userId,itemKind,itemIdが取れること（非公開記事）', function () {
     const URL = 'http://qiita.com/howdy39/private/6dce297363c0c1beb6e1';
     const {userId, itemKind, itemId} = Util.parseUrl(URL);
-    assert(userId === 'howdy39');
-    assert(itemKind === 'private');
-    assert(itemId === '6dce297363c0c1beb6e1');
+
+    expect(userId).to.equal('howdy39');
+    expect(itemKind).to.equal('private');
+    expect(itemId).to.equal('6dce297363c0c1beb6e1');
   });
 
 });
-
 
 describe('Util.createHistoryEntity()', function () {
 
@@ -92,7 +98,7 @@ describe('Util.createHistoryEntity()', function () {
       }
     };
 
-    assert(JSON.stringify(entity) === JSON.stringify(expectedEntity));
+    expect(JSON.stringify(entity)).to.equal(JSON.stringify(expectedEntity));
   });
 
 });
@@ -147,7 +153,7 @@ describe('Util.saveHistory()', function () {
         };
 
       Util.saveHistory(URL, TITLE, DATE);
-      assert(JSON.stringify(this.saveHistoriesStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
+      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
     });
 
   });
@@ -167,7 +173,7 @@ describe('Util.saveHistory()', function () {
     });
 
     it('履歴が追加できること', function () {
-      const expectedHistory = Object.assign({},
+      const expectedHistory = objectAssign({},
         savedHitories,
         {
           'howdy39.35729490b024ca295d6c': {
@@ -181,7 +187,7 @@ describe('Util.saveHistory()', function () {
       );
 
       Util.saveHistory(URL, TITLE, DATE);
-      assert(JSON.stringify(this.saveHistoriesStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
+      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
     });
 
     it('同じ主キー(userId, itemId)の履歴がある場合にtitle, dateが更新されること', function () {
@@ -200,7 +206,7 @@ describe('Util.saveHistory()', function () {
 
       Util.saveHistory(HISTORY_URL, NEW_TITLE, NEW_DATE);
 
-      assert(JSON.stringify(this.saveHistoriesStub.firstCall.args[0]) === JSON.stringify(expectedHistory));
+      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
     });
 
   });
@@ -210,7 +216,7 @@ describe('Util.saveHistory()', function () {
 
     Util.clearHistories(callback);
 
-    assert(callback.called === true);
+    expect(callback.called).to.equal(true);
   });
 
 });
@@ -237,7 +243,7 @@ describe('Util.getHistories()', function () {
 
     Util.getHistories(callback);
 
-    assert(callback.called === true);
+    expect(callback.called).to.equal(true);
   });
 
 });
@@ -264,7 +270,7 @@ describe('Util.clearHistories()', function () {
 
     Util.clearHistories(callback);
 
-    assert(callback.called === true);
+    expect(callback.called).to.equal(true);
   });
 
 });
@@ -296,7 +302,7 @@ describe('Util.getSettings()', function () {
 
       Util.getSettings(callback);
 
-      assert(callback.called === true);
+      expect(callback.called).to.equal(true);
     });
 
     it('デフォルト設定で上書きされること', function () {
@@ -315,8 +321,7 @@ describe('Util.getSettings()', function () {
       Util.getSettings(callback);
 
       const settings = callback.firstCall.args[0];
-      assert(JSON.stringify(settings) === JSON.stringify(expectedSettings));
-
+      expect(JSON.stringify(settings)).to.equal(JSON.stringify(expectedSettings));
     });
   });
 
@@ -351,7 +356,7 @@ describe('Util.getSettings()', function () {
       Util.getSettings(callback);
 
       const settings = callback.firstCall.args[0];
-      assert(JSON.stringify(settings) === JSON.stringify(expectedSettings));
+      expect(JSON.stringify(settings)).to.equal(JSON.stringify(expectedSettings));
     });
   });
 
@@ -374,8 +379,7 @@ describe('Util.parseDiffCode()', function () {
 `;
 
     const res = Util.parseDiffCode(code);
-
-    assert(res === expectedCode);
+    expect(res).to.equal(expectedCode);
   });
 
   it('+（プラス）を除いて行を残すこと', function () {
@@ -395,8 +399,7 @@ describe('Util.parseDiffCode()', function () {
 `;
 
     const res = Util.parseDiffCode(code);
-
-    assert(res === expectedCode);
+    expect(res).to.equal(expectedCode);
   });
 
 });

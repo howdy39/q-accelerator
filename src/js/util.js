@@ -1,5 +1,5 @@
+import objectAssign from 'object-assign';
 import ChromeStorage from './chrome-storage';
-
 
 export default class Util {
 
@@ -28,7 +28,7 @@ export default class Util {
     const entity = this.createHistoryEntity(url, title, date);
 
     this.getHistories((histories) => {
-      Object.assign(histories, entity);
+      objectAssign(histories, entity);
       ChromeStorage.saveHistories(
         histories,
         () => {
@@ -61,7 +61,7 @@ export default class Util {
     entity[key] = value;
 
     this.getSettings(settings => {
-      Object.assign(settings, entity);
+      objectAssign(settings, entity);
       ChromeStorage.saveSettings(
         settings,
         () => {
@@ -86,7 +86,7 @@ export default class Util {
         'show-line-number': true
       };
 
-      Object.assign(defaultSettings, settings);
+      objectAssign(defaultSettings, settings);
 
       callback(defaultSettings);
     });
