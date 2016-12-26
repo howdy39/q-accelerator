@@ -33,7 +33,6 @@ export default class PopularItemsDomHandler {
 
       this.articleObjects.push(article);
     }, this);
-    console.log(this.articleObjects);
   }
 
   getArticleObjects() {
