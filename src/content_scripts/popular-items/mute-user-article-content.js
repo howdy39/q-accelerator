@@ -7,7 +7,7 @@ export default class MuteUserArticleContent {
   run(muteUserIds) {
     const handler = new PopularItemsDomHandler();
 
-    handler.getArticleObjects().forEach(article => {
+    handler.getArticles().forEach(article => {
       const hasUserId = muteUserIds.some(muteUserId => muteUserId === article.userId);
       if (hasUserId) {
         handler.unShow(article);

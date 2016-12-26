@@ -6,33 +6,55 @@ describe('人気の記事ページ', function () {
   before(function () {
     document.body.innerHTML = require('./popular-items.html');
     const handler = new PopularItemsDomHandler();
-    this.articleObjects = handler.getArticleObjects();
+    this.articles = handler.getArticles();
   });
 
   it('人気記事が全部で20件取得できること', function () {
-    expect(this.articleObjects.length).to.equal(20);
+    expect(this.articles.length).to.equal(20);
   });
 
-  it('１件目の記事情報が取得できること', function () {
-    const expectedDescription = 'さくらインターネット Advent Calendar最終日は、硬派にLinuxのメモリに関する基礎知識についてみてみたいと思います。最近はサーバーを意識せずプログラミングできるようになり、メモリの…';
-    const expectedHref = '/kunihirotanaka/items/70d43d48757aea79de2d?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items';
-    const expectedItemId = '70d43d48757aea79de2d';
-    const expectedlikeCount = '192';
-    const expectedTime = '約23時間前';
-    const expectedTitle = 'いまさら聞けないLinuxとメモリの基礎＆vmstatの詳しい使い方';
-    const expectedUserId = 'kunihirotanaka';
-    const expectedTags = ['Linux', 'さくらインターネット'];
+  describe('１件目の記事', function () {
 
-    const firstArticle = this.articleObjects[0];
+    before(function () {
+      this.article = this.articles[0];
+    });
 
-    expect(firstArticle.description).to.equal(expectedDescription);
-    expect(firstArticle.href).to.equal(expectedHref);
-    expect(firstArticle.itemId).to.equal(expectedItemId);
-    expect(firstArticle.likeCount).to.equal(expectedlikeCount);
-    expect(firstArticle.time).to.equal(expectedTime);
-    expect(firstArticle.title).to.equal(expectedTitle);
-    expect(firstArticle.userId).to.equal(expectedUserId);
-    expect(firstArticle.tags).to.deep.equal(expectedTags);
+    after(function () {
+      delete this.article;
+    });
+
+    it('説明が取得できること', function () {
+      expect(this.article.description).to.equal('さくらインターネット Advent Calendar最終日は、硬派にLinuxのメモリに関する基礎知識についてみてみたいと思います。最近はサーバーを意識せずプログラミングできるようになり、メモリの…');
+    });
+
+    it('hrefが取得できること', function () {
+      expect(this.article.href).to.equal('/kunihirotanaka/items/70d43d48757aea79de2d?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items');
+    });
+
+    it('ItemIdが取得できること', function () {
+      expect(this.article.itemId).to.equal('70d43d48757aea79de2d');
+    });
+
+    it('いいね数が取得できること', function () {
+      expect(this.article.likeCount).to.equal('192');
+    });
+
+    it('時間が取得できること', function () {
+      expect(this.article.time).to.equal('約23時間前');
+    });
+
+    it('タイトルが取得できること', function () {
+      expect(this.article.title).to.equal('いまさら聞けないLinuxとメモリの基礎＆vmstatの詳しい使い方');
+    });
+
+    it('UserIDが取得できること', function () {
+      expect(this.article.userId).to.equal('kunihirotanaka');
+    });
+
+    it('タグが取得できること', function () {
+      expect(this.article.tags).to.deep.equal(['Linux', 'さくらインターネット']);
+    });
+
   });
 
 });

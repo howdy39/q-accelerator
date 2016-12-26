@@ -4,7 +4,7 @@ import Util from '../../js/util';
 export default class PopularItemsDomHandler {
 
   constructor() {
-    this.articleObjects = [];
+    this.articles = [];
     const articleLinkElements = Array.from(
       document.querySelectorAll('a.popularItem_articleTitle_text'));
 
@@ -31,12 +31,12 @@ export default class PopularItemsDomHandler {
         tags
       };
 
-      this.articleObjects.push(article);
+      this.articles.push(article);
     }, this);
   }
 
-  getArticleObjects() {
-    return this.articleObjects;
+  getArticles() {
+    return this.articles;
   }
 
   unShow(article) {
