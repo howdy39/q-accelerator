@@ -1,7 +1,7 @@
 import Util from '../../js/util';
 
 
-export default class ArticleListTagsDomHandler {
+export default class ArticleDomHandler {
 
   constructor() {
     this.article = {
