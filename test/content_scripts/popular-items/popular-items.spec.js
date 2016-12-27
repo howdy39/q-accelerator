@@ -47,7 +47,7 @@ describe('人気の記事ページ', function () {
       expect(this.article.title).to.equal('いまさら聞けないLinuxとメモリの基礎＆vmstatの詳しい使い方');
     });
 
-    it('UserIDが取得できること', function () {
+    it('userIdが取得できること', function () {
       expect(this.article.userId).to.equal('kunihirotanaka');
     });
 

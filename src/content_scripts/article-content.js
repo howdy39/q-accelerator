@@ -6,21 +6,22 @@ import SaveHisotoryContent from './article/save-history.js';
 import ShowLineNumberContent from './article/show-line-number-content.js';
 
 
-
 new SaveHisotoryContent().run();
 
 Util.getSettings(settings => {
 
   try {
-    if (settings['mute-users'] && settings['mute-user-comment']) {
-      new MuteUserCommentContent().run(settings['mute-users']);
+    if (settings['auto-like'] || settings['auto-stock']) {
+      new AutoLikeContent().run(settings['auto-like'], settings['auto-stock']);
     }
   } catch (e) {
     Util.errorLog(e);
   }
 
   try {
-    new AutoLikeContent().run(settings['auto-like'], settings['auto-stock']);
+    if (settings['mute-users'] && settings['mute-user-comment']) {
+      new MuteUserCommentContent().run(settings['mute-users']);
+    }
   } catch (e) {
     Util.errorLog(e);
   }

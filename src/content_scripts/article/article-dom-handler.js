@@ -7,8 +7,8 @@ export default class ArticleDomHandler {
     this.article = {
       url: '',
       title: '',
-      likeButton: null,
-      stockButton: null,
+      likeButtons: [],
+      stockButtons: [],
       codeFrames: [],
       comments: [],
       references: []
@@ -21,10 +21,10 @@ export default class ArticleDomHandler {
     this.article.title = document.querySelector('.col-sm-9 > h1').textContent;
 
     // いいねボタン
-    this.article.likeButton = document.querySelector('button.p-button');
+    this.article.likeButtons = document.querySelectorAll('div.js-likebutton button.p-button');
 
     // ストックボタン
-    this.article.stockButton = document.querySelector('div.js-stockButton.StockButton');
+    this.article.stockButtons = document.querySelectorAll('div.js-stockButton.StockButton');
 
     // コードフレーム
     this.article.codeFrames = document.getElementsByClassName('code-frame');
@@ -72,31 +72,35 @@ export default class ArticleDomHandler {
    * 自身が投稿した記事は「いいね」ができないためその判定に使用する
    */
   isLikeButtonAvailable() {
-    return (this.article.likeButton !== null);
+    return (this.article.likeButtons.length !== 0);
   }
 
   isLiked() {
-    return this.article.likeButton.className.indexOf('liked') > 0;
+    return this.article.likeButtons[0].className.indexOf('liked') > 0;
   }
 
   isStocked() {
-    return this.article.stockButton.className.indexOf('StockButton--stocked') > 0;
+    return this.article.stockButtons[0].className.indexOf('StockButton--stocked') > 0;
   }
 
   addLike() {
-    this.article.likeButton.click();
+    this.article.likeButtons[0].click();
   }
 
   addStock() {
-    this.article.stockButton.click();
+    this.article.stockButtons[0].click();
   }
 
   addLikeButtonClickListener(listener) {
-    this.article.likeButton.addEventListener('click', listener);
+    this.article.likeButtons.forEach(likeButton => {
+      likeButton.addEventListener('click', listener);
+    });
   }
 
   addStockButtonClickListener(listener) {
-    this.article.stockButton.addEventListener('click', listener);
+    this.article.stockButtons.forEach(stockButton => {
+      stockButton.addEventListener('click', listener);
+    });
   }
 
   unShowComment(comment) {

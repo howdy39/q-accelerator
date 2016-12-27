@@ -12,16 +12,16 @@ export default class AutoLikeContent {
     }
 
     if (autoLike) {
-      handler.addStockButtonClickListener(() => {
-        if (!handler.isLiked() && !handler.isStocked()) {
+      handler.addStockButtonClickListener(e => {
+        if (e.isTrusted && !handler.isLiked() && !handler.isStocked()) {
           handler.addLike();
           Util.infoLog('自動いいね');
         }
       });
     }
     if (autoStock) {
-      handler.addLikeButtonClickListener(() => {
-        if (!handler.isLiked() && !handler.isStocked()) {
+      handler.addLikeButtonClickListener(e => {
+        if (e.isTrusted && !handler.isLiked() && !handler.isStocked()) {
           handler.addStock();
           Util.infoLog('自動ストック');
         }
