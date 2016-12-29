@@ -1,6 +1,9 @@
 import PopularItemsDomHandler from '../../../src/content_scripts/popular-items/popular-items-dom-handler.js';
 
-
+/**
+ * 人気の記事ページ
+ * http://qiita.com/popular-items
+ */
 describe('人気の記事ページ', function () {
 
   before(function () {

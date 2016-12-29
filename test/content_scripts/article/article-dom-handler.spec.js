@@ -1,6 +1,9 @@
 import ArticleDomHandler from '../../../src/content_scripts/article/article-dom-handler.js';
 
-
+/**
+ * 記事ページ
+ * http://qiita.com/howdy39/items/cdd5b252096f5a2fa438
+ */
 describe('自身の記事/コードあり/コメントあり/参照記事あり', function () {
 
   before(function () {
@@ -90,6 +93,10 @@ describe('自身の記事/コードあり/コメントあり/参照記事あり'
 });
 
 
+/**
+ * 記事ページ
+ * http://qiita.com/locol23/items/daaaf21ff2119d5bfeb2
+ */
 describe('他者の記事/コードなし/コメントなし/参照記事なし', function () {
 
   before(function () {
