@@ -13,8 +13,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://qiita.com",
-        "https://qiita.com",
+        "http://qiita.com/",
+        "https://qiita.com/",
         "http://qiita.com/items",
         "https://qiita.com/items",
         "http://qiita.com/stock",
