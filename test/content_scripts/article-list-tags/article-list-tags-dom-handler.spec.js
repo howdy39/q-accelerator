@@ -1,10 +1,9 @@
 import ArticleDomHandler from '../../../src/content_scripts/article-list-tags/article-list-tags-dom-handler.js';
 
 /**
- * Tagのトップページ
- * http://qiita.com/tags/xxxxx
+ * タグ（トップページ）
  */
-describe('Tagのトップページ', function () {
+describe('タグ（トップページ）', function () {
 
   before(function () {
     document.body.innerHTML = require('./article-list-tags.html');
@@ -60,10 +59,67 @@ describe('Tagのトップページ', function () {
 });
 
 /**
- * Tagの一覧ページ
- * http://qiita.com/tags/xxxxx/items
+ * タグ（最近いいねされた投稿）
  */
-describe('Tagの一覧ページ', function () {
+describe('タグ（最近いいねされた投稿）', function () {
+
+  before(function () {
+    document.body.innerHTML = require('./article-list-tags-likes.html');
+    this.handler = new ArticleDomHandler();
+    this.articles = this.handler.getArticles();
+  });
+
+  after(function () {
+    delete this.handler;
+    delete this.articles;
+  });
+
+  it('記事が全部で20件取得できること', function () {
+    expect(this.articles.length).to.equal(20);
+  });
+
+  describe('１件目の記事', function () {
+
+    before(function () {
+      this.article = this.articles[0];
+    });
+
+    after(function () {
+      delete this.article;
+    });
+
+    it('hrefが取得できること', function () {
+      expect(this.article.href).to.equal('/taziriayame-otomeshinto/items/29efb26df941f420c949');
+    });
+
+    it('itemIdが取得できること', function () {
+      expect(this.article.itemId).to.equal('29efb26df941f420c949');
+    });
+
+    it('いいね数が取得できること', function () {
+      expect(this.article.likeCount).to.equal(14);
+    });
+
+    it('タイトルが取得できること', function () {
+      expect(this.article.title).to.equal('webアプリケーションの脆弱性-XSS(クロスサイトスクリプティング)とは');
+    });
+
+    it('userIdが取得できること', function () {
+      expect(this.article.userId).to.equal('taziriayame-otomeshinto');
+    });
+
+    it('タグが取得できること', function () {
+      expect(this.article.tags).to.deep.equal(['Java', 'HTML', 'JavaScript', 'xss']);
+    });
+
+  });
+
+});
+
+/**
+ * タグ（新着投稿）
+ */
+describe('タグ（新着投稿）', function () {
 
   before(function () {
     document.body.innerHTML = require('./article-list-tags-items.html');
