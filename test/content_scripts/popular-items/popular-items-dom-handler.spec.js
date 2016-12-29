@@ -34,7 +34,7 @@ describe('人気の記事ページ', function () {
       expect(this.article.href).to.equal('/kunihirotanaka/items/70d43d48757aea79de2d?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items');
     });
 
-    it('ItemIdが取得できること', function () {
+    it('itemIdが取得できること', function () {
       expect(this.article.itemId).to.equal('70d43d48757aea79de2d');
     });
 
