@@ -1,6 +1,5 @@
 import Util from '../../js/util';
 
-
 export default class ArticleListTagsDomHandler {
 
   constructor() {
@@ -14,7 +13,7 @@ export default class ArticleListTagsDomHandler {
       let likeCount = 0;
       let likeLi;
       if ((likeLi = baseElement.querySelectorAll('.ItemLink__status li')[0])) {
-        likeCount = likeLi.textContent.trim();
+        likeCount = Number(likeLi.textContent.trim());
       }
       const title = element.textContent.trim();
       const tags = Array.from(baseElement.querySelectorAll('.TagList li'))
