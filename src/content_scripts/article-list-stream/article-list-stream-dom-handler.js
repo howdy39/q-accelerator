@@ -13,7 +13,7 @@ export default class ArticleListStreamDomHandler {
       let likeCount = 0;
       var likeSpan;
       if ((likeSpan = baseElement.querySelector('.fa-like + span'))) {
-        likeCount = likeSpan.textContent;
+        likeCount = Number(likeSpan.textContent);
       }
       const title = element.textContent.trim();
       const tags = Array.from(baseElement.querySelectorAll('.item-box_tagList li'))
