@@ -11,7 +11,7 @@ export default class PopularItemsDomHandler {
     articleLinkElements.forEach((element) => {
       const baseElement = element.parentElement.parentElement;
       const description = baseElement.querySelector('.popularItem_articleBody').textContent.replace(/\n/g, '');
-      const likeCount = baseElement.querySelector('.popularItem_likeCount_number').textContent.trim();
+      const likeCount = Number(baseElement.querySelector('.popularItem_likeCount_number').textContent.trim());
       const time = baseElement.querySelector('.popularItem_time').textContent;
       const title = element.textContent;
       const tags = Array.from(baseElement.querySelectorAll('.popularItem_tags_item')).map(element => element.textContent);

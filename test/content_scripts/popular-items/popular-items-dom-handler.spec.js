@@ -39,7 +39,7 @@ describe('人気の記事ページ', function () {
     });
 
     it('いいね数が取得できること', function () {
-      expect(this.article.likeCount).to.equal('192');
+      expect(this.article.likeCount).to.equal(192);
     });
 
     it('時間が取得できること', function () {
