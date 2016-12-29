@@ -6,12 +6,19 @@ export default function (settings) {
   const component = Vue.extend({
     template: `<div class="mdl-card mdl-cell mdl-cell--12-col">
                  <div class="mdl-card__supporting-text">
-                   <h4>コードのコピー機能</h4>
+                   <h4>コピーアイコンを表示</h4>
                    <p>
-                     コードの上部にコピーアイコンを表示します。<br>
-                     ※コピーは差分を考慮するため、削除行をコピーしません。また行頭の+(プラス)を除外します。
+                     コードの上にコピーアイコンを表示します。<br>
+                     コピーアイコンをクリックするとクリップボードにコードをコピーします。<br>
+                     <mdl-switch :checked.sync="show" class="mdl-js-ripple-effect">表示する</mdl-switch>
+                     <br>
+                     <br>
+                     ※コピーは<a href="http://qiita.com/kakakakakku/items/461e000587b707785e79" target="_blank">diff形式のコード</a>の場合、以下のような挙動をします。
+                     <ul>
+                       <li>行頭に-(マイナス)がある削除行を除いてコピーします。
+                       <li>行頭の+(プラス)を除いてコピーします。
+                     </ul>
                    </p>
-                   <mdl-switch :checked.sync="show" class="mdl-js-ripple-effect">表示する</mdl-switch>
                  </div>
                </div>`,
     data: () => {

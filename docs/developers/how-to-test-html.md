@@ -7,6 +7,6 @@
 1. 画面を表示
 1. Chromeの開発者ツールからHTMLタグを編集してコピーする
 
-![how-to-test_01.png](https://github.com/howdy39/q-accelerator/tree/master/docs/developers/img/how-to-test_01.png)
+![how-to-test_01.png](https://github.com/howdy39/q-accelerator/blob/master/docs/developers/img/how-to-test_01.png?raw=true)
 
-![how-to-test_02.png](https://github.com/howdy39/q-accelerator/tree/master/docs/developers/img/how-to-test_02.png)
+![how-to-test_02.png](https://github.com/howdy39/q-accelerator/blob/master/docs/developers/img/how-to-test_02.png?raw=true)

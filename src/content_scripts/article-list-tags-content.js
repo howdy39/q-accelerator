@@ -1,6 +1,6 @@
 /**
  * 以下のURLで発火
- * http://qiita.com/tags
+ * http://qiita.com/tags/xxxxx
  */
 
 import Util from '../js/util';

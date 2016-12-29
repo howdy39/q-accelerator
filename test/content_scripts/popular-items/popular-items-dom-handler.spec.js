@@ -1,6 +1,9 @@
 import PopularItemsDomHandler from '../../../src/content_scripts/popular-items/popular-items-dom-handler.js';
 
-
+/**
+ * 人気の記事ページ
+ * http://qiita.com/popular-items
+ */
 describe('人気の記事ページ', function () {
 
   before(function () {
@@ -31,12 +34,12 @@ describe('人気の記事ページ', function () {
       expect(this.article.href).to.equal('/kunihirotanaka/items/70d43d48757aea79de2d?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items');
     });
 
-    it('ItemIdが取得できること', function () {
+    it('itemIdが取得できること', function () {
       expect(this.article.itemId).to.equal('70d43d48757aea79de2d');
     });
 
     it('いいね数が取得できること', function () {
-      expect(this.article.likeCount).to.equal('192');
+      expect(this.article.likeCount).to.equal(192);
     });
 
     it('時間が取得できること', function () {

@@ -42,8 +42,8 @@
     },
     {
       "matches": [
-        "http://qiita.com/popular-items*",
-        "https://qiita.com/popular-items*"
+        "http://qiita.com/popular-items",
+        "https://qiita.com/popular-items"
       ],
       "js": ["content_scripts/popular-items-content.js"]
     }
