@@ -27,16 +27,16 @@ Util.getSettings(settings => {
   }
 
   try {
-    if (settings['show-line-number']) {
-      new ShowLineNumberContent().run();
+    if (settings['copy-code']) {
+      new CopyCodeContent().run();
     }
   } catch (e) {
     Util.errorLog(e);
   }
 
   try {
-    if (settings['copy-code']) {
-      new CopyCodeContent().run();
+    if (settings['show-line-number']) {
+      new ShowLineNumberContent().run();
     }
   } catch (e) {
     Util.errorLog(e);

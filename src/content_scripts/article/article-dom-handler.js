@@ -27,7 +27,32 @@ export default class ArticleDomHandler {
     this.article.stockButtons = document.querySelectorAll('div.js-stockButton.StockButton');
 
     // コードフレーム
-    this.article.codeFrames = document.getElementsByClassName('code-frame');
+    const codeFrameElements = Array.from(document.getElementsByClassName('code-frame'));
+    codeFrameElements.forEach(element => {
+      const dataLang = element.getAttribute('data-lang');
+
+      let fileName = '';
+      const fileNameElement = element.querySelector('.code-lang span');
+      // ファイル名が指定されていない場合もある
+      if (fileNameElement) {
+        fileName = fileNameElement.textContent;
+      }
+
+      const codeBaseElement = element.querySelector('.highlight');
+      const codeElement = codeBaseElement.querySelector('pre');
+      const codeText = codeElement.textContent;
+
+      const codeFrame = {
+        baseElement: element,
+        dataLang,
+        fileName,
+        codeBaseElement,
+        codeElement,
+        codeText,
+      };
+
+      this.article.codeFrames.push(codeFrame);
+    }, this);
 
     // コメント部分
     const commentLinkElements = Array.from(document.querySelectorAll('.comment'));
