@@ -227,13 +227,13 @@ describe('他者の記事/いいね済/ストック済', function () {
 });
 
 /**
- * codeFrameのテスト
+ * codeFrame
  * 2番目のコードが javascript:javascriptです
  */
-describe('コピーのテスト', function () {
+describe('codeFrame', function () {
 
   before(function () {
-    document.body.innerHTML = require('./article-mine-codeframe.html');
+    document.body.innerHTML = require('./article-codeframe.html');
     this.handler = new ArticleDomHandler();
     this.article = this.handler.getArticle();
   });
@@ -258,6 +258,29 @@ describe('コピーのテスト', function () {
 -console.log('2行目');
 +console.log('3行目');
 `);
+  });
+
+});
+
+/**
+ * 削除されたコメントの場合、userIdがundefinedであること
+ */
+describe('削除されたコメント', function () {
+
+  before(function () {
+    document.body.innerHTML = require('./article-deleted-comment.html');
+    this.handler = new ArticleDomHandler();
+    this.article = this.handler.getArticle();
+  });
+
+  after(function () {
+    delete this.handler;
+    delete this.article;
+  });
+
+  it('10番目のコメントのuserIdがundefinedであること', function () {
+    const comment = this.article.comments[10 - 1];
+    expect(comment.userId).to.be.undefined;
   });
 
 });
