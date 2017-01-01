@@ -3,7 +3,7 @@
  * http://qiita.com/tags/xxxxx
  */
 
-import Util from '../js/util';
+import Util from '../common/util';
 import MuteUserArticleListTagsContent from './article-list-tags/mute-user-article-list-tags-content.js';
 
 

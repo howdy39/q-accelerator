@@ -1,4 +1,4 @@
-import Util from '../js/util';
+import Util from '../common/util';
 import AutoLikeContent from './article/auto-like-content.js';
 import CopyCodeContent from './article/copy-code-content.js';
 import MuteUserArticleContent from './article/mute-user-article-content.js';

@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Util from '../../../js/util';
+import Util from '../../../common/util';
 
 
 export default function (settings) {

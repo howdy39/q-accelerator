@@ -1,4 +1,4 @@
-import Util from '../../js/util';
+import Util from '../../common/util';
 import ArticleListTagsDomHandler from './article-list-tags-dom-handler.js';
 
 
