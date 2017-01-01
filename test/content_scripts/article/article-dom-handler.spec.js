@@ -225,3 +225,62 @@ describe('他者の記事/いいね済/ストック済', function () {
   });
 
 });
+
+/**
+ * codeFrame
+ * 2番目のコードが javascript:javascriptです
+ */
+describe('codeFrame', function () {
+
+  before(function () {
+    document.body.innerHTML = require('./article-codeframe.html');
+    this.handler = new ArticleDomHandler();
+    this.article = this.handler.getArticle();
+  });
+
+  after(function () {
+    delete this.handler;
+    delete this.article;
+  });
+
+  it('コードが取得できること', function () {
+    expect(this.article.codeFrames.length).to.not.equal(0);
+  });
+
+  it('2番目のコードの情報が取得できること', function () {
+    const codeFrame = this.article.codeFrames[1];
+    expect(codeFrame.baseElement).to.be.not.null;
+    expect(codeFrame.dataLang).to.equal('javascript');
+    expect(codeFrame.fileName).to.equal('javascriptです');
+    expect(codeFrame.codeBaseElement).to.be.not.null;
+    expect(codeFrame.codeElement).to.be.not.null;
+    expect(codeFrame.codeText).to.equal(`console.log('1行目');
+-console.log('2行目');
++console.log('3行目');
+`);
+  });
+
+});
+
+/**
+ * 削除されたコメントの場合、userIdがundefinedであること
+ */
+describe('削除されたコメント', function () {
+
+  before(function () {
+    document.body.innerHTML = require('./article-deleted-comment.html');
+    this.handler = new ArticleDomHandler();
+    this.article = this.handler.getArticle();
+  });
+
+  after(function () {
+    delete this.handler;
+    delete this.article;
+  });
+
+  it('10番目のコメントのuserIdがundefinedであること', function () {
+    const comment = this.article.comments[10 - 1];
+    expect(comment.userId).to.be.undefined;
+  });
+
+});

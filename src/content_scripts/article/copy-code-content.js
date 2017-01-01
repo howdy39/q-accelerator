@@ -26,9 +26,12 @@ export default class CopyCodeContent {
       });
 
       const clipboard = new ClipBoard(button, {
-        text: trigger => {
-          const selectedText = trigger.parentElement.querySelector('.highlight').lastChild.textContent;
-          return this.parseDiffCode(selectedText);
+        text: () => {
+          const diffLangueges = ['diff', 'udiff'];
+          if (!diffLangueges.includes(codeFrame.dataLang.toLowerCase())) {
+            return codeFrame.codeText;
+          }
+          return this.parseDiffCode(codeFrame.codeText, codeFrame.dataLang);
         }
       });
       clipboard.on('success', e => {
@@ -42,7 +45,7 @@ export default class CopyCodeContent {
       });
 
       // コピーボタンをコードの上に追加
-      codeFrame.insertBefore(button, codeFrame.querySelector('.highlight'));
+      codeFrame.baseElement.insertBefore(button, codeFrame.codeBaseElement);
     }
   }
 

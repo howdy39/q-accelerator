@@ -90,11 +90,11 @@ describe('Util.createHistoryEntity()', function () {
     const entity = Util.createHistoryEntity(URL, TITLE, DATE);
     const expectedEntity = {
       'howdy39.35729490b024ca295d6c': {
-        'userId': 'howdy39',
-        'itemKind': 'items',
-        'itemId': '35729490b024ca295d6c',
-        'title': TITLE,
-        'date': DATE
+        userId: 'howdy39',
+        itemKind: 'items',
+        itemId: '35729490b024ca295d6c',
+        title: TITLE,
+        date: DATE
       }
     };
 
@@ -144,11 +144,11 @@ describe('Util.saveHistory()', function () {
       const expectedHistory =
         {
           'howdy39.35729490b024ca295d6c': {
-            'userId': 'howdy39',
-            'itemKind': 'items',
-            'itemId': '35729490b024ca295d6c',
-            'title': TITLE,
-            'date': DATE
+            userId: 'howdy39',
+            itemKind: 'items',
+            itemId: '35729490b024ca295d6c',
+            title: TITLE,
+            date: DATE
           }
         };
 
@@ -163,11 +163,11 @@ describe('Util.saveHistory()', function () {
     beforeEach(function () {
       savedHitories = {
         'howdy39.3b2b14ce73ec44c54f7b': {
-          'userId': 'howdy39',
-          'itemKind': 'items',
-          'itemId': '3b2b14ce73ec44c54f7b',
-          'title': 'GoogleのWebAPI設計とWebAPI設計のベストプラクティスを比較してみる',
-          'date': '1479563912537'
+          userId: 'howdy39',
+          itemKind: 'items',
+          itemId: '3b2b14ce73ec44c54f7b',
+          title: 'GoogleのWebAPI設計とWebAPI設計のベストプラクティスを比較してみる',
+          date: '1479563912537'
         }
       };
     });
@@ -177,11 +177,11 @@ describe('Util.saveHistory()', function () {
         savedHitories,
         {
           'howdy39.35729490b024ca295d6c': {
-            'userId': 'howdy39',
-            'itemKind': 'items',
-            'itemId': '35729490b024ca295d6c',
-            'title': TITLE,
-            'date': DATE
+            userId: 'howdy39',
+            itemKind: 'items',
+            itemId: '35729490b024ca295d6c',
+            title: TITLE,
+            date: DATE
           }
         }
       );
@@ -196,11 +196,11 @@ describe('Util.saveHistory()', function () {
       const NEW_DATE = '1479563999999';
       const expectedHistory = {
         'howdy39.3b2b14ce73ec44c54f7b': {
-          'userId': 'howdy39',
-          'itemKind': 'items',
-          'itemId': '3b2b14ce73ec44c54f7b',
-          'title': NEW_TITLE,
-          'date': NEW_DATE
+          userId: 'howdy39',
+          itemKind: 'items',
+          itemId: '3b2b14ce73ec44c54f7b',
+          title: NEW_TITLE,
+          date: NEW_DATE
         }
       };
 
@@ -211,12 +211,105 @@ describe('Util.saveHistory()', function () {
 
   });
 
+  describe('履歴が1010件ある場合', function () {
+
+    beforeEach(function () {
+      // savedHitories = {};
+
+      for (let i = 0; i < 1010; i++) {
+        let userId = `userId${i}`;
+        let itemId = `itemId${i}`;
+        let key = `${userId}.${itemId}`;
+
+        let itemKind = 'items';
+        let title = `title${i}`;
+        let date = (new Date()).getTime() + getRandomArbitary(0, 100 * 24 * 60 * 1000); // 1ヶ月間
+        savedHitories[key] = {
+          userId,
+          itemKind,
+          itemId,
+          title,
+          date,
+        };
+      }
+
+      function getRandomArbitary(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+    });
+
+    it('最大件数1000件以上保存しないこと', function () {
+      const HISTORY_URL = 'http://qiita.com/howdy39/items/3b2b14ce73ec44c54f7b';
+      const NEW_TITLE = 'GoogleのWebAPI設計とWebAPI設計のベストプラクティスを比較してみる----変更';
+      const NEW_DATE = '1479563999999';
+
+      Util.saveHistory(HISTORY_URL, NEW_TITLE, NEW_DATE);
+
+      const historyArg = this.saveHistoriesStub.firstCall.args[0];
+      expect(Object.keys(historyArg)).to.have.lengthOf(1000);
+    });
+
+  });
+
   it('callbackを渡した場合に呼ばれること', function () {
     const callback = sinon.spy(function () {});
 
     Util.clearHistories(callback);
 
-    expect(callback.called).to.equal(true);
+    expect(callback.called).to.be.true;
+  });
+
+});
+
+
+describe('Util.removeOldHistories()', function () {
+  let savedHitories;
+
+  beforeEach(function () {
+    this.getHistoriesStub = sinon.stub(
+      ChromeStorage,
+      'getHistories',
+      (callback) => {
+        callback(savedHitories);
+      }
+    );
+
+    this.savedHitories = {
+      'howdy39.notold01': {
+        userId: 'howdy39',
+        itemKind: 'items',
+        itemId: 'notold01',
+        title: '古くない記事01',
+        date: '1479563912510'
+      },
+      'howdy39.old': {
+        userId: 'howdy39',
+        itemKind: 'items',
+        itemId: 'old',
+        title: '古い記事',
+        date: '1479563912500'
+      },
+      'howdy39.notold02': {
+        userId: 'howdy39',
+        itemKind: 'items',
+        itemId: 'notold02',
+        title: '古くない記事02',
+        date: '1479563912520'
+      }
+    };
+  });
+
+  afterEach(function () {
+    ChromeStorage.getHistories.restore();
+  });
+
+  it('古い記事が削除されること', function () {
+    const histories = Util.removeOldHistories(this.savedHitories, 2);
+    expect(Object.keys(histories)).to.have.lengthOf(2, 'length');
+    expect(histories['howdy39.notold01']).to.not.be.equal(undefined, 'howdy39.notold01');
+    expect(histories['howdy39.old']).to.be.equal(undefined, 'howdy39.old');
+    expect(histories['howdy39.notold02']).to.not.be.equal(undefined, 'howdy39.notold02');
   });
 
 });
@@ -243,7 +336,7 @@ describe('Util.getHistories()', function () {
 
     Util.getHistories(callback);
 
-    expect(callback.called).to.equal(true);
+    expect(callback.called).to.be.true;
   });
 
 });
@@ -270,7 +363,7 @@ describe('Util.clearHistories()', function () {
 
     Util.clearHistories(callback);
 
-    expect(callback.called).to.equal(true);
+    expect(callback.called).to.be.true;
   });
 
 });
@@ -302,7 +395,7 @@ describe('Util.getSettings()', function () {
 
       Util.getSettings(callback);
 
-      expect(callback.called).to.equal(true);
+      expect(callback.called).to.be.true;
     });
 
     it('デフォルト設定で上書きされること', function () {

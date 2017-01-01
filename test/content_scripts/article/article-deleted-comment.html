@@ -1,0 +1,1223 @@
+<html xmlns:og="http://ogp.me/ns#"><head><meta charset="UTF-8"><title>プログラミング勉強を加速させる7つの習慣 - Qiita</title><meta content="width=device-width,initial-scale=1" name="viewport"><meta content="株式会社LITALICOでWebエンジニア（Rails）を担当しています、@YudaiTsukamotoです。
+この記事は『LITALICO Advent Calendar 2016』16日目の記事です。
+
+
+はじめに
+
+私は学生時代は情報工学の専攻でもなければ、趣味でプログラミングをやっていたわけでもなく、
+社会人になってWebエンジニアとして初めてまともにプログラミングを勉強し始めました。
+
+入社するまでに独学で勉強の真似事をしてはいましたが、そもそもどうやって勉強..." name="description"><meta content="summary" name="twitter:card"><meta content="@Qiita" name="twitter:site"><meta content="プログラミング勉強を加速させる7つの習慣 - Qiita" property="og:title"><meta content="article" property="og:type"><meta content="http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd" property="og:url"><meta content="http://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png" property="og:image"><meta content="株式会社LITALICOでWebエンジニア（Rails）を担当しています、@YudaiTsukamotoです。
+この記事は『[LITALICO Advent Calendar 2016](http://qiita.com/advent..." property="og:description"><meta content="Qiita" property="og:site_name"><meta content="564524038" property="fb:admins"><link rel="shortcut icon" type="image/x-icon" href="http://cdn.qiita.com/assets/favicons/public/production-4ff10c1e1e2b5fcb353ff9cafdd56c70.ico"><link rel="apple-touch-icon" type="image/png" href="http://cdn.qiita.com/assets/favicons/public/apple-touch-icon-f9a6afad761ec2306e10db2736187c8b.png"><link href="/opensearch.xml" rel="search" title="Qiita" type="application/opensearchdescription+xml"><link rel="stylesheet" media="all" href="http://cdn.qiita.com/assets/public-d59f1d079544834f9742667c45f5b2a0.min.css"><meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style><script type="text/javascript" async="" src="//in.treasuredata.com/js/v3/event/6638/pageviews?api_key=4633%2F44ab22321675f37f93c94f1c53265720999626e1&amp;data=eyJxaWl0YV9zZWFyY2hfY2F0ZWdvcmllcyI6IuaWsOS6uuODl%2BODreOCsOODqeODnuW%2FnOaPtCzliJ3lv4PogIUs5YuJ5by3LFJ1YnksUmFpbHMiLCJpbWlkIjoiRlNpdDZuclpTMm0ybHJ0QllCd3NmUSIsInNlZ21lbnRfZWlkcyI6IjJ1NEVENDhtNXlRfHR6VVpkSFBESUFzfEM1K0JtbzVrLzNrfDdUajJ6TUdzT284IiwidGRfY2xpZW50X2lkIjoiMDBmNjc2MTItNjE0My00OGI3LWEzY2UtM2Q2YmViNzgzZjZkIiwidGRfY2hhcnNldCI6InV0Zi04IiwidGRfbGFuZ3VhZ2UiOiJqYSIsInRkX2NvbG9yIjoiMjQtYml0IiwidGRfc2NyZWVuIjoiMTQ0MHg5MDAiLCJ0ZF90aXRsZSI6IuODl%2BODreOCsOODqeODn%2BODs%2BOCsOWLieW8t%2BOCkuWKoOmAn%2BOBleOBm%2BOCizfjgaTjga7nv5LmhaMgLSBRaWl0YSIsInRkX3VybCI6Imh0dHA6Ly9xaWl0YS5jb20vWXVkYWlUc3VrYW1vdG8vaXRlbXMvNDJhOGRmMjJjYTRjNmIzMjdkZmQiLCJ0ZF9ob3N0IjoicWlpdGEuY29tIiwidGRfcGF0aCI6Ii9ZdWRhaVRzdWthbW90by9pdGVtcy80MmE4ZGYyMmNhNGM2YjMyN2RmZCIsInRkX3JlZmVyZXIiOiIiLCJ0ZF9pcCI6InRkX2lwIiwidGRfYnJvd3NlciI6InRkX2Jyb3dzZXIiLCJ0ZF9icm93c2VyX3ZlcnNpb24iOiJ0ZF9icm93c2VyX3ZlcnNpb24iLCJ0ZF9vcyI6InRkX29zIiwidGRfb3NfdmVyc2lvbiI6InRkX29zX3ZlcnNpb24iLCJ0ZF92aWV3cG9ydCI6Ii0ifQ%3D%3D&amp;modified=1483243195028&amp;callback=TDIM.callback.tij14832431950282069.td_callback"></script><script type="text/javascript" async="" src="//sync.im-apps.net/imid/segment?token=omO0CDJd98sxiIkb8Mzm7Q&amp;callback=TDIM.callback.tij14832431950282069.im_callback"></script><script async="" src="//cf.im-apps.net/sdk/tdim-0.11.2.js"></script><script async="" src="//static.ads-twitter.com/uwt.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-5SNCW4&amp;l=itm_dl1"></script><script type="text/javascript" async="" src="http://cnt.fout.jp/segapi/audience?callback=_itm_.sa_cb&amp;cvid=mHDmdffSCFxfWgmjsQ"></script><script async="" src="//dmp.im-apps.net/js/6638/0001/itm.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-58Z82M"></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ja.eY01mKC_upg.O/m=auth/exm=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCO6Rpz4bNsJKoxktucPXBZsKfVbUQ/cb=gapi.loaded_1" async=""></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ja.eY01mKC_upg.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCO6Rpz4bNsJKoxktucPXBZsKfVbUQ/cb=gapi.loaded_0" async=""></script><script type="text/javascript" charset="utf-8" async="" src="https://platform.twitter.com/js/button.3943c052be33b5e812dac6838df9cb3d.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head><body class=" with-js"><noscript>&lt;iframe height="0" src="//www.googletagmanager.com/ns.html?id=GTM-TBQWPN" style="display:none;visibility:hidden" width="0"&gt;&lt;/iframe&gt;</noscript><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-TBQWPN"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script async="" src="//cdn.optimizely.com/js/52738645.js" id="optimizely-jssdk"></script><script async="" src="http://www.google-analytics.com/ga.js" id="google-analytics-jssdk"></script><script async="" src="//platform.twitter.com/widgets.js" id="twitter-jssdk"></script><script async="" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=222621691108322" id="facebook-jssdk"></script><script async="" src="//apis.google.com/js/plusone.js" id="google-plusone-jssdk" gapi_processed="true"></script><script async="" src="//widgets.getpocket.com/v1/j/btn.js?v=1" id="pocket-btn-js"></script><script>
+  document.body.className = document.body.className.replace('without-js', '') + ' with-js';
+  window.Qiita = {"asset_host":"cdn.qiita.com","TLD":"com","controller_path":"public/items","controller_action":"public/items#show","controller":"items","action":"show","env":"production","flash":{},"is_landing_page":false,"is_team_page":false,"root_domain":"qiita.com","variant":null,"config":{"mixpanel":{"career":"dd35af27e959781713d63fd7ca898a8d","per_team":"c0a2116368b33b44b5029ebd2cc9b094","public":"be87616606b0e26a87689099aab2c4e5","team":"b7c0342acba2dbc8742484d98788efb3"},"default_locale":"ja","locale":"ja"},"team":null,"user":{"id":35595,"url_name":"howdy39","profile_image_url":"https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778","email":"tatsuya.howdy@gmail.com","staff":false},"GIT_BRANCH":null,"DEBUG":false};
+
+  /* You are logged in */
+</script>
+<div class="headerContainer headerContainer-public" role="navigation"><div data-react-class="T.HeaderContainer" data-react-props="{&quot;user&quot;:{&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778&quot;,&quot;team_only&quot;:false,&quot;teams&quot;:[],&quot;url_name&quot;:&quot;howdy39&quot;},&quot;team&quot;:null,&quot;news&quot;:{&quot;type&quot;:&quot;News&quot;,&quot;content&quot;:&quot;ストックの他に「いいね」が追加されました&quot;,&quot;url&quot;:&quot;http://blog.qiita.com/post/153200849029/qiita-like-button&quot;},&quot;initial_unread_count&quot;:0,&quot;siteid_image&quot;:&quot;http://cdn.qiita.com/siteid-reverse.png&quot;,&quot;is_team_page&quot;:false,&quot;on_team_setting&quot;:false,&quot;show_post_menu&quot;:true,&quot;show_search_menu&quot;:true,&quot;is_fluid&quot;:false,&quot;locale&quot;:&quot;ja&quot;}"><header data-reactroot="" class="sharedHeader sharedHeader-public"><div class="sharedHeader_inner"><div class="sharedHeader_left"><span class="sharedHeader_logo open"><a class="sharedHeader_logo_main" href="/"><span class="sharedHeader_logo_figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 26"><title>Qiita</title><path d="M24.6 12.2C24.6 6.2 20 0 12.2 0 6.2 0 0 4.6 0 12.4c0 6 4.6 12.2 12.4 12.2 2.5 0 5-.8 7.1-2.3l3.6 3.6 1.6-1.6-3.4-3.4c2.1-2.3 3.3-5.3 3.3-8.7zm-12.4-10c5.7 0 10.2 4.4 10.2 10.1 0 4.9-3.8 10.1-10.1 10.1s-10.1-5.1-10.1-10c0-6.4 5.1-10.2 10-10.2zM30.5 7.1h2.1v17h-2.1zM31.5 4.8c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM40 4.8c-1 0-1.8-.8-1.8-1.8S39 1.2 40 1.2s1.8.8 1.8 1.8S41 4.8 40 4.8zM39 7.1h2.1v17H39zM53.7 24.4c-3.9 0-6.2-3-6.2-6v-16h2.1v4.7H57v2.1h-7.4v9.3c0 1.9 1.5 3.9 4.1 3.9.7 0 1.4-.2 2-.6l.2-.1 1 1.8-.2.1c-.9.5-2 .8-3 .8zM67.6 24.5c-5.7 0-9.1-4.5-9.1-8.9 0-5.7 4.5-9.1 8.9-9.1 2.3 0 4.1.8 5.4 2.3V7.1h2.1v17h-2.1v-1.9c-1.2 1.5-3 2.3-5.2 2.3zm-.2-15.9c-3.4 0-6.8 2.6-6.8 7 0 3.4 2.6 6.8 7 6.8 2 0 4-.9 5.3-2.5v-8.8c-1.4-1.6-3.3-2.5-5.5-2.5z"></path></svg></span></a></span><form class="navbar-form navbar-left searchForm" action="/search" method="get"><div class="searchForm_queryWrapper"><input class="form-control searchForm_query" placeholder="キーワードを入力" autocomplete="off" name="q" value=""><div class="searchForm_wiseSearchButton"><i class="fa fa-caret-down"></i></div></div></form><div class="navbar-text headerNews hidden-xs hidden-sm"><div class="headerNews_label label label-warning">News</div><a class="navbar-link" target="_blank" href="http://blog.qiita.com/post/153200849029/qiita-like-button">ストックの他に「いいね」が追加されました</a></div></div><div class="sharedHeader_right"><div class="sharedHeader_searchIcon"><a data-toggle="modal" data-target="#js-searchModal"><i class="fa fa-search"></i></a></div><div class="sharedHeader_searchModal in modal fade" aria-hidden="false" id="js-searchModal"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><form action="/search" method="get"><input type="hidden" name="sort" id="sort" value="rel"><div class="row"><div class="col-xs-9"><input type="text" name="q" id="q" class="form-control"></div><div class="col-xs-3"><input type="submit" name="commit" value="Search" class="btn btn-default btn-sm"></div></div></form></div></div></div></div><div class="sharedHeader_newItem btn-group"><a class="sharedHeader_newItem_btn sharedHeader_newItem_post btn" href="/drafts/new"><i class="fa fa-lg fa-edit"></i><!-- react-text: 36 -->投稿する<!-- /react-text --></a><a class="sharedHeader_newItem_btn dropdown-toggle btn"><i class="fa fa-caret-down"></i><span class="sharedHeader_newItem_xsEdit"><i class="fa fa-edit"></i></span></a></div><div class="sharedHeader_stockItems"><a href="/howdy39/stock">ストック一覧</a></div><div class="sharedHeader_stockItems_xsStock"><a href="/howdy39/stock" title="ストック一覧"><i class="fa fa-folder"></i></a></div><div class="sharedHeader_notifications"><div class="globalNotifications open active"><div class="globalNotifications__surface"><div class="globalNotifications_count">0</div></div></div></div><div class="sharedHeader_user open"><a class="sharedHeader_user_clickable"><img class="sharedHeader_user_image" src="https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778" width="32" height="32"></a></div></div></div></header></div></div><div id="main"><ol class="itemBreadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">Qiita</span></a><meta content="1" itemprop="position"></li><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="/items"><span itemprop="name">投稿</span></a><meta content="2" itemprop="position"></li><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="/tags/%E6%96%B0%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E5%BF%9C%E6%8F%B4"><span itemprop="name">新人プログラマ応援</span></a><meta content="3" itemprop="position"></li></ol><article itemscope="" itemtype="http://schema.org/Article"><div class="ArticleMainHeader ArticleMainHeader--adcalItem"><div class="container"></div><div class="container"><div class="row s-flex-align-center"><div class="col-sm-9"><div class="adventCalendarRibbon"><span><a class="adventCalendarRibbon_title" href="/advent-calendar/2016/litalico">LITALICO Engineers Advent Calendar 2016</a> 16日目</span></div><h1 class="ArticleMainHeader__title">プログラミング勉強を加速させる7つの習慣</h1><ul class="list-unstyled list-inline itemsShowHeaderTags"><li class="itemsShowHeaderTags_list"><div class="tagIcon"><a class="tagIcon_base" href="/tags/%E6%96%B0%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E5%BF%9C%E6%8F%B4"><img alt="新人プログラマ応援" class="tagIcon_img" src="https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/e3a7d38ea9ccda7a71581ce15e198848ce076344/medium.jpg?1468383759"><div class="tagIcon_name">新人プログラマ応援</div><div class="tagIcon_count">714</div></a></div></li><li class="itemsShowHeaderTags_list"><div class="tagIcon"><a class="tagIcon_base" href="/tags/%E5%88%9D%E5%BF%83%E8%80%85"><img alt="初心者" class="tagIcon_img" src="https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/f9384932787d996b6e1ed26d7d0b2bc2a9e36441/medium.jpg?1443704516"><div class="tagIcon_name">初心者</div><div class="tagIcon_count">913</div></a></div></li><li class="itemsShowHeaderTags_list"><div class="tagIcon"><a class="tagIcon_base" href="/tags/%E5%8B%89%E5%BC%B7"><img alt="勉強" class="tagIcon_img" src="//cdn.qiita.com/assets/icons/medium/missing.png"><div class="tagIcon_name">勉強</div><div class="tagIcon_count">20</div></a></div></li><li class="itemsShowHeaderTags_list"><div class="tagIcon"><a class="tagIcon_base" href="/tags/Ruby"><img alt="Ruby" class="tagIcon_img" src="https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/0337fbcbff62fb8fa5d0b8be5c3b47d1115d91fc/medium.jpg?1418548649"><div class="tagIcon_name">Ruby</div><div class="tagIcon_count">12497</div></a></div></li><li class="itemsShowHeaderTags_list"><div class="tagIcon"><a class="tagIcon_base" href="/tags/Rails"><img alt="Rails" class="tagIcon_img" src="https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/29d584e9711703aac7746835fd835132398da6de/medium.jpg?1478447198"><div class="tagIcon_name">Rails</div><div class="tagIcon_count">8039</div></a></div></li></ul></div><div class="col-sm-3"><div class="itemsShowHeaderStock"><ul class="list-unstyled itemsShowHeaderStock_statusList"><li><div class="itemsShowHeaderStock_count stock"><span class="fa fa-thumbs-up"></span><span class="js-likecount">997</span></div><div class="itemsShowHeaderStock_countText">いいね</div></li><li><div class="itemsShowHeaderStock_count" content="14 UserComments" itemprop="interactionCount"><span class="fa fa-comment"></span>14</div><div class="itemsShowHeaderStock_countText">コメント</div></li></ul></div><div class="js-likebutton" data-props="{&quot;like_status&quot;:true,&quot;like_count&quot;:997,&quot;uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable_type&quot;:&quot;Article&quot;,&quot;position&quot;:&quot;article-header&quot;}"><div data-reactroot="" class="LikeButton"><button class="p-button  liked"><span class="fa fa-fw fa-check"></span><span>いいね済み</span></button></div></div><ul class="list-inline ArticleMainHeader__users"><li class="js-hovercard" data-hovercard-target-name="tomotomospot"><a itemprop="url" href="/tomotomospot"><img alt="tomotomospot" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/47901/profile-images/1480057756"></a></li><li class="js-hovercard" data-hovercard-target-name="taka_f0807"><a itemprop="url" href="/taka_f0807"><img alt="taka_f0807" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/117066/profile-images/1473713465"></a></li><li class="js-hovercard" data-hovercard-target-name="Shagamii"><a itemprop="url" href="/Shagamii"><img alt="Shagamii" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/129548/profile-images/1473717594"></a></li><li class="js-hovercard" data-hovercard-target-name="momim9"><a itemprop="url" href="/momim9"><img alt="momim9" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/131043/profile-images/1474882676"></a></li><li class="js-hovercard" data-hovercard-target-name="nulltypo"><a itemprop="url" href="/nulltypo"><img alt="nulltypo" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/91479/profile-images/1477927109"></a></li><li class="js-hovercard" data-hovercard-target-name="dhammapada@github"><a itemprop="url" href="/dhammapada@github"><img alt="dhammapada@github" class="thumb thumb--xs" src="https://secure.gravatar.com/avatar/09b4b2a828d73cd271c81cb427499258?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"></a></li><li class="js-hovercard" data-hovercard-target-name="yusukearioka"><a itemprop="url" href="/yusukearioka"><img alt="yusukearioka" class="thumb thumb--xs" src="https://avatars.githubusercontent.com/u/18496519?v=3"></a></li><li class="js-hovercard" data-hovercard-target-name="GushiSnow"><a itemprop="url" href="/GushiSnow"><img alt="GushiSnow" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/10496/profile-images/1473757289"></a></li><li class="js-hovercard" data-hovercard-target-name="kentya6"><a itemprop="url" href="/kentya6"><img alt="kentya6" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/2037/profile-images/1473684185"></a></li><li class="js-hovercard" data-hovercard-target-name="Takuan_Oishii"><a itemprop="url" href="/Takuan_Oishii"><img alt="Takuan_Oishii" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/48596/profile-images/1473691406"></a></li><li><a href="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/likers"><span class="fa fa-ellipsis-h"></span></a></li></ul></div></div></div></div><div class="ArticleAsideHeader"><div class="container"><div class="u-flex u-space-between"><div class="u-flex u-flex-wrap"><div class="u-flex u-align-center s-pdv-5 u-flex-wrap"><div class="ArticleAsideHeader__author"><a href="/YudaiTsukamoto"><img class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457" alt="1481814457"></a> <a class="u-link-unstyled" href="/YudaiTsukamoto">YudaiTsukamoto</a> </div><div class="ArticleAsideHeader__date"><span data-toggle="tooltip" title="" data-original-title="2016年12月16日に投稿"><time datetime="2016-12-21T14:10:37+09:00" itemprop="dateModified">2016年12月21日</time>に更新</span></div></div><div class="u-flex u-align-center s-pdv-5 mobile-hidden"><div class="ArticleAsideHeader__revision"> <a data-toggle="tooltip" title="" href="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/revisions" data-original-title="編集履歴"><span class="fa fa-history"></span></a><span class="ArticleAsideHeader__revisionCount">7</span></div></div><div class="u-flex u-align-center s-pdv-5 mobile-hidden"></div></div><div class="u-flex u-align-center s-flex-justiry-between s-pdv-5 u-shrink-0"><div class="ArticleAsideHeader__stock"><div class="js-stockButton StockButton" data-counter="" data-path="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd" data-position="top" data-uuid="42a8df22ca4c6b327dfd"><form class="button_to" method="post" action="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/stock"><button class="StockButton__stock" type="submit"><div class="fa-stack fa-lg"><span class="fa fa-folder-open fa-stack-1x unstock"></span></div><span class="StockButton__label">ストック</span></button><input type="hidden" name="authenticity_token" value="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="></form><form class="button_to" method="post" action="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/unstock"><button class="StockButton__unstock" data-toggle="tooltip" title="" type="submit" data-original-title="ストック済み"><div class="fa-stack fa-lg"><span class="fa fa-folder fa-stack-1x"></span><span class="fa fa-check fa-stack-1x fa-inverse"></span></div><span class="StockButton__label">ストック</span></button><input type="hidden" name="authenticity_token" value="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="></form></div></div><div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-ellipsis-h fa-lg"></span></a><ul class="dropdown-menu dropdown-menu-right"><li class="dropdown__item--mobile"><a href="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/revisions"><span class="fa fa-fw fa-history"></span> 編集履歴<span>(7)</span></a></li><li><a href="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd.md"><span class="fa fa-fw fa-file-text-o"></span> Markdownで本文を見る</a></li><li><a data-target=".js-report-form" data-toggle="modal" href="#"><span class="fa fa-fw fa-flag"></span> 問題がある投稿を報告する</a></li></ul></div></div></div></div></div><div class="container"><div class="row" id="article-body-wrapper" style="position: relative;"><div class="col-sm-9"><section class="markdownContent markdownContent-headingEnabled js-task-list-container clearfix position-relative" id="item-42a8df22ca4c6b327dfd" itemprop="articleBody"><p>株式会社LITALICOでWebエンジニア（Rails）を担当しています、<a href="/YudaiTsukamoto" class="user-mention js-hovercard" title="YudaiTsukamoto" data-hovercard-target-type="user" data-hovercard-target-name="YudaiTsukamoto">@YudaiTsukamoto</a>です。<br>
+この記事は『<a href="http://qiita.com/advent-calendar/2016/litalico">LITALICO Advent Calendar 2016</a>』16日目の記事です。</p>
+
+<h1>
+<span id="はじめに" class="fragment"></span><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><i class="fa fa-link"></i></a>はじめに</h1>
+
+<p>私は学生時代は情報工学の専攻でもなければ、趣味でプログラミングをやっていたわけでもなく、<br>
+社会人になってWebエンジニアとして<strong>初めてまともにプログラミングを勉強</strong>し始めました。</p>
+
+<p>入社するまでに独学で勉強の真似事をしてはいましたが、そもそもどうやって勉強していいのか全然わからず、<br>
+本を読んで写経をして<strong>何故だか理由はよくわからないが動作してしまう</strong>ミニブログを眺めては、ため息を付いて挫折を繰り返しておりました。</p>
+
+<p>そんな初心者だった自分が、Webエンジニアとして食べていくために本気で努力して身につけたノウハウを、<br>
+<strong>「プログラミング勉強を加速させる7つの習慣」</strong><br>
+という、某世界的ベストセラーのビジネス書をオマージュした形でお送りしたいと思います。</p>
+
+<h1>
+<span id="プログラミング勉強を加速させる7つの習慣" class="fragment"></span><a href="#%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%8B%89%E5%BC%B7%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B%E3%82%8B7%E3%81%A4%E3%81%AE%E7%BF%92%E6%85%A3"><i class="fa fa-link"></i></a>プログラミング勉強を加速させる7つの習慣</h1>
+
+<ol>
+<li><a href="#1-%E5%8B%89%E5%BC%B7%E3%81%99%E3%82%8B%E6%8A%80%E8%A1%93%E5%88%86%E9%87%8E%E3%82%92%E7%B5%9E%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B">勉強する技術分野を絞ることから始める</a></li>
+<li><a href="#2-%E3%81%BE%E3%81%9A%E7%90%86%E8%A7%A3%E3%81%97%E3%81%9F%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B">まず「理解した」を定義する</a></li>
+<li><a href="#3-%E6%83%85%E5%A0%B1%E3%81%AE%E4%BF%A1%E9%A0%BC%E6%80%A7%E3%82%92%E5%84%AA%E5%85%88%E3%81%99%E3%82%8B">情報の信頼性を優先する</a></li>
+<li><a href="#4-%E5%8B%89%E5%BC%B7%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%82%92%E8%A1%8C%E3%81%AA%E3%81%86">勉強のためにデバッグを行なう</a></li>
+<li><a href="#5-%E8%89%AF%E3%81%8D%E4%BB%B2%E9%96%93%E3%82%92%E4%BD%9C%E3%82%8A%E3%80%81%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%81%97%E5%90%88%E3%81%86">良き仲間を作り、レビューし合う</a></li>
+<li><a href="#6-%E6%88%90%E6%9E%9C%E7%89%A9%E3%82%92%E4%BD%9C%E3%82%8A%E5%87%BA%E3%81%99">成果物を作り出す</a></li>
+<li><a href="#7-%E4%BD%93%E3%82%92%E9%8D%9B%E3%81%88%E3%82%8B">体を鍛える</a></li>
+</ol>
+
+<h2>
+<span id="1-勉強する技術分野を絞ることから始める" class="fragment"></span><a href="#1-%E5%8B%89%E5%BC%B7%E3%81%99%E3%82%8B%E6%8A%80%E8%A1%93%E5%88%86%E9%87%8E%E3%82%92%E7%B5%9E%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B"><i class="fa fa-link"></i></a>1. 勉強する技術分野を絞ることから始める</h2>
+
+<p>一口にプログラミングと言っても、学ぶべき技術分野は多岐に渡ります。<br>
+Webに話を限定したとしても、</p>
+
+<ul>
+<li>HTML,CSS,JavaScript等のクライアントサイドプログラミング</li>
+<li>Ruby on Rails等のサーバーサイドプログラミング</li>
+<li>MySQL等のデータベースの知識</li>
+<li>Linux,Apache等のサーバー構築に関する知識</li>
+<li>ソフトウェアテストやGit等のバージョン管理等などのツールや手法の知識</li>
+</ul>
+
+<p>などなど、数え上げたら学習すべき知識はキリがありません。時間は有限で、全ての技術を学習することなど土台不可能です。<br>
+<strong>意識的に自分にとって必要な技術分野を絞る</strong>事は、プログラミング勉強を加速させる上で大切な習慣なのです。</p>
+
+<h3>
+<span id="学ぶ分野の全体感を把握する" class="fragment"></span><a href="#%E5%AD%A6%E3%81%B6%E5%88%86%E9%87%8E%E3%81%AE%E5%85%A8%E4%BD%93%E6%84%9F%E3%82%92%E6%8A%8A%E6%8F%A1%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>学ぶ分野の全体感を把握する</h3>
+
+<p>初心者の人や新しい分野の勉強を始める人が陥りやすい事は、<br>
+<strong>そもそも何を勉強するべきなのかの全体像がつかめず、学習が続かなくなってしまう</strong>事なのではないでしょうか。</p>
+
+<p>「Rubyの本を読んだけど、何も作れる気がしない」<br>
+「プログラミングスクールに通ってみたけど、期間が終わってしまったら次に何をすればいいかわからない」</p>
+
+<p>などの経験は実際に私も沢山ありました。<br>
+必要な要素がわからないまま闇雲に勉強をするのは苦痛が伴いますし、無駄な遠回りをして挫折しやすくなってしまいます。<br>
+したがって、勉強を始めるときのファーストステップは<strong>その分野で何を学ぶ必要が有るのかを把握すること</strong>であるべきと考えています。</p>
+
+<p>例えばWebサービスを作りたいのであれば、技術評論社が出版している<a href="https://www.amazon.co.jp/product-reviews/4774163678/ref=cm_cr_dp_see_all_btm?ie=UTF8&amp;reviewerType=all_reviews&amp;showViewpoints=1&amp;sortBy=recent" rel="nofollow noopener" target="_blank">Webアプリエンジニア養成読本</a>や<a href="https://www.amazon.co.jp/Web-33-Software-Design-plus/dp/4774154075/ref=tmm_pap_swatch_0?_encoding=UTF8&amp;qid=&amp;sr=" rel="nofollow noopener" target="_blank">Webサービスのつくり方 ~「新しい」を生み出すための33のエッセイ</a>。<br>
+RailsでWebアプリケーションを作れるようになりたいのであれば<a href="http://railstutorial.jp/?version=5.0#walk-through" rel="nofollow noopener" target="_blank">RailsTutorial</a>。<br>
+など、対象とする技術分野の全体像をひとまとめにしている資料を探し、それらを一通り流して読んでみることです。<br>
+重要な事は、ココでしっかりと読み込む事ではなくあくまで<strong>どんな知識が必要なのか？をはっきりさせる</strong>事なのです。</p>
+
+<h3>
+<span id="勉強する項目を必要最小限に絞る" class="fragment"></span><a href="#%E5%8B%89%E5%BC%B7%E3%81%99%E3%82%8B%E9%A0%85%E7%9B%AE%E3%82%92%E5%BF%85%E8%A6%81%E6%9C%80%E5%B0%8F%E9%99%90%E3%81%AB%E7%B5%9E%E3%82%8B"><i class="fa fa-link"></i></a>勉強する項目を必要最小限に絞る</h3>
+
+<p>全体像がわかった所で、多くの人は時間的な制約があるためそのまま全部を学ぶ事はできません。<br>
+時間が無いからといって広く浅く全体をかじるように勉強するという方法もあるにはありますが、<br>
+いつまでたっても<strong>自分で物を作る為に必要な水準のスキル</strong>を獲得することができないためあまりオススメできません。</p>
+
+<p>またプログラミングの世界は分野が違っていても通じる考え方や原理原則が多数存在し、<br>
+一つの分野をある程度深いレベルまで学習することで<strong>他の分野を学習するときの手助けになる</strong>ことも多いため、トータルで効率的に勉強を進めることが出来ます。</p>
+
+<p>例えば、１人でWebサービスの開発ができるようになりたいと考えている人がいたとしたら、</p>
+
+<ul>
+<li>デザインについてはbootstrapがあるので一旦HTML, CSS, JavaScriptについての本格的な勉強はしない。</li>
+<li>Herokuがあるのでインフラに関する本格的な勉強は一旦しない。</li>
+<li>アプリケーションを作る為に必要なRuby, Rails, MySQLの勉強は徹底的にする。</li>
+<li>実運用や開発の効率化を考えて、ソフトウェアテストやGit等のツールやスキルは勉強する。</li>
+</ul>
+
+<p>など、置かれている状況やかけられる時間を考えて自分にとって絶対に必要な技術要素を絞っていきます。</p>
+
+<p>大事なのは、<strong>現時点で絶対に必要な技術要素を必要な水準まで勉強しきる</strong>事です。</p>
+
+<h3>
+<span id="分野ごとに集中的に学習する" class="fragment"></span><a href="#%E5%88%86%E9%87%8E%E3%81%94%E3%81%A8%E3%81%AB%E9%9B%86%E4%B8%AD%E7%9A%84%E3%81%AB%E5%AD%A6%E7%BF%92%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>分野ごとに集中的に学習する</h3>
+
+<p>対象となる学習分野は同時並行的に学習するよりも、学習分野をしっかりと分けて集中的に勉強する事をオススメします。<br>
+Ruby on Railsを題材にして、こちらのコードを例に説明します。</p>
+
+<div class="code-frame" data-lang="ruby"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">scope</span> <span class="ss">:published</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="s1">'open_at &lt;= ?'</span><span class="p">,</span> <span class="no">Time</span><span class="o">.</span><span class="n">zone</span><span class="o">.</span><span class="n">now</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</pre></div></div>
+
+<p>上記はRailsの<code>generate</code>コマンドで生成された<code>Article</code>モデルのコードで、<code>published</code>という名前のスコープが実装されています。<code>Article.published</code>と、<code>Article</code>クラスから<code>published</code>メソッドを呼び出すことによって、スコープに定義された条件に基づいて<code>Article</code>クラスのオブジェクトの配列が取得されます(厳密にはちょっと違いますが)。</p>
+
+<p>このたった3行のコードの中にはRuby, Rails, RDBMSの別々の知識が無いと以下の質問に対して答えることが出来ません。</p>
+
+<ul>
+<li>
+<code>ActiveRecord::Base</code>って何。<code>::</code>って何これ。顔文字？</li>
+<li>scopeって何。何をしているものなの？どうして<code>Article.published</code>で呼び出せるの？</li>
+<li>publishedの前の<code>:</code>って何。</li>
+<li>
+<code>-&gt;</code>なにこれ。ふざけてんの？</li>
+<li>whereメソッド内の<code>?</code>ってなに？<code>Time.zone.now</code>を直接使っちゃダメなの？</li>
+<li>
+<code>Time.zone.now</code>ってどうして<code>.</code>で沢山繋げられるの？</li>
+<li>そもそも何がどうなって<code>Article</code>クラスのオブジェクトの配列が取得出来るの？</li>
+</ul>
+
+<p>知らなくたって動作はしますが、たった3行のコードに対してこれほど多くの疑問に対して答えることができない状態で、<br>
+<strong>果たして本質的に理解して勉強を進めることができるでしょうか？</strong><br>
+<strong>教科書の範囲を超えたアプリケーションを自分の手で一から作れる水準の知識を得ることができるでしょうか？</strong><br>
+私はNOだと思います。</p>
+
+<p>勉強を進めていると、様々な分野の知識が層のように重なっている事がままあります。<br>
+回り道なように見えますが、最終的に必要な学習水準に到達するためには、それぞれの層にちゃんと個別に時間を使って集中的に勉強をすることが、結果的にコストが一番低くなるのです。</p>
+
+<h2>
+<span id="2-まず理解したを定義する" class="fragment"></span><a href="#2-%E3%81%BE%E3%81%9A%E7%90%86%E8%A7%A3%E3%81%97%E3%81%9F%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>2. まず「理解した」を定義する</h2>
+
+<p>「理解した」という言葉を人はよく使います。しかし、その「理解した」という言葉は人によっても文脈によっても意味は様々になります。<br>
+例えばこの様な使い方をする人がいたとします(実際に沢山見たことあります)。</p>
+
+<ul>
+<li>一通り本を読んだので、Rubyの事を「理解した」</li>
+<li>RailsTutorialを使ってTwitterの劣化コピーを作ったので、Railsの事を「理解した」</li>
+</ul>
+
+<p>この2つの「理解した」という言葉は、一体何がどうなった状態を意味しているのかがわかりません。<br>
+「理解した」という事をあまり深く考えずに学習を進めてしまうと、<br>
+<strong>到達したかったはずの水準のスキルが身につかない</strong>まま時間だけが過ぎ去ったり、<br>
+<strong>「自分は出来るんだ」という誰も幸せにならない根拠のない自信</strong>だけが醸成されかねません。</p>
+
+<h3>
+<span id="1から10まで説明出来るを理解したとする" class="fragment"></span><a href="#1%E3%81%8B%E3%82%8910%E3%81%BE%E3%81%A7%E8%AA%AC%E6%98%8E%E5%87%BA%E6%9D%A5%E3%82%8B%E3%82%92%E7%90%86%E8%A7%A3%E3%81%97%E3%81%9F%E3%81%A8%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>1から10まで説明出来るを「理解した」とする</h3>
+
+<p>様々な解釈があると思いますが、私は勉強した内容を真に「理解した」とする基準を、</p>
+
+<p><strong>学習した内容を1から10まで説明出来る</strong></p>
+
+<p>として設けています。</p>
+
+<p>プログラムのコードの1行1行にはちゃんと意味があります(意味不明なコードもありますが)。<br>
+<strong>説明出来ない個所があるとすれば理解できていない個所がある</strong>ということになります。<br>
+「理解した」と思っても、「説明できない箇所」は必ず現れるといってもいいでしょう。<br>
+説明を通して自分の理解が曖昧な箇所が現れる度に、新たに勉強するべき項目が浮き彫りになっていくのです。</p>
+
+<p>似たような話として、<a href="https://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E9%96%8B%E7%99%BA%E3%81%AE%E8%81%B7%E4%BA%BA%E3%81%8B%E3%82%89%E5%90%8D%E5%8C%A0%E3%81%B8%E3%81%AE%E9%81%93-%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AA%E3%83%A5%E3%83%BC-%E3%83%8F%E3%83%B3%E3%83%88/dp/4894712741" rel="nofollow noopener" target="_blank">達人プログラマ</a>という書籍の中で紹介されている、<strong>ラバーダックデバッキング</strong>という有名なデバッグの手法がありますので、興味のある方は調べてみて下さい。</p>
+
+<p>ちなみに弊社の新卒エンジニアの研修では、1から10まで説明出来る事を理解度の指標として明確に設定しています。<br>
+コードレビューの際に自分が書いたコードを上から下まで全て説明し、<br>
+<strong>一つでも説明出来ない項目があれば、その部分は「理解した」とはみなさず次のステップに進めなくする</strong>事で、<br>
+研修生が「理解した」という言葉の水準が一定に保てるように工夫しています。</p>
+
+<h3>
+<span id="用語を正しく使って説明をする" class="fragment"></span><a href="#%E7%94%A8%E8%AA%9E%E3%82%92%E6%AD%A3%E3%81%97%E3%81%8F%E4%BD%BF%E3%81%A3%E3%81%A6%E8%AA%AC%E6%98%8E%E3%82%92%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>用語を正しく使って説明をする</h3>
+
+<p>説明をする時に重要な事は、<strong>用語を正しく使う</strong>事です。</p>
+
+<p>プログラミングの世界には、沢山のその分野特有の用語があります。<br>
+用語とは特定の分野における抽象的な概念を、<strong>皆が統一して理解するために用意された具体的なキーワード</strong>の事です。<br>
+用語の意味を理解することは、その分野の重要な概念を理解することに繋がります。<br>
+逆に言えば、用語を正しく使って学んだ内容を1から10まで説明する事は、その<strong>用語の意味がわかっていないとそもそも出来ません</strong>。</p>
+
+<p>用語の理解を曖昧にしたまま放置していては、いつまでたってもスキルは向上しませんし、<br>
+<a href="https://s8a.jp/words-are-correctly" rel="nofollow noopener" target="_blank">こういう記事</a>の対象者になってしまうかもしれませんので気をつけてください。</p>
+
+<h2>
+<span id="3-情報の信頼性を優先する" class="fragment"></span><a href="#3-%E6%83%85%E5%A0%B1%E3%81%AE%E4%BF%A1%E9%A0%BC%E6%80%A7%E3%82%92%E5%84%AA%E5%85%88%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>3. 情報の信頼性を優先する</h2>
+
+<p>プログラミングの勉強を進めていくと、分からない事が沢山あるので調べてその疑問を解決する作業が無数に発生します。<br>
+調べ物をする際に、どんな情報源を選択するかは状況によってまちまちですが、<br>
+選択基準を大きく分けると以下の2つのがあります。</p>
+
+<ul>
+<li>欲しい情報に辿り着く速さ</li>
+<li>その情報の信頼性の高さ</li>
+</ul>
+
+<p>そしてこの2つのうち、情報に辿り着く速さよりも<strong>情報の信頼性の高さを優先</strong>するべきです。</p>
+
+<p><a href="https://ja.wikipedia.org/wiki/%E6%83%85%E5%A0%B1" rel="nofollow noopener" target="_blank">wikipedia</a>によると情報とは</p>
+
+<blockquote>
+<p>文字・数字などの記号やシンボルの媒体によって伝達され、受け手において、状況に対する知識をもたらしたり、適切な判断を助けたりするもののこと。</p>
+</blockquote>
+
+<p>という意味なので、状況に対して適切な判断や知識が得られるかは、<br>
+<strong>その情報がどれだけ信頼できる情報か</strong>にかかっているのです。<br>
+つまり、必要条件が情報の信頼性で、情報に辿り着く速さはあくまで十分条件であることを忘れてはいけません。<br>
+誤学習によって発生するコストは、学び直すだけではすまない(クリティカルなバグを生み出すなど)事もあるので、肝に銘じましょう。</p>
+
+<h3>
+<span id="情報源の特性を活かして調査をする" class="fragment"></span><a href="#%E6%83%85%E5%A0%B1%E6%BA%90%E3%81%AE%E7%89%B9%E6%80%A7%E3%82%92%E6%B4%BB%E3%81%8B%E3%81%97%E3%81%A6%E8%AA%BF%E6%9F%BB%E3%82%92%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>情報源の特性を活かして調査をする</h3>
+
+<p>調べ物をしたり学習を進める際には、様々な情報源のメリット・デメリットを活かしながら、それらを組み合わせて学習することが大切になります。<br>
+以下にそれぞれの情報源のメリット・デメリットをまとめました。見ての通り、とてつもなく当たり前です。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center">情報源</th>
+<th style="text-align: center">メリット</th>
+<th style="text-align: center">デメリット</th>
+<th style="text-align: center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center">書籍</td>
+<td style="text-align: center">情報が体系的にまとまっていて、信頼性は高い　</td>
+<td style="text-align: center">学習時にはバージョンが古くなっていることが多い。環境によって差異があるケースがある。</td>
+<td style="text-align: center">体系的な情報をインプットする際に使う</td>
+</tr>
+<tr>
+<td style="text-align: center">ブログ</td>
+<td style="text-align: center">抽象的な疑問に対して、素早く解決方針を絞り込むことができる</td>
+<td style="text-align: center">断片的かつ個別な情報になりやすく、情報の信頼性が担保しにくい。環境によって差異があるケースがある。</td>
+<td style="text-align: center">問題解決の方針の絞り込みに使う</td>
+</tr>
+<tr>
+<td style="text-align: center">公式リファレンス</td>
+<td style="text-align: center">情報が必要十分かつ、信頼性が高い(場合が多い)</td>
+<td style="text-align: center">調べたいことが明確にわかっていないと検索することが難しい</td>
+<td style="text-align: center">解決方法の詳細や仕様の確認に使う</td>
+</tr>
+<tr>
+<td style="text-align: center">手元にあるソースコードやバイナリ</td>
+<td style="text-align: center">1次情報なので、ほぼ信頼出来る</td>
+<td style="text-align: center">解決方針が決まらないとそもそも確かめようがない。初心者にはややハードルが高い。　</td>
+<td style="text-align: center">最終的な確認に使う</td>
+</tr>
+</tbody>
+</table>
+
+<p>上にあげたメリット・デメリットを整理した上で、私が日常的に勉強の際に調べ物をする時の流れを紹介します。</p>
+
+<ol>
+<li>書籍をベースに学習を進める</li>
+<li>書籍で解決出来ない疑問が生まれた段階で、Googleでわからない事を調べる</li>
+<li>いくつかブログなどを見て問題の解決策になりそうな部分を特定する</li>
+<li>その解決策に該当する部分をリファレンスを読んで確かめる</li>
+<li>手元で実行して確かに動作をするか確認する</li>
+</ol>
+
+<p>調べる方法には唯一絶対の正解があるわけではなく、<br>
+状況によって必要な情報の信頼性を保証し、なおかつ素早く調べる事ができるやり方を構築していって下さい。</p>
+
+<h3>
+<span id="リファレンスの読み方を覚える" class="fragment"></span><a href="#%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%E3%82%92%E8%A6%9A%E3%81%88%E3%82%8B"><i class="fa fa-link"></i></a>リファレンスの読み方を覚える</h3>
+
+<p>上述したように、調査をする上で信頼性を担保するためにはリファレンスを読むということが必要不可欠になります。<br>
+しかし、初心者には英語で書かれていることや、そもそも読み方がわからないということが、とっつきにくいという印象を与えてしまいます。<br>
+そこで、簡単にリファレンスの読み方を説明していきます。</p>
+
+<p>通常リファレンスを読む際には、</p>
+
+<ul>
+<li>◯◯というメソッドの仕様を詳しく知りたい</li>
+<li>◯◯という機能を提供しているクラス・メソッドを探したい</li>
+</ul>
+
+<p>上記のような動機で利用することが多くなります。<br>
+そこで<strong>リファレンスに記述されているメソッドの読み方</strong>を紹介しようと思います。</p>
+
+<p>リファレンスに記述されているメソッドを読む際は、以下の4つの注意点を押さえて読んでいくことで、そのメソッドがどんなメソッドであるかを理解する事が出来るようになります。</p>
+
+<ul>
+<li>レシーバーは何か？</li>
+<li>引数は何か？</li>
+<li>返り値は何か？</li>
+<li>副作用はあるか？</li>
+</ul>
+
+<p>具体的なケースで確認してみましょう。<br>
+Ruby(2.3.0)の<code>Array</code>クラスの<code>delete</code>メソッドはrdocによると以下のように記述されています。<br>
+<a href="https://docs.ruby-lang.org/en/2.3.0/Array.html#method-i-delete" class="autolink" rel="nofollow noopener" target="_blank">https://docs.ruby-lang.org/en/2.3.0/Array.html#method-i-delete</a></p>
+
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/76641/73dcb331-f53b-6a8a-623b-2ff97af0b63e.png" target="_blank" rel="nofollow noopener"><img src="https://qiita-image-store.s3.amazonaws.com/0/76641/73dcb331-f53b-6a8a-623b-2ff97af0b63e.png" alt="スクリーンショット 2016-12-15 2.01.41.png"></a></p>
+
+<p>ここで記述されている</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>delete(obj) { block } -&gt; item or result of block
+</pre></div></div>
+
+<p>上記のメソッドの説明の内</p>
+
+<p><code>delete(obj) { block }</code>の<code>obj</code>や <code>{ block }</code>が<strong>引数</strong>で、<br>
+<code>-&gt; item or result of block</code>の<code>item or result of block</code>が<strong>返り値</strong>の説明です。</p>
+
+<p>また、メソッドの概要文は英語ですが、殆ど中学生~高校生レベルの英語力で読めるので落ち着いて読んでみましょう。<br>
+メソッドの説明と概要文を読んだ上で、先程の4つのチェック項目を確認してみると以下の様になります。</p>
+
+<ul>
+<li>レシーバー
+
+<ul>
+<li>
+<code>Array</code>クラスのインスタンス</li>
+</ul>
+</li>
+<li>引数
+
+<ul>
+<li>
+<code>obj</code>とblock</li>
+</ul>
+</li>
+<li>返り値
+
+<ul>
+<li>最後に削除したレシーバー内の要素。削除する要素が存在しない場合は<code>nil</code>
+</li>
+<li>引数にblockが渡っていてかつ削除対象オブジェクトが無かった場合はblockの返り値</li>
+</ul>
+</li>
+<li>副作用
+
+<ul>
+<li>引数として与えられた<code>obj</code>と一致する要素をレシーバーから全て削除する</li>
+</ul>
+</li>
+</ul>
+
+<p><code>Array</code>クラスの<code>delete</code>メソッドがどんなメソッドであるか、使い方が丸裸ですね。<br>
+メソッドの使用例も合わせて載っているので、4つのチェック項目と照らし合わせることでより正確な理解に繋がります。</p>
+
+<p>基本的には上記のような読み解き方で様々なメソッドを理解することが可能になります。<br>
+リファレンスの正しい読み方を理解することで、信頼性の高い情報を調査するコストを飛躍的に低減することができます。</p>
+
+<h2>
+<span id="4-勉強のためにデバッグを行なう" class="fragment"></span><a href="#4-%E5%8B%89%E5%BC%B7%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%82%92%E8%A1%8C%E3%81%AA%E3%81%86"><i class="fa fa-link"></i></a>4. 勉強のためにデバッグを行なう</h2>
+
+<p>エラーやバグが発生した時、初心者の時はいつも焦りますよね。<br>
+何がいけないのか検討もつかないでいたずらに時間ばかりがかかってしまい、挙句<strong>原因がただのタイポだったときの絶望感</strong>は誰しも感じた事があるのではないでしょうか？<br>
+しかし、エラーやバグが発生した時は、あえてコレはチャンスだと思ってみましょう。<br>
+そのエラーやバグを解消する過程で、本を読んでいるだけでは学べない多くの事を勉強する事ができるのです。</p>
+
+<p>しかし</p>
+
+<ul>
+<li>ただ闇雲に変更を加えてなんとなく動作してしまった</li>
+<li>エラーメッセージをそのままコピペして、検索に引っかかった方法をそのまま適用して事なきを得た</li>
+</ul>
+
+<p>この様なその場しのぎなデバッグをしていると、折角の学習チャンスを逃してしまうことになります。<br>
+<strong>デバッグを学習機会に変える</strong>準備をしておきましょう。</p>
+
+<h3>
+<span id="エラーメッセージを読む" class="fragment"></span><a href="#%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%82%92%E8%AA%AD%E3%82%80"><i class="fa fa-link"></i></a>エラーメッセージを読む</h3>
+
+<p>まず、大抵の場合エラーメッセージを読めばエラーの原因はそこに書いてあります。<br>
+<strong>エラーメッセージは赤い上に英語なので、初心者を殺しに来ている</strong>感じが否めませんが、<br>
+ぶっきらぼうなりにちゃんと必要な情報をプログラマに提供しているのです。<br>
+エラーメッセージは大きく分けると以下の3つの情報が含まれています。</p>
+
+<ul>
+<li>エラーの発生した時のタイムスタンプ</li>
+<li>エラーの種類</li>
+<li>エラーが発生しているファイルとその行数及び、エラーが発生するまでの経路(メソッドの呼び出し順)</li>
+</ul>
+
+<p>たとえば以下のようなエラーがRailsのアプリを開発している際に出てきたとすると</p>
+
+<div class="code-frame" data-lang="ruby"><div class="highlight"><pre>
+<span class="n">F</span><span class="p">,</span> <span class="o">[</span><span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">14</span><span class="ss">T16</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">52</span><span class="o">.</span><span class="mo">055301</span> <span class="c1">#16409] FATAL -- : [/community/34913]</span>
+<span class="no">ActionView</span><span class="o">::</span><span class="no">Template</span><span class="o">::</span><span class="no">Error</span> <span class="p">(</span><span class="n">undefined</span> <span class="nb">method</span> <span class="sb">`like_count' for #&lt;Community:0x007f67b69866e0&gt;):</span>
+<span class="sb">     6:   &lt;div class="bottom-"&gt;</span>
+<span class="sb">     7:     &lt;%= image_tag 'community/member.png', class: 'icon user' %&gt;</span>
+<span class="sb">     8:       &lt;span class="count"&gt;&lt;%= community.participant_count %&gt;&lt;/span&gt;</span>
+<span class="sb">     9:     &lt;div class="info"&gt;</span>
+<span class="sb">    10:</span>
+<span class="sb">  app/views/communities/_community.html.erb:8:in `</span><span class="n">block</span> <span class="k">in</span> <span class="n">_app_views_communities_community_html_erb___2695577053056243576_46961797035580</span><span class="s1">'</span>
+<span class="s1">  app/views/communities/_community.html.erb:1:in `_app_views_communities_community_html_erb___2695577053056243576_46961797035580'</span>
+  <span class="n">app</span><span class="o">/</span><span class="n">views</span><span class="o">/</span><span class="n">community</span><span class="o">/</span><span class="n">show</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span><span class="p">:</span><span class="mi">38</span><span class="ss">:in</span> <span class="sb">`_app_views_community_show_html_erb__1896930720777653480_46961797750960'</span>
+</pre></div></div>
+
+<p>エラーのタイムスタンプは</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>F, [2016-12-14T16:12:52.055301 #16409] FATAL -- : [/user/34913]
+</pre></div></div>
+
+<p>エラーの種類は</p>
+
+<div class="code-frame" data-lang="ruby"><div class="highlight"><pre><span class="no">ActionView</span><span class="o">::</span><span class="no">Template</span><span class="o">::</span><span class="no">Error</span> <span class="p">(</span><span class="n">undefined</span> <span class="nb">method</span> <span class="sb">`like_count' for #&lt;Community:0x007f67b69866e0&gt;):</span>
+</pre></div></div>
+
+<p>エラーが発生しているファイルとその行数及びエラーが発生するまでの経路は</p>
+
+<div class="code-frame" data-lang="ruby"><div class="highlight"><pre> <span class="n">app</span><span class="o">/</span><span class="n">views</span><span class="o">/</span><span class="n">communities</span><span class="o">/</span><span class="n">_community</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span><span class="p">:</span><span class="mi">8</span><span class="ss">:in</span> <span class="sb">`block in _app_views_communities_community_html_erb___2695577053056243576_46961797035580'</span>
+<span class="sb">  app/views/communities/_community.html.erb:1:in `</span><span class="n">_app_views_communities_community_html_erb___2695577053056243576_46961797035580</span><span class="s1">'</span>
+<span class="s1">  app/views/community/show.html.erb:38:in `_app_views_community_show_html_erb__1896930720777653480_46961797750960'</span>
+</pre></div></div>
+
+<p>という様に分解してエラーメッセージを見る事で、いつどこでどんなエラーが起きたかを把握しやすくなります。</p>
+
+<p>エラーメッセージの読み方は使用している言語やフレームワークによって出力のされ方や内容が異なりますので、学習する内容によっては今回の読み方と異なることが多いでしょう。<br>
+ただし、情報の整理の基本は変わらないはずです。<br>
+上記のようにエラーメッセージを整理していけば、落ち着いてエラーに対処することが出来るようになります。</p>
+
+<h3>
+<span id="デバッグの手法を学ぶ" class="fragment"></span><a href="#%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%81%AE%E6%89%8B%E6%B3%95%E3%82%92%E5%AD%A6%E3%81%B6"><i class="fa fa-link"></i></a>デバッグの手法を学ぶ</h3>
+
+<p>上記のように大抵の場合はエラーの原因が書かれているのですが、<br>
+場合によってはエラー文を読んだだけでは、直接的な原因を特定する事が出来ない事があります。<br>
+その場合は、エラーが起きている該当箇所周辺や関連するコードを注意深く読みながら、デバッガを駆使して問題の原因を突き止める必要があります。</p>
+
+<p>デバッグの細かい手法は<a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0" rel="nofollow noopener" target="_blank">Wikipedia</a>にも書かれていますし、<a href="https://www.amazon.co.jp/exec/obidos/ASIN/4873114063/powerbombkund-22/" rel="nofollow noopener" target="_blank">実践 デバッグ技法 -GDB、DDD、Eclipseによるデバッギング</a>のように体系的にまとめられている物が多数存在するので、ここでは割愛します。</p>
+
+<p>また、デバッグを行う上でデバッグしやすいツールを使うというのも非常に重要です。<br>
+Ruby, Railsを使っている場合は<a href="https://www.jetbrains.com/ruby/" rel="nofollow noopener" target="_blank">RubyMine</a>という高機能IDEを使ったり、<a href="https://github.com/deivid-rodriguez/pry-byebug" rel="nofollow noopener" target="_blank">pry-byebug</a>(<a href="http://qiita.com/AknYk416/items/6f0bec58712edaf4940e" id="reference-db3bda0bd6bff420b7ec">参考: pry-byebugでrubyをdebugする</a>)等のデバッグ用のライブラリを利用する事で、より快適なデバッグライフを手に入れる事が出来ます。<br>
+自分の手元の環境や自分の肌に合うツールを試行錯誤しながら探すのもプログラミング学習の楽しさの一つでもあります。</p>
+
+<h2>
+<span id="5-良き仲間を作りレビューし合う" class="fragment"></span><a href="#5-%E8%89%AF%E3%81%8D%E4%BB%B2%E9%96%93%E3%82%92%E4%BD%9C%E3%82%8A%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%81%97%E5%90%88%E3%81%86"><i class="fa fa-link"></i></a>5. 良き仲間を作り、レビューし合う</h2>
+
+<p>プログラミング学習をする上で、自分が書いたコードを他人にレビューしてもらうことの重要性は、今更説明しなくても様々な場所で説かれていますが、<br>
+特に初心者は自分よりも信頼できる先輩エンジニアからガンガンレビューを貰ったほうが良いです。<br>
+できるだけ早いうちに我流の変な癖が入り込む余地を無くし、より一般的でかつベストプラクティスと呼ばれるような書き方を身に着けていくように矯正していくべきでしょう。</p>
+
+<h3>
+<span id="読みやすいコードを意識する" class="fragment"></span><a href="#%E8%AA%AD%E3%81%BF%E3%82%84%E3%81%99%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%84%8F%E8%AD%98%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>読みやすいコードを意識する</h3>
+
+<p>独学でプログラミング学習を進めると、読みやすいコードを意識せずに変な癖のあるコードを書くプログラマになってしまうかもしれません。<br>
+コードレビューをすることによって学べる事の内、初心者のうちにしっかり叩き込んでおくべきことは、<br>
+<strong>読みやすいコードを意識する事</strong>です。</p>
+
+<p>実際の仕事の中では、自分以外の他の開発者と一緒になってプログラムを書く事がほとんどです。<br>
+その場合、実は<strong>プログラムを書く時間よりも他人が書いたコードを読んでいる時間のほうが長くなる</strong>ことが多いのです。<br>
+(※ ここで言う他人は過去の自分も含んでいます)</p>
+
+<p>他人にコードを読んでもらったときに、つまらない読みづらさの指摘に時間を使うよりも、もっと大事な設計や便利なTipsを指摘してもらいましょう。</p>
+
+<p>読みやすいコードの書き方の詳細については、<a href="https://www.amazon.co.jp/%E3%83%AA%E3%83%BC%E3%83%80%E3%83%96%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89-%E2%80%95%E3%82%88%E3%82%8A%E8%89%AF%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%A7%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-Theory-practice-Boswell/dp/4873115655" rel="nofollow noopener" target="_blank">リーダブルコード ―より良いコードを書くためのシンプルで実践的なテクニック</a>が最も有名で、「読みやすいコード」をどうやって実現するかを具体例を交えながら非常にわかりやすく紹介されている為、本記事では割愛します。是非とも一度手にとって読んでみて下さい。</p>
+
+<p>また、静的コード解析ツール等を利用して、コーディングスタイルや命名規約等を矯正することで、仕組みで読みやすいコードに矯正することも出来ます。<br>
+rubyでは<a href="https://github.com/bbatsov/rubocop" rel="nofollow noopener" target="_blank">rubocop</a>などが有名ですね(<a href="http://qiita.com/yaotti/items/4f69a145a22f9c8f8333" id="reference-961dfa10d400c69676c6">参考 : Rubocopを使ってコーディングルールへの準拠チェックを自動化</a>)。</p>
+
+<p>ちなみに、弊社の新卒エンジニア研修は、研修生と現場のエンジニアの1on1のコードレビューを中心としたプログラムになっています。レビュワーから「何故この書き方にしたのか？」を問われ続ける中で、<strong>どうやって書いたらもっと読みやすくなるのだろうか？</strong>を常に自問しながら学習するように設計されています。</p>
+
+<h2>
+<span id="6-成果物を作り出す" class="fragment"></span><a href="#6-%E6%88%90%E6%9E%9C%E7%89%A9%E3%82%92%E4%BD%9C%E3%82%8A%E5%87%BA%E3%81%99"><i class="fa fa-link"></i></a>6. 成果物を作り出す</h2>
+
+<p>プログラミングの勉強をする上で、最もモチベーションにつながるのは、<br>
+作りたい物を作って、それが動作する時ではないでしょうか？</p>
+
+<p>次はもっと◯◯な物を作りたい！や日常のふとした課題を解決するアプリケーションを作りたい！<br>
+そんな思いから、それを実現する為の勉強のテーマが決まっていきます。</p>
+
+<p>しかし、初心者の場合はそもそも作りたいものがぱっと思いつかない事が多いのが現実的なところではないでしょうか？<br>
+<strong>作りたいものが思い浮かばないので、書籍の写経が終わった後が続かずに、一向にスキルが伸びていかない。</strong><br>
+こういう繰り返しに僕は陥っていました。</p>
+
+<h3>
+<span id="車輪の再発明を積極的にする" class="fragment"></span><a href="#%E8%BB%8A%E8%BC%AA%E3%81%AE%E5%86%8D%E7%99%BA%E6%98%8E%E3%82%92%E7%A9%8D%E6%A5%B5%E7%9A%84%E3%81%AB%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>車輪の再発明を積極的にする</h3>
+
+<p>そもそも多くの場合、人は自分が作れる物以上の物を作りたいと思うことができないのだと考えています。<br>
+簡単に言うと、「作り上げる」イメージが湧かないものに対してはモチベーションを燃やすことができないということです。</p>
+
+<p>すなわち、自分が本当に作りたい物を思い浮かべるようになるには、自分が作れる物の範囲を広げていく必要があるということです。<br>
+<strong>初心者がいきなり作りたいものを作ろうとしたって、そもそも作れる物がしょぼすぎる</strong>のでそんなもの作りたいと思えるわけがありません。</p>
+
+<p>その考え方を逆手に取ると、初心者の方が成果物を作り出す習慣を作るためにまず初めにやることは、<br>
+<strong>積極的に車輪の再発明をする</strong>ということです。<br>
+一般的に車輪の再発明はプログラミングの世界においてはネガティブな言葉として捉えられますが、<br>
+学習目的の場合、<strong>仕様を一から考える必要が無いので作る作業自体に集中できる</strong>という大きなメリットがあります。<br>
+いわゆる守破離の「守」のプロセスですね。</p>
+
+<p>作りたいものが無いと悩むぐらいなら、自分が普段使っているサービスやちょっとしたアプリのコピーを作ってみることをオススメします。</p>
+
+<h3>
+<span id="再発明した物を少しだけ改善してみる" class="fragment"></span><a href="#%E5%86%8D%E7%99%BA%E6%98%8E%E3%81%97%E3%81%9F%E7%89%A9%E3%82%92%E5%B0%91%E3%81%97%E3%81%A0%E3%81%91%E6%94%B9%E5%96%84%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B"><i class="fa fa-link"></i></a>再発明した物を少しだけ改善してみる</h3>
+
+<p>サービスのコピーを作ったら、何か一つでもいいからオリジナルの機能を作ってみましょう。<br>
+サービスのコピーをする過程で、作ることが出来る範囲は作る前と比べて飛躍的に向上しているはずです。</p>
+
+<p>実現できる事の幅が広がれば、自ずと「これもできるかな？」という色気が出てきます。<br>
+新しいアプリのアイディアが出てこなくても、機能改善や小さな機能の開発ぐらいなら、案外いくつも思いつくものです。</p>
+
+<p>先程から何度か紹介している<a href="http://railstutorial.jp/?version=5.0#walk-through" rel="nofollow noopener" target="_blank">RailsTutorial</a>は、Ruby on Railsの代表的な入門資料で、Twitterのコピーサイトを0から作るという非常に手厚いチュートリアルでおすすめです。<br>
+<a href="http://railstutorial.jp/?version=4.0#walk-through" rel="nofollow noopener" target="_blank">第2版</a>(現在は第4版)の<a href="http://railstutorial.jp/chapters/following-users?version=4.0#sec-extensions_to_the_sample_application" rel="nofollow noopener" target="_blank">最終章の巻末問題</a>では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。<br>
+<del>第3版以降からはこの巻末問題がなくなっていたので非常に残念でしたが、</del>ただ単に写経するだけでなく自分の頭で考えて作っていくプロセスを踏めるという意味で優秀な教材だったなと感じています。</p>
+
+<p><strong>(追記)</strong><br>
+RailsTutorialの日本版を執筆された <a href="/yasulab" class="user-mention js-hovercard" title="yasulab" data-hovercard-target-type="user" data-hovercard-target-name="yasulab">@yasulab</a> さんから、</p>
+
+<blockquote>
+<p>@YudaiTsukamoto 最新版のチュートリアルで実装されるようになった「パスワードリマインダー」と「ユーザー登録の確認」を除き、他の課題集を載せてみました! <img alt=":smile:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f604.png" title=":smile:" width="20">  <img alt=":new:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f195.png" title=":new:" width="20"> <img alt=":sparkles:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/2728.png" title=":sparkles:" width="20"><br>
+<img alt=":bookmark:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f516.png" title=":bookmark:" width="20"> 14.4.1 サンプルアプリケーションの機能を拡張する<br>
+<a href="http://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions" class="autolink" rel="nofollow noopener" target="_blank">http://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions</a><br>
+なお、当時 (第2版) の情報にいくつか古い情報があったので、そちらは僕の方で適宜アレンジしておきました ;) <img alt=":wrench:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f527.png" title=":wrench:" width="20"> <img alt=":dash:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f4a8.png" title=":dash:" width="20"> </p>
+</blockquote>
+
+<p>とコメントを頂き、最新版のRailsTutorialでは、上述の<code>アプリケーションの機能を拡張する</code>の項目が復活致しました！感無量です・・・(´；ω；｀)</p>
+
+<h2>
+<span id="7-体を鍛える" class="fragment"></span><a href="#7-%E4%BD%93%E3%82%92%E9%8D%9B%E3%81%88%E3%82%8B"><i class="fa fa-link"></i></a>7. 体を鍛える</h2>
+
+<h3>
+<span id="健全な精神は健全な肉体に宿る" class="fragment"></span><a href="#%E5%81%A5%E5%85%A8%E3%81%AA%E7%B2%BE%E7%A5%9E%E3%81%AF%E5%81%A5%E5%85%A8%E3%81%AA%E8%82%89%E4%BD%93%E3%81%AB%E5%AE%BF%E3%82%8B"><i class="fa fa-link"></i></a>健全な精神は健全な肉体に宿る</h3>
+
+<p>古代ローマの有名な風刺詩人が言っていたり、某魂を食べ合うアニメでも引用されていましたが、<br>
+「健全な精神は健全な肉体に宿る」は<strong>人類史上の最も偉大な格言</strong>の一つだと思っています。<br>
+そして、肉体とはすなわち、<strong>筋肉</strong>のことです。</p>
+
+<p><strong>プログラミングの勉強は、精神の戦いです。</strong><br>
+精神の状態が不安定な時に勉強をすると、果てしなく効率が下がります。<br>
+こんな過酷な状況下で、筋肉を鍛えない理由がありますか？</p>
+
+<p><strong>プログラミングの勉強は、姿勢の戦いとも言えます。</strong><br>
+発達したアウターマッスルとインナーマッスルのコンビネーションによる、安定した着座姿勢が正確なタイピングを生み、正確なタイピングが生み出す止めどないリズムが、プログラマーのテンションを上げていきます。<br>
+こんな素晴らしい効果が期待される中で、筋肉を鍛えない理由がありますか？</p>
+
+<p>何より、気分がいいです。<br>
+筋肉が発達すると、とても、気分が、いいです。</p>
+
+<p>つまり<strong>筋肉を鍛える事は、プログラミング学習を加速させる上で超重要なファクター</strong>であるということです。</p>
+
+<h3>
+<span id="スクワットがおすすめ" class="fragment"></span><a href="#%E3%82%B9%E3%82%AF%E3%83%AF%E3%83%83%E3%83%88%E3%81%8C%E3%81%8A%E3%81%99%E3%81%99%E3%82%81"><i class="fa fa-link"></i></a>スクワットがおすすめ</h3>
+
+<p>筋肉トレーニングをこれまでの人生でほとんどやってこなかった方におすすめの筋トレは、</p>
+
+<p><strong>スクワット</strong>です。</p>
+
+<p>腕立て伏せや、腹筋等の有名な筋肉トレーニングは、日常的にあまり鍛えられていない場合が多く、まともにこなせません。<br>
+できないトレーニングを繰り返しても気分が乗らず長続きしません。</p>
+
+<p>一方で、スクワットで使う筋肉は日常の歩行で常に自重トレーニングを行っている状態に近いため、筋肉トレーニングを行う上で必要最低限の筋肉が発達しているケースがほとんどなのです。</p>
+
+<p>さらに、スクワットは筋肉の中で最も大きい大腿四頭筋（太ももの前の筋肉）をはじめ、足腰を総合的に鍛えることができるエクササイズです。<br>
+<code>King Of Muscle Training</code>と言っても過言ではありません。<br>
+今すぐ立ち上がって、スクワットを始めることをオススメします。</p>
+
+<p>スクワットの正しいやり方は、Qiitaの責任範囲を大きく逸脱するため、ここでは詳しくは書きませんが、是非とも<a href="https://kaumo.jp/topic/69615" rel="nofollow noopener" target="_blank">レクチャー記事</a>を見て正しいやり方を学んで実践してみて下さい。</p>
+
+<h1>
+<span id="おわりに" class="fragment"></span><a href="#%E3%81%8A%E3%82%8F%E3%82%8A%E3%81%AB"><i class="fa fa-link"></i></a>おわりに</h1>
+
+<p>いかがでしたでしょうか？<br>
+独学がうまくいかずに苦しんで、社会人としてはじめて体系的にプログラミングの勉強を行い、<br>
+試行錯誤しながら取り組んだ事で学んだ集大成をまとめました。<br>
+いささか大ボリュームすぎる感じが否めませんが、初心者の方や、新人エンジニアの方が勉強する際の指針として役立ててもらえれば幸いです。</p>
+
+<p>明日は <a href="/jazzyslide" class="user-mention js-hovercard" title="jazzyslide" data-hovercard-target-type="user" data-hovercard-target-name="jazzyslide">@jazzyslide</a>さんの「子どもたちが学ぶ技術の面白さと成長に関する何か」です<br>
+お楽しみに</p>
+<div class="hidden"><form class="js-task-list-update" action="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="><input type="hidden" name="updated_at_confirmation_in_unixtime" id="updated_at_confirmation_in_unixtime" value="1482297037" class="js-task-list-updated-at"><textarea name="raw_body" id="raw_body" class="js-task-list-field">株式会社LITALICOでWebエンジニア（Rails）を担当しています、@YudaiTsukamotoです。
+この記事は『[LITALICO Advent Calendar 2016](http://qiita.com/advent-calendar/2016/litalico)』16日目の記事です。
+
+# はじめに
+私は学生時代は情報工学の専攻でもなければ、趣味でプログラミングをやっていたわけでもなく、
+社会人になってWebエンジニアとして**初めてまともにプログラミングを勉強**し始めました。
+
+入社するまでに独学で勉強の真似事をしてはいましたが、そもそもどうやって勉強していいのか全然わからず、
+本を読んで写経をして**何故だか理由はよくわからないが動作してしまう**ミニブログを眺めては、ため息を付いて挫折を繰り返しておりました。
+
+そんな初心者だった自分が、Webエンジニアとして食べていくために本気で努力して身につけたノウハウを、
+**「プログラミング勉強を加速させる7つの習慣」**
+という、某世界的ベストセラーのビジネス書をオマージュした形でお送りしたいと思います。
+
+# プログラミング勉強を加速させる7つの習慣
+
+1. [勉強する技術分野を絞ることから始める](#1-勉強する技術分野を絞ることから始める)
+2. [まず「理解した」を定義する](#2-まず理解したを定義する)
+3. [情報の信頼性を優先する](#3-情報の信頼性を優先する)
+4. [勉強のためにデバッグを行なう](#4-勉強のためにデバッグを行なう)
+5. [良き仲間を作り、レビューし合う](#5-良き仲間を作り、レビューし合う)
+6. [成果物を作り出す](#6-成果物を作り出す)
+7. [体を鍛える](#7-体を鍛える)
+
+## 1. 勉強する技術分野を絞ることから始める
+一口にプログラミングと言っても、学ぶべき技術分野は多岐に渡ります。
+Webに話を限定したとしても、
+
+* HTML,CSS,JavaScript等のクライアントサイドプログラミング
+* Ruby on Rails等のサーバーサイドプログラミング
+* MySQL等のデータベースの知識
+* Linux,Apache等のサーバー構築に関する知識
+* ソフトウェアテストやGit等のバージョン管理等などのツールや手法の知識
+
+などなど、数え上げたら学習すべき知識はキリがありません。時間は有限で、全ての技術を学習することなど土台不可能です。
+**意識的に自分にとって必要な技術分野を絞る**事は、プログラミング勉強を加速させる上で大切な習慣なのです。
+
+### 学ぶ分野の全体感を把握する
+初心者の人や新しい分野の勉強を始める人が陥りやすい事は、
+**そもそも何を勉強するべきなのかの全体像がつかめず、学習が続かなくなってしまう**事なのではないでしょうか。
+
+「Rubyの本を読んだけど、何も作れる気がしない」
+「プログラミングスクールに通ってみたけど、期間が終わってしまったら次に何をすればいいかわからない」
+
+などの経験は実際に私も沢山ありました。
+必要な要素がわからないまま闇雲に勉強をするのは苦痛が伴いますし、無駄な遠回りをして挫折しやすくなってしまいます。
+したがって、勉強を始めるときのファーストステップは**その分野で何を学ぶ必要が有るのかを把握すること**であるべきと考えています。
+
+例えばWebサービスを作りたいのであれば、技術評論社が出版している[Webアプリエンジニア養成読本](https://www.amazon.co.jp/product-reviews/4774163678/ref=cm_cr_dp_see_all_btm?ie=UTF8&amp;reviewerType=all_reviews&amp;showViewpoints=1&amp;sortBy=recent)や[Webサービスのつくり方 ~「新しい」を生み出すための33のエッセイ](https://www.amazon.co.jp/Web-33-Software-Design-plus/dp/4774154075/ref=tmm_pap_swatch_0?_encoding=UTF8&amp;qid=&amp;sr=)。
+RailsでWebアプリケーションを作れるようになりたいのであれば[RailsTutorial](http://railstutorial.jp/?version=5.0#walk-through)。
+など、対象とする技術分野の全体像をひとまとめにしている資料を探し、それらを一通り流して読んでみることです。
+重要な事は、ココでしっかりと読み込む事ではなくあくまで**どんな知識が必要なのか？をはっきりさせる**事なのです。
+
+### 勉強する項目を必要最小限に絞る
+全体像がわかった所で、多くの人は時間的な制約があるためそのまま全部を学ぶ事はできません。
+時間が無いからといって広く浅く全体をかじるように勉強するという方法もあるにはありますが、
+いつまでたっても**自分で物を作る為に必要な水準のスキル**を獲得することができないためあまりオススメできません。
+
+またプログラミングの世界は分野が違っていても通じる考え方や原理原則が多数存在し、
+一つの分野をある程度深いレベルまで学習することで**他の分野を学習するときの手助けになる**ことも多いため、トータルで効率的に勉強を進めることが出来ます。
+
+例えば、１人でWebサービスの開発ができるようになりたいと考えている人がいたとしたら、
+
+* デザインについてはbootstrapがあるので一旦HTML, CSS, JavaScriptについての本格的な勉強はしない。
+* Herokuがあるのでインフラに関する本格的な勉強は一旦しない。
+* アプリケーションを作る為に必要なRuby, Rails, MySQLの勉強は徹底的にする。
+* 実運用や開発の効率化を考えて、ソフトウェアテストやGit等のツールやスキルは勉強する。
+
+など、置かれている状況やかけられる時間を考えて自分にとって絶対に必要な技術要素を絞っていきます。
+
+大事なのは、**現時点で絶対に必要な技術要素を必要な水準まで勉強しきる**事です。
+
+### 分野ごとに集中的に学習する
+対象となる学習分野は同時並行的に学習するよりも、学習分野をしっかりと分けて集中的に勉強する事をオススメします。
+Ruby on Railsを題材にして、こちらのコードを例に説明します。
+
+```ruby
+class Article &lt; ActiveRecord::Base
+  scope :published, -&gt; { where('open_at &lt;= ?', Time.zone.now) }
+end
+```
+上記はRailsの`generate`コマンドで生成された`Article`モデルのコードで、`published`という名前のスコープが実装されています。`Article.published`と、`Article`クラスから`published`メソッドを呼び出すことによって、スコープに定義された条件に基づいて`Article`クラスのオブジェクトの配列が取得されます(厳密にはちょっと違いますが)。
+
+このたった3行のコードの中にはRuby, Rails, RDBMSの別々の知識が無いと以下の質問に対して答えることが出来ません。
+
+* `ActiveRecord::Base`って何。`::`って何これ。顔文字？
+* scopeって何。何をしているものなの？どうして`Article.published`で呼び出せるの？
+* publishedの前の`:`って何。
+* `-&gt;`なにこれ。ふざけてんの？
+* whereメソッド内の`?`ってなに？`Time.zone.now`を直接使っちゃダメなの？
+* `Time.zone.now`ってどうして`.`で沢山繋げられるの？
+* そもそも何がどうなって`Article`クラスのオブジェクトの配列が取得出来るの？
+
+知らなくたって動作はしますが、たった3行のコードに対してこれほど多くの疑問に対して答えることができない状態で、
+**果たして本質的に理解して勉強を進めることができるでしょうか？**
+**教科書の範囲を超えたアプリケーションを自分の手で一から作れる水準の知識を得ることができるでしょうか？**
+私はNOだと思います。
+
+勉強を進めていると、様々な分野の知識が層のように重なっている事がままあります。
+回り道なように見えますが、最終的に必要な学習水準に到達するためには、それぞれの層にちゃんと個別に時間を使って集中的に勉強をすることが、結果的にコストが一番低くなるのです。
+
+## 2. まず「理解した」を定義する
+「理解した」という言葉を人はよく使います。しかし、その「理解した」という言葉は人によっても文脈によっても意味は様々になります。
+例えばこの様な使い方をする人がいたとします(実際に沢山見たことあります)。
+
+* 一通り本を読んだので、Rubyの事を「理解した」
+* RailsTutorialを使ってTwitterの劣化コピーを作ったので、Railsの事を「理解した」
+
+この2つの「理解した」という言葉は、一体何がどうなった状態を意味しているのかがわかりません。
+「理解した」という事をあまり深く考えずに学習を進めてしまうと、
+**到達したかったはずの水準のスキルが身につかない**まま時間だけが過ぎ去ったり、
+**「自分は出来るんだ」という誰も幸せにならない根拠のない自信**だけが醸成されかねません。
+
+### 1から10まで説明出来るを「理解した」とする
+様々な解釈があると思いますが、私は勉強した内容を真に「理解した」とする基準を、
+
+**学習した内容を1から10まで説明出来る**
+
+として設けています。
+
+プログラムのコードの1行1行にはちゃんと意味があります(意味不明なコードもありますが)。
+**説明出来ない個所があるとすれば理解できていない個所がある**ということになります。
+「理解した」と思っても、「説明できない箇所」は必ず現れるといってもいいでしょう。
+説明を通して自分の理解が曖昧な箇所が現れる度に、新たに勉強するべき項目が浮き彫りになっていくのです。
+
+似たような話として、[達人プログラマ](https://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E9%96%8B%E7%99%BA%E3%81%AE%E8%81%B7%E4%BA%BA%E3%81%8B%E3%82%89%E5%90%8D%E5%8C%A0%E3%81%B8%E3%81%AE%E9%81%93-%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AA%E3%83%A5%E3%83%BC-%E3%83%8F%E3%83%B3%E3%83%88/dp/4894712741)という書籍の中で紹介されている、**ラバーダックデバッキング**という有名なデバッグの手法がありますので、興味のある方は調べてみて下さい。
+
+ちなみに弊社の新卒エンジニアの研修では、1から10まで説明出来る事を理解度の指標として明確に設定しています。
+コードレビューの際に自分が書いたコードを上から下まで全て説明し、
+**一つでも説明出来ない項目があれば、その部分は「理解した」とはみなさず次のステップに進めなくする**事で、
+研修生が「理解した」という言葉の水準が一定に保てるように工夫しています。
+
+### 用語を正しく使って説明をする
+説明をする時に重要な事は、**用語を正しく使う**事です。
+
+プログラミングの世界には、沢山のその分野特有の用語があります。
+用語とは特定の分野における抽象的な概念を、**皆が統一して理解するために用意された具体的なキーワード**の事です。
+用語の意味を理解することは、その分野の重要な概念を理解することに繋がります。
+逆に言えば、用語を正しく使って学んだ内容を1から10まで説明する事は、その**用語の意味がわかっていないとそもそも出来ません**。
+
+用語の理解を曖昧にしたまま放置していては、いつまでたってもスキルは向上しませんし、
+[こういう記事](https://s8a.jp/words-are-correctly)の対象者になってしまうかもしれませんので気をつけてください。
+
+## 3. 情報の信頼性を優先する
+プログラミングの勉強を進めていくと、分からない事が沢山あるので調べてその疑問を解決する作業が無数に発生します。
+調べ物をする際に、どんな情報源を選択するかは状況によってまちまちですが、
+選択基準を大きく分けると以下の2つのがあります。
+
+* 欲しい情報に辿り着く速さ
+* その情報の信頼性の高さ
+
+そしてこの2つのうち、情報に辿り着く速さよりも**情報の信頼性の高さを優先**するべきです。
+
+[wikipedia](https://ja.wikipedia.org/wiki/%E6%83%85%E5%A0%B1)によると情報とは
+
+&gt; 文字・数字などの記号やシンボルの媒体によって伝達され、受け手において、状況に対する知識をもたらしたり、適切な判断を助けたりするもののこと。
+
+という意味なので、状況に対して適切な判断や知識が得られるかは、
+**その情報がどれだけ信頼できる情報か**にかかっているのです。
+つまり、必要条件が情報の信頼性で、情報に辿り着く速さはあくまで十分条件であることを忘れてはいけません。
+誤学習によって発生するコストは、学び直すだけではすまない(クリティカルなバグを生み出すなど)事もあるので、肝に銘じましょう。
+
+### 情報源の特性を活かして調査をする
+調べ物をしたり学習を進める際には、様々な情報源のメリット・デメリットを活かしながら、それらを組み合わせて学習することが大切になります。
+以下にそれぞれの情報源のメリット・デメリットをまとめました。見ての通り、とてつもなく当たり前です。
+
+| 情報源             |   メリット    |    デメリット    | 用途 |
+|:-----------------:|:-----------------:|:------------------:|:------:|
+| 書籍 | 情報が体系的にまとまっていて、信頼性は高い　| 学習時にはバージョンが古くなっていることが多い。環境によって差異があるケースがある。| 体系的な情報をインプットする際に使う |
+| ブログ | 抽象的な疑問に対して、素早く解決方針を絞り込むことができる | 断片的かつ個別な情報になりやすく、情報の信頼性が担保しにくい。環境によって差異があるケースがある。 | 問題解決の方針の絞り込みに使う |
+| 公式リファレンス          | 情報が必要十分かつ、信頼性が高い(場合が多い) | 調べたいことが明確にわかっていないと検索することが難しい | 解決方法の詳細や仕様の確認に使う |
+| 手元にあるソースコードやバイナリ | 1次情報なので、ほぼ信頼出来る  | 解決方針が決まらないとそもそも確かめようがない。初心者にはややハードルが高い。　| 最終的な確認に使う |
+
+上にあげたメリット・デメリットを整理した上で、私が日常的に勉強の際に調べ物をする時の流れを紹介します。
+
+1. 書籍をベースに学習を進める
+2. 書籍で解決出来ない疑問が生まれた段階で、Googleでわからない事を調べる
+3. いくつかブログなどを見て問題の解決策になりそうな部分を特定する
+4. その解決策に該当する部分をリファレンスを読んで確かめる
+5. 手元で実行して確かに動作をするか確認する
+
+調べる方法には唯一絶対の正解があるわけではなく、
+状況によって必要な情報の信頼性を保証し、なおかつ素早く調べる事ができるやり方を構築していって下さい。
+
+### リファレンスの読み方を覚える
+上述したように、調査をする上で信頼性を担保するためにはリファレンスを読むということが必要不可欠になります。
+しかし、初心者には英語で書かれていることや、そもそも読み方がわからないということが、とっつきにくいという印象を与えてしまいます。
+そこで、簡単にリファレンスの読み方を説明していきます。
+
+通常リファレンスを読む際には、
+
+* ◯◯というメソッドの仕様を詳しく知りたい
+* ◯◯という機能を提供しているクラス・メソッドを探したい
+
+上記のような動機で利用することが多くなります。
+そこで**リファレンスに記述されているメソッドの読み方**を紹介しようと思います。
+
+リファレンスに記述されているメソッドを読む際は、以下の4つの注意点を押さえて読んでいくことで、そのメソッドがどんなメソッドであるかを理解する事が出来るようになります。
+
+* レシーバーは何か？
+* 引数は何か？
+* 返り値は何か？
+* 副作用はあるか？
+
+具体的なケースで確認してみましょう。
+Ruby(2.3.0)の`Array`クラスの`delete`メソッドはrdocによると以下のように記述されています。
+https://docs.ruby-lang.org/en/2.3.0/Array.html#method-i-delete
+
+![スクリーンショット 2016-12-15 2.01.41.png](https://qiita-image-store.s3.amazonaws.com/0/76641/73dcb331-f53b-6a8a-623b-2ff97af0b63e.png)
+
+ここで記述されている
+
+```
+delete(obj) { block } -&gt; item or result of block
+```
+
+上記のメソッドの説明の内
+
+`delete(obj) { block }`の`obj`や `{ block }`が**引数**で、
+`-&gt; item or result of block`の`item or result of block`が**返り値**の説明です。
+
+また、メソッドの概要文は英語ですが、殆ど中学生~高校生レベルの英語力で読めるので落ち着いて読んでみましょう。
+メソッドの説明と概要文を読んだ上で、先程の4つのチェック項目を確認してみると以下の様になります。
+
+* レシーバー
+    * `Array`クラスのインスタンス
+* 引数
+    * `obj`とblock
+* 返り値
+    * 最後に削除したレシーバー内の要素。削除する要素が存在しない場合は`nil`
+    * 引数にblockが渡っていてかつ削除対象オブジェクトが無かった場合はblockの返り値
+* 副作用
+    * 引数として与えられた`obj`と一致する要素をレシーバーから全て削除する
+
+`Array`クラスの`delete`メソッドがどんなメソッドであるか、使い方が丸裸ですね。
+メソッドの使用例も合わせて載っているので、4つのチェック項目と照らし合わせることでより正確な理解に繋がります。
+
+基本的には上記のような読み解き方で様々なメソッドを理解することが可能になります。
+リファレンスの正しい読み方を理解することで、信頼性の高い情報を調査するコストを飛躍的に低減することができます。
+
+## 4. 勉強のためにデバッグを行なう
+エラーやバグが発生した時、初心者の時はいつも焦りますよね。
+何がいけないのか検討もつかないでいたずらに時間ばかりがかかってしまい、挙句**原因がただのタイポだったときの絶望感**は誰しも感じた事があるのではないでしょうか？
+しかし、エラーやバグが発生した時は、あえてコレはチャンスだと思ってみましょう。
+そのエラーやバグを解消する過程で、本を読んでいるだけでは学べない多くの事を勉強する事ができるのです。
+
+しかし
+
+* ただ闇雲に変更を加えてなんとなく動作してしまった
+* エラーメッセージをそのままコピペして、検索に引っかかった方法をそのまま適用して事なきを得た
+
+この様なその場しのぎなデバッグをしていると、折角の学習チャンスを逃してしまうことになります。
+**デバッグを学習機会に変える**準備をしておきましょう。
+
+### エラーメッセージを読む
+まず、大抵の場合エラーメッセージを読めばエラーの原因はそこに書いてあります。
+**エラーメッセージは赤い上に英語なので、初心者を殺しに来ている**感じが否めませんが、
+ぶっきらぼうなりにちゃんと必要な情報をプログラマに提供しているのです。
+エラーメッセージは大きく分けると以下の3つの情報が含まれています。
+
+* エラーの発生した時のタイムスタンプ
+* エラーの種類
+* エラーが発生しているファイルとその行数及び、エラーが発生するまでの経路(メソッドの呼び出し順)
+
+たとえば以下のようなエラーがRailsのアプリを開発している際に出てきたとすると
+
+```ruby
+
+F, [2016-12-14T16:12:52.055301 #16409] FATAL -- : [/community/34913]
+ActionView::Template::Error (undefined method `like_count' for #&lt;Community:0x007f67b69866e0&gt;):
+     6:   &lt;div class="bottom-"&gt;
+     7:     &lt;%= image_tag 'community/member.png', class: 'icon user' %&gt;
+     8:       &lt;span class="count"&gt;&lt;%= community.participant_count %&gt;&lt;/span&gt;
+     9:     &lt;div class="info"&gt;
+    10:
+  app/views/communities/_community.html.erb:8:in `block in _app_views_communities_community_html_erb___2695577053056243576_46961797035580'
+  app/views/communities/_community.html.erb:1:in `_app_views_communities_community_html_erb___2695577053056243576_46961797035580'
+  app/views/community/show.html.erb:38:in `_app_views_community_show_html_erb__1896930720777653480_46961797750960'
+```
+
+エラーのタイムスタンプは
+
+```
+F, [2016-12-14T16:12:52.055301 #16409] FATAL -- : [/user/34913]
+```
+
+エラーの種類は
+
+```ruby
+ActionView::Template::Error (undefined method `like_count' for #&lt;Community:0x007f67b69866e0&gt;):
+```
+
+エラーが発生しているファイルとその行数及びエラーが発生するまでの経路は
+
+```ruby
+ app/views/communities/_community.html.erb:8:in `block in _app_views_communities_community_html_erb___2695577053056243576_46961797035580'
+  app/views/communities/_community.html.erb:1:in `_app_views_communities_community_html_erb___2695577053056243576_46961797035580'
+  app/views/community/show.html.erb:38:in `_app_views_community_show_html_erb__1896930720777653480_46961797750960'
+```
+
+という様に分解してエラーメッセージを見る事で、いつどこでどんなエラーが起きたかを把握しやすくなります。
+
+エラーメッセージの読み方は使用している言語やフレームワークによって出力のされ方や内容が異なりますので、学習する内容によっては今回の読み方と異なることが多いでしょう。
+ただし、情報の整理の基本は変わらないはずです。
+上記のようにエラーメッセージを整理していけば、落ち着いてエラーに対処することが出来るようになります。
+
+### デバッグの手法を学ぶ
+上記のように大抵の場合はエラーの原因が書かれているのですが、
+場合によってはエラー文を読んだだけでは、直接的な原因を特定する事が出来ない事があります。
+その場合は、エラーが起きている該当箇所周辺や関連するコードを注意深く読みながら、デバッガを駆使して問題の原因を突き止める必要があります。
+
+デバッグの細かい手法は[Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0)にも書かれていますし、[実践 デバッグ技法 -GDB、DDD、Eclipseによるデバッギング](https://www.amazon.co.jp/exec/obidos/ASIN/4873114063/powerbombkund-22/)のように体系的にまとめられている物が多数存在するので、ここでは割愛します。
+
+また、デバッグを行う上でデバッグしやすいツールを使うというのも非常に重要です。
+Ruby, Railsを使っている場合は[RubyMine](https://www.jetbrains.com/ruby/)という高機能IDEを使ったり、[pry-byebug](https://github.com/deivid-rodriguez/pry-byebug)([参考: pry-byebugでrubyをdebugする](http://qiita.com/AknYk416/items/6f0bec58712edaf4940e))等のデバッグ用のライブラリを利用する事で、より快適なデバッグライフを手に入れる事が出来ます。
+自分の手元の環境や自分の肌に合うツールを試行錯誤しながら探すのもプログラミング学習の楽しさの一つでもあります。
+
+## 5. 良き仲間を作り、レビューし合う
+プログラミング学習をする上で、自分が書いたコードを他人にレビューしてもらうことの重要性は、今更説明しなくても様々な場所で説かれていますが、
+特に初心者は自分よりも信頼できる先輩エンジニアからガンガンレビューを貰ったほうが良いです。
+できるだけ早いうちに我流の変な癖が入り込む余地を無くし、より一般的でかつベストプラクティスと呼ばれるような書き方を身に着けていくように矯正していくべきでしょう。
+
+### 読みやすいコードを意識する
+独学でプログラミング学習を進めると、読みやすいコードを意識せずに変な癖のあるコードを書くプログラマになってしまうかもしれません。
+コードレビューをすることによって学べる事の内、初心者のうちにしっかり叩き込んでおくべきことは、
+**読みやすいコードを意識する事**です。
+
+実際の仕事の中では、自分以外の他の開発者と一緒になってプログラムを書く事がほとんどです。
+その場合、実は**プログラムを書く時間よりも他人が書いたコードを読んでいる時間のほうが長くなる**ことが多いのです。
+(※ ここで言う他人は過去の自分も含んでいます)
+
+他人にコードを読んでもらったときに、つまらない読みづらさの指摘に時間を使うよりも、もっと大事な設計や便利なTipsを指摘してもらいましょう。
+
+読みやすいコードの書き方の詳細については、[リーダブルコード ―より良いコードを書くためのシンプルで実践的なテクニック](https://www.amazon.co.jp/%E3%83%AA%E3%83%BC%E3%83%80%E3%83%96%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89-%E2%80%95%E3%82%88%E3%82%8A%E8%89%AF%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%A7%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-Theory-practice-Boswell/dp/4873115655)が最も有名で、「読みやすいコード」をどうやって実現するかを具体例を交えながら非常にわかりやすく紹介されている為、本記事では割愛します。是非とも一度手にとって読んでみて下さい。
+
+また、静的コード解析ツール等を利用して、コーディングスタイルや命名規約等を矯正することで、仕組みで読みやすいコードに矯正することも出来ます。
+rubyでは[rubocop](https://github.com/bbatsov/rubocop)などが有名ですね([参考 : Rubocopを使ってコーディングルールへの準拠チェックを自動化](http://qiita.com/yaotti/items/4f69a145a22f9c8f8333))。
+
+ちなみに、弊社の新卒エンジニア研修は、研修生と現場のエンジニアの1on1のコードレビューを中心としたプログラムになっています。レビュワーから「何故この書き方にしたのか？」を問われ続ける中で、**どうやって書いたらもっと読みやすくなるのだろうか？**を常に自問しながら学習するように設計されています。
+
+## 6. 成果物を作り出す
+プログラミングの勉強をする上で、最もモチベーションにつながるのは、
+作りたい物を作って、それが動作する時ではないでしょうか？
+
+次はもっと◯◯な物を作りたい！や日常のふとした課題を解決するアプリケーションを作りたい！
+そんな思いから、それを実現する為の勉強のテーマが決まっていきます。
+
+しかし、初心者の場合はそもそも作りたいものがぱっと思いつかない事が多いのが現実的なところではないでしょうか？
+**作りたいものが思い浮かばないので、書籍の写経が終わった後が続かずに、一向にスキルが伸びていかない。**
+こういう繰り返しに僕は陥っていました。
+
+### 車輪の再発明を積極的にする
+そもそも多くの場合、人は自分が作れる物以上の物を作りたいと思うことができないのだと考えています。
+簡単に言うと、「作り上げる」イメージが湧かないものに対してはモチベーションを燃やすことができないということです。
+
+すなわち、自分が本当に作りたい物を思い浮かべるようになるには、自分が作れる物の範囲を広げていく必要があるということです。
+**初心者がいきなり作りたいものを作ろうとしたって、そもそも作れる物がしょぼすぎる**のでそんなもの作りたいと思えるわけがありません。
+
+その考え方を逆手に取ると、初心者の方が成果物を作り出す習慣を作るためにまず初めにやることは、
+**積極的に車輪の再発明をする**ということです。
+一般的に車輪の再発明はプログラミングの世界においてはネガティブな言葉として捉えられますが、
+学習目的の場合、**仕様を一から考える必要が無いので作る作業自体に集中できる**という大きなメリットがあります。
+いわゆる守破離の「守」のプロセスですね。
+
+作りたいものが無いと悩むぐらいなら、自分が普段使っているサービスやちょっとしたアプリのコピーを作ってみることをオススメします。
+
+### 再発明した物を少しだけ改善してみる
+サービスのコピーを作ったら、何か一つでもいいからオリジナルの機能を作ってみましょう。
+サービスのコピーをする過程で、作ることが出来る範囲は作る前と比べて飛躍的に向上しているはずです。
+
+実現できる事の幅が広がれば、自ずと「これもできるかな？」という色気が出てきます。
+新しいアプリのアイディアが出てこなくても、機能改善や小さな機能の開発ぐらいなら、案外いくつも思いつくものです。
+
+先程から何度か紹介している[RailsTutorial](http://railstutorial.jp/?version=5.0#walk-through)は、Ruby on Railsの代表的な入門資料で、Twitterのコピーサイトを0から作るという非常に手厚いチュートリアルでおすすめです。
+[第2版](http://railstutorial.jp/?version=4.0#walk-through)(現在は第4版)の[最終章の巻末問題](http://railstutorial.jp/chapters/following-users?version=4.0#sec-extensions_to_the_sample_application)では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。
+~~第3版以降からはこの巻末問題がなくなっていたので非常に残念でしたが、~~ただ単に写経するだけでなく自分の頭で考えて作っていくプロセスを踏めるという意味で優秀な教材だったなと感じています。
+
+**(追記)**
+RailsTutorialの日本版を執筆された @yasulab さんから、
+
+&gt; @YudaiTsukamoto 最新版のチュートリアルで実装されるようになった「パスワードリマインダー」と「ユーザー登録の確認」を除き、他の課題集を載せてみました! :smile:  :new: :sparkles:
+&gt; :bookmark: 14.4.1 サンプルアプリケーションの機能を拡張する
+http://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions
+&gt; なお、当時 (第2版) の情報にいくつか古い情報があったので、そちらは僕の方で適宜アレンジしておきました ;) :wrench: :dash: 
+
+とコメントを頂き、最新版のRailsTutorialでは、上述の`アプリケーションの機能を拡張する`の項目が復活致しました！感無量です・・・(´；ω；｀)
+
+## 7. 体を鍛える
+
+### 健全な精神は健全な肉体に宿る
+古代ローマの有名な風刺詩人が言っていたり、某魂を食べ合うアニメでも引用されていましたが、
+「健全な精神は健全な肉体に宿る」は**人類史上の最も偉大な格言**の一つだと思っています。
+そして、肉体とはすなわち、**筋肉**のことです。
+
+**プログラミングの勉強は、精神の戦いです。**
+精神の状態が不安定な時に勉強をすると、果てしなく効率が下がります。
+こんな過酷な状況下で、筋肉を鍛えない理由がありますか？
+
+**プログラミングの勉強は、姿勢の戦いとも言えます。**
+発達したアウターマッスルとインナーマッスルのコンビネーションによる、安定した着座姿勢が正確なタイピングを生み、正確なタイピングが生み出す止めどないリズムが、プログラマーのテンションを上げていきます。
+こんな素晴らしい効果が期待される中で、筋肉を鍛えない理由がありますか？
+
+何より、気分がいいです。
+筋肉が発達すると、とても、気分が、いいです。
+
+つまり**筋肉を鍛える事は、プログラミング学習を加速させる上で超重要なファクター**であるということです。
+
+### スクワットがおすすめ
+筋肉トレーニングをこれまでの人生でほとんどやってこなかった方におすすめの筋トレは、
+
+**スクワット**です。
+
+腕立て伏せや、腹筋等の有名な筋肉トレーニングは、日常的にあまり鍛えられていない場合が多く、まともにこなせません。
+できないトレーニングを繰り返しても気分が乗らず長続きしません。
+
+一方で、スクワットで使う筋肉は日常の歩行で常に自重トレーニングを行っている状態に近いため、筋肉トレーニングを行う上で必要最低限の筋肉が発達しているケースがほとんどなのです。
+
+さらに、スクワットは筋肉の中で最も大きい大腿四頭筋（太ももの前の筋肉）をはじめ、足腰を総合的に鍛えることができるエクササイズです。
+`King Of Muscle Training`と言っても過言ではありません。
+今すぐ立ち上がって、スクワットを始めることをオススメします。
+
+スクワットの正しいやり方は、Qiitaの責任範囲を大きく逸脱するため、ここでは詳しくは書きませんが、是非とも[レクチャー記事](https://kaumo.jp/topic/69615)を見て正しいやり方を学んで実践してみて下さい。
+
+# おわりに
+
+いかがでしたでしょうか？
+独学がうまくいかずに苦しんで、社会人としてはじめて体系的にプログラミングの勉強を行い、
+試行錯誤しながら取り組んだ事で学んだ集大成をまとめました。
+いささか大ボリュームすぎる感じが否めませんが、初心者の方や、新人エンジニアの方が勉強する際の指針として役立ててもらえれば幸いです。
+
+明日は @jazzyslideさんの「子どもたちが学ぶ技術の面白さと成長に関する何か」です
+お楽しみに
+</textarea><input type="submit" name="commit" value="Save changes" data-disable-with="Save changes"></form></div></section></div><div class="col-sm-3"><div class="socialButtons"><div class="socialButtons_twitter"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="http://platform.twitter.com/widgets/tweet_button.3748f7cda49448f6c6f7854238570ba0.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;size=m&amp;text=%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%8B%89%E5%BC%B7%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B%E3%82%8B7%E3%81%A4%E3%81%AE%E7%BF%92%E6%85%A3%20on%20%40Qiita&amp;time=1483243193434&amp;type=share&amp;url=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd" style="position: static; visibility: visible; width: 61px; height: 20px;" data-url="http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd"></iframe></div><div class="socialButtons_hatebu"><iframe class="hatena-bookmark-button-frame" title="はてブに追加" frameborder="0" scrolling="no" width="70" height="20" src="javascript:false" style="width: 63px; height: 20px;"></iframe><script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript"></script></div><div class="socialButtons_googlePlus"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I2_1483243194142" name="I2_1483243194142" src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=http%3A%2F%2Fqiita.com&amp;url=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;gsrc=3p&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.ja.eY01mKC_upg.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCO6Rpz4bNsJKoxktucPXBZsKfVbUQ#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I2_1483243194142&amp;parent=http%3A%2F%2Fqiita.com&amp;pfname=&amp;rpctoken=30130996" data-gapiattached="true" title="+1"></iframe></div></div><div class="socialButtons_facebook"><div class="fb-like fb_iframe_widget" data-action="like" data-href="http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd" data-layout="button_count" data-share="false" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=222621691108322&amp;container_width=0&amp;href=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false"><span style="vertical-align: bottom; width: 73px; height: 20px;"><iframe name="f223c5025044ffc" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/plugins/like.php?action=like&amp;app_id=222621691108322&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FiPrOY23SGAp.js%3Fversion%3D42%23cb%3Dfeaa7b6ece39c4%26domain%3Dqiita.com%26origin%3Dhttp%253A%252F%252Fqiita.com%252Ff2ec271bf1f57fc%26relation%3Dparent.parent&amp;container_width=0&amp;href=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false" style="border: none; visibility: visible; width: 73px; height: 20px;" class=""></iframe></span></div></div><div class="socialButtons_pocket"><div class="pocket-btn"><iframe width="135" height="22" id="pocket-button-0" frameborder="0" allowtransparency="true" scrolling="NO" src="https://widgets.getpocket.com/v1/button?label=pocket&amp;count=horizontal&amp;v=1&amp;url=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;title=%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%8B%89%E5%BC%B7%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B%E3%82%8B7%E3%81%A4%E3%81%AE%E7%BF%92%E6%85%A3%20-%20Qiita&amp;src=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;r=0.5810365253333927"></iframe></div></div></div><section class="itemsShowAuthorInfo" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><a href="/YudaiTsukamoto"><img alt="" class="itemsShowAuthorInfo_userIcon" itemprop="image" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457"></a><div class="itemsShowAuthorInfo_profileStats"><strong class="itemsShowAuthorInfo_userName" itemprop="name"><a itemprop="url" href="/YudaiTsukamoto">YudaiTsukamoto</a></strong><div class="itemsShowAuthorInfo_contribution"><span class="itemsShowAuthorInfo_count">1234</span><span class="itemsShowAuthorInfo_unit">Contribution</span></div><div data-react-class="T.UserFollowButton" data-react-props="{&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;,&quot;initial_followed_by&quot;:false,&quot;size&quot;:&quot;btn-xs&quot;,&quot;position&quot;:&quot;author-info&quot;}"><span data-reactroot="" class="userFollowButton"><button class="btn btn-default btn-block userFollowButton_inner btn-xs"><i class="i fa fa-user-plus"></i><!-- react-text: 4 -->フォロー<!-- /react-text --></button></span></div></div><section class="itemsShowAuthorPopularItems"><h5 class="itemsShowAuthorPopularItems_sectionTitle">人気の投稿</h5><ul class="itemsShowAuthorPopularItems_posts list-unstyled"><li itemscope="" itemtype="http://schema.org/Article"> <a itemprop="url" track="click" data-label="AuthorPopularItemsAtSidebar" href="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd">プログラミング勉強を加速させる7つの習慣</a></li><li itemscope="" itemtype="http://schema.org/Article"> <a itemprop="url" track="click" data-label="AuthorPopularItemsAtSidebar" href="/YudaiTsukamoto/items/f81a16f55008378ac15c">独断と偏見で選ぶ、新人Rubyプログラマの為の技術書21選</a></li><li itemscope="" itemtype="http://schema.org/Article"> <a itemprop="url" track="click" data-label="AuthorPopularItemsAtSidebar" href="/YudaiTsukamoto/items/5d034995ef55855d8742">単一テーブル継承を使って複数のコンテンツへのLikeをいい感じにまとめる</a></li><li itemscope="" itemtype="http://schema.org/Article"> <a itemprop="url" track="click" data-label="AuthorPopularItemsAtSidebar" href="/YudaiTsukamoto/items/3954ed186c41d65ad025">複数のモデルが入り混じったメンバに対してrenderメソッドを使うと、各モデルに適切なパーシャルを読んでくれる</a></li></ul></section><section class="itemsShowAuthorInfo_organization"><h5 class="itemsShowAuthorInfo_organizationTitle">Organization</h5><span itemprop="memberOf" itemscope="" itemtype="http://schema.org/Organization"><a itemprop="url" href="/organizations/litalico"><img alt="株式会社LITALICO" class="itemsShowAuthorInfo_organizationLogo" itemprop="image" src="https://s3-ap-northeast-1.amazonaws.com/qiita-organization-image/b7a0bc218bd798f25859140965c034912d8d5d00/original.jpg?1423824833"></a></span></section></section><div class="scroll-chaser"></div><div data-react-class="T.Toc" data-react-props="{&quot;body&quot;:&quot;\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB\&quot;\u003eはじめに\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%8B%89%E5%BC%B7%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B%E3%82%8B7%E3%81%A4%E3%81%AE%E7%BF%92%E6%85%A3\&quot;\u003eプログラミング勉強を加速させる7つの習慣\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#1-%E5%8B%89%E5%BC%B7%E3%81%99%E3%82%8B%E6%8A%80%E8%A1%93%E5%88%86%E9%87%8E%E3%82%92%E7%B5%9E%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B\&quot;\u003e1. 勉強する技術分野を絞ることから始める\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%AD%A6%E3%81%B6%E5%88%86%E9%87%8E%E3%81%AE%E5%85%A8%E4%BD%93%E6%84%9F%E3%82%92%E6%8A%8A%E6%8F%A1%E3%81%99%E3%82%8B\&quot;\u003e学ぶ分野の全体感を把握する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%8B%89%E5%BC%B7%E3%81%99%E3%82%8B%E9%A0%85%E7%9B%AE%E3%82%92%E5%BF%85%E8%A6%81%E6%9C%80%E5%B0%8F%E9%99%90%E3%81%AB%E7%B5%9E%E3%82%8B\&quot;\u003e勉強する項目を必要最小限に絞る\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%88%86%E9%87%8E%E3%81%94%E3%81%A8%E3%81%AB%E9%9B%86%E4%B8%AD%E7%9A%84%E3%81%AB%E5%AD%A6%E7%BF%92%E3%81%99%E3%82%8B\&quot;\u003e分野ごとに集中的に学習する\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#2-%E3%81%BE%E3%81%9A%E7%90%86%E8%A7%A3%E3%81%97%E3%81%9F%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B\&quot;\u003e2. まず「理解した」を定義する\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#1%E3%81%8B%E3%82%8910%E3%81%BE%E3%81%A7%E8%AA%AC%E6%98%8E%E5%87%BA%E6%9D%A5%E3%82%8B%E3%82%92%E7%90%86%E8%A7%A3%E3%81%97%E3%81%9F%E3%81%A8%E3%81%99%E3%82%8B\&quot;\u003e1から10まで説明出来るを「理解した」とする\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%94%A8%E8%AA%9E%E3%82%92%E6%AD%A3%E3%81%97%E3%81%8F%E4%BD%BF%E3%81%A3%E3%81%A6%E8%AA%AC%E6%98%8E%E3%82%92%E3%81%99%E3%82%8B\&quot;\u003e用語を正しく使って説明をする\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#3-%E6%83%85%E5%A0%B1%E3%81%AE%E4%BF%A1%E9%A0%BC%E6%80%A7%E3%82%92%E5%84%AA%E5%85%88%E3%81%99%E3%82%8B\&quot;\u003e3. 情報の信頼性を優先する\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E6%83%85%E5%A0%B1%E6%BA%90%E3%81%AE%E7%89%B9%E6%80%A7%E3%82%92%E6%B4%BB%E3%81%8B%E3%81%97%E3%81%A6%E8%AA%BF%E6%9F%BB%E3%82%92%E3%81%99%E3%82%8B\&quot;\u003e情報源の特性を活かして調査をする\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%E3%82%92%E8%A6%9A%E3%81%88%E3%82%8B\&quot;\u003eリファレンスの読み方を覚える\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#4-%E5%8B%89%E5%BC%B7%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%82%92%E8%A1%8C%E3%81%AA%E3%81%86\&quot;\u003e4. 勉強のためにデバッグを行なう\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%82%92%E8%AA%AD%E3%82%80\&quot;\u003eエラーメッセージを読む\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%81%AE%E6%89%8B%E6%B3%95%E3%82%92%E5%AD%A6%E3%81%B6\&quot;\u003eデバッグの手法を学ぶ\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#5-%E8%89%AF%E3%81%8D%E4%BB%B2%E9%96%93%E3%82%92%E4%BD%9C%E3%82%8A%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%81%97%E5%90%88%E3%81%86\&quot;\u003e5. 良き仲間を作り、レビューし合う\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E8%AA%AD%E3%81%BF%E3%82%84%E3%81%99%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%84%8F%E8%AD%98%E3%81%99%E3%82%8B\&quot;\u003e読みやすいコードを意識する\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#6-%E6%88%90%E6%9E%9C%E7%89%A9%E3%82%92%E4%BD%9C%E3%82%8A%E5%87%BA%E3%81%99\&quot;\u003e6. 成果物を作り出す\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E8%BB%8A%E8%BC%AA%E3%81%AE%E5%86%8D%E7%99%BA%E6%98%8E%E3%82%92%E7%A9%8D%E6%A5%B5%E7%9A%84%E3%81%AB%E3%81%99%E3%82%8B\&quot;\u003e車輪の再発明を積極的にする\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%86%8D%E7%99%BA%E6%98%8E%E3%81%97%E3%81%9F%E7%89%A9%E3%82%92%E5%B0%91%E3%81%97%E3%81%A0%E3%81%91%E6%94%B9%E5%96%84%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B\&quot;\u003e再発明した物を少しだけ改善してみる\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#7-%E4%BD%93%E3%82%92%E9%8D%9B%E3%81%88%E3%82%8B\&quot;\u003e7. 体を鍛える\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%81%A5%E5%85%A8%E3%81%AA%E7%B2%BE%E7%A5%9E%E3%81%AF%E5%81%A5%E5%85%A8%E3%81%AA%E8%82%89%E4%BD%93%E3%81%AB%E5%AE%BF%E3%82%8B\&quot;\u003e健全な精神は健全な肉体に宿る\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B9%E3%82%AF%E3%83%AF%E3%83%83%E3%83%88%E3%81%8C%E3%81%8A%E3%81%99%E3%81%99%E3%82%81\&quot;\u003eスクワットがおすすめ\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%81%8A%E3%82%8F%E3%82%8A%E3%81%AB\&quot;\u003eおわりに\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;wrapper&quot;:&quot;#article-body-wrapper&quot;}"><div style="position: relative; top: 0px; height: 0px;"></div><div data-reactroot="" class="tocTree" style="width: 270px; position: fixed; top: 0px;"><div class="tocTree_contents nav" style="max-height: 779px;"><ul>
+<li class="">
+<a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</a>
+</li>
+<li class="active">
+<a href="#%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%8B%89%E5%BC%B7%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B%E3%82%8B7%E3%81%A4%E3%81%AE%E7%BF%92%E6%85%A3">プログラミング勉強を加速させる7つの習慣</a>
+<ul>
+<li class="">
+<a href="#1-%E5%8B%89%E5%BC%B7%E3%81%99%E3%82%8B%E6%8A%80%E8%A1%93%E5%88%86%E9%87%8E%E3%82%92%E7%B5%9E%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B">1. 勉強する技術分野を絞ることから始める</a>
+<ul>
+<li class="">
+<a href="#%E5%AD%A6%E3%81%B6%E5%88%86%E9%87%8E%E3%81%AE%E5%85%A8%E4%BD%93%E6%84%9F%E3%82%92%E6%8A%8A%E6%8F%A1%E3%81%99%E3%82%8B">学ぶ分野の全体感を把握する</a>
+</li>
+<li class="">
+<a href="#%E5%8B%89%E5%BC%B7%E3%81%99%E3%82%8B%E9%A0%85%E7%9B%AE%E3%82%92%E5%BF%85%E8%A6%81%E6%9C%80%E5%B0%8F%E9%99%90%E3%81%AB%E7%B5%9E%E3%82%8B">勉強する項目を必要最小限に絞る</a>
+</li>
+<li class="">
+<a href="#%E5%88%86%E9%87%8E%E3%81%94%E3%81%A8%E3%81%AB%E9%9B%86%E4%B8%AD%E7%9A%84%E3%81%AB%E5%AD%A6%E7%BF%92%E3%81%99%E3%82%8B">分野ごとに集中的に学習する</a>
+</li>
+</ul>
+</li>
+<li class="">
+<a href="#2-%E3%81%BE%E3%81%9A%E7%90%86%E8%A7%A3%E3%81%97%E3%81%9F%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B">2. まず「理解した」を定義する</a>
+<ul>
+<li class="">
+<a href="#1%E3%81%8B%E3%82%8910%E3%81%BE%E3%81%A7%E8%AA%AC%E6%98%8E%E5%87%BA%E6%9D%A5%E3%82%8B%E3%82%92%E7%90%86%E8%A7%A3%E3%81%97%E3%81%9F%E3%81%A8%E3%81%99%E3%82%8B">1から10まで説明出来るを「理解した」とする</a>
+</li>
+<li class="">
+<a href="#%E7%94%A8%E8%AA%9E%E3%82%92%E6%AD%A3%E3%81%97%E3%81%8F%E4%BD%BF%E3%81%A3%E3%81%A6%E8%AA%AC%E6%98%8E%E3%82%92%E3%81%99%E3%82%8B">用語を正しく使って説明をする</a>
+</li>
+</ul>
+</li>
+<li class="">
+<a href="#3-%E6%83%85%E5%A0%B1%E3%81%AE%E4%BF%A1%E9%A0%BC%E6%80%A7%E3%82%92%E5%84%AA%E5%85%88%E3%81%99%E3%82%8B">3. 情報の信頼性を優先する</a>
+<ul>
+<li class="">
+<a href="#%E6%83%85%E5%A0%B1%E6%BA%90%E3%81%AE%E7%89%B9%E6%80%A7%E3%82%92%E6%B4%BB%E3%81%8B%E3%81%97%E3%81%A6%E8%AA%BF%E6%9F%BB%E3%82%92%E3%81%99%E3%82%8B">情報源の特性を活かして調査をする</a>
+</li>
+<li class="">
+<a href="#%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%E3%82%92%E8%A6%9A%E3%81%88%E3%82%8B">リファレンスの読み方を覚える</a>
+</li>
+</ul>
+</li>
+<li class="">
+<a href="#4-%E5%8B%89%E5%BC%B7%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%82%92%E8%A1%8C%E3%81%AA%E3%81%86">4. 勉強のためにデバッグを行なう</a>
+<ul>
+<li class="">
+<a href="#%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%82%92%E8%AA%AD%E3%82%80">エラーメッセージを読む</a>
+</li>
+<li class="">
+<a href="#%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%81%AE%E6%89%8B%E6%B3%95%E3%82%92%E5%AD%A6%E3%81%B6">デバッグの手法を学ぶ</a>
+</li>
+</ul>
+</li>
+<li class="">
+<a href="#5-%E8%89%AF%E3%81%8D%E4%BB%B2%E9%96%93%E3%82%92%E4%BD%9C%E3%82%8A%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%81%97%E5%90%88%E3%81%86">5. 良き仲間を作り、レビューし合う</a>
+<ul>
+<li class="">
+<a href="#%E8%AA%AD%E3%81%BF%E3%82%84%E3%81%99%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%84%8F%E8%AD%98%E3%81%99%E3%82%8B">読みやすいコードを意識する</a>
+</li>
+</ul>
+</li>
+<li class="">
+<a href="#6-%E6%88%90%E6%9E%9C%E7%89%A9%E3%82%92%E4%BD%9C%E3%82%8A%E5%87%BA%E3%81%99">6. 成果物を作り出す</a>
+<ul>
+<li class="">
+<a href="#%E8%BB%8A%E8%BC%AA%E3%81%AE%E5%86%8D%E7%99%BA%E6%98%8E%E3%82%92%E7%A9%8D%E6%A5%B5%E7%9A%84%E3%81%AB%E3%81%99%E3%82%8B">車輪の再発明を積極的にする</a>
+</li>
+<li class="">
+<a href="#%E5%86%8D%E7%99%BA%E6%98%8E%E3%81%97%E3%81%9F%E7%89%A9%E3%82%92%E5%B0%91%E3%81%97%E3%81%A0%E3%81%91%E6%94%B9%E5%96%84%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B">再発明した物を少しだけ改善してみる</a>
+</li>
+</ul>
+</li>
+<li class="active">
+<a href="#7-%E4%BD%93%E3%82%92%E9%8D%9B%E3%81%88%E3%82%8B">7. 体を鍛える</a>
+<ul>
+<li class="active">
+<a href="#%E5%81%A5%E5%85%A8%E3%81%AA%E7%B2%BE%E7%A5%9E%E3%81%AF%E5%81%A5%E5%85%A8%E3%81%AA%E8%82%89%E4%BD%93%E3%81%AB%E5%AE%BF%E3%82%8B">健全な精神は健全な肉体に宿る</a>
+</li>
+<li class="">
+<a href="#%E3%82%B9%E3%82%AF%E3%83%AF%E3%83%83%E3%83%88%E3%81%8C%E3%81%8A%E3%81%99%E3%81%99%E3%82%81">スクワットがおすすめ</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">
+<a href="#%E3%81%8A%E3%82%8F%E3%82%8A%E3%81%AB">おわりに</a>
+</li>
+</ul>
+</div></div></div></div></div><div class="row"><div class="col-sm-9"><div class="ArticleFooter__menu"><div class="s-flex-align-center"><div class="js-likebutton" data-props="{&quot;like_status&quot;:true,&quot;like_count&quot;:997,&quot;show_count&quot;:true,&quot;uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable_type&quot;:&quot;Article&quot;,&quot;position&quot;:&quot;article-footer&quot;}"><div data-reactroot="" class="LikeButton"><button class="p-button  liked"><span class="fa fa-fw fa-check"></span><span>いいね済み</span></button><div class="LikeButton__balloon">997</div></div></div><div class="ArticleFooter__userList"><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="tomotomospot"><a itemprop="url" href="/tomotomospot"><img alt="tomotomospot" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/47901/profile-images/1480057756"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="taka_f0807"><a itemprop="url" href="/taka_f0807"><img alt="taka_f0807" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/117066/profile-images/1473713465"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="Shagamii"><a itemprop="url" href="/Shagamii"><img alt="Shagamii" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/129548/profile-images/1473717594"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="momim9"><a itemprop="url" href="/momim9"><img alt="momim9" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/131043/profile-images/1474882676"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="nulltypo"><a itemprop="url" href="/nulltypo"><img alt="nulltypo" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/91479/profile-images/1477927109"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="dhammapada@github"><a itemprop="url" href="/dhammapada@github"><img alt="dhammapada@github" class="thumb thumb--xs" src="https://secure.gravatar.com/avatar/09b4b2a828d73cd271c81cb427499258?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="yusukearioka"><a itemprop="url" href="/yusukearioka"><img alt="yusukearioka" class="thumb thumb--xs" src="https://avatars.githubusercontent.com/u/18496519?v=3"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="GushiSnow"><a itemprop="url" href="/GushiSnow"><img alt="GushiSnow" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/10496/profile-images/1473757289"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="kentya6"><a itemprop="url" href="/kentya6"><img alt="kentya6" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/2037/profile-images/1473684185"></a></div></div><div class="ArticleFooter__user"><div class="js-hovercard" data-hovercard-target-name="Takuan_Oishii"><a itemprop="url" href="/Takuan_Oishii"><img alt="Takuan_Oishii" class="thumb thumb--xs" src="https://qiita-image-store.s3.amazonaws.com/0/48596/profile-images/1473691406"></a></div></div><div class="ArticleFooter__user"><a href="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/likers"><span class="fa fa-ellipsis-h"></span></a></div></div></div><div class="u-flex u-align-center"><div class="ArticleFooter__stock"><div class="js-stockButton StockButton" data-counter="" data-path="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd" data-position="top" data-uuid="42a8df22ca4c6b327dfd"><form class="button_to" method="post" action="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/stock"><button class="StockButton__stock" type="submit"><div class="fa-stack fa-lg"><span class="fa fa-folder-open fa-stack-1x unstock"></span></div><span class="StockButton__label">ストック</span></button><input type="hidden" name="authenticity_token" value="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="></form><form class="button_to" method="post" action="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd/unstock"><button class="StockButton__unstock" data-toggle="tooltip" title="" type="submit" data-original-title="ストック済み"><div class="fa-stack fa-lg"><span class="fa fa-folder fa-stack-1x"></span><span class="fa fa-check fa-stack-1x fa-inverse"></span></div><span class="StockButton__label">ストック</span></button><input type="hidden" name="authenticity_token" value="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="></form></div></div><div class="ArticleFooter__editRequest"><a class="u-link-no-underline" data-toggle="tooltip" title="" href="/drafts/42a8df22ca4c6b327dfd/edit" data-original-title="投稿者に記事をより良くするための提案ができます 💪"><span class="fa fa-send-o fa-lg"></span> <span>編集リクエスト</span></a></div><div class="dropdown ArticleFooter__dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-ellipsis-h"></span></a><ul class="dropdown-menu dropdown-menu-right"><li><a href="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd.md"><span class="fa fa-fw fa-file-text-o"></span> Markdownで本文を見る</a></li><li><a data-target=".js-report-form" data-toggle="modal" href="#"><i class="fa fa-fw fa-flag"></i> 問題がある投稿を報告する</a></li></ul></div></div></div><div class="itemsShowBody_adventCalendar"><div class="itemsShowBody_adventCalendar_header"><i class="fa fa-fw fa-calendar"></i> この投稿は <a class="title" href="/advent-calendar/2016/litalico">LITALICO Engineers Advent Calendar 2016</a> の <span class="date">16日目</span>の記事です。</div><ul class="itemsShowBody_adventCalendar_nav list-unstyled"><li class="itemsShowBody_adventCalendar_neighborItem itemsShowBody_adventCalendar_neighborItem-prev"><span class="itemsShowBody_adventCalendar_date"><i class="fa fa-fw fa-arrow-circle-left"></i> 15日目の記事:</span><span class="itemsShowBody_adventCalendar_title"><img alt="daisukeh" class="itemsShowBody_adventCalendar_icon" src="https://qiita-image-store.s3.amazonaws.com/0/51783/profile-images/1473692544" width="18" height="18"> <a class="itemsShowBody_adventCalendar_link" href="/daisukeh/items/2bc9bdc28f3894ebdad5">Arduinoを使ったサイクリングナビ</a></span></li><li class="itemsShowBody_adventCalendar_neighborItem itemsShowBody_adventCalendar_neighborItem-next"><span class="itemsShowBody_adventCalendar_date"><i class="fa fa-fw fa-arrow-circle-right"></i> 17日目の記事:</span><span class="itemsShowBody_adventCalendar_title"><img alt="jazzyslide" class="itemsShowBody_adventCalendar_icon" src="https://qiita-image-store.s3.amazonaws.com/0/5324/profile-images/1473681895" width="18" height="18"> <a class="itemsShowBody_adventCalendar_link" href="/jazzyslide/items/262fce05bf77fe9d339c">子どもの方が学んでる？子どもたちの成長に見る「学び方のヒント」</a></span></li></ul></div><ul class="references js-referencesView"><li class="references_header"><i class="fa fa-fw fa-link"></i> この記事は以下の記事からリンクされています</li><li class="references_reference js-reference"><a href="/jazzyslide/items/262fce05bf77fe9d339c#_reference-0c3a01c1bf983f68ac31"><img alt="" width="18" height="18" src="https://qiita-image-store.s3.amazonaws.com/0/5324/profile-images/1473681895">子どもの方が学んでる？子どもたちの成長に見る「学び方のヒント」</a><span>からリンク</span><time class="references_datetime js-dateTimeView" datetime="2016-12-16T15:02:59+00:00" title="2016/12/17 0:02:59">16日前</time></li><li class="references_reference js-reference"><a href="/YudaiTsukamoto/items/f81a16f55008378ac15c#_reference-0e571fda74238a4ff296"><img alt="" width="18" height="18" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457">独断と偏見で選ぶ、新人Rubyプログラマの為の技術書21選</a><span>からリンク</span><time class="references_datetime js-dateTimeView" datetime="2016-12-21T06:49:08+00:00" title="2016/12/21 15:49:08">11日前</time></li></ul><div class="itemsShowBody_articleColumnFooter"><div class="socialButtons"><div class="socialButtons_twitter"><iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="http://platform.twitter.com/widgets/tweet_button.3748f7cda49448f6c6f7854238570ba0.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;original_referer=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;size=m&amp;text=%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%8B%89%E5%BC%B7%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B%E3%82%8B7%E3%81%A4%E3%81%AE%E7%BF%92%E6%85%A3%20on%20%40Qiita&amp;time=1483243193441&amp;type=share&amp;url=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd" style="position: static; visibility: visible; width: 61px; height: 20px;" data-url="http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd"></iframe></div><div class="socialButtons_hatebu"><iframe class="hatena-bookmark-button-frame" title="はてブに追加" frameborder="0" scrolling="no" width="70" height="20" src="javascript:false" style="width: 63px; height: 20px;"></iframe><script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript"></script></div><div class="socialButtons_googlePlus"><div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I3_1483243194168" name="I3_1483243194168" src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=http%3A%2F%2Fqiita.com&amp;url=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;gsrc=3p&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.ja.eY01mKC_upg.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCO6Rpz4bNsJKoxktucPXBZsKfVbUQ#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I3_1483243194168&amp;parent=http%3A%2F%2Fqiita.com&amp;pfname=&amp;rpctoken=48404823" data-gapiattached="true" title="+1"></iframe></div></div><div class="socialButtons_facebook"><div class="fb-like fb_iframe_widget" data-action="like" data-href="http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd" data-layout="button_count" data-share="false" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=222621691108322&amp;container_width=0&amp;href=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false"><span style="vertical-align: bottom; width: 73px; height: 20px;"><iframe name="f240f98f4af5" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/plugins/like.php?action=like&amp;app_id=222621691108322&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FiPrOY23SGAp.js%3Fversion%3D42%23cb%3Df411999deeb48%26domain%3Dqiita.com%26origin%3Dhttp%253A%252F%252Fqiita.com%252Ff2ec271bf1f57fc%26relation%3Dparent.parent&amp;container_width=0&amp;href=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false" style="border: none; visibility: visible; width: 73px; height: 20px;" class=""></iframe></span></div></div><div class="socialButtons_pocket"><div class="pocket-btn"><iframe width="135" height="22" id="pocket-button-1" frameborder="0" allowtransparency="true" scrolling="NO" src="https://widgets.getpocket.com/v1/button?label=pocket&amp;count=horizontal&amp;v=1&amp;url=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;title=%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%8B%89%E5%BC%B7%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B%E3%82%8B7%E3%81%A4%E3%81%AE%E7%BF%92%E6%85%A3%20-%20Qiita&amp;src=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;r=0.13482879911908108"></iframe></div></div></div></div><div class="itemsShowComment_wrapper" id="comments"><div data-react-class="T.CommentListContainer" data-react-props="{&quot;currentUser&quot;:{&quot;contribution&quot;:4378,&quot;created_at&quot;:&quot;2014-01-11T08:13:49+09:00&quot;,&quot;id&quot;:35595,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;howdy39&quot;},&quot;initialComments&quot;:[{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cblockquote\u003e\n\u003cp\u003e第2版(現在は第4版)の最終章の巻末問題では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。\u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003cp\u003eお、確かにこれあると面白いですよね ;) \u003cbr\u003e\n後ほど訳註として追加しようと思います! \u003cimg alt=\&quot;:wrench:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f527.png\&quot; title=\&quot;:wrench:\&quot; width=\&quot;20\&quot;\u003e \u003cimg alt=\&quot;:dash:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f4a8.png\&quot; title=\&quot;:dash:\&quot; width=\&quot;20\&quot;\u003e \u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T10:32:34+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704546,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:2,&quot;raw_body&quot;:&quot;\u003e 第2版(現在は第4版)の最終章の巻末問題では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。\n\nお、確かにこれあると面白いですよね ;) \n後ほど訳註として追加しようと思います! :wrench: :dash: \n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-4433feecd86c2553c0e7&quot;,&quot;user&quot;:{&quot;contribution&quot;:288,&quot;created_at&quot;:&quot;2012-01-04T15:27:05+09:00&quot;,&quot;id&quot;:1857,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;yasulab&quot;},&quot;uuid&quot;:&quot;4433feecd86c2553c0e7&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/yasulab\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;yasulab\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;yasulab\&quot;\u003e@yasulab\u003c/a\u003e \u003cbr\u003e\nうわあああ！嬉しいです！\u003cbr\u003e\n章末問題を解きながら、Tutorialで学習した知識を深めていったのは、自分の学習が加速した最初の瞬間だったので、\u003cbr\u003e\n本当に嬉しいです！ありがとうございます！\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T10:41:49+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704559,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:0,&quot;raw_body&quot;:&quot;@yasulab \nうわあああ！嬉しいです！\n章末問題を解きながら、Tutorialで学習した知識を深めていったのは、自分の学習が加速した最初の瞬間だったので、\n本当に嬉しいです！ありがとうございます！\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-436971fd5192a26317f0&quot;,&quot;user&quot;:{&quot;contribution&quot;:1234,&quot;created_at&quot;:&quot;2015-04-24T09:26:46+09:00&quot;,&quot;id&quot;:76641,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;},&quot;uuid&quot;:&quot;436971fd5192a26317f0&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/YudaiTsukamoto\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;YudaiTsukamoto\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;YudaiTsukamoto\&quot;\u003e@YudaiTsukamoto\u003c/a\u003e 最新版のチュートリアルで実装されるようになった「パスワードリマインダー」と「ユーザー登録の確認」を除き、他の課題集を載せてみました! \u003cimg alt=\&quot;:smile:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f604.png\&quot; title=\&quot;:smile:\&quot; width=\&quot;20\&quot;\u003e  \u003cimg alt=\&quot;:new:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f195.png\&quot; title=\&quot;:new:\&quot; width=\&quot;20\&quot;\u003e \u003cimg alt=\&quot;:sparkles:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/2728.png\&quot; title=\&quot;:sparkles:\&quot; width=\&quot;20\&quot;\u003e \u003c/p\u003e\n\n\u003cp\u003e\u003cimg alt=\&quot;:bookmark:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f516.png\&quot; title=\&quot;:bookmark:\&quot; width=\&quot;20\&quot;\u003e 14.4.1 サンプルアプリケーションの機能を拡張する\u003cbr\u003e\n\u003ca href=\&quot;http://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions\&quot; class=\&quot;autolink\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003ehttp://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003eなお、当時 (第2版) の情報にいくつか古い情報があったので、そちらは僕の方で適宜アレンジしておきました ;) \u003cimg alt=\&quot;:wrench:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f527.png\&quot; title=\&quot;:wrench:\&quot; width=\&quot;20\&quot;\u003e \u003cimg alt=\&quot;:dash:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f4a8.png\&quot; title=\&quot;:dash:\&quot; width=\&quot;20\&quot;\u003e \u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T12:11:24+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704668,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:2,&quot;raw_body&quot;:&quot;@YudaiTsukamoto 最新版のチュートリアルで実装されるようになった「パスワードリマインダー」と「ユーザー登録の確認」を除き、他の課題集を載せてみました! :smile:  :new: :sparkles: \n\n:bookmark: 14.4.1 サンプルアプリケーションの機能を拡張する\nhttp://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions\n\nなお、当時 (第2版) の情報にいくつか古い情報があったので、そちらは僕の方で適宜アレンジしておきました ;) :wrench: :dash: \n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-9e5d055fa6169b301807&quot;,&quot;user&quot;:{&quot;contribution&quot;:288,&quot;created_at&quot;:&quot;2012-01-04T15:27:05+09:00&quot;,&quot;id&quot;:1857,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;yasulab&quot;},&quot;uuid&quot;:&quot;9e5d055fa6169b301807&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/yasulab\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;yasulab\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;yasulab\&quot;\u003e@yasulab\u003c/a\u003e \u003cbr\u003e\n感無量です・・・・(´；ω；｀)\u003cbr\u003e\nまさか、こんなに素早く本編に反映されることになるとは・・・ありがとうございました！！！\u003cbr\u003e\n自分にとって思い出深い項でしたので、Rails5の学習がてら今一度チュートリアルをやり直してみますね😂\u003cbr\u003e\nサンプルアプリケーションの機能拡張も、以前やったときよりもスマートに実装できるかチャレンジしてみます！\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T12:26:03+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704684,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:1,&quot;raw_body&quot;:&quot;@yasulab \n感無量です・・・・(´；ω；｀)\nまさか、こんなに素早く本編に反映されることになるとは・・・ありがとうございました！！！\n自分にとって思い出深い項でしたので、Rails5の学習がてら今一度チュートリアルをやり直してみますね😂\nサンプルアプリケーションの機能拡張も、以前やったときよりもスマートに実装できるかチャレンジしてみます！\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-00f85ce93fac509286cf&quot;,&quot;user&quot;:{&quot;contribution&quot;:1234,&quot;created_at&quot;:&quot;2015-04-24T09:26:46+09:00&quot;,&quot;id&quot;:76641,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;},&quot;uuid&quot;:&quot;00f85ce93fac509286cf&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/YudaiTsukamoto\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;YudaiTsukamoto\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;YudaiTsukamoto\&quot;\u003e@YudaiTsukamoto\u003c/a\u003e いえいえ! こちらも「読み物ガイドもっと良くできないかなぁ🤔」と思っていたので、ちょうど良かったです \u003cimg alt=\&quot;:blush:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f60a.png\&quot; title=\&quot;:blush:\&quot; width=\&quot;20\&quot;\u003e \u003c/p\u003e\n\n\u003cp\u003e他にも何かフィードバックがあればお気軽にご連絡くださ〜い ;)\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T12:28:51+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704687,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:0,&quot;raw_body&quot;:&quot;@YudaiTsukamoto いえいえ! こちらも「読み物ガイドもっと良くできないかなぁ🤔」と思っていたので、ちょうど良かったです :blush: \n\n他にも何かフィードバックがあればお気軽にご連絡くださ〜い ;)\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-92654e79fb460dcef966&quot;,&quot;user&quot;:{&quot;contribution&quot;:288,&quot;created_at&quot;:&quot;2012-01-04T15:27:05+09:00&quot;,&quot;id&quot;:1857,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;yasulab&quot;},&quot;uuid&quot;:&quot;92654e79fb460dcef966&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/yasulab\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;yasulab\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;yasulab\&quot;\u003e@yasulab\u003c/a\u003e \u003cbr\u003e\n是非是非！また復習して気になったことがあればご連絡いたしますね！！😂\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T12:33:58+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704694,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:1,&quot;raw_body&quot;:&quot;@yasulab \n是非是非！また復習して気になったことがあればご連絡いたしますね！！😂\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-21eee223862e8cfdc80d&quot;,&quot;user&quot;:{&quot;contribution&quot;:1234,&quot;created_at&quot;:&quot;2015-04-24T09:26:46+09:00&quot;,&quot;id&quot;:76641,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;},&quot;uuid&quot;:&quot;21eee223862e8cfdc80d&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/YudaiTsukamoto\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;YudaiTsukamoto\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;YudaiTsukamoto\&quot;\u003e@YudaiTsukamoto\u003c/a\u003e あ、そういえばこちらの文章ついてですが、先ほど修正されたのでよければ記事中でも補足してもらえると助かります \u003cimg alt=\&quot;:pray:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png\&quot; title=\&quot;:pray:\&quot; width=\&quot;20\&quot;\u003e \u003cimg alt=\&quot;:sweat_drops:\&quot; class=\&quot;emoji\&quot; height=\&quot;20\&quot; src=\&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f4a6.png\&quot; title=\&quot;:sweat_drops:\&quot; width=\&quot;20\&quot;\u003e \u003c/p\u003e\n\n\u003cblockquote\u003e\n\u003cp\u003e第2版(現在は第4版)の最終章の巻末問題では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。\u003cbr\u003e\n第3版以降からはこの巻末問題がなくなっていたので非常に残念でしたが、ただ単に写経するだけでなく自分の頭で考えて作っていくプロセスを踏めるという意味で優秀な教材だったなと感じています。\u003c/p\u003e\n\u003c/blockquote\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T13:19:44+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704728,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:0,&quot;raw_body&quot;:&quot;@YudaiTsukamoto あ、そういえばこちらの文章ついてですが、先ほど修正されたのでよければ記事中でも補足してもらえると助かります :pray: :sweat_drops: \n\n\u003e 第2版(現在は第4版)の最終章の巻末問題では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。\n\u003e 第3版以降からはこの巻末問題がなくなっていたので非常に残念でしたが、ただ単に写経するだけでなく自分の頭で考えて作っていくプロセスを踏めるという意味で優秀な教材だったなと感じています。\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-9f94095c06ed53224d62&quot;,&quot;user&quot;:{&quot;contribution&quot;:288,&quot;created_at&quot;:&quot;2012-01-04T15:27:05+09:00&quot;,&quot;id&quot;:1857,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;yasulab&quot;},&quot;uuid&quot;:&quot;9f94095c06ed53224d62&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/yasulab\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;yasulab\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;yasulab\&quot;\u003e@yasulab\u003c/a\u003e \u003c/p\u003e\n\n\u003cp\u003eあ！ご指摘ありがとうございます！\u003cbr\u003e\n修正しておきます！＼(^o^)／\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T13:53:40+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:704761,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:1,&quot;raw_body&quot;:&quot;@yasulab \n\nあ！ご指摘ありがとうございます！\n修正しておきます！＼(^o^)／\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-369f3f435ab0795f8a92&quot;,&quot;user&quot;:{&quot;contribution&quot;:1234,&quot;created_at&quot;:&quot;2015-04-24T09:26:46+09:00&quot;,&quot;id&quot;:76641,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;},&quot;uuid&quot;:&quot;369f3f435ab0795f8a92&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003eありがとうございます!! 😆✨\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-21T21:45:56+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:705217,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:1,&quot;raw_body&quot;:&quot;ありがとうございます!! 😆✨\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-80aad723ddb265342d64&quot;,&quot;user&quot;:{&quot;contribution&quot;:288,&quot;created_at&quot;:&quot;2012-01-04T15:27:05+09:00&quot;,&quot;id&quot;:1857,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;yasulab&quot;},&quot;uuid&quot;:&quot;80aad723ddb265342d64&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:true,&quot;body&quot;:null,&quot;created_at&quot;:&quot;2016-12-28T09:52:32+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:708238,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:0,&quot;raw_body&quot;:null,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-38436f26ca9363ddc09c&quot;,&quot;user&quot;:{&quot;contribution&quot;:0,&quot;created_at&quot;:&quot;2015-08-24T21:09:02+09:00&quot;,&quot;id&quot;:90568,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/90568/profile-images/1473705133&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;mrkm880144&quot;},&quot;uuid&quot;:&quot;38436f26ca9363ddc09c&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e上のコメントのリンクを踏まないでください。\u003cbr\u003e\nアクセスした瞬間、\u003ccode\u003ework.wmv\u003c/code\u003eというファイルをダウンロードしはじめました（中身は確認してません）\u003c/p\u003e\n\n\u003cp\u003e追記\u003cbr\u003e\n運営が削除してくれたようです\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-28T12:19:38+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:708378,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:false,&quot;liked&quot;:false,&quot;public_likes_count&quot;:0,&quot;raw_body&quot;:&quot;上のコメントのリンクを踏まないでください。\nアクセスした瞬間、`work.wmv`というファイルをダウンロードしはじめました（中身は確認してません）\n\n追記\n運営が削除してくれたようです\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:true,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-bbeb5b3b6ac9b8dc954d&quot;,&quot;user&quot;:{&quot;contribution&quot;:4378,&quot;created_at&quot;:&quot;2014-01-11T08:13:49+09:00&quot;,&quot;id&quot;:35595,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;howdy39&quot;},&quot;uuid&quot;:&quot;bbeb5b3b6ac9b8dc954d&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e情報の信頼性に関する話の部分、すごい共感しました。為になる記事をありがとうございます！\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-28T15:01:13+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:708493,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:true,&quot;public_likes_count&quot;:1,&quot;raw_body&quot;:&quot;情報の信頼性に関する話の部分、すごい共感しました。為になる記事をありがとうございます！\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-e94adf852c369c32d683&quot;,&quot;user&quot;:{&quot;contribution&quot;:290,&quot;created_at&quot;:&quot;2014-04-18T10:47:15+09:00&quot;,&quot;id&quot;:42043,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/42043/profile-images/1473689012&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;momotasasaki&quot;},&quot;uuid&quot;:&quot;e94adf852c369c32d683&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/howdy39\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;howdy39\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;howdy39\&quot;\u003e@howdy39\u003c/a\u003e \u003cbr\u003e\nコメントありがとうございます。\u003c/p\u003e\n\n\u003cblockquote\u003e\n\u003cp\u003e上のコメントのリンクを踏まないでください。\u003cbr\u003e\nアクセスした瞬間、work.wmvというファイルをダウンロードしはじめました（中身は確認してません）\u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003cp\u003e注意喚起ありがとうございます。\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-28T19:45:48+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:708692,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:true,&quot;public_likes_count&quot;:1,&quot;raw_body&quot;:&quot;@howdy39 \nコメントありがとうございます。\n\n\u003e 上のコメントのリンクを踏まないでください。\n\u003e アクセスした瞬間、work.wmvというファイルをダウンロードしはじめました（中身は確認してません）\n\n注意喚起ありがとうございます。\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-deab3594235bc81442f9&quot;,&quot;user&quot;:{&quot;contribution&quot;:1234,&quot;created_at&quot;:&quot;2015-04-24T09:26:46+09:00&quot;,&quot;id&quot;:76641,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;},&quot;uuid&quot;:&quot;deab3594235bc81442f9&quot;,&quot;via_email&quot;:false},{&quot;banned&quot;:false,&quot;body&quot;:&quot;\u003cp\u003e\u003ca href=\&quot;/momotasasaki\&quot; class=\&quot;user-mention js-hovercard\&quot; title=\&quot;momotasasaki\&quot; data-hovercard-target-type=\&quot;user\&quot; data-hovercard-target-name=\&quot;momotasasaki\&quot;\u003e@momotasasaki\u003c/a\u003e \u003cbr\u003e\nコメントありがとうございます。\u003cbr\u003e\nそう言って頂けて嬉しいです。書いた甲斐がありました。\u003c/p\u003e\n&quot;,&quot;created_at&quot;:&quot;2016-12-28T19:46:57+09:00&quot;,&quot;expanded_references&quot;:&quot;&quot;,&quot;id&quot;:708693,&quot;is_team&quot;:false,&quot;item_id&quot;:450424,&quot;item_type&quot;:&quot;PublicDomainArticle&quot;,&quot;item_uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;likable&quot;:true,&quot;liked&quot;:false,&quot;public_likes_count&quot;:0,&quot;raw_body&quot;:&quot;@momotasasaki \nコメントありがとうございます。\nそう言って頂けて嬉しいです。書いた甲斐がありました。\n&quot;,&quot;reaction_types&quot;:[{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f44d.png&quot;,&quot;name&quot;:&quot;+1&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png&quot;,&quot;name&quot;:&quot;pray&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f389.png&quot;,&quot;name&quot;:&quot;tada&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f647.png&quot;,&quot;name&quot;:&quot;bow&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f631.png&quot;,&quot;name&quot;:&quot;scream&quot;},{&quot;image_url&quot;:&quot;https://cdn.qiita.com/emoji/twemoji/unicode/1f440.png&quot;,&quot;name&quot;:&quot;eyes&quot;}],&quot;reactions&quot;:[],&quot;team&quot;:null,&quot;team_membership&quot;:null,&quot;updatable&quot;:false,&quot;url&quot;:&quot;http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd#comment-1a1e217181f8936f848b&quot;,&quot;user&quot;:{&quot;contribution&quot;:1234,&quot;created_at&quot;:&quot;2015-04-24T09:26:46+09:00&quot;,&quot;id&quot;:76641,&quot;is_admin&quot;:false,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;,&quot;suspended&quot;:false,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;},&quot;uuid&quot;:&quot;1a1e217181f8936f848b&quot;,&quot;via_email&quot;:false}],&quot;monthly_public_image_uploadable_size_limit&quot;:104857600,&quot;total_uploaded_public_image_size_in_current_month&quot;:0,&quot;item&quot;:{&quot;id&quot;:450424,&quot;uuid&quot;:&quot;42a8df22ca4c6b327dfd&quot;,&quot;suspended&quot;:false,&quot;secret&quot;:false},&quot;owner&quot;:{&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;},&quot;is_team&quot;:false,&quot;is_project&quot;:false,&quot;logged_in&quot;:true,&quot;polling&quot;:false,&quot;mention_candidates&quot;:[{&quot;id&quot;:76641,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;},{&quot;id&quot;:1857,&quot;url_name&quot;:&quot;yasulab&quot;,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322&quot;},{&quot;id&quot;:90568,&quot;url_name&quot;:&quot;mrkm880144&quot;,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/90568/profile-images/1473705133&quot;},{&quot;id&quot;:35595,&quot;url_name&quot;:&quot;howdy39&quot;,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778&quot;},{&quot;id&quot;:42043,&quot;url_name&quot;:&quot;momotasasaki&quot;,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/42043/profile-images/1473689012&quot;}]}"><div data-reactroot="" class="commentList"><noscript></noscript><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/yasulab"><span title="yasulab" itemprop="url" href="/yasulab"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/yasulab">yasulab</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">288</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-4433feecd86c2553c0e7"><time datetime="2016-12-21T10:32:34+09:00" itemprop="commentTime">2016-12-21 10:32</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">2</div></div></div></div><div class="comment_content"><div class="markdownContent"><blockquote>
+<p>第2版(現在は第4版)の最終章の巻末問題では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。</p>
+</blockquote>
+
+<p>お、確かにこれあると面白いですよね ;) <br>
+後ほど訳註として追加しようと思います! <img alt=":wrench:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f527.png" title=":wrench:" width="20"> <img alt=":dash:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f4a8.png" title=":dash:" width="20"> </p>
+</div><!-- react-text: 26 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/YudaiTsukamoto"><span title="YudaiTsukamoto" itemprop="url" href="/YudaiTsukamoto"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/YudaiTsukamoto">YudaiTsukamoto</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">1234</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-436971fd5192a26317f0"><time datetime="2016-12-21T10:41:49+09:00" itemprop="commentTime">2016-12-21 10:41</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">0</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/yasulab" class="user-mention js-hovercard" title="yasulab" data-hovercard-target-type="user" data-hovercard-target-name="yasulab">@yasulab</a> <br>
+うわあああ！嬉しいです！<br>
+章末問題を解きながら、Tutorialで学習した知識を深めていったのは、自分の学習が加速した最初の瞬間だったので、<br>
+本当に嬉しいです！ありがとうございます！</p>
+</div><!-- react-text: 50 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/yasulab"><span title="yasulab" itemprop="url" href="/yasulab"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/yasulab">yasulab</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">288</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-9e5d055fa6169b301807"><time datetime="2016-12-21T12:11:24+09:00" itemprop="commentTime">2016-12-21 12:11</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">2</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/YudaiTsukamoto" class="user-mention js-hovercard" title="YudaiTsukamoto" data-hovercard-target-type="user" data-hovercard-target-name="YudaiTsukamoto">@YudaiTsukamoto</a> 最新版のチュートリアルで実装されるようになった「パスワードリマインダー」と「ユーザー登録の確認」を除き、他の課題集を載せてみました! <img alt=":smile:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f604.png" title=":smile:" width="20">  <img alt=":new:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f195.png" title=":new:" width="20"> <img alt=":sparkles:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/2728.png" title=":sparkles:" width="20"> </p>
+
+<p><img alt=":bookmark:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f516.png" title=":bookmark:" width="20"> 14.4.1 サンプルアプリケーションの機能を拡張する<br>
+<a href="http://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions" class="autolink" rel="nofollow noopener" target="_blank">http://railstutorial.jp/chapters/following_users?version=5.0#sec-guide_to_extensions</a></p>
+
+<p>なお、当時 (第2版) の情報にいくつか古い情報があったので、そちらは僕の方で適宜アレンジしておきました ;) <img alt=":wrench:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f527.png" title=":wrench:" width="20"> <img alt=":dash:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f4a8.png" title=":dash:" width="20"> </p>
+</div><!-- react-text: 74 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/YudaiTsukamoto"><span title="YudaiTsukamoto" itemprop="url" href="/YudaiTsukamoto"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/YudaiTsukamoto">YudaiTsukamoto</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">1234</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-00f85ce93fac509286cf"><time datetime="2016-12-21T12:26:03+09:00" itemprop="commentTime">2016-12-21 12:26</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">1</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/yasulab" class="user-mention js-hovercard" title="yasulab" data-hovercard-target-type="user" data-hovercard-target-name="yasulab">@yasulab</a> <br>
+感無量です・・・・(´；ω；｀)<br>
+まさか、こんなに素早く本編に反映されることになるとは・・・ありがとうございました！！！<br>
+自分にとって思い出深い項でしたので、Rails5の学習がてら今一度チュートリアルをやり直してみますね😂<br>
+サンプルアプリケーションの機能拡張も、以前やったときよりもスマートに実装できるかチャレンジしてみます！</p>
+</div><!-- react-text: 98 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/yasulab"><span title="yasulab" itemprop="url" href="/yasulab"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/yasulab">yasulab</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">288</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-92654e79fb460dcef966"><time datetime="2016-12-21T12:28:51+09:00" itemprop="commentTime">2016-12-21 12:28</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">0</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/YudaiTsukamoto" class="user-mention js-hovercard" title="YudaiTsukamoto" data-hovercard-target-type="user" data-hovercard-target-name="YudaiTsukamoto">@YudaiTsukamoto</a> いえいえ! こちらも「読み物ガイドもっと良くできないかなぁ🤔」と思っていたので、ちょうど良かったです <img alt=":blush:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f60a.png" title=":blush:" width="20"> </p>
+
+<p>他にも何かフィードバックがあればお気軽にご連絡くださ〜い ;)</p>
+</div><!-- react-text: 122 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/YudaiTsukamoto"><span title="YudaiTsukamoto" itemprop="url" href="/YudaiTsukamoto"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/YudaiTsukamoto">YudaiTsukamoto</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">1234</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-21eee223862e8cfdc80d"><time datetime="2016-12-21T12:33:58+09:00" itemprop="commentTime">2016-12-21 12:33</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">1</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/yasulab" class="user-mention js-hovercard" title="yasulab" data-hovercard-target-type="user" data-hovercard-target-name="yasulab">@yasulab</a> <br>
+是非是非！また復習して気になったことがあればご連絡いたしますね！！😂</p>
+</div><!-- react-text: 146 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/yasulab"><span title="yasulab" itemprop="url" href="/yasulab"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/yasulab">yasulab</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">288</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-9f94095c06ed53224d62"><time datetime="2016-12-21T13:19:44+09:00" itemprop="commentTime">2016-12-21 13:19</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">0</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/YudaiTsukamoto" class="user-mention js-hovercard" title="YudaiTsukamoto" data-hovercard-target-type="user" data-hovercard-target-name="YudaiTsukamoto">@YudaiTsukamoto</a> あ、そういえばこちらの文章ついてですが、先ほど修正されたのでよければ記事中でも補足してもらえると助かります <img alt=":pray:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f64f.png" title=":pray:" width="20"> <img alt=":sweat_drops:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/1f4a6.png" title=":sweat_drops:" width="20"> </p>
+
+<blockquote>
+<p>第2版(現在は第4版)の最終章の巻末問題では、それまでに作成したサンプルアプリケーションの拡張機能を開発するというお題があって非常に面白かったのを覚えています。<br>
+第3版以降からはこの巻末問題がなくなっていたので非常に残念でしたが、ただ単に写経するだけでなく自分の頭で考えて作っていくプロセスを踏めるという意味で優秀な教材だったなと感じています。</p>
+</blockquote>
+</div><!-- react-text: 170 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/YudaiTsukamoto"><span title="YudaiTsukamoto" itemprop="url" href="/YudaiTsukamoto"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/YudaiTsukamoto">YudaiTsukamoto</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">1234</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-369f3f435ab0795f8a92"><time datetime="2016-12-21T13:53:40+09:00" itemprop="commentTime">2016-12-21 13:53</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">1</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/yasulab" class="user-mention js-hovercard" title="yasulab" data-hovercard-target-type="user" data-hovercard-target-name="yasulab">@yasulab</a> </p>
+
+<p>あ！ご指摘ありがとうございます！<br>
+修正しておきます！＼(^o^)／</p>
+</div><!-- react-text: 194 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/yasulab"><span title="yasulab" itemprop="url" href="/yasulab"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/1857/profile-images/1478527322"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/yasulab">yasulab</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">288</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-80aad723ddb265342d64"><time datetime="2016-12-21T21:45:56+09:00" itemprop="commentTime">2016-12-21 21:45</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">1</div></div></div></div><div class="comment_content"><div class="markdownContent"><p>ありがとうございます!! 😆✨</p>
+</div><!-- react-text: 218 --><!-- /react-text --></div></div><div class="comment"><div class="well">サービス利用規約に基づき、このコメントは削除されました。</div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/howdy39"><span title="howdy39" itemprop="url" href="/howdy39"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/howdy39">howdy39</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">4378</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-bbeb5b3b6ac9b8dc954d"><time datetime="2016-12-28T12:19:38+09:00" itemprop="commentTime">2016-12-28 12:19</time></a></div><div class="text-right"><span class="commentHeader_likeButton"><!-- react-text: 239 -->0<!-- /react-text --><!-- react-text: 240 -->&nbsp;<!-- /react-text --><!-- react-text: 241 -->いいね<!-- /react-text --></span><span class="commentHeader_editButton">編集</span><span class="commentHeader_deleteButton"><a rel="nofollow">削除</a></span></div></div></div><div class="comment_content"><div class="markdownContent"><p>上のコメントのリンクを踏まないでください。<br>
+アクセスした瞬間、<code>work.wmv</code>というファイルをダウンロードしはじめました（中身は確認してません）</p>
+
+<p>追記<br>
+運営が削除してくれたようです</p>
+</div><!-- react-text: 247 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/momotasasaki"><span title="momotasasaki" itemprop="url" href="/momotasasaki"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/42043/profile-images/1473689012"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/momotasasaki">momotasasaki</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">290</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-e94adf852c369c32d683"><time datetime="2016-12-28T15:01:13+09:00" itemprop="commentTime">2016-12-28 15:01</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button  liked"><span class="fa fa-fw fa-check"></span><span>いいね済み</span></button><div class="LikeButton__balloon">1</div></div></div></div><div class="comment_content"><div class="markdownContent"><p>情報の信頼性に関する話の部分、すごい共感しました。為になる記事をありがとうございます！</p>
+</div><!-- react-text: 271 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/YudaiTsukamoto"><span title="YudaiTsukamoto" itemprop="url" href="/YudaiTsukamoto"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/YudaiTsukamoto">YudaiTsukamoto</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">1234</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-deab3594235bc81442f9"><time datetime="2016-12-28T19:45:48+09:00" itemprop="commentTime">2016-12-28 19:45</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button  liked"><span class="fa fa-fw fa-check"></span><span>いいね済み</span></button><div class="LikeButton__balloon">1</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/howdy39" class="user-mention js-hovercard" title="howdy39" data-hovercard-target-type="user" data-hovercard-target-name="howdy39">@howdy39</a> <br>
+コメントありがとうございます。</p>
+
+<blockquote>
+<p>上のコメントのリンクを踏まないでください。<br>
+アクセスした瞬間、work.wmvというファイルをダウンロードしはじめました（中身は確認してません）</p>
+</blockquote>
+
+<p>注意喚起ありがとうございます。</p>
+</div><!-- react-text: 295 --><!-- /react-text --></div></div><div class="comment"><div class="commentHeader"><div class="commentHeader_creator"><a href="/YudaiTsukamoto"><span title="YudaiTsukamoto" itemprop="url" href="/YudaiTsukamoto"><img alt="" class="commentHeader_creatorIcon" itemprop="image" width="36" height="36" src="https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457"></span></a><div class="commentHeader_creatorInfo"><div class="commentHeader_publicUrlName"><a href="/YudaiTsukamoto">YudaiTsukamoto</a></div><div class="commentHeader_contribution"><span class="commentHeader_contribution_count">1234</span><span class="commentHeader_contribution_unit">contribution</span></div></div></div><div class="commentHeader_metadata pull-right"><div class="text-right"><a href="#comment-1a1e217181f8936f848b"><time datetime="2016-12-28T19:46:57+09:00" itemprop="commentTime">2016-12-28 19:46</time></a></div><div class="LikeButton LikeButton--small"><button class="p-button"><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><div class="LikeButton__balloon">0</div></div></div></div><div class="comment_content"><div class="markdownContent"><p><a href="/momotasasaki" class="user-mention js-hovercard" title="momotasasaki" data-hovercard-target-type="user" data-hovercard-target-name="momotasasaki">@momotasasaki</a> <br>
+コメントありがとうございます。<br>
+そう言って頂けて嬉しいです。書いた甲斐がありました。</p>
+</div><!-- react-text: 319 --><!-- /react-text --></div></div><div class="commentForm"><form datatype="json" action="/comments/" method="post"><div class="commentForm_header"><img class="commentForm_userIcon" src="https://qiita-image-store.s3.amazonaws.com/0/35595/profile-images/1473686778" width="36" height="36"><div class="commentForm_headerLabel">コメントを投稿する</div></div><div class="commentForm_contentHeader"><div class="commentForm_tabs"><a class="commentForm_tab edit active">編集</a><a class="commentForm_tab preview ">プレビュー</a></div><div class="commentForm_toolbar" style="display: block;"><a target="_blank" class="commentForm_markdownHelp" href="http://qiita.com/items/c686397e4a0f4f11683d">Qiita Markdown?</a><div class="emojiPicker"><span class="emojiPicker_label"><i class="fa fa-smile-o" data-tip="絵文字" currentitem="false"></i><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div></span><div class="emojiPicker_container"></div></div></div></div><div class="commentForm_body content-area tab-pane" style="display: block;"><textarea class="form-control commentForm_textarea" maxlength="10000" placeholder="コメントを入力してください" style="min-height: 100px; max-height: 500px; overflow: hidden; word-wrap: break-word; resize: none; height: 100px;"></textarea></div><div class="preview-area tab-pane" style="display: none;"></div><div class="commentForm_imageUploader"><input type="file" class="commentForm_inputImageFile" tabindex="-1"><span class="btn btn-default btn-xs commentForm_imageUploader-button"><i class="fa fa-picture-o"></i><!-- react-text: 343 -->画像を選択<!-- /react-text --></span><span class="commentForm_imageUploader-text">またはドラッグ＆ドロップ</span><span><span class="commentForm_imageUploader-size"><span><!-- react-text: 348 --> - <!-- /react-text --><!-- react-text: 349 -->0B<!-- /react-text --></span><!-- react-text: 350 -->/<!-- /react-text --><span>100MB</span></span><i class="fa fa-info-circle commentForm_imageUploader-info" data-placement="top" data-toggle="tooltip" title="" data-original-title="今月アップロード可能な画像の残り容量です"></i></span><div class="commentForm_btns"><button class="btn btn-primary btn-sm">投稿</button></div></div></form></div></div></div></div></div></div></div></article><div class="js-report-form modal fade reportForm"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button name="button" type="submit" class="close" data-dismiss="modal">×</button><h4 class="modal-title">問題がある投稿を報告する</h4></div><div class="modal-body"><form action="/reports" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="><input type="hidden" name="redirect_path" id="redirect_path" value="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd"><input type="hidden" name="item_uuid" id="item_uuid" value="42a8df22ca4c6b327dfd"><p>この投稿にどのような問題がありますか？</p><br><div class="form-group"><ul class="list-unstyled"><li><label><input type="radio" name="report_type" id="report_type_spam" value="spam" required="required"> スパムです </label></li><li><label><input type="radio" name="report_type" id="report_type_harassment" value="harassment" required="required"> 攻撃的または迷惑な内容を含んでいます </label></li><li><label><input type="radio" name="report_type" id="report_type_inappropriate_content" value="inappropriate_content" required="required"> 不適切な内容を含んでいます </label></li></ul></div><div class="reportForm_submitButtonContainer"><button name="button" type="submit" class="btn btn-primary reportForm_submitButton"><i class="fa fa-send"></i> 送信</button></div></form></div></div></div></div><script id="js-item" type="application/json">{ "url": "http://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd", "id": 450424, "uuid": "42a8df22ca4c6b327dfd" }</script><script class="js-user" type="application/json">{&quot;id&quot;:76641,&quot;url_name&quot;:&quot;YudaiTsukamoto&quot;,&quot;profile_image_url&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/76641/profile-images/1481814457&quot;,&quot;following&quot;:false}</script><script language="JavaScript" src="//cdn.bigmining.com/private/js/qiita_bigmining.js" type="text/javascript"></script></div><footer class="footer"><div class="footer_inner"><div class="footer_container"><ul class="footer_links-left"><li class="footer_link"><a class="footer_copyright" href="http://increments.co.jp">© 2017 Increments Inc.</a></li><li class="footer_link"><a href="http://qiita.com/terms">利用規約</a></li><li class="footer_link"><a href="http://qiita.com/privacy">プライバシー</a></li><li class="footer_link"><a href="http://help.qiita.com">ヘルプ</a></li><li class="footer_link"><a href="https://increments.zendesk.com/anonymous_requests/new">お問い合わせ</a></li></ul><ul class="footer_links-right"><li class="footer_link"><a href="http://qiita.com/about">Qiitaとは</a></li><li class="footer_link"><a href="http://blog.qiita.com">ブログ</a></li><li class="footer_link"><a href="http://qiita.com/api/v2/docs">API</a></li><li class="footer_link"><a href="https://teams.qiita.com/">Team</a></li><li class="footer_link"><a href="http://kobito.qiita.com">Kobito</a></li><li class="footer_link"><a class="js-public-form-feedback-link" data-target=".js-feedback-form" data-toggle="modal" href=""><i class="fa fa-heart"></i> ご意見 <i class="fa fa-caret-down"></i></a></li></ul></div></div></footer><div class="js-feedback-form modal fade feedbackForm"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button name="button" type="submit" class="close" data-dismiss="modal">×</button><h4 class="modal-title">ご意見</h4></div><div class="modal-body"><form class="js-feedback-form-form" action="/feedbacks" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="8Osubiim+B7JeNTUUZPsp/GTV77r3rINjmcobSUAukE2CxvvggegC00hjgxUPouv9tSTw32l4xEzTep0D6F2+A=="><input type="hidden" name="redirect_path" id="redirect_path" value="/YudaiTsukamoto/items/42a8df22ca4c6b327dfd"><div class="form-group"><textarea name="feedback[message]" id="feedback_message" class="form-control js-feedback-form-text-area" placeholder="Qiitaについてのご意見をお聞かせください。" required="required" rows="5"></textarea></div><div class="feedbackForm_submitButtonContainer"><button name="button" type="submit" class="btn btn-primary feedbackForm_submitButton"><i class="fa fa-send"></i> 送信</button><p class="feedbackForm_note">いただいたご意見への返信は行っておりません。<br>返信の必要な内容については、<a href="https://increments.zendesk.com/anonymous_requests/new">こちら</a> からお問い合わせください。</p></div><div style="position:fixed;top:-99999px;opacity:0.0001;"><input name="feedback[name]" type="text"></div></form></div></div></div></div><script>// if (window.mixpanel instanceof Element) {
+//   window.mixpanel = [];
+// }
+// (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+// for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);</script><script src="http://cdn.qiita.com/assets/public-fdf24df61a083ca5f74c8b717c9c4ff9.min.js"></script><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="http://staticxx.facebook.com/connect/xd_arbiter/r/iPrOY23SGAp.js?version=42#channel=f2ec271bf1f57fc&amp;origin=http%3A%2F%2Fqiita.com" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/iPrOY23SGAp.js?version=42#channel=f2ec271bf1f57fc&amp;origin=http%3A%2F%2Fqiita.com" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><script>
+  (function () {
+    var script = document.getElementsByTagName('script')[0];
+    var load = function (src, id) {
+      var el = document.createElement('script');
+      el.async = true;
+      el.src = src;
+      el.id = id;
+      script.parentNode.insertBefore(el, script);
+    };
+      // Optimizely
+      load('//cdn.optimizely.com/js/52738645.js', 'optimizely-jssdk');
+      // Google Analytics
+      window._gaq = window._gaq || [];
+      var isCareer = location.hostname.split('.')[0] == 'career';
+      if (isCareer) {
+        window._gaq.push(['_setAccount', 'UA-24675221-11']);
+        window._gaq.push(['_setDomainName', 'qiita.com']);
+      } else {
+        window._gaq.push(['_setAccount', 'UA-24675221-1']);
+      }
+      window._gaq.push(['_setCustomVar', 1, 'logged_in', 'true', 2]);
+      window._gaq.push(['_trackPageview']);
+      var src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      load(src, 'google-analytics-jssdk');
+    // Google Analytics - Universal Analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-24675221-12', {
+          clientId: '35595'
+        });
+        ga('set', {
+          'dimension1': 'true',
+          'dimension2': 'true',
+          'metric1': 19,
+          'metric2': 0,
+          'metric3': 0
+        });
+        ga('set', 'dimension3', 'false');
+      ga('require', 'displayfeatures');
+      ga('set', 'forceSSL', true);
+      ga('send', 'pageview');
+    // Google Tag Manager
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TBQWPN');
+  })();
+</script>
+<div class="ReactModalPortal"><div data-reactroot=""></div></div><ul id="textcomplete-dropdown-1" class="dropdown-menu textcomplete-dropdown" style="display: none; position: absolute; z-index: 10000;"></ul><iframe name="oauth2relay2063648541" id="oauth2relay2063648541" src="https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fqiita.com&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.ja.eY01mKC_upg.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCO6Rpz4bNsJKoxktucPXBZsKfVbUQ#rpctoken=766508524&amp;forcesecure=1" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe"></iframe><img src="//bigmining.com/dmp?url=http%3A%2F%2Fqiita.com%2FYudaiTsukamoto%2Fitems%2F42a8df22ca4c6b327dfd&amp;rurl=&amp;qiita_data=%7B%22server%22%3A%22qiita.com%22%2C%22categories%22%3A%22%E6%96%B0%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E5%BF%9C%E6%8F%B4%2C%E5%88%9D%E5%BF%83%E8%80%85%2C%E5%8B%89%E5%BC%B7%2CRuby%2CRails%22%7D&amp;action=pv" width="1" height="1" border="0" style="display: none;"><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-58Z82M');</script><div style="display: none; visibility: hidden;"><script type="text/javascript">(function(b,a,c){b=a.getElementsByTagName(c)[0];a=a.createElement(c);a.async=!0;a.src="//dmp.im-apps.net/js/6638/0001/itm.js";b.parentNode.insertBefore(a,b)})(window,document,"script");</script></div><div style="display: none; visibility: hidden;"><iframe src="https://5235504.fls.doubleclick.net/activityi;src=5235504;type=sales;cat=6oqkcr57;qty=[Quantity];cost=[Revenue];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=[OrderID]?" width="1" height="1" frameborder="0" style="display:none"></iframe></div><div style="display: none; visibility: hidden;"><iframe src="https://5256041.fls.doubleclick.net/activityi;src=5256041;type=sales;cat=wqeajho6;qty=[Quantity];cost=[Revenue];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=[OrderID]?" width="1" height="1" frameborder="0" style="display:none"></iframe></div><div style="display: none; visibility: hidden;">
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nv2kc",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","809797712462041");fbq("track","PageView");</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,c,d,a){b.twq||(a=b.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1",a.queue=[],t=c.createElement(d),t.async=!0,t.src="//static.ads-twitter.com/uwt.js",s=c.getElementsByTagName(d)[0],s.parentNode.insertBefore(t,s))}(window,document,"script");twq("init","nve3t");twq("track","PageView");</script>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","996402550503199");fbq("track","PageView");</script>
+<noscript></noscript>
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","954575148009345");fbq("track","PageView");</script>
+<noscript></noscript>
+
+</div><iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE" style="display: none;"></iframe><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=nv2kc&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script type="text/javascript" id="">!function(c,d,b,f){if(!d[c]){d[c]=function(){d[c].instances.push(this);this.init&&this.init()};d[c].instances=[];for(var a=0,e=["td_send","td_send_imid"];a<e.length;a++)d[c].prototype[e[a]]=function(a){return function(){this["tmp_"+a]=this["tmp_"+a]||[];this["tmp_"+a].push(Array.prototype.slice.call(arguments))}}(e[a]);a=b.getElementsByTagName(f)[0];b=b.createElement(f);b.async=!0;b.src="//cf.im-apps.net/sdk/tdim-0.11.2.js";a.parentNode.insertBefore(b,a)}}("TDIM",window,document,"script");var t=new TDIM;
+t.td_api_key="4633/44ab22321675f37f93c94f1c53265720999626e1";t.td_db="6638";t.im_api_token="omO0CDJd98sxiIkb8Mzm7Q";t.gtm_dl="dataLayer";t.td_send_imid("pageviews",{qiita_search_categories:google_tag_manager["GTM-5SNCW4"].macro('gtm1483243194987')});</script><script type="text/javascript" id="">(function(a){var b=a.createElement("iframe"),c="https:"==a.location.protocol?"https://":"http://";b.src=c+"cf.im-apps.net/imid/beacon.html";b.style.display="none";a.body.appendChild(b)})(document);</script><iframe src="http://cf.im-apps.net/imid/beacon.html" style="display: none;"></iframe><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=nve3t&amp;events=%5B%5B%22pageview%22%2Cnull%5D%5D&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script></body></html>
