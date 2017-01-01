@@ -11,7 +11,7 @@ export default class MuteUserCommentContent {
       const hasUserId = muteUserIds.includes(comment.userId);
       if (hasUserId) {
         handler.unShowComment(comment);
-        Util.infoLog(`特定ユーザーの投稿を非表示(${comment.userId})`, `"${comment.userId}"のコメントを非表示にしました`);
+        Util.infoLog(`特定ユーザーの投稿を非表示(${comment.userId})`, `${comment.userId}のコメントを非表示にしました`);
       }
     });
 
@@ -19,7 +19,7 @@ export default class MuteUserCommentContent {
       const hasUserId = muteUserIds.includes(reference.userId);
       if (hasUserId) {
         handler.unShowReference(reference);
-        Util.infoLog(`特定ユーザーの投稿を非表示(${reference.userId})`, `"${reference.title}"の参照記事を非表示にしました`);
+        Util.infoLog(`特定ユーザーの投稿を非表示(${reference.userId})`, `${reference.title}の参照記事を非表示にしました`);
       }
     });
   }
