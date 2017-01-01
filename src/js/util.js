@@ -24,11 +24,31 @@ export default class Util {
     return entity;
   }
 
+  static removeOldHistories(histories, maxSize = 1000) {
+    const sortedHistories = Object.values(histories).sort((itemA, itemB) => (itemA.date < itemB.date) ? 1 : -1);
+    if (sortedHistories.length < maxSize) {
+      return histories;
+    }
+
+    const items = Object.values(histories).sort((itemA, itemB) => (itemA.date > itemB.date) ? 1 : -1);
+
+    const removeSize = sortedHistories.length - maxSize;
+
+    for (let i = 0; i < removeSize; i++) {
+      let removeItem = items.shift();
+      let key = `${removeItem.userId}.${removeItem.itemId}`;
+      delete histories[key];
+    }
+    return histories;
+  }
+
   static saveHistory(url, title, date, callback = function () {} ) {
     const entity = this.createHistoryEntity(url, title, date);
 
     this.getHistories((histories) => {
       objectAssign(histories, entity);
+      histories = this.removeOldHistories(histories);
+      console.log(Object.keys(histories).length);
       ChromeStorage.saveHistories(
         histories,
         () => {
