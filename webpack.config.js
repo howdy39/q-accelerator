@@ -11,6 +11,10 @@ module.exports = {
     'content_scripts/popular-items-content': CONTENT_SCRIPTS_DIR + 'popular-items-content.js',
     'js/settings': COMPONENTS_DIR + 'settings.js' // components/settings.js -> js/settings.js
   },
+  output: {
+    path: 'extension',
+    filename: '[name].js'
+  },
   module: {
     loaders: [
       {
@@ -30,12 +34,13 @@ module.exports = {
         loaders: [
           'html-loader'
         ]
-      }
+      },
+      {
+        test: /\.json$/,
+        exclude: /node_modules/,
+        loader: 'json-loader'
+      },
     ]
-  },
-  output: {
-    path: 'extension',
-    filename: '[name].js'
   },
   resolve: {
     alias: {
