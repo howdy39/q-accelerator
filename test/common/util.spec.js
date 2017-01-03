@@ -400,21 +400,14 @@ describe('Util.getSettings()', function () {
 
     it('デフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
-      const expectedSettings = {
-        'auto-like': true,
-        'auto-stock': true,
-        'copy-code': true,
-        'mute-users': [],
-        'mute-user-article': true,
-        'mute-user-comment': true,
-        'mute-already-read-article': true,
-        'show-line-number': true,
-      };
+      const expectedSettings = {};
+      Object.assign(expectedSettings, require('../../src/common/default-settings.json'));
+      expectedSettings['default-body-template'] = require('../../src/common/default-body-template.md');
 
       Util.getSettings(callback);
 
       const settings = callback.firstCall.args[0];
-      expect(JSON.stringify(settings)).to.equal(JSON.stringify(expectedSettings));
+      expect(settings).to.deep.equal(expectedSettings);
     });
   });
 
@@ -424,7 +417,10 @@ describe('Util.getSettings()', function () {
         ChromeStorage,
         'getSettings',
         (callback) => {
-          callback({'mute-user-comment': false});
+          callback({
+            'mute-user-comment': false,
+            'default-body-template': '#上書き',
+          });
         }
       );
     });
@@ -433,23 +429,17 @@ describe('Util.getSettings()', function () {
       ChromeStorage.getSettings.restore();
     });
 
-    it('デフォルト設定で上書きされること', function () {
+    it('設定されていない項目がデフォルト設定で上書きされること', function () {
       const callback = sinon.spy(function () {});
-      const expectedSettings = {
-        'auto-like': true,
-        'auto-stock': true,
-        'copy-code': true,
-        'mute-users': [],
-        'mute-user-article': true,
-        'mute-user-comment': false,
-        'mute-already-read-article': true,
-        'show-line-number': true,
-      };
+      const expectedSettings = {};
+      Object.assign(expectedSettings, require('../../src/common/default-settings.json'));
+      expectedSettings['default-body-template'] = '#上書き';
+      expectedSettings['mute-user-comment'] = false;
 
       Util.getSettings(callback);
 
       const settings = callback.firstCall.args[0];
-      expect(JSON.stringify(settings)).to.equal(JSON.stringify(expectedSettings));
+      expect(settings).to.deep.equal(expectedSettings);
     });
   });
 

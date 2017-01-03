@@ -3,6 +3,7 @@ import VueMdl from 'vue-mdl';
 import VueMoment from 'vue-moment';
 import Util from '../common/util';
 import ExtendComponent from './settings/extend.js';
+import PostComponent from './settings/post.js';
 import HistoriesComponent from './settings/histories.js';
 import ThanksComponent from './settings/thanks.js';
 
@@ -15,6 +16,15 @@ Util.getSettings((settings) => {
     el: '#extend',
     components: {
       'extend' : ExtendComponent(settings)
+    }
+  });
+});
+
+Util.getSettings((settings) => {
+  new Vue({
+    el: '#post',
+    components: {
+      'post' : PostComponent(settings)
     }
   });
 });

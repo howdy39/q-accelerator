@@ -94,16 +94,8 @@ export default class Util {
 
   static getSettings(callback) {
     ChromeStorage.getSettings(settings => {
-      const defaultSettings = {
-        'auto-like': true,
-        'auto-stock': true,
-        'copy-code': true,
-        'mute-users': [],
-        'mute-user-article': true,
-        'mute-user-comment': true,
-        'mute-already-read-article': true,
-        'show-line-number': true
-      };
+      const defaultSettings = require('./default-settings.json');
+      defaultSettings['default-body-template'] = require('./default-body-template.md');
 
       objectAssign(defaultSettings, settings);
 
