@@ -46,6 +46,13 @@
         "https://qiita.com/popular-items"
       ],
       "js": ["content_scripts/popular-items-content.js"]
+    },
+    {
+      "matches": [
+        "http://qiita.com/drafts/new",
+        "https://qiita.com/drafts/new"
+      ],
+      "js": ["content_scripts/drafts-new-content.js"]
     }
   ],
   "permissions": [

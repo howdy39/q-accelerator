@@ -42,6 +42,10 @@
 
 ## 設定（settings）の保存形式
 
+※デフォルト設定は[default-settings.json](https://github.com/howdy39/q-accelerator/tree/master/src/common/default-settings.json)に記載
+
+※デフォルトの新規投稿時のテンプレートは[default-body-template.md](https://github.com/howdy39/q-accelerator/tree/master/src/common/default-body-template.md)に記載
+
 ### 形式
 
 ```json
@@ -50,6 +54,8 @@
     "auto-like": 自動良いね（true or false）,
     "auto-stock": 自動ストック（true or false）,
     "copy-code": コードのコピー機能（true or false）,
+    "default-body": 新規投稿時のテンプレート(true or false),
+    "default-body-template": テンプレートの文字列,
     "mute-already-read-article": 既読記事を非表示（true or false）,
     "mute-user-article": 特定ユーザーの記事を非表示（true or false）,
     "mute-user-comment": 特定ユーザーのコメントを非表示（true or false）,
@@ -68,6 +74,8 @@
     "auto-like": true,
     "auto-stock": true,
     "copy-code": true,
+    "default-body": true,
+    "default-body-template": "# はじめに",
     "mute-already-read-article": true,
     "mute-user-article": true,
     "mute-user-comment":true,
