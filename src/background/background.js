@@ -1,4 +1,4 @@
-import Util from '../js/util.js';
+import Util from '../common/util.js';
 
 /**
  * @see https://developer.chrome.com/extensions/runtime#event-onInstalled

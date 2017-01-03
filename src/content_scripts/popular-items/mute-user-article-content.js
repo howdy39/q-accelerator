@@ -1,4 +1,4 @@
-import Util from '../../js/util';
+import Util from '../../common/util';
 import PopularItemsDomHandler from './popular-items-dom-handler.js';
 
 

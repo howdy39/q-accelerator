@@ -52,8 +52,11 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
       delete this.comment;
     });
 
-    it('userIdが取得できること', function () {
-      expect(this.comment.userId).to.equal('techhtml');
+    it('コメント情報が取得できること', function () {
+      expect(this.comment.baseElement).to.be.not.equal(undefined, 'baseElement');
+      expect(this.comment.userId).to.equal('techhtml', 'userId');
+      expect(this.comment.commentHeaderElement).to.be.not.equal(undefined, 'commentHeaderElement');
+      expect(this.comment.commentContentElement).to.be.not.equal(undefined, 'commentContentElement');
     });
 
   });

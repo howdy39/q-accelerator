@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Util from '../../../js/util';
+import Util from '../../../common/util';
 
 
 export default function (settings) {
@@ -14,8 +14,8 @@ export default function (settings) {
                      自動ストック: 「いいね」したときに「ストック」を自動でおこないます。<br>
                      ※「ストック」や「いいね」をはずしたときに自動ではすすことはしません。
                    </p>
-                   <mdl-switch :checked.sync="autoLike" class="mdl-js-ripple-effect">自動いいね</mdl-switch>
-                   <mdl-switch :checked.sync="autoStock" class="mdl-js-ripple-effect">自動ストック</mdl-switch>
+                   <mdl-switch :checked.sync="autoLike" class="mdl-js-ripple-effect">自動いいねをおこなう</mdl-switch>
+                   <mdl-switch :checked.sync="autoStock" class="mdl-js-ripple-effect">自動ストックをおこなう</mdl-switch>
                  </div>
                </div>`,
     data: () => {

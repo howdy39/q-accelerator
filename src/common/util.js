@@ -48,7 +48,6 @@ export default class Util {
     this.getHistories((histories) => {
       objectAssign(histories, entity);
       histories = this.removeOldHistories(histories);
-      console.log(Object.keys(histories).length);
       ChromeStorage.saveHistories(
         histories,
         () => {

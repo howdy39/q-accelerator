@@ -1,6 +1,6 @@
 import objectAssign from 'object-assign';
-import Util from '../../src/js/util';
-import ChromeStorage from '../../src/js/chrome-storage';
+import Util from '../../src/common/util';
+import ChromeStorage from '../../src/common/chrome-storage';
 
 
 describe('Util.parseUrl()', function () {

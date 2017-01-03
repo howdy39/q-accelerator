@@ -1,4 +1,4 @@
-import Util from '../../js/util';
+import Util from '../../common/util';
 import ArticleDomHandler from './article-dom-handler.js';
 
 export default class SaveHistoryContent {

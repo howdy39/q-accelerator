@@ -1,4 +1,4 @@
-import Util from '../../js/util';
+import Util from '../../common/util';
 
 
 export default class ArticleDomHandler {
@@ -57,14 +57,26 @@ export default class ArticleDomHandler {
     // コメント部分
     const commentLinkElements = Array.from(document.querySelectorAll('.comment'));
     commentLinkElements.forEach(element => {
+      const commentHeaderElement = element.querySelector('.commentHeader');
+      let isDeleted = false;
       let userId;
-      const a = element.querySelector('.commentHeader_creator a');
-      if (a) { // 削除されたコメントの場合取得できない
+      let commentContentElement;
+
+      if (commentHeaderElement) {
+        commentContentElement = element.querySelector('.comment_content');
+        const a = commentHeaderElement.querySelector('.commentHeader_creator a');
         userId = a.getAttribute('href').replace('/', ''); // href例 '/howdy39'
+      } else {
+        // 削除されたコメント
+        isDeleted = true;
       }
+
       const comment = {
         baseElement: element,
-        userId
+        isDeleted,
+        userId,
+        commentHeaderElement,
+        commentContentElement,
       };
 
       this.article.comments.push(comment);
@@ -131,7 +143,13 @@ export default class ArticleDomHandler {
   }
 
   unShowComment(comment) {
-    comment.baseElement.style.display = 'none';
+    comment.commentHeaderElement.style.display = 'none';
+    comment.commentContentElement.style.display = 'none';
+
+    const messageElement = document.createElement('div');
+    messageElement.className = 'well';
+    messageElement.textContent = `${comment.userId}のコメントを非表示にしました。`;
+    comment.baseElement.appendChild(messageElement);
   }
 
   unShowReference(reference) {

@@ -1,4 +1,4 @@
-import Util from '../../js/util';
+import Util from '../../common/util';
 import ArticleListStreamDomHandler from './article-list-stream-dom-handler.js';
 
 

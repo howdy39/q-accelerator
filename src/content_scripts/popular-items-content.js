@@ -1,4 +1,4 @@
-import Util from '../js/util';
+import Util from '../common/util';
 import MuteAlreadyReadArticleContent from './popular-items/mute-already-read-article-content.js';
 import MuteUserArticleContent from './popular-items/mute-user-article-content.js';
 

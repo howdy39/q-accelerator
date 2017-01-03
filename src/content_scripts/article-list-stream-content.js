@@ -6,7 +6,7 @@
  * http://qiita.com/mine
  */
 
-import Util from '../js/util';
+import Util from '../common/util';
 import MuteUserArticleListStreamContent from './article-list-stream/mute-user-article-list-stream-content.js';
 
 
