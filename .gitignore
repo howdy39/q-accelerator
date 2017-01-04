@@ -2,3 +2,4 @@ node_modules/
 dest/
 extension/
 npm-debug.log
+webstore/*.zip
