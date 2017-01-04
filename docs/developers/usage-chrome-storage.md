@@ -51,8 +51,6 @@
 ```json
 {
   "settings": {
-    "auto-like": 自動良いね（true or false）,
-    "auto-stock": 自動ストック（true or false）,
     "copy-code": コードのコピー機能（true or false）,
     "default-body": 新規投稿時のテンプレート(true or false),
     "default-body-template": テンプレートの文字列,
@@ -60,6 +58,10 @@
     "mute-user-article": 特定ユーザーの記事を非表示（true or false）,
     "mute-user-comment": 特定ユーザーのコメントを非表示（true or false）,
     "mute-users": 非表示するユーザーIDの一覧,
+    "off-like-off-stock": 「ストック」を外したとき、自動で「いいね」を外す（true or false）,
+    "off-stock-off-like": ストック」したとき、自動で「いいね」する（true or false）,
+    "on-like-on-stock": 「いいね」を外したとき、自動で「ストック」を外す（true or false）,
+    "on-stock-on-like": いいね」したとき、自動で「ストック」する（true or false）,
     "show-line-number": 行番号を表示（true or false）
   }
 }
@@ -70,9 +72,6 @@
 
 ```json
 {
-  "settings": {
-    "auto-like": true,
-    "auto-stock": true,
     "copy-code": true,
     "default-body": true,
     "default-body-template": "# はじめに",
@@ -80,6 +79,10 @@
     "mute-user-article": true,
     "mute-user-comment":true,
     "mute-users":["howdy39"],
+    "off-like-off-stock": false,
+    "off-stock-off-like": true,
+    "on-like-on-stock": true,
+    "on-stock-on-like": true,
     "show-line-number":true
   }
 }

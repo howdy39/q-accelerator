@@ -12,8 +12,11 @@ new SaveHisotoryContent().run();
 Util.getSettings(settings => {
 
   try {
-    if (settings['auto-like'] || settings['auto-stock']) {
-      new AutoLikeContent().run(settings['auto-like'], settings['auto-stock']);
+    if (settings['on-stock-on-like'] || settings['off-stock-off-like']
+     || settings['on-like-on-stock']  || settings['off-like-off-stock']) {
+      new AutoLikeContent().run(settings['on-stock-on-like'], settings['off-stock-off-like'],
+                                settings['on-like-on-stock'], settings['off-like-off-stock']
+      );
     }
   } catch (e) {
     Util.errorLog(e);

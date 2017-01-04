@@ -4,26 +4,36 @@ import ArticleDomHandler from './article-dom-handler.js';
 
 export default class AutoLikeContent {
 
-  run(autoLike, autoStock) {
+  run(onStockOnLike, offStockOffLike, onLikeOnStock, offLikeOffStock) {
     const handler = new ArticleDomHandler();
 
     if (!handler.isLikeButtonAvailable()) {
       return false;
     }
 
-    if (autoLike) {
+    if (onStockOnLike || offStockOffLike) {
       handler.addStockButtonClickListener(e => {
-        if (e.isTrusted && !handler.isLiked() && !handler.isStocked()) {
-          handler.addLike();
-          Util.infoLog('自動いいね');
+        if (e.isTrusted) {
+          if (onStockOnLike && !handler.isLiked() && !handler.isStocked()) {
+            handler.addLike();
+            Util.infoLog('自動いいね（ON）');
+          } else if (offStockOffLike && handler.isLiked() && handler.isStocked()) {
+            handler.addLike();
+            Util.infoLog('自動いいね（OFF）');
+          }
         }
       });
     }
-    if (autoStock) {
+    if (onLikeOnStock || offLikeOffStock) {
       handler.addLikeButtonClickListener(e => {
-        if (e.isTrusted && !handler.isLiked() && !handler.isStocked()) {
-          handler.addStock();
-          Util.infoLog('自動ストック');
+        if (e.isTrusted) {
+          if (onLikeOnStock && !handler.isLiked() && !handler.isStocked()) {
+            handler.addStock();
+            Util.infoLog('自動ストック（ON）');
+          } else if (offLikeOffStock && handler.isLiked() && handler.isStocked()) {
+            handler.addStock();
+            Util.infoLog('自動ストック（OFF）');
+          }
         }
       });
     }
