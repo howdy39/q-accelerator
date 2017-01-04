@@ -9,88 +9,35 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
   before(function () {
     document.body.innerHTML = require('./article-mine-codeframes-commented-referenced.html');
     this.handler = new ArticleDomHandler();
-    this.article = this.handler.getArticle();
   });
 
   after(function () {
     delete this.handler;
-    delete this.article;
   });
 
-  it('URLが取得できること', function () {
-    // window.location.hrefを使っているため実施不可
+  it('DOMの情報が取得できること', function () {
+    expect(this.handler.getTitle()).to.equal('フロントエンドにテストを導入', 'タイトル');
+    expect(this.handler.getLikeButtons()).to.have.length(0, '自身の記事はいいねボタンなし');
+    expect(this.handler.getStockButtons()).to.have.length(2, '公開記事はストックボタンあり');
+    expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
+    expect(this.handler.getComments()).to.have.length.above(0, 'コメントあり');
+    expect(this.handler.getReferences()).to.have.length.above(0, '参照記事あり');
   });
 
-  it('タイトルが取得できること', function () {
-    expect(this.article.title).to.equal('フロントエンドにテストを導入');
+  it('コメント情報が取得できること', function () {
+    const comment = this.handler.getComments()[0];
+    expect(comment.baseElement).to.not.equal(null, 'baseElement');
+    expect(comment.userId).to.equal('techhtml', 'userId');
+    expect(comment.commentHeaderElement).to.not.equal(null, 'commentHeaderElement');
+    expect(comment.commentContentElement).to.not.equal(null, 'commentContentElement');
   });
 
-  // 自身の記事はいいね不可
-  it('いいねボタンが取得できないこと', function () {
-    expect(this.article.likeButtons.length).to.equal(0);
-  });
-
-  it('ストックボタンが取得できること', function () {
-    expect(this.article.stockButtons.length).to.equal(2);
-  });
-
-  it('コードが取得できること', function () {
-    expect(this.article.codeFrames.length).to.not.equal(0);
-  });
-
-  it('コメントが取得できること', function () {
-    expect(this.article.comments.length).to.not.equal(0);
-  });
-
-  describe('１件目のコメント', function () {
-
-    before(function () {
-      this.comment = this.article.comments[0];
-    });
-
-    after(function () {
-      delete this.comment;
-    });
-
-    it('コメント情報が取得できること', function () {
-      expect(this.comment.baseElement).to.be.not.equal(undefined, 'baseElement');
-      expect(this.comment.userId).to.equal('techhtml', 'userId');
-      expect(this.comment.commentHeaderElement).to.be.not.equal(undefined, 'commentHeaderElement');
-      expect(this.comment.commentContentElement).to.be.not.equal(undefined, 'commentContentElement');
-    });
-
-  });
-
-  it('参照記事が取得できること', function () {
-    expect(this.article.references).to.not.equal(0);
-  });
-
-  describe('１件目の参照記事', function () {
-
-    before(function () {
-      this.reference = this.article.references[0];
-    });
-
-    after(function () {
-      delete this.reference;
-    });
-
-    it('hrefが取得できること', function () {
-      expect(this.reference.href).to.equal('/howdy39/items/b9d704e7f84053924da3#_reference-e4df929c1e8ecdc9ddc4');
-    });
-
-    it('itemIdが取得できること', function () {
-      expect(this.reference.itemId).to.equal('b9d704e7f84053924da3');
-    });
-
-    it('titleが取得できること', function () {
-      expect(this.reference.title).to.equal('step by stepで始めるKarma');
-    });
-
-    it('userIdが取得できること', function () {
-      expect(this.reference.userId).to.equal('howdy39');
-    });
-
+  it('参照記事情報が取得できること', function () {
+    const reference = this.handler.getReferences()[0];
+    expect(reference.href).to.equal('/howdy39/items/b9d704e7f84053924da3#_reference-e4df929c1e8ecdc9ddc4', 'href');
+    expect(reference.itemId).to.equal('b9d704e7f84053924da3', 'itemId');
+    expect(reference.title).to.equal('step by stepで始めるKarma', 'title');
+    expect(reference.userId).to.equal('howdy39', 'userId');
   });
 
 });
@@ -104,53 +51,23 @@ describe('自身の記事（限定共有）', function () {
   before(function () {
     document.body.innerHTML = require('./article-mine-private.html');
     this.handler = new ArticleDomHandler();
-    this.article = this.handler.getArticle();
   });
 
   after(function () {
     delete this.handler;
-    delete this.article;
   });
 
-  it('URLが取得できること', function () {
-    // window.location.hrefを使っているため実施不可
+  it('DOMの情報が取得できること', function () {
+    expect(this.handler.getTitle()).to.equal('限定共有投稿テスト', 'タイトル');
+    expect(this.handler.getLikeButtons()).to.have.length(0, '自身の記事はいいねボタンなし');
+    expect(this.handler.getStockButtons()).to.have.length(0, 'プライベート記事はストックボタンなし');
+    expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
+    expect(this.handler.getComments()).to.have.length.above(0, 'コメントあり');
   });
 
-  it('タイトルが取得できること', function () {
-    expect(this.article.title).to.equal('限定共有投稿テスト');
-  });
-
-  // 自身の記事はいいね不可
-  it('いいねボタンが取得できないこと', function () {
-    expect(this.article.likeButtons.length).to.equal(0);
-  });
-
-  it('ストックボタンが取得できないこと', function () {
-    expect(this.article.stockButtons.length).to.equal(0);
-  });
-
-  it('コードが取得できること', function () {
-    expect(this.article.codeFrames.length).to.not.equal(0);
-  });
-
-  it('コメントが取得できること', function () {
-    expect(this.article.comments.length).to.not.equal(0);
-  });
-
-  describe('１件目のコメント', function () {
-
-    before(function () {
-      this.comment = this.article.comments[0];
-    });
-
-    after(function () {
-      delete this.comment;
-    });
-
-    it('userIdが取得できること', function () {
-      expect(this.comment.userId).to.equal('howdy39');
-    });
-
+  it('コメントのuserIdが取得できること', function () {
+    const comment = this.handler.getComments()[0];
+    expect(comment.userId).to.equal('howdy39');
   });
 
 });
@@ -164,32 +81,18 @@ describe('他者の記事/コードなし/コメントなし/参照記事なし'
   before(function () {
     document.body.innerHTML = require('./article-others-no-codeframes-not-commented-not-referenced.html');
     this.handler = new ArticleDomHandler();
-    this.article = this.handler.getArticle();
   });
 
   after(function () {
     delete this.handler;
-    delete this.article;
   });
 
-  it('いいねボタンが取得できること', function () {
-    expect(this.article.likeButtons.length).to.equal(2);
-  });
-
-  it('ストックボタンが取得できること', function () {
-    expect(this.article.stockButtons.length).to.equal(2);
-  });
-
-  it('コードが取得できないこと', function () {
-    expect(this.article.codeFrames.length).to.equal(0);
-  });
-
-  it('コメントが取得できないこと', function () {
-    expect(this.article.comments.length).to.equal(0);
-  });
-
-  it('参照記事が取得できないこと', function () {
-    expect(this.article.references.length).to.equal(0);
+  it('DOMの情報が取得できること', function () {
+    expect(this.handler.getLikeButtons()).to.have.length(2, 'いいねボタンが2つ');
+    expect(this.handler.getStockButtons()).to.have.length(2, 'ストックボタンが2つ');
+    expect(this.handler.getCodeFrames()).to.have.length(0, 'コードなし');
+    expect(this.handler.getComments()).to.have.length(0, 'コメントなし');
+    expect(this.handler.getReferences()).to.have.length(0, '参照記事なし');
   });
 
 });
@@ -203,28 +106,17 @@ describe('他者の記事/いいね済/ストック済', function () {
   before(function () {
     document.body.innerHTML = require('./article-others-liked-stocked.html');
     this.handler = new ArticleDomHandler();
-    this.article = this.handler.getArticle();
   });
 
   after(function () {
     delete this.handler;
-    delete this.article;
   });
 
-  it('いいねボタンが取得できること', function () {
-    expect(this.article.likeButtons.length).to.equal(2);
-  });
-
-  it('ストックボタンが取得できること', function () {
-    expect(this.article.stockButtons.length).to.equal(2);
-  });
-
-  it('いいねされていること', function () {
-    expect(this.handler.isLiked()).to.be.true;
-  });
-
-  it('ストックされていること', function () {
-    expect(this.handler.isStocked()).to.be.true;
+  it('DOMの情報が取得できること', function () {
+    expect(this.handler.getLikeButtons()).to.have.length(2, 'いいねボタンが2つ');
+    expect(this.handler.getStockButtons()).to.have.length(2, 'ストックボタンが2つ');
+    expect(this.handler.isLiked()).to.equal(true, 'いいねされている');
+    expect(this.handler.isStocked()).to.equal(true, 'ストックされている');
   });
 
 });
@@ -238,25 +130,23 @@ describe('codeFrame', function () {
   before(function () {
     document.body.innerHTML = require('./article-codeframe.html');
     this.handler = new ArticleDomHandler();
-    this.article = this.handler.getArticle();
   });
 
   after(function () {
     delete this.handler;
-    delete this.article;
   });
 
   it('コードが取得できること', function () {
-    expect(this.article.codeFrames.length).to.not.equal(0);
+    expect(this.handler.getCodeFrames()).to.have.length.above(0);
   });
 
   it('2番目のコードの情報が取得できること', function () {
-    const codeFrame = this.article.codeFrames[1];
-    expect(codeFrame.baseElement).to.be.not.null;
+    const codeFrame = this.handler.getCodeFrames()[1];
+    expect(codeFrame.baseElement).to.not.equal(null);
     expect(codeFrame.dataLang).to.equal('javascript');
     expect(codeFrame.fileName).to.equal('javascriptです');
-    expect(codeFrame.codeBaseElement).to.be.not.null;
-    expect(codeFrame.codeElement).to.be.not.null;
+    expect(codeFrame.codeBaseElement).to.not.equal(null);
+    expect(codeFrame.codeElement).to.not.equal(null);
     expect(codeFrame.codeText).to.equal(`console.log('1行目');
 -console.log('2行目');
 +console.log('3行目');
@@ -273,17 +163,15 @@ describe('削除されたコメント', function () {
   before(function () {
     document.body.innerHTML = require('./article-deleted-comment.html');
     this.handler = new ArticleDomHandler();
-    this.article = this.handler.getArticle();
   });
 
   after(function () {
     delete this.handler;
-    delete this.article;
   });
 
   it('10番目のコメントのuserIdがundefinedであること', function () {
-    const comment = this.article.comments[10 - 1];
-    expect(comment.userId).to.be.undefined;
+    const comment = this.handler.getComments()[10 - 1];
+    expect(comment.userId).to.equal(undefined);
   });
 
 });

@@ -1,30 +1,25 @@
 import Util from '../../common/util';
 
-
 export default class ArticleDomHandler {
 
   constructor() {
     this.article = {
-      url: '',
-      title: '',
-      likeButtons: [],
-      stockButtons: [],
+      titleElement: '',
+      likeButtonElements: [],
+      stockButtonElements: [],
       codeFrames: [],
       comments: [],
       references: []
     };
 
-    // URL
-    this.article.url = window.location.href;
-
     // タイトル
-    this.article.title = document.querySelector('.col-sm-9 > h1').textContent;
+    this.article.titleElement = document.querySelector('.col-sm-9 > h1');
 
     // いいねボタン
-    this.article.likeButtons = document.querySelectorAll('div.js-likebutton button.p-button');
+    this.article.likeButtonElements = document.querySelectorAll('div.js-likebutton button.p-button');
 
     // ストックボタン
-    this.article.stockButtons = document.querySelectorAll('div.js-stockButton.StockButton');
+    this.article.stockButtonElements = document.querySelectorAll('div.js-stockButton.StockButton');
 
     // コードフレーム
     const codeFrameElements = Array.from(document.getElementsByClassName('code-frame'));
@@ -103,41 +98,69 @@ export default class ArticleDomHandler {
 
   }
 
-  getArticle() {
-    return this.article;
+  // getArticle() {
+  //   return this.article;
+  // }
+
+  getUrl() {
+    return window.location.href;
+  }
+
+  getTitle() {
+    return this.article.titleElement.textContent;
+  }
+
+  getLikeButtons() {
+    return this.article.likeButtonElements;
+  }
+
+  getStockButtons() {
+    return this.article.stockButtonElements;
+  }
+
+  getCodeFrames() {
+    return this.article.codeFrames;
+  }
+
+  getComments() {
+    return this.article.comments;
+  }
+
+  getReferences() {
+    return this.article.references;
   }
 
   /**
    * 自身が投稿した記事は「いいね」ができないためその判定に使用する
    */
   isLikeButtonAvailable() {
-    return (this.article.likeButtons.length !== 0);
+    return (this.getLikeButtons().length !== 0);
   }
 
   isLiked() {
-    return this.article.likeButtons[0].className.indexOf('liked') > 0;
+    return this.getLikeButtons()[0].className.indexOf('liked') > 0;
   }
 
   isStocked() {
-    return this.article.stockButtons[0].className.indexOf('StockButton--stocked') > 0;
+    return this.getStockButtons()[0].className.indexOf('StockButton--stocked') > 0;
   }
 
   addLike() {
-    this.article.likeButtons[0].click();
+    this.getLikeButtons()[0].click();
   }
 
   addStock() {
-    this.article.stockButtons[0].click();
+    this.getStockButtons()[0].click();
   }
 
   addLikeButtonClickListener(listener) {
-    this.article.likeButtons.forEach(likeButton => {
+    this.getLikeButtons().forEach(likeButton => {
       likeButton.addEventListener('click', listener);
     });
   }
 
   addStockButtonClickListener(listener) {
-    this.article.stockButtons.forEach(stockButton => {
+    this.getStockButtons().forEach(stockButton => {
       stockButton.addEventListener('click', listener);
     });
   }

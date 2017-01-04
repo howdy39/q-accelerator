@@ -7,7 +7,7 @@ export default class MuteUserArticleContent {
   run(muteUserIds) {
     const handler = new ArticleDomHandler();
 
-    handler.getArticle().references.forEach(reference => {
+    handler.getReferences().forEach(reference => {
       const hasUserId = muteUserIds.includes(reference.userId);
       if (hasUserId) {
         handler.unShowReference(reference);
