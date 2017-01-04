@@ -1,3 +1,4 @@
+import objectValues from 'object.values';
 import Vue from 'vue';
 import Util from '../../common/util';
 
@@ -32,7 +33,7 @@ export default function (histories) {
             </mdl-dialog>
           </section>`,
     data: () => {
-      const items = Object.values(histories).sort((itemA, itemB) => (itemA.date < itemB.date) ? 1 : -1);
+      const items = objectValues(histories).sort((itemA, itemB) => (itemA.date < itemB.date) ? 1 : -1);
       const search = '';
       return {
         items,

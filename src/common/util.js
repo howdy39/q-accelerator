@@ -1,4 +1,5 @@
 import objectAssign from 'object-assign';
+import objectValues from 'object.values';
 import ChromeStorage from './chrome-storage';
 
 export default class Util {
@@ -25,12 +26,12 @@ export default class Util {
   }
 
   static removeOldHistories(histories, maxSize = 1000) {
-    const sortedHistories = Object.values(histories).sort((itemA, itemB) => (itemA.date < itemB.date) ? 1 : -1);
+    const sortedHistories = objectValues(histories).sort((itemA, itemB) => (itemA.date < itemB.date) ? 1 : -1);
     if (sortedHistories.length < maxSize) {
       return histories;
     }
 
-    const items = Object.values(histories).sort((itemA, itemB) => (itemA.date > itemB.date) ? 1 : -1);
+    const items = objectValues(histories).sort((itemA, itemB) => (itemA.date > itemB.date) ? 1 : -1);
 
     const removeSize = sortedHistories.length - maxSize;
 
