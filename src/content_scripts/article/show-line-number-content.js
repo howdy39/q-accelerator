@@ -6,9 +6,9 @@ export default class ShowLineNumberContent {
     require('style!./show-line-number-content.css');
 
     const handler = new ArticleDomHandler();
-    const article = handler.getArticle();
+    const codeFrames = handler.getCodeFrames();
 
-    for (let codeFrame of article.codeFrames) {
+    for (let codeFrame of codeFrames) {
       const rows = codeFrame.codeText.split('\n');
       rows.pop(); // 最後に改行が入っていることにより、空要素が生まれるため削除
       const length = rows.length;

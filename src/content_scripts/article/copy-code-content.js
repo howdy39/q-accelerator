@@ -8,9 +8,9 @@ export default class CopyCodeContent {
     require('style!./copy-code-content.css');
 
     const handler = new ArticleDomHandler();
-    const article = handler.getArticle();
+    const codeFrames = handler.getCodeFrames();
 
-    for (let codeFrame of article.codeFrames) {
+    for (let codeFrame of codeFrames) {
       const svg = document.createElement('img');
       svg.src = chrome.extension.getURL('assets/images/clippy.svg');
       svg.alt = 'Copy to clipboard';
