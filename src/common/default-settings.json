@@ -5,6 +5,7 @@
   "mute-user-article": true,
   "mute-user-comment": true,
   "mute-already-read-article": true,
+  "mute-already-read-article-show-button": true,
   "off-like-off-stock": true,
   "off-stock-off-like": false,
   "on-like-on-stock": true,

@@ -2,7 +2,7 @@ var archiver = require('archiver');
 var fs = require('fs');
 
 // zipファイル名作成
-var version = '0.1.0';
+var version = '0.2.0';
 var zip_file_name = './webstore/qa-' + version + '.zip';
 
 // zipファイルのストリームを生成して、archiverと紐付ける

@@ -1,3 +1,6 @@
+/*eslint no-irregular-whitespace:"off"*/
+
+
 import Vue from 'vue';
 import Util from '../../../common/util';
 
@@ -14,10 +17,10 @@ export default function (settings) {
                     「いいね」や「ストック」を押した際の挙動をカスタマイズします。
                    </p>
                    <mdl-switch :checked.sync="onLikeOnStock" class="mdl-js-ripple-effect">
-                     「いいね」したとき、自動で「ストック」する <qiita-no-like></qiita-no-like>→<qiita-like></qiita-like> <qiita-no-stock/></qiita-no-stock>→<qiita-stock></qiita-stock>
+                     「いいね」したとき、自動で「ストック」する　　　 <qiita-no-like></qiita-no-like>→<qiita-like></qiita-like> <qiita-no-stock/></qiita-no-stock>→<qiita-stock></qiita-stock>
                    </mdl-switch>
                    <mdl-switch :checked.sync="onStockOnLike" class="mdl-js-ripple-effect">
-                     「ストック」したとき、自動で「いいね」する <qiita-no-stock/></qiita-no-stock>→<qiita-stock></qiita-stock> <qiita-no-like></qiita-no-like>→<qiita-like></qiita-like>
+                     「ストック」したとき、自動で「いいね」する　　　 <qiita-no-stock/></qiita-no-stock>→<qiita-stock></qiita-stock> <qiita-no-like></qiita-no-like>→<qiita-like></qiita-like>
                    </mdl-switch>
                    <mdl-switch :checked.sync="offLikeOffLike" class="mdl-js-ripple-effect">
                      「いいね」を外したとき、自動で「ストック」を外す <qiita-like></qiita-like>→<qiita-no-like></qiita-no-like> <qiita-stock/></qiita-stock>→<qiita-no-stock></qiita-no-stock>
