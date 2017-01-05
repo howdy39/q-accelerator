@@ -9,6 +9,9 @@
     "persistent": false,
     "page": "background/background.html"
   },
+  "browser_action": {
+    "default_popup": "assets/popup.html"
+  },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
     {
