@@ -3,7 +3,7 @@
   "name": "Q Accelerator",
   "short_name":"QA",
   "description": "Qiitaでの活動を加速させるChrome拡張機能",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage_url": "https://github.com/howdy39/q-accelerator",
   "background": {
     "persistent": false,
