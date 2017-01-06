@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/howdy39/q-accelerator.svg?branch=master)](https://travis-ci.org/howdy39/q-accelerator)
-
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mheleidccioamimekojienbdfclcbaan.svg)](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan/related?hl=ja)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/d/mheleidccioamimekojienbdfclcbaan.svg)](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan/related?hl=ja)
 # q-accelerator
 
 
