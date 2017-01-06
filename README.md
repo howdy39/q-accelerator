@@ -1,20 +1,28 @@
 [![Build Status](https://travis-ci.org/howdy39/q-accelerator.svg?branch=master)](https://travis-ci.org/howdy39/q-accelerator)
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mheleidccioamimekojienbdfclcbaan.svg)](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan/related?hl=ja)
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/d/mheleidccioamimekojienbdfclcbaan.svg)](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan/related?hl=ja)
-# q-accelerator
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mheleidccioamimekojienbdfclcbaan.svg)](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/d/mheleidccioamimekojienbdfclcbaan.svg)](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan)
+
+# Q Accelerator
+
+Qiitaでの活動を加速させるChrome拡張機能
+
+
+## Installation
+
+Chrome ウェブストアからインストール  
+[https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan)
 
 
 ## Features
 
 - 行番号を表示
-- コードのコピー機能
-- 特定ユーザーの投稿を非表示
+- コピーアイコンを表示
 - 自動いいね/自動ストック
-- 既読記事を非表示
+- 人気の投稿から既読記事を非表示
+- 特定ユーザーの投稿を非表示
+- 新規投稿時のテンプレート
 - 閲覧履歴の検索
 
-## Installation
-Chrome ウェブストアにアップする予定です。
 
 ## Develop
 
@@ -24,8 +32,8 @@ npm run build
 ```
 
 extensionフォルダが作られます。  
-[chrome://extensions/](chrome://extensions/)にアクセス。  
-「パッケージ化されていない拡張機能を読み込む」からextensionフォルダを選択します。
+[chrome://extensions/](chrome://extensions/)にアクセスします。  
+「パッケージ化されていない拡張機能を読み込む」からextensionフォルダを選択してインストールします。
 
 
 ## Contributing
@@ -35,6 +43,7 @@ extensionフォルダが作られます。
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
 
 ## License
 
