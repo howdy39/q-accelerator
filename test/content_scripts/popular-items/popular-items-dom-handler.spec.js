@@ -16,20 +16,6 @@ describe('人気の記事ページ', function () {
     expect(this.articles.length).to.equal(20);
   });
 
-  it('既読ボタンが追加できること/clickで追加したボタンのイベントが発火すること', function () {
-    const callback = sinon.spy(function () {});
-    this.handler.addAlreadyReadButton(callback);
-    const article = this.articles[0];
-    article.baseElement.querySelector('.qa-already-button').click();
-
-    expect(callback.called).to.be.true;
-
-    const href = callback.firstCall.args[0];
-    const title = callback.firstCall.args[1];
-    expect(href).to.equal('/kunihirotanaka/items/70d43d48757aea79de2d?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items');
-    expect(title).to.equal('いまさら聞けないLinuxとメモリの基礎＆vmstatの詳しい使い方');
-  });
-
   describe('１件目の記事', function () {
 
     before(function () {
@@ -70,6 +56,19 @@ describe('人気の記事ページ', function () {
 
     it('タグが取得できること', function () {
       expect(this.article.tags).to.deep.equal(['Linux', 'さくらインターネット']);
+    });
+
+    it('既読ボタンが追加できること/clickで追加したボタンのイベントが発火すること', function () {
+      const callback = sinon.spy(function () {});
+      this.handler.addAlreadyReadButton(callback);
+      this.article.baseElement.querySelector('.qa-already-button').click();
+
+      expect(callback.called).to.be.true;
+
+      const href = callback.firstCall.args[0];
+      const title = callback.firstCall.args[1];
+      expect(href).to.equal('/kunihirotanaka/items/70d43d48757aea79de2d?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items');
+      expect(title).to.equal('いまさら聞けないLinuxとメモリの基礎＆vmstatの詳しい使い方');
     });
 
   });
