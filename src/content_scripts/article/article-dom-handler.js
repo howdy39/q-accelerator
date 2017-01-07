@@ -35,7 +35,7 @@ export default class ArticleDomHandler {
 
       const codeBaseElement = element.querySelector('.highlight');
       const codeElement = codeBaseElement.querySelector('pre');
-      const codeText = codeElement.textContent;
+      const codeText = codeElement.textContent.replace(/\n+$/, '');
 
       const codeFrame = {
         baseElement: element,
