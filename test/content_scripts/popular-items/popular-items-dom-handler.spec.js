@@ -58,7 +58,7 @@ describe('人気の記事ページ', function () {
       expect(this.article.tags).to.deep.equal(['Linux', 'さくらインターネット']);
     });
 
-    it('既読ボタンが追加できること/clickで追加したボタンのイベントが発火すること', function () {
+    it('既読ボタンが追加できること//記事を非表示にすること', function () {
       const callback = sinon.spy(function () {});
       this.handler.addAlreadyReadButton(callback);
       this.article.baseElement.querySelector('.qa-already-button').click();
@@ -69,6 +69,35 @@ describe('人気の記事ページ', function () {
       const title = callback.firstCall.args[1];
       expect(href).to.equal('/kunihirotanaka/items/70d43d48757aea79de2d?utm_campaign=popular_items&utm_medium=referral&utm_source=popular_items');
       expect(title).to.equal('いまさら聞けないLinuxとメモリの基礎＆vmstatの詳しい使い方');
+
+      const style = this.article.baseElement.style.display;
+      expect(style).to.equal('none', '記事が非表示になっていること');
+    });
+
+  });
+
+  describe('２件目の記事', function () {
+
+    before(function () {
+      this.article = this.articles[1];
+    });
+
+    after(function () {
+      delete this.article;
+    });
+
+    /**
+     * 既読記事を非表示機能がONになっていることを想定
+     */
+    it('記事リンクをクリックした際に記事を非表示にすること', function () {
+      const callback = sinon.spy(function () {});
+      this.handler.addArticleClickListner(callback);
+
+      this.article.baseElement.querySelector('a.popularItem_articleTitle_text').click();
+      expect(callback.called).to.be.equal(true, '記事をクリックしたときのコールバックが実行されること');
+
+      const style = this.article.baseElement.style.display;
+      expect(style).to.equal('none', '記事が非表示になっていること');
     });
 
   });
