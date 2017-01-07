@@ -41,6 +41,16 @@ export default class PopularItemsDomHandler {
     article.baseElement.style.display = 'none';
   }
 
+  addArticleClickListner(callback = function () {}) {
+    for (const article of this.articles) {
+      const articleLink= article.baseElement.querySelector('a.popularItem_articleTitle_text');
+      articleLink.addEventListener('click', () => {
+        this.unShow(article);
+        callback(article);
+      });
+    }
+  }
+
   addAlreadyReadButton(callback) {
     for (const article of this.articles) {
       const a = document.createElement('a');
