@@ -17,6 +17,8 @@ export default class MuteAlreadyReadArticleContent {
           Util.infoLog('既読記事を非表示', `"${article.title}"を記事を非表示にしました`);
         }
       });
+
+      handler.addArticleClickListner();
     });
   }
 
