@@ -16,7 +16,7 @@ describe('人気の記事ページ', function () {
     expect(this.articles.length).to.equal(20);
   });
 
-  it('既読ボタンが動作すること追加できること/clickで追加したボタンのイベントが発火すること', function () {
+  it('既読ボタンが追加できること/clickで追加したボタンのイベントが発火すること', function () {
     const callback = sinon.spy(function () {});
     this.handler.addAlreadyReadButton(callback);
     const article = this.articles[0];
