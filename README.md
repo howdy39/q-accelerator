@@ -27,8 +27,8 @@ Chrome ウェブストアからインストール
 ## Develop
 
 ``` sh
-npm install
-npm run build
+yarn
+yarn run build
 ```
 
 extensionフォルダが作られます。  
