@@ -75,7 +75,6 @@ export default class Util {
     );
   }
 
-  // TODO: TEST
   static saveSetting(key, value, callback = function () {}) {
     let entity = {};
     entity[key] = value;

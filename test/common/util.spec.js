@@ -370,8 +370,68 @@ describe('Util.clearHistories()', function () {
 
 
 describe('Util.saveSetting()', function () {
+  let savedSettings;
+
+  beforeEach(function () {
+    savedSettings = {key1: 'value1'};
+
+    this.getSettingStub = sinon.stub(
+      Util,
+      'getSettings',
+      (callback) => {
+        callback(savedSettings);
+      }
+    );
+
+    this.saveSettingsStub = sinon.stub(
+      ChromeStorage,
+      'saveSettings',
+      (Settings, callback) => {
+        callback();
+      }
+    );
+  });
+
+  afterEach(function () {
+    Util.getSettings.restore();
+    ChromeStorage.saveSettings.restore();
+  });
+
+  it('新しいキーが登録できること', function () {
+    const expectedSetting =
+      {
+        key1: 'value1',
+        key2: 'newValue2'
+      };
+
+    Util.saveSetting('key2', 'newValue2');
+
+    const settings = this.saveSettingsStub.firstCall.args[0];
+    expect(settings).to.deep.equal(expectedSetting);
+  });
+
+  it('キーの設定が更新できること', function () {
+    const expectedSetting =
+      {
+        key1: 'newValue1',
+      };
+
+    Util.saveSetting('key1', 'newValue1');
+
+    const settings = this.saveSettingsStub.firstCall.args[0];
+    expect(settings).to.deep.equal(expectedSetting);
+  });
+
+  it('callbackを渡した場合に呼ばれること', function () {
+    const callback = sinon.spy(function () {});
+
+    Util.saveSetting('key', 'value', callback);
+
+    expect(callback.called).to.be.true;
+  });
 
 });
+
 
 describe('Util.getSettings()', function () {
 
