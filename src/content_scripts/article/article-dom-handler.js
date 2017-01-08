@@ -98,10 +98,6 @@ export default class ArticleDomHandler {
 
   }
 
-  // getArticle() {
-  //   return this.article;
-  // }
-
   getUrl() {
     return window.location.href;
   }
