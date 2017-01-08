@@ -5,8 +5,6 @@ import MuteAlreadyReadArticleComponent from './extend/mute-already-read-article.
 import MuteUserComponent from './extend/mute-user.js';
 import ShowLineNumberComponent from './extend/show-line-number.js';
 
-
-
 export default function (settings) {
   const component = Vue.extend({
     template: `<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">

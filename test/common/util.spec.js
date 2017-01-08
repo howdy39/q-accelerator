@@ -2,7 +2,6 @@ import objectAssign from 'object-assign';
 import Util from '../../src/common/util';
 import ChromeStorage from '../../src/common/chrome-storage';
 
-
 describe('Util.parseUrl()', function () {
 
   it('userId,itemKind,itemIdが取れること', function () {

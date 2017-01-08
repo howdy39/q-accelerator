@@ -7,7 +7,7 @@
   "mute-already-read-article": true,
   "mute-already-read-article-show-button": true,
   "off-like-off-stock": true,
-  "off-stock-off-like": false,
+  "off-stock-off-like": true,
   "on-like-on-stock": true,
   "on-stock-on-like": true,
   "show-line-number": true

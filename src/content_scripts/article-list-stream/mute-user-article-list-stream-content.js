@@ -1,7 +1,6 @@
 import Util from '../../common/util';
 import ArticleListStreamDomHandler from './article-list-stream-dom-handler.js';
 
-
 export default class MuteUserArticleListStreamContent {
 
   run(muteUserIds) {

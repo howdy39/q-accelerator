@@ -2,7 +2,6 @@ import objectValues from 'object.values';
 import Util from '../../common/util';
 import PopularItemsDomHandler from './popular-items-dom-handler.js';
 
-
 export default class MuteAlreadyReadArticleContent {
 
   run() {

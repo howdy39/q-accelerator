@@ -18,7 +18,7 @@ export default class CopyCodeContent {
 
       const button = document.createElement('button');
       button.appendChild(svg);
-      button.className = 'qa-copy-code'; // 「書き方」のマウスオーバーを拝借
+      button.className = 'qa-copy-code';
 
       button.addEventListener('mouseleave', function (e) {
         e.currentTarget.setAttribute('class', 'qa-copy-code');

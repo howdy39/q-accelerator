@@ -1,7 +1,6 @@
 import Util from '../../common/util';
 import ArticleListTagsDomHandler from './article-list-tags-dom-handler.js';
 
-
 export default class MuteUserArticleListTagsContent {
 
   run(muteUserIds) {
