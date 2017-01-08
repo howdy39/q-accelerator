@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Util from '../../../common/util';
 
-
 export default function (settings) {
   const invisible = settings['mute-already-read-article'];
   const showButton = settings['mute-already-read-article-show-button'];
@@ -17,7 +16,7 @@ export default function (settings) {
                    <h4 style="margin-top:50px;">人気の投稿に既読にするボタンを表示</h4>
                    <p>
                      <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>に記事を既読にするボタンを表示します。<br>
-                     既読にするボタンを押すことで記事を開かずに既読扱いします。
+                     既読にするボタンを押すことで記事を開かずに既読扱いにします。
                    </p>
                    <mdl-switch :checked.sync="showButton" class="mdl-js-ripple-effect">表示する</mdl-switch>
                  </div>
