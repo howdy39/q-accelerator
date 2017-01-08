@@ -98,7 +98,7 @@ describe('Util.createHistoryEntity()', function () {
       }
     };
 
-    expect(JSON.stringify(entity)).to.equal(JSON.stringify(expectedEntity));
+    expect(entity).to.deep.equal(expectedEntity);
   });
 
 });
@@ -153,7 +153,7 @@ describe('Util.saveHistory()', function () {
         };
 
       Util.saveHistory(URL, TITLE, DATE);
-      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
+      expect(this.saveHistoriesStub.firstCall.args[0]).to.deep.equal(expectedHistory);
     });
 
   });
@@ -187,7 +187,7 @@ describe('Util.saveHistory()', function () {
       );
 
       Util.saveHistory(URL, TITLE, DATE);
-      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
+      expect(this.saveHistoriesStub.firstCall.args[0]).to.deep.equal(expectedHistory);
     });
 
     it('同じ主キー(userId, itemId)の履歴がある場合にtitle, dateが更新されること', function () {
@@ -206,7 +206,7 @@ describe('Util.saveHistory()', function () {
 
       Util.saveHistory(HISTORY_URL, NEW_TITLE, NEW_DATE);
 
-      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
+      expect(this.saveHistoriesStub.firstCall.args[0]).to.deep.equal(expectedHistory);
     });
 
   });
@@ -214,7 +214,6 @@ describe('Util.saveHistory()', function () {
   describe('履歴が1010件ある場合', function () {
 
     beforeEach(function () {
-      // savedHitories = {};
 
       for (let i = 0; i < 1010; i++) {
         let userId = `userId${i}`;
