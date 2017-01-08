@@ -13,10 +13,10 @@ export default function (settings) {
                      再度表示したい場合は、上部の閲覧履歴タブから閲覧履歴を消してください。
                    </p>
                    <mdl-switch :checked.sync="invisible" class="mdl-js-ripple-effect">非表示にする</mdl-switch>
-                   <h4 style="margin-top:50px;">人気の投稿に既読にするボタンを表示</h4>
+                   <h4 style="margin-top:50px;">人気の投稿に「既読にするボタン」を表示</h4>
                    <p>
-                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>に記事を既読にするボタンを表示します。<br>
-                     既読にするボタンを押すことで記事を開かずに既読扱いにします。
+                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>に記事を「既読にするボタン」を表示します。<br>
+                     「既読にするボタン」を押すことで記事を開かずに既読扱いにします。
                    </p>
                    <mdl-switch :checked.sync="showButton" class="mdl-js-ripple-effect">表示する</mdl-switch>
                  </div>
