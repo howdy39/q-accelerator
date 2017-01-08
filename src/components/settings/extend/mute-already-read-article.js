@@ -15,7 +15,7 @@ export default function (settings) {
                    <mdl-switch :checked.sync="invisible" class="mdl-js-ripple-effect">非表示にする</mdl-switch>
                    <h4 style="margin-top:50px;">人気の投稿に「既読にするボタン」を表示</h4>
                    <p>
-                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>に記事を「既読にするボタン」を表示します。<br>
+                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>に記事を既読にするボタンを表示します。<br>
                      「既読にするボタン」を押すことで記事を開かずに既読扱いにします。
                    </p>
                    <mdl-switch :checked.sync="showButton" class="mdl-js-ripple-effect">表示する</mdl-switch>
