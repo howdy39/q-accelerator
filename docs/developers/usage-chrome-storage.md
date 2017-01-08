@@ -13,7 +13,7 @@
 ```json
 {
   "histories": {
-    "userId.itemId": {
+    "ユーザーID.記事ID": {
       "date": 日時,
       "itemId": 記事ID,
       "itemKind": 記事種別（items or private）,
