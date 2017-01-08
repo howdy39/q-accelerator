@@ -8,15 +8,16 @@ export default function (settings) {
   const component = Vue.extend({
     template: `<div class="mdl-card mdl-cell mdl-cell--12-col">
                  <div class="mdl-card__supporting-text">
-                   <h4>人気の投稿から既読記事を非表示</h4>
+                   <h4>人気の投稿ページから既読記事を非表示</h4>
                    <p>
-                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>から開いたことのある記事を非表示にします。
+                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>から開いたことのある記事を非表示にします。<br>
+                     再度表示したい場合は、上部の閲覧履歴タブから閲覧履歴を消してください。
                    </p>
                    <mdl-switch :checked.sync="invisible" class="mdl-js-ripple-effect">非表示にする</mdl-switch>
-                   <h4 style="margin-top:50px;">人気の投稿に既読ボタンを表示</h4>
+                   <h4 style="margin-top:50px;">人気の投稿に既読にするボタンを表示</h4>
                    <p>
-                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>の記事の横に既読ボタンを表示します。<br>
-                     既読ボタンを押すことで記事を開かずに一覧を整理していくことが可能です。
+                     <a href="http://qiita.com/popular-items" target="_blank">人気の投稿</a>に記事を既読にするボタンを表示します。<br>
+                     既読にするボタンを押すことで記事を開かずに既読扱いします。
                    </p>
                    <mdl-switch :checked.sync="showButton" class="mdl-js-ripple-effect">表示する</mdl-switch>
                  </div>

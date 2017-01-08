@@ -9,7 +9,7 @@ export default function (settings) {
                  <div class="mdl-card__supporting-text">
                    <h4>新規投稿時のテンプレート</h4>
                    <p>
-                     記事を新しく作った際に、テンプレートの内容で入力済みになります。
+                     記事を新しく作った際に、テンプレートの内容で入力済みにします。<br>
                    </p>
                    <p>
                      <mdl-switch :checked.sync="defaultBody" class="mdl-js-ripple-effect">テンプレートを利用する</mdl-switch>

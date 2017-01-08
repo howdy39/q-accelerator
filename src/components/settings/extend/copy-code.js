@@ -13,10 +13,10 @@ export default function (settings) {
                      <mdl-switch :checked.sync="show" class="mdl-js-ripple-effect">表示する</mdl-switch>
                      <br>
                      <br>
-                     ※コピーは<a href="http://qiita.com/kakakakakku/items/461e000587b707785e79" target="_blank">diff形式のコード</a>の場合、以下のような挙動をします。
+                     ※コピーは<a href="http://qiita.com/kakakakakku/items/461e000587b707785e79" target="_blank">diff形式のコード</a>の場合、以下のような差分を解釈してコピーします。
                      <ul>
-                       <li>行頭に-(マイナス)がある削除行を除いてコピーします。
-                       <li>行頭の+(プラス)を除いてコピーします。
+                       <li>行頭に「-」がある削除行を除いてコピーします。
+                       <li>行頭の「+」を除いてコピーします。
                      </ul>
                    </p>
                  </div>
