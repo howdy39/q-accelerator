@@ -98,7 +98,7 @@ describe('Util.createHistoryEntity()', function () {
       }
     };
 
-    expect(JSON.stringify(entity)).to.equal(JSON.stringify(expectedEntity));
+    expect(entity).to.deep.equal(expectedEntity);
   });
 
 });
@@ -153,7 +153,7 @@ describe('Util.saveHistory()', function () {
         };
 
       Util.saveHistory(URL, TITLE, DATE);
-      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
+      expect(this.saveHistoriesStub.firstCall.args[0]).to.deep.equal(expectedHistory);
     });
 
   });
@@ -187,7 +187,7 @@ describe('Util.saveHistory()', function () {
       );
 
       Util.saveHistory(URL, TITLE, DATE);
-      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
+      expect(this.saveHistoriesStub.firstCall.args[0]).to.deep.equal(expectedHistory);
     });
 
     it('同じ主キー(userId, itemId)の履歴がある場合にtitle, dateが更新されること', function () {
@@ -206,7 +206,7 @@ describe('Util.saveHistory()', function () {
 
       Util.saveHistory(HISTORY_URL, NEW_TITLE, NEW_DATE);
 
-      expect(JSON.stringify(this.saveHistoriesStub.firstCall.args[0])).to.equal(JSON.stringify(expectedHistory));
+      expect(this.saveHistoriesStub.firstCall.args[0]).to.deep.equal(expectedHistory);
     });
 
   });
@@ -214,7 +214,6 @@ describe('Util.saveHistory()', function () {
   describe('履歴が1010件ある場合', function () {
 
     beforeEach(function () {
-      // savedHitories = {};
 
       for (let i = 0; i < 1010; i++) {
         let userId = `userId${i}`;
@@ -370,8 +369,68 @@ describe('Util.clearHistories()', function () {
 
 
 describe('Util.saveSetting()', function () {
+  let savedSettings;
+
+  beforeEach(function () {
+    savedSettings = {key1: 'value1'};
+
+    this.getSettingStub = sinon.stub(
+      Util,
+      'getSettings',
+      (callback) => {
+        callback(savedSettings);
+      }
+    );
+
+    this.saveSettingsStub = sinon.stub(
+      ChromeStorage,
+      'saveSettings',
+      (Settings, callback) => {
+        callback();
+      }
+    );
+  });
+
+  afterEach(function () {
+    Util.getSettings.restore();
+    ChromeStorage.saveSettings.restore();
+  });
+
+  it('新しいキーが登録できること', function () {
+    const expectedSetting =
+      {
+        key1: 'value1',
+        key2: 'newValue2'
+      };
+
+    Util.saveSetting('key2', 'newValue2');
+
+    const settings = this.saveSettingsStub.firstCall.args[0];
+    expect(settings).to.deep.equal(expectedSetting);
+  });
+
+  it('キーの設定が更新できること', function () {
+    const expectedSetting =
+      {
+        key1: 'newValue1',
+      };
+
+    Util.saveSetting('key1', 'newValue1');
+
+    const settings = this.saveSettingsStub.firstCall.args[0];
+    expect(settings).to.deep.equal(expectedSetting);
+  });
+
+  it('callbackを渡した場合に呼ばれること', function () {
+    const callback = sinon.spy(function () {});
+
+    Util.saveSetting('key', 'value', callback);
+
+    expect(callback.called).to.be.true;
+  });
 
 });
+
 
 describe('Util.getSettings()', function () {
 
