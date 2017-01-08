@@ -1,7 +1,6 @@
 import Util from '../../common/util';
 import PopularItemsDomHandler from './popular-items-dom-handler.js';
 
-
 export default class MuteUserArticleContent {
 
   run(muteUserIds) {

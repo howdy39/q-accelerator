@@ -11,4 +11,5 @@ export default class SaveHistoryContent {
     const date = (new Date()).getTime();
     Util.saveHistory(url, title, date);
   }
+
 }

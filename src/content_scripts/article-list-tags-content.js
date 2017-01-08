@@ -6,7 +6,6 @@
 import Util from '../common/util';
 import MuteUserArticleListTagsContent from './article-list-tags/mute-user-article-list-tags-content.js';
 
-
 Util.getSettings(settings => {
 
   try {
@@ -18,4 +17,3 @@ Util.getSettings(settings => {
   }
 
 });
-

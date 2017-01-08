@@ -1,7 +1,6 @@
 import Util from '../../common/util';
 import ArticleDomHandler from './article-dom-handler.js';
 
-
 export default class AutoLikeContent {
 
   run(onStockOnLike, offStockOffLike, onLikeOnStock, offLikeOffStock) {

@@ -1,6 +1,5 @@
 import Util from '../../common/util';
 
-
 export default class ArticleListStreamDomHandler {
 
   constructor() {

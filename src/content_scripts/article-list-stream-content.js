@@ -9,7 +9,6 @@
 import Util from '../common/util';
 import MuteUserArticleListStreamContent from './article-list-stream/mute-user-article-list-stream-content.js';
 
-
 Util.getSettings(settings => {
 
   try {
@@ -21,4 +20,3 @@ Util.getSettings(settings => {
   }
 
 });
-
