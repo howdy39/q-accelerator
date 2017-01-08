@@ -54,14 +54,13 @@ export default class PopularItemsDomHandler {
   addAlreadyReadButton(callback) {
     for (const article of this.articles) {
       const a = document.createElement('a');
-      a.className = 'qa-already-button btn btn-primary btn-sm';
+      a.className = 'qa-already-button btn btn-default btn-sm';
       a.style.marginRight = '10px';
 
       const i = document.createElement('i');
       i.className = 'fa fa-check';
 
-      const text = document.createTextNode('既読');
-      a.appendChild(i);
+      const text = document.createTextNode(' 既読にする');
       a.appendChild(text);
 
       a.addEventListener('click', () => {
@@ -71,4 +70,5 @@ export default class PopularItemsDomHandler {
       article.baseElement.firstChild.insertBefore(a, article.baseElement.firstChild.firstChild);
     }
   }
+
 }
