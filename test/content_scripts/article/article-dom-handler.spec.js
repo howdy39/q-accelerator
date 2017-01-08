@@ -149,8 +149,7 @@ describe('codeFrame', function () {
     expect(codeFrame.codeElement).to.not.equal(null);
     expect(codeFrame.codeText).to.equal(`console.log('1行目');
 -console.log('2行目');
-+console.log('3行目');
-`);
++console.log('3行目');`);
   });
 
 });

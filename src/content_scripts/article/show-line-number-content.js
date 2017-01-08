@@ -10,7 +10,6 @@ export default class ShowLineNumberContent {
 
     for (let codeFrame of codeFrames) {
       const rows = codeFrame.codeText.split('\n');
-      rows.pop(); // 最後に改行が入っていることにより、空要素が生まれるため削除
       const length = rows.length;
       let numbers = document.createElement('pre');
       numbers.className = 'qa-khsk-codeNumber';
