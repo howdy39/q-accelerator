@@ -34,7 +34,7 @@ export default class ArticleDomHandler {
       }
 
       const codeBaseElement = element.querySelector('.highlight');
-      const codeElement = codeBaseElement.querySelector('pre');
+      const codeElement = codeBaseElement.querySelector('pre:last-child');
       const codeText = codeElement.textContent.replace(/\n+$/, '');
 
       const codeFrame = {
