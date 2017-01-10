@@ -34,12 +34,14 @@ Util.getSettings((settings) => {
   });
 });
 
-Util.getHistories((histories) => {
-  new Vue({
-    el: '#histories',
-    components: {
-      'histories' : HistoriesComponent(histories)
-    }
+Util.getSettings((settings) => {
+  Util.getHistories((histories) => {
+    new Vue({
+      el: '#histories',
+      components: {
+        'histories' : HistoriesComponent(settings, histories)
+      }
+    });
   });
 });
 

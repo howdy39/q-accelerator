@@ -63,6 +63,7 @@
     "off-stock-off-like": ストック」したとき、自動で「いいね」する（true or false）,
     "on-like-on-stock": 「いいね」を外したとき、自動で「ストック」を外す（true or false）,
     "on-stock-on-like": いいね」したとき、自動で「ストック」する（true or false）,
+    "save-history": 履歴を保存（true or false）,
     "show-line-number": 行番号を表示（true or false）
   }
 }
@@ -85,6 +86,7 @@
     "off-stock-off-like": true,
     "on-like-on-stock": true,
     "on-stock-on-like": true,
+    "save-history":true,
     "show-line-number":true
   }
 }

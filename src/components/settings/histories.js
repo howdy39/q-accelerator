@@ -2,13 +2,15 @@ import objectValues from 'object.values';
 import Vue from 'vue';
 import Util from '../../common/util';
 
-export default function (histories) {
+export default function (settings, histories) {
+  const saveHistory = settings['save-history'];
   const component = Vue.extend({
     template: `
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
                 <h4>閲覧履歴</h4>
+                <mdl-switch :checked.sync="saveHistory">履歴を保存する</mdl-switch>
                 既に読んだ記事を表示しています。<mdl-button colored v-mdl-ripple-effect @click="clearHistoriesClick">閲覧履歴を消去する</mdl-button>
                 <div>
                   <mdl-textfield floating-label="検索文字列" :value.sync="search"></mdl-textfield>
@@ -37,7 +39,8 @@ export default function (histories) {
       const search = '';
       return {
         items,
-        search
+        search,
+        saveHistory
       };
     },
     methods: {
@@ -51,7 +54,14 @@ export default function (histories) {
           this.$data.items = [];
         });
       }
+    },
+    watch: {
+      saveHistory: function (bool) {
+        console.log(saveHistory);
+        Util.saveSetting('save-history', bool);
+      },
     }
+
   });
   return component;
 }
