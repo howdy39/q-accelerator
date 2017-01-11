@@ -44,7 +44,7 @@ Util.getSettings(settings => {
 
   try {
     if (settings['copy-code']) {
-      new CopyCodeContent().run();
+      new CopyCodeContent().run(settings['show-line-number']);
     }
   } catch (e) {
     Util.errorLog(e);

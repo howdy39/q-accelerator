@@ -144,7 +144,7 @@ describe('codeFrame', function () {
     const codeFrame = this.handler.getCodeFrames()[1];
     expect(codeFrame.baseElement).to.not.equal(null);
     expect(codeFrame.dataLang).to.equal('javascript');
-    expect(codeFrame.fileName).to.equal('javascriptです');
+    expect(codeFrame.codeLang).to.equal('javascriptです');
     expect(codeFrame.codeBaseElement).to.not.equal(null);
     expect(codeFrame.codeElement).to.not.equal(null);
     expect(codeFrame.codeText).to.equal(`console.log('1行目');

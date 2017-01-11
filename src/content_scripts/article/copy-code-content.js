@@ -4,13 +4,18 @@ import ArticleDomHandler from './article-dom-handler.js';
 
 export default class CopyCodeContent {
 
-  run() {
+  run(showLineNumber) {
     require('style!./copy-code-content.css');
 
     const handler = new ArticleDomHandler();
     const codeFrames = handler.getCodeFrames();
 
     for (let codeFrame of codeFrames) {
+
+      // 行番号が非表示設定かつタイトルがない場合
+      if (!showLineNumber && codeFrame.codeLang === '') {
+        codeFrame.codeElement.style = 'padding-top: 1.4em';
+      }
       const svg = document.createElement('img');
       svg.src = chrome.extension.getURL('assets/images/clippy.svg');
       svg.alt = 'Copy to clipboard';
