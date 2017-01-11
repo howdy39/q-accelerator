@@ -16,16 +16,16 @@ export default function (settings) {
                    <p>
                     「いいね」や「ストック」を押した際の挙動をカスタマイズします。
                    </p>
-                   <mdl-switch :checked.sync="onLikeOnStock" class="mdl-js-ripple-effect">
+                   <mdl-switch :checked.sync="onLikeOnStock">
                      「いいね」したとき、自動で「ストック」する　　　 <qiita-no-like></qiita-no-like>→<qiita-like></qiita-like> <qiita-no-stock/></qiita-no-stock>→<qiita-stock></qiita-stock>
                    </mdl-switch>
-                   <mdl-switch :checked.sync="onStockOnLike" class="mdl-js-ripple-effect">
+                   <mdl-switch :checked.sync="onStockOnLike">
                      「ストック」したとき、自動で「いいね」する　　　 <qiita-no-stock/></qiita-no-stock>→<qiita-stock></qiita-stock> <qiita-no-like></qiita-no-like>→<qiita-like></qiita-like>
                    </mdl-switch>
-                   <mdl-switch :checked.sync="offLikeOffLike" class="mdl-js-ripple-effect">
+                   <mdl-switch :checked.sync="offLikeOffLike">
                      「いいね」を外したとき、自動で「ストック」を外す <qiita-like></qiita-like>→<qiita-no-like></qiita-no-like> <qiita-stock/></qiita-stock>→<qiita-no-stock></qiita-no-stock>
                    </mdl-switch>
-                   <mdl-switch :checked.sync="offStockOffLike" class="mdl-js-ripple-effect">
+                   <mdl-switch :checked.sync="offStockOffLike">
                      「ストック」を外したとき、自動で「いいね」を外す <qiita-stock/></qiita-stock>→<qiita-no-stock></qiita-no-stock> <qiita-like></qiita-like>→<qiita-no-like></qiita-no-like> 
                    </mdl-switch>
                  </div>
