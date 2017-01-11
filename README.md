@@ -23,6 +23,10 @@ Chrome ウェブストアからインストール
 - 新規投稿時のテンプレート
 - 閲覧履歴の検索
 
+## Article
+
+[Qiitaをより便利にするChrome拡張機能をつくりました](http://qiita.com/howdy39/items/e6136b8454099ebfef29)
+
 
 ## Develop
 
