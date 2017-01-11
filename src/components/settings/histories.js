@@ -57,7 +57,6 @@ export default function (settings, histories) {
     },
     watch: {
       saveHistory: function (bool) {
-        console.log(saveHistory);
         Util.saveSetting('save-history', bool);
       },
     }
