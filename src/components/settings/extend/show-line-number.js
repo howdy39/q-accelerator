@@ -11,7 +11,7 @@ export default function (settings) {
                    <p>
                      コードの左に行番号を表示します。
                    </p>
-                   <mdl-switch :checked.sync="show" class="mdl-js-ripple-effect">表示する</mdl-switch>
+                   <mdl-switch :checked.sync="show">表示する</mdl-switch>
                  </div>
                </div>`,
     data: () => {

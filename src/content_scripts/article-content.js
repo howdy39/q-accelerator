@@ -6,9 +6,14 @@ import MuteUserCommentContent from './article/mute-user-comment-content.js';
 import SaveHisotoryContent from './article/save-history.js';
 import ShowLineNumberContent from './article/show-line-number-content.js';
 
-new SaveHisotoryContent().run();
-
 Util.getSettings(settings => {
+  try {
+    if (settings['save-history']) {
+      new SaveHisotoryContent().run();
+    }
+  } catch (e) {
+    Util.errorLog(e);
+  }
 
   try {
     if (settings['on-stock-on-like'] || settings['off-stock-off-like']
@@ -39,7 +44,7 @@ Util.getSettings(settings => {
 
   try {
     if (settings['copy-code']) {
-      new CopyCodeContent().run();
+      new CopyCodeContent().run(settings['show-line-number']);
     }
   } catch (e) {
     Util.errorLog(e);

@@ -12,7 +12,7 @@ export default function (settings) {
                      記事を新しく作った際に、テンプレートの内容で入力済みにします。<br>
                    </p>
                    <p>
-                     <mdl-switch :checked.sync="defaultBody" class="mdl-js-ripple-effect">テンプレートを利用する</mdl-switch>
+                     <mdl-switch :checked.sync="defaultBody">テンプレートを利用する</mdl-switch>
                    </p>
                    <textarea v-model="defaultBodyTemplate" rows="20" placeholder="テンプレートを入力" style="min-width: 600px"></textarea>
                    <mdl-button raised colored accent v-mdl-ripple-effect @click="saveTemplate">テンプレートを保存する</mdl-button>

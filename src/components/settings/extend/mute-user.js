@@ -14,8 +14,8 @@ export default function (settings) {
                    <p>記事やコメントを非表示にします。<br>
                      ユーザーIDはURLのxxxの部分です。例）http://qiita.com/xxx/items/〜
                    </p>
-                   <mdl-switch :checked.sync="articleInvisible" class="mdl-js-ripple-effect">記事を非表示にする</mdl-switch>
-                   <mdl-switch :checked.sync="commentInvisible" class="mdl-js-ripple-effect">コメントを非表示にする</mdl-switch>
+                   <mdl-switch :checked.sync="articleInvisible">記事を非表示にする</mdl-switch>
+                   <mdl-switch :checked.sync="commentInvisible">コメントを非表示にする</mdl-switch>
                    <mdl-textfield floating-label="ユーザーIDを入力してEnter" :value.sync="newUser" @keyup.enter="addUser"></mdl-textfield>
                    <ul>
                      <li v-for="user in users">

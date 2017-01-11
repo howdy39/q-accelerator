@@ -10,7 +10,7 @@ export default function (settings) {
                    <p>
                      コードの上にコピーアイコンを表示します。<br>
                      コピーアイコンをクリックするとクリップボードにコードをコピーします。<br>
-                     <mdl-switch :checked.sync="show" class="mdl-js-ripple-effect">表示する</mdl-switch>
+                     <mdl-switch :checked.sync="show">表示する</mdl-switch>
                      <br>
                      <br>
                      ※コピーは<a href="http://qiita.com/kakakakakku/items/461e000587b707785e79" target="_blank">diff形式のコード</a>の場合、以下のような差分を解釈してコピーします。

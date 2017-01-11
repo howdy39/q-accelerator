@@ -10,5 +10,6 @@
   "off-stock-off-like": true,
   "on-like-on-stock": true,
   "on-stock-on-like": true,
+  "save-history": true,
   "show-line-number": true
 }
