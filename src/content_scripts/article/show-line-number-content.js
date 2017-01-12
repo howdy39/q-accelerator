@@ -18,6 +18,9 @@ export default class ShowLineNumberContent {
 
         let label = document.createElement('span');
         label.innerHTML = number + '\n'; // Textでは改行が反映されない
+        if (i + 1 === length) {
+          label.innerHTML += '\n'; // 最終行には改行が追加されるqiitaの仕様に合わせる
+        }
         label.dataset.lineNumber = i + 1;
 
         numbers.appendChild(label);
