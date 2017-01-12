@@ -15,7 +15,7 @@ Util.getSettings(settings => {
 
   try {
     if (settings['mute-already-read-article-show-button']) {
-      new ShowAlreadyReadButtonContent().run();
+      new ShowAlreadyReadButtonContent().run(settings['save-history']);
     }
   } catch (e) {
     Util.errorLog(e);
