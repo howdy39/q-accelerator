@@ -9,8 +9,7 @@ export default class ShowLineNumberContent {
     const codeFrames = handler.getCodeFrames();
 
     for (let codeFrame of codeFrames) {
-      const rows = codeFrame.codeText.split('\n');
-      const length = rows.length;
+      const length = codeFrame.codeElement.textContent.split(/\n/).length - 1;
       let numbers = document.createElement('pre');
       numbers.className = 'qa-khsk-codeNumber';
       for (let i = 0; i < length; ++i) {
