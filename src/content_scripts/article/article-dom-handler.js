@@ -19,7 +19,7 @@ export default class ArticleDomHandler {
     this.article.likeButtonElements = document.querySelectorAll('div.js-likebutton button.p-button');
 
     // ストックボタン
-    this.article.stockButtonElements = document.querySelectorAll('div.js-stockButton.StockButton');
+    this.article.stockButtonElements = document.querySelectorAll('.StockButton button');
 
     // コードフレーム
     const codeFrameElements = Array.from(document.getElementsByClassName('code-frame'));
@@ -138,7 +138,7 @@ export default class ArticleDomHandler {
   }
 
   isStocked() {
-    return this.getStockButtons()[0].className.indexOf('StockButton--stocked') > 0;
+    return this.getStockButtons()[0].parentElement.className.indexOf('StockButton--stocked') > 0;
   }
 
   addLike() {

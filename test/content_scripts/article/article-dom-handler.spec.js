@@ -58,7 +58,7 @@ describe('自身の記事（限定共有）', function () {
   });
 
   it('DOMの情報が取得できること', function () {
-    expect(this.handler.getTitle()).to.equal('限定共有投稿テスト', 'タイトル');
+    expect(this.handler.getTitle()).to.equal('Q Accelerator用テスト記事', 'タイトル');
     expect(this.handler.getLikeButtons()).to.have.length(0, '自身の記事はいいねボタンなし');
     expect(this.handler.getStockButtons()).to.have.length(0, 'プライベート記事はストックボタンなし');
     expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
@@ -88,8 +88,6 @@ describe('他者の記事/コードなし/コメントなし/参照記事なし'
   });
 
   it('DOMの情報が取得できること', function () {
-    expect(this.handler.getLikeButtons()).to.have.length(2, 'いいねボタンが2つ');
-    expect(this.handler.getStockButtons()).to.have.length(2, 'ストックボタンが2つ');
     expect(this.handler.getCodeFrames()).to.have.length(0, 'コードなし');
     expect(this.handler.getComments()).to.have.length(0, 'コメントなし');
     expect(this.handler.getReferences()).to.have.length(0, '参照記事なし');
@@ -117,6 +115,30 @@ describe('他者の記事/いいね済/ストック済', function () {
     expect(this.handler.getStockButtons()).to.have.length(2, 'ストックボタンが2つ');
     expect(this.handler.isLiked()).to.equal(true, 'いいねされている');
     expect(this.handler.isStocked()).to.equal(true, 'ストックされている');
+  });
+
+});
+
+/**
+ * 記事（公開）
+ * http://qiita.com/locol23/items/daaaf21ff2119d5bfeb2
+ */
+describe('他者の記事/いいね未/ストック未', function () {
+
+  before(function () {
+    document.body.innerHTML = require('./article-others-not-liked-not-stocked.html');
+    this.handler = new ArticleDomHandler();
+  });
+
+  after(function () {
+    delete this.handler;
+  });
+
+  it('DOMの情報が取得できること', function () {
+    expect(this.handler.getLikeButtons()).to.have.length(2, 'いいねボタンが2つ');
+    expect(this.handler.getStockButtons()).to.have.length(2, 'ストックボタンが2つ');
+    expect(this.handler.isLiked()).to.equal(false, 'いいねされていない');
+    expect(this.handler.isStocked()).to.equal(false, 'ストックされていない');
   });
 
 });
