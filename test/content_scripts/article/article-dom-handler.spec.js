@@ -40,6 +40,15 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
     expect(reference.userId).to.equal('howdy39', 'userId');
   });
 
+  it('ストック数の変更ができること', function () {
+    const stockButton = this.handler.getStockButtons()[0];
+    const label = stockButton.querySelector('.StockButton__label');
+    expect(label.textContent).to.equal('ストック');
+
+    this.handler.prependCountToStock(100);
+    expect(label.textContent).to.equal('100ストック');
+  });
+
 });
 
 /**

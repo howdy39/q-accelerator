@@ -54,6 +54,12 @@ export default function () {
           userId: 'khsk',
           userUrl: 'http://qiita.com/khsk'
         },
+        {
+          articleTitle: 'Qiitaの「いいね」に消された「ストック数」を復活させた',
+          articleUrl: 'http://qiita.com/hikarut/items/c71063af8cb79124de72',
+          userId: 'hikarut',
+          userUrl: 'http://qiita.com/hikarut'
+        },
       ];
       return {
         items

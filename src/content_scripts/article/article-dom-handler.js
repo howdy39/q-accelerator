@@ -133,6 +133,13 @@ export default class ArticleDomHandler {
     return (this.getLikeButtons().length !== 0);
   }
 
+  prependCountToStock(count) {
+    this.getStockButtons().forEach(stockButton => {
+      const label = stockButton.querySelector('.StockButton__label');
+      label.prepend(count);
+    });
+  }
+
   isLiked() {
     return this.getLikeButtons()[0].className.indexOf('liked') > 0;
   }
