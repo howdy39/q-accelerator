@@ -5,6 +5,7 @@ import MuteUserArticleContent from './article/mute-user-article-content.js';
 import MuteUserCommentContent from './article/mute-user-comment-content.js';
 import SaveHisotoryContent from './article/save-history.js';
 import ShowLineNumberContent from './article/show-line-number-content.js';
+import ShowStockCountsContent from './article/show-stock-counts-content.js';
 
 Util.getSettings(settings => {
   try {
@@ -21,6 +22,14 @@ Util.getSettings(settings => {
       new AutoLikeContent().run(settings['on-stock-on-like'], settings['off-stock-off-like'],
                                 settings['on-like-on-stock'], settings['off-like-off-stock']
       );
+    }
+  } catch (e) {
+    Util.errorLog(e);
+  }
+
+  try {
+    if (settings['show-stock-counts']) {
+      new ShowStockCountsContent().run();
     }
   } catch (e) {
     Util.errorLog(e);
