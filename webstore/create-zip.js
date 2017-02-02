@@ -1,33 +1,62 @@
-var archiver = require('archiver');
-var fs = require('fs');
+#!/usr/bin/env node
 
-// zipファイル名作成
-var version = '1.1.2';
-var zip_file_name = './webstore/qa-' + version + '.zip';
+/* global process */
 
-// zipファイルのストリームを生成して、archiverと紐付ける
-var archive = archiver.create( 'zip', {} );
-var output = fs.createWriteStream( zip_file_name );
-archive.pipe(output);
+const ora = require('ora');
+const { green, red, yellow } = require('chalk');
+const jsonfile = require('jsonfile');
+const archiver = require('archiver');
+const fs = require('fs');
 
-// bulkメソッドで、対象となるファイルディレクトリを指定する
-archive.bulk([
-  {
-    expand:true,
-    cwd: './extension/',
-    src: ['**/*'],
-    dest: './qa/', // zipを回答したときのディレクトリ
-    dot: true,
-  }
-]);
+const spinner = ora();
+const spinnerStart = (text) => {
+  spinner.text = text;
+  return spinner.start();
+};
 
-// archive.finalize()で、zip圧縮完了すると、
-// ストリームのクローズイベントが発火する
-output.on('close', function () {
-  // zipファイルのサイズ
-  var archive_size = archive.pointer() + ' total bytes';
-  console.log(archive_size);
+const manifestFilePath = 'extension/manifest.json';
+spinnerStart(`read ${manifestFilePath}`);
+jsonfile.readFile(manifestFilePath, (err, obj) => {
+  if (err) errorHandler(err);
+  spinner.succeed();
+
+  const version = obj.version;
+  createZip(version);
 });
 
-// zip圧縮実行
-archive.finalize();
+function createZip(version) {
+  const zipFilePath = `webstore/qa-${version}.zip`;
+  spinnerStart(`create zip ${zipFilePath}`);
+
+  // zipファイルのストリームを生成して、archiverと紐付ける
+  const archive = archiver.create('zip', {});
+
+  archive.on('error', err => {
+    errorHandler(err);
+  });
+
+  const output = fs.createWriteStream(zipFilePath);
+  archive.pipe(output);
+
+  archive.glob('./extension/**/*');
+
+  // zip圧縮実行
+  archive.finalize();
+  spinner.succeed();
+
+  console.log(green('zipファイルの作成が成功しました'));
+}
+
+function errorHandler(err) {
+  spinner.fail();
+  console.error(red(err.message));
+
+  if (err.response && err.response.body) {
+    try {
+      console.error(yellow(JSON.stringify(err.response.body, null, 4)));
+    } catch (err) {
+      console.error(red(err.message));
+    }
+  }
+  process.exit(1);
+}
