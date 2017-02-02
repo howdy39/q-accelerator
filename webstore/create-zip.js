@@ -38,7 +38,7 @@ function createZip(version) {
   const output = fs.createWriteStream(zipFilePath);
   archive.pipe(output);
 
-  archive.glob('./extension/**/*');
+  archive.glob('extension/**/*');
 
   // zip圧縮実行
   archive.finalize();
