@@ -6,13 +6,6 @@
 
 Qiitaでの活動を加速させるChrome拡張機能
 
-
-## Installation
-
-Chrome ウェブストアからインストール  
-[https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan)
-
-
 ## Features
 - ストック数を表示（実験的機能）
 - 行番号を表示
@@ -25,7 +18,14 @@ Chrome ウェブストアからインストール
 
 ## Article
 
+機能の詳細はこちらの記事を参照してください。
 [Qiitaをより便利にするChrome拡張機能をつくりました](http://qiita.com/howdy39/items/e6136b8454099ebfef29)
+
+
+## Installation
+
+Chrome ウェブストアからインストール  
+[https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan](https://chrome.google.com/webstore/detail/q-accelerator/mheleidccioamimekojienbdfclcbaan)
 
 
 ## Develop
