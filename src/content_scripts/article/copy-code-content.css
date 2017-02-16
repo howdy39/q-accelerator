@@ -12,6 +12,20 @@
   }
 }
 
+.markdownContent .code-frame button.qa-copy-all-code { 
+  float: none; /*クラスによるfloatを解除*/
+  font-size: initial; /*クラスによるフォントの拡大を解除*/
+  display: inline-block; /*コード内かつコード名の右側へ*/
+  position: absolute;
+  margin-top: 0;
+  margin-left: 23px;
+  cursor: pointer;
+
+  & .qa-clippy {
+    height: 16px;
+  }
+}
+
 .tooltipped {
     position: relative
 }

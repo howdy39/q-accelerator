@@ -544,3 +544,48 @@ describe('Util.parseDiffCode()', function () {
   });
 
 });
+
+
+describe('Util.parseAllCode()', function () {
+
+  it('-（マイナス）行を除外すること', function () {
+    const code =
+`
+-   マイナス1つ
+--   マイナス2つ
+---   マイナス3つ
+ -   行頭スペースあり
+`;
+    const expectedCode =
+`
+   マイナス1つ
+   マイナス2つ
+   マイナス3つ
+ -   行頭スペースあり
+`;
+
+    const res = Util.parseAllCode(code);
+    expect(res).to.equal(expectedCode);
+  });
+
+  it('+（プラス）を除いて行を残すこと', function () {
+    const code =
+`
++   プラス1つ
+++   プラス2つ
++++   プラス3つ
+ +   行頭ハイフンあり
+`;
+    const expectedCode =
+`
+   プラス1つ
+   プラス2つ
+   プラス3つ
+ +   行頭ハイフンあり
+`;
+
+    const res = Util.parseAllCode(code);
+    expect(res).to.equal(expectedCode);
+  });
+
+});

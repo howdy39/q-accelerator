@@ -49,8 +49,43 @@ export default class CopyCodeContent {
         Util.errorLog(e);
       });
 
+      const allSvg = document.createElement('img');
+      allSvg.src = chrome.extension.getURL('assets/images/all_clippy.svg');
+      allSvg.alt = 'Copy to clipboard';
+      allSvg.className = 'qa-clippy';
+
+      const allButton = document.createElement('button');
+      allButton.appendChild(allSvg);
+      allButton.className = 'qa-copy-all-code';
+
+      allButton.addEventListener('mouseleave', function (e) {
+        e.currentTarget.setAttribute('class', 'qa-copy-all-code');
+        e.currentTarget.removeAttribute('aria-label');
+      });
+
+      const allClipboard = new ClipBoard(allButton, {
+        text: () => {
+          const diffLangueges = ['diff', 'udiff'];
+          if (!diffLangueges.includes(codeFrame.dataLang.toLowerCase())) {
+            return codeFrame.codeText;
+          }
+          return this.parseAllCode(codeFrame.codeText);
+        }
+      });
+
+      allClipboard.on('success', e => {
+        e.clearSelection();
+        this.showTooltipAll(e.trigger, 'Copied!');
+        Util.infoLog('コピー機能', 'コピーに成功しました');
+      });
+
+      allClipboard.on('error', function (e) {
+        Util.errorLog(e);
+      });
+
       // コピーボタンをコードの上に追加
       codeFrame.baseElement.insertBefore(button, codeFrame.codeBaseElement);
+      codeFrame.baseElement.insertBefore(allButton, codeFrame.codeBaseElement);
     }
   }
 
