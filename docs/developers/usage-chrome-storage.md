@@ -75,6 +75,7 @@
 
 ```json
 {
+  "settings": {
     "copy-code": true,
     "default-body": true,
     "default-body-template": "# はじめに",
