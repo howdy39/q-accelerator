@@ -36,7 +36,7 @@ export default class CopyCodeContent {
           if (!diffLangueges.includes(codeFrame.dataLang.toLowerCase())) {
             return codeFrame.codeText;
           }
-          return this.parseDiffCode(codeFrame.codeText, codeFrame.dataLang);
+          return this.parseDiffCode(codeFrame.codeText);
         }
       });
       clipboard.on('success', e => {
