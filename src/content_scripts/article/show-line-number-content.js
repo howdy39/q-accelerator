@@ -3,7 +3,7 @@ import ArticleDomHandler from './article-dom-handler.js';
 export default class ShowLineNumberContent {
 
   run() {
-    require('style!./show-line-number-content.css');
+    require('style-loader!./show-line-number-content.css');
 
     const handler = new ArticleDomHandler();
     const codeFrames = handler.getCodeFrames();

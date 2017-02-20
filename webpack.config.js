@@ -1,8 +1,13 @@
+/* eslint-env node */
+
+const path = require('path');
+
 const BACKGROUND_DIR = './src/background/';
 const CONTENT_SCRIPTS_DIR = './src/content_scripts/';
 const COMPONENTS_DIR = './src/components/';
 
 module.exports = {
+  context: path.resolve(__dirname),
   entry: {
     'background/background': BACKGROUND_DIR + 'background.js',
     'content_scripts/article-content': CONTENT_SCRIPTS_DIR + 'article-content.js',
@@ -17,41 +22,30 @@ module.exports = {
     filename: '[name].js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
       },
       {
         test: /\.css$/,
-        loaders: [
+        use: [
           'css-loader',
           'postcss-loader'
         ]
       },
       {
         test: /\.html$/,
-        loaders: [
+        use: [
           'html-loader'
         ]
       },
       {
-        test: /\.json$/,
-        exclude: /node_modules/,
-        loader: 'json-loader'
-      },
-      {
         test: /\.md$/,
-        exclude: /node_modules/,
-        loader: 'raw-loader'
+        use: 'raw-loader'
       },
     ]
-  },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.js'
-    }
   },
   devtool: 'source-map'
 };
