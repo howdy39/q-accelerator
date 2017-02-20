@@ -5,7 +5,7 @@ import ArticleDomHandler from './article-dom-handler.js';
 export default class CopyCodeContent {
 
   run(showLineNumber) {
-    require('style!./copy-code-content.css');
+    require('style-loader!./copy-code-content.css');
 
     const handler = new ArticleDomHandler();
     const codeFrames = handler.getCodeFrames();
