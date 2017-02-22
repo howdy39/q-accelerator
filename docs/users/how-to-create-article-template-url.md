@@ -2,8 +2,8 @@
 2パターンだけ記載しておきます。  
 ※Ajaxで取得できるURLならなんでもOKです。
 
-1. [DropBoxを利用する](#%201.DropBoxを利用する)
-2. [Gist + RawGitを利用する](#%202.Gist%20+%20RawGitを利用する)
+1. [DropBoxを利用する](#1dropboxを利用する)
+2. [Gist + RawGitを利用する](#2gist--rawgitを利用する)
 
 
 
