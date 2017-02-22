@@ -52,8 +52,10 @@
 {
   "settings": {
     "copy-code": コードのコピー機能（true or false）,
-    "default-body": 新規投稿時のテンプレート(true or false),
+    "default-body": 新規投稿時のテンプレート（直接入力）(true or false),
     "default-body-template": テンプレートの文字列,
+    "default-body-url": 新規投稿時のテンプレート（ファイルのURLを指定）(true or false),
+    "default-body-url-template": テンプレートのURL,
     "mute-already-read-article": 既読記事を非表示（true or false）,
     "mute-already-read-article-show-button": 既読ボタンを表示（true or false）,
     "mute-user-article": 特定ユーザーの記事を非表示（true or false）,
@@ -79,6 +81,8 @@
     "copy-code": true,
     "default-body": true,
     "default-body-template": "# はじめに",
+    "default-body-url": false,
+    "default-body-url-template": "https://rawgit.com/howdy39/4e7a3290bd4ba9ebbe46f2cd394d0ffd/raw/temlate.md",
     "mute-already-read-article": true,
     "mute-already-read-article-show-button": true,
     "mute-user-article": true,
