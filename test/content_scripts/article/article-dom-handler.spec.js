@@ -19,6 +19,7 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
     expect(this.handler.getTitle()).to.equal('フロントエンドにテストを導入', 'タイトル');
     expect(this.handler.getLikeButtons()).to.have.length(0, '自身の記事はいいねボタンなし');
     expect(this.handler.getStockButtons()).to.have.length(2, '公開記事はストックボタンあり');
+    expect(this.handler.getArticleUpdateTime().toString()).to.not.equal(null, 'getArticleUpdateTime');
     expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
     expect(this.handler.getComments()).to.have.length.above(0, 'コメントあり');
     expect(this.handler.getReferences()).to.have.length.above(0, '参照記事あり');
@@ -47,6 +48,13 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
 
     this.handler.prependCountToStock(100);
     expect(label.textContent).to.equal('100ストック');
+  });
+
+  it('記事の更新日時に時間を表示できること', function () {
+    this.handler.showArticleUpdateTime();
+    const text = this.handler.getArticleUpdateTimeTextContent();
+    console.log(text);
+    expect(text).to.equal('2016年08月08日 07時30分');
   });
 
 });

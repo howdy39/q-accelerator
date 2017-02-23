@@ -3,6 +3,7 @@ import AutoLikeComponent from './extend/auto-like.js';
 import CopyCodeComponent from './extend/copy-code.js';
 import MuteAlreadyReadArticleComponent from './extend/mute-already-read-article.js';
 import MuteUserComponent from './extend/mute-user.js';
+import ShowArticlesUpToTimeComponent from './extend/show-articles-up-to-time.js';
 import ShowLineNumberComponent from './extend/show-line-number.js';
 import ShowStockCountsComponent from './extend/show-stock-counts.js';
 
@@ -10,6 +11,9 @@ export default function (settings) {
   const component = Vue.extend({
     template: `<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                  <show-stock-counts></show-stock-counts>
+               </section>
+               <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                 <show-articles-up-to-time></show-articles-up-to-time>
                </section>
                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                  <show-line-number></show-line-number>
@@ -31,6 +35,7 @@ export default function (settings) {
       'copy-code' : CopyCodeComponent(settings),
       'mute-already-read-article': MuteAlreadyReadArticleComponent(settings),
       'mute-user' : MuteUserComponent(settings),
+      'show-articles-up-to-time' : ShowArticlesUpToTimeComponent(settings),
       'show-line-number' : ShowLineNumberComponent(settings),
       'show-stock-counts' : ShowStockCountsComponent(settings),
     }

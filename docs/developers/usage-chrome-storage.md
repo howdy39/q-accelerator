@@ -66,6 +66,7 @@
     "on-like-on-stock": 「いいね」を外したとき、自動で「ストック」を外す（true or false）,
     "on-stock-on-like": いいね」したとき、自動で「ストック」する（true or false）,
     "save-history": 履歴を保存（true or false）,
+    "show-article-update-time": 記事の更新時間を表示（true or false),
     "show-line-number": 行番号を表示（true or false）,
     "show-stock-counts": ストック数を表示（true or false）
   }
@@ -93,6 +94,7 @@
     "on-like-on-stock": true,
     "on-stock-on-like": true,
     "save-history":true,
+    "show-article-update-time": true,
     "show-line-number":true,
     "show-stock-counts": true
   }

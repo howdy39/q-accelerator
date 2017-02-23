@@ -4,6 +4,7 @@ import CopyCodeContent from './article/copy-code-content.js';
 import MuteUserArticleContent from './article/mute-user-article-content.js';
 import MuteUserCommentContent from './article/mute-user-comment-content.js';
 import SaveHisotoryContent from './article/save-history.js';
+import ShowArticlesUpToTimeContent from './article/show-articles-up-to-time-content.js';
 import ShowLineNumberContent from './article/show-line-number-content.js';
 import ShowStockCountsContent from './article/show-stock-counts-content.js';
 
@@ -22,6 +23,14 @@ Util.getSettings(settings => {
       new AutoLikeContent().run(settings['on-stock-on-like'], settings['off-stock-off-like'],
                                 settings['on-like-on-stock'], settings['off-like-off-stock']
       );
+    }
+  } catch (e) {
+    Util.errorLog(e);
+  }
+
+  try {
+    if (settings['show-article-update-time']) {
+      new ShowArticlesUpToTimeContent().run();
     }
   } catch (e) {
     Util.errorLog(e);
