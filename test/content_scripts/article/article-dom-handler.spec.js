@@ -19,7 +19,7 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
     expect(this.handler.getTitle()).to.equal('フロントエンドにテストを導入', 'タイトル');
     expect(this.handler.getLikeButtons()).to.have.length(0, '自身の記事はいいねボタンなし');
     expect(this.handler.getStockButtons()).to.have.length(2, '公開記事はストックボタンあり');
-    expect(this.handler.getArticleUpdateTime().toString()).to.equal('Mon Aug 08 2016 07:30:53 GMT+0900 (JST)');
+    expect(this.handler.getArticleUpdateTime().toString()).to.not.equal(null, 'getArticleUpdateTime');
     expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
     expect(this.handler.getComments()).to.have.length.above(0, 'コメントあり');
     expect(this.handler.getReferences()).to.have.length.above(0, '参照記事あり');
