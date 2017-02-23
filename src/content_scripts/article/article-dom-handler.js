@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Util from '../../common/util';
 
 export default class ArticleDomHandler {
@@ -7,6 +8,7 @@ export default class ArticleDomHandler {
       titleElement: '',
       likeButtonElements: [],
       stockButtonElements: [],
+      articleUpdateTimeElement: '',
       codeFrames: [],
       comments: [],
       references: []
@@ -20,6 +22,9 @@ export default class ArticleDomHandler {
 
     // ストックボタン
     this.article.stockButtonElements = document.querySelectorAll('.StockButton button');
+
+    // 記事の更新日時
+    this.article.articleUpdateTimeElement = document.querySelector('.ArticleAsideHeader__date time');
 
     // コードフレーム
     const codeFrameElements = Array.from(document.getElementsByClassName('code-frame'));
@@ -114,6 +119,13 @@ export default class ArticleDomHandler {
     return this.article.stockButtonElements;
   }
 
+  getArticleUpdateTime() {
+    return new Date(this.article.articleUpdateTimeElement.getAttribute('datetime'));
+  }
+  getArticleUpdateTimeTextContent() {
+    return this.article.articleUpdateTimeElement.textContent;
+  }
+
   getCodeFrames() {
     return this.article.codeFrames;
   }
@@ -166,6 +178,12 @@ export default class ArticleDomHandler {
     this.getStockButtons().forEach(stockButton => {
       stockButton.addEventListener('click', listener);
     });
+  }
+
+  showArticleUpdateTime() {
+    const e = this.article.articleUpdateTimeElement;
+    const d = new Date(e.getAttribute('datetime'));
+    e.textContent = moment(d).format('YYYY年MM月DD日 HH時mm分');
   }
 
   unShowComment(comment) {

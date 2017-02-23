@@ -12,6 +12,7 @@
   "on-like-on-stock": true,
   "on-stock-on-like": true,
   "save-history": true,
+  "show-article-update-time": true,
   "show-line-number": true,
   "show-stock-counts": true
 }
