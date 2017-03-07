@@ -183,7 +183,7 @@ export default class ArticleDomHandler {
   showArticleUpdateTime() {
     const e = this.article.articleUpdateTimeElement;
     const d = e.getAttribute('datetime');
-    e.textContent = moment(d).format('YYYY年MM月DD日 HH時mm分');
+    e.textContent = moment(d).utcOffset('+09:00').format('YYYY年MM月DD日 HH時mm分');
   }
 
   unShowComment(comment) {
