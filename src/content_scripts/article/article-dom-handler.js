@@ -3,6 +3,10 @@ import Util from '../../common/util';
 
 export default class ArticleDomHandler {
 
+  static getLikeObserverElement() {
+    return document.getElementsByClassName('js-likebutton')[0];
+  }
+
   constructor() {
     this.article = {
       titleElement: '',
