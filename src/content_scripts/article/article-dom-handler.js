@@ -7,6 +7,10 @@ export default class ArticleDomHandler {
     return document.getElementsByClassName('js-likebutton')[0];
   }
 
+  static getStockObserverElement() {
+    return document.getElementsByClassName('js-stockbutton')[0];
+  }
+
   constructor() {
     this.article = {
       titleElement: '',
@@ -25,7 +29,7 @@ export default class ArticleDomHandler {
     this.article.likeButtonElements = document.querySelectorAll('div.js-likebutton button.p-button');
 
     // ストックボタン
-    this.article.stockButtonElements = document.querySelectorAll('.StockButton button');
+    this.article.stockButtonElements = document.querySelectorAll('div.js-stockbutton button');
 
     // 記事の更新日時
     this.article.articleUpdateTimeElement = document.querySelector('.ArticleAsideHeader__date time');

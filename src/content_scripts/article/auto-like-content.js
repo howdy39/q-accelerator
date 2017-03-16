@@ -37,6 +37,7 @@ export default class AutoLikeContent {
           }
         });
       }
+      mo.disconnect();
     });
 
     const target = ArticleDomHandler.getLikeObserverElement();

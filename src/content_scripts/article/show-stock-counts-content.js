@@ -6,15 +6,16 @@ import axios from 'axios';
 export default class ShowStockCountsContent {
 
   run() {
-    const handler = new ArticleDomHandler();
+    const mo = new MutationObserver(function () {
+      const handler = new ArticleDomHandler();
 
-    const url = handler.getUrl();
-    const {itemKind, itemId} = Util.parseUrl(url);
+      const url = handler.getUrl();
+      const {itemKind, itemId} = Util.parseUrl(url);
 
-    // プライベート記事はストック不可なので不要
-    if (itemKind === 'private') return;
+      // プライベート記事はストック不可なので不要
+      if (itemKind === 'private') return;
 
-    axios.get(`https://qiita.com/api/v1/items/${itemId}`)
+      axios.get(`https://qiita.com/api/v1/items/${itemId}`)
       .then(response => {
         handler.prependCountToStock(response.data.stock_count);
       })
@@ -23,6 +24,12 @@ export default class ShowStockCountsContent {
         Util.errorLog(error);
       });
 
+      mo.disconnect();
+    });
+
+    const target = ArticleDomHandler.getStockObserverElement();
+    const options = {childList: true, subtree: true};
+    mo.observe(target, options);
   }
 
 }
