@@ -7,8 +7,13 @@ export default class ShowLineNumberContent {
 
     const handler = new ArticleDomHandler();
     const codeFrames = handler.getCodeFrames();
+    const ignoreLangueges = ['math'];
 
     for (let codeFrame of codeFrames) {
+      if (ignoreLangueges.includes(codeFrame.dataLang.toLowerCase())) {
+        continue;
+      }
+
       const length = codeFrame.codeElement.textContent.split(/\n/).length - 1;
       let numbers = document.createElement('pre');
       numbers.className = 'qa-khsk-codeNumber';
