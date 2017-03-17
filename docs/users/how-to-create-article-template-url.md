@@ -10,7 +10,7 @@
 # 1.DropBoxを利用する
 
 ## DropBoxにアクセスしPublicフォルダに移動
-[https://www.dropbox.com/home](https://www.dropbox.com/ho)
+[https://www.dropbox.com/home](https://www.dropbox.com/home)
 
 ![DropBoxにアクセスしPublicフォルダに移動](img/how_to_create_article_db_01.png)
 
