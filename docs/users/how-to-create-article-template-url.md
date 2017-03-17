@@ -9,19 +9,8 @@
 
 # 1.DropBoxを利用する
 
-## DropBoxにアクセスしPublicフォルダに移動
-[https://www.dropbox.com/home](https://www.dropbox.com/home)
-
-![DropBoxにアクセスしPublicフォルダに移動](img/how_to_create_article_db_01.png)
-
-## ファイルをアップロード
-
-![ファイルをアップロード](img/how_to_create_article_db_02.png)
-
-## URLを取得
-
-![URLを取得](img/how_to_create_article_db_03.png)
-
+Dropboxのやり方はできなくなりました。
+http://www.appbank.net/2017/03/17/iphone-application/1322133.php
 
 
 # 2.Gist + RawGitを利用する
