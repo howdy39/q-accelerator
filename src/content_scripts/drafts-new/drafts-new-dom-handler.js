@@ -26,8 +26,8 @@ export default class DraftsNewDomHandler {
     this.form.editorTag.element     = document.querySelector('.editor_content .editorTag input');
 
     // 下書き本文
-    this.form.draftBody.baseElement = document.querySelector('.editor_content .js-draftBody');
-    this.form.draftBody.element     = document.querySelector('.editor_content .js-draftBody textarea');
+    this.form.draftBody.baseElement = document.querySelector('.editor_content .editorMarkdown_textareaWrapper');
+    this.form.draftBody.element     = document.querySelector('.editor_content .editorMarkdown_textareaWrapper textarea');
   }
 
   getEditorTitle() {
