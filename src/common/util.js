@@ -124,6 +124,31 @@ export default class Util {
     return newLines.join('\n');
   }
 
+  /**
+   * markdownのDiff構文を解析
+   * -（マイナス）で始まる行の-を消す
+   * +（プラス）で始まる行の+を消す
+   */
+  static parseAllCode(code) {
+    const lines = code.split('\n');
+    const MINUS_REGEXP = /^-+.*$/;
+    const PLUS_REGEXP = /^\++(.*$)/;
+
+    const newLines = lines
+      .map(line => {
+        if (!PLUS_REGEXP.test(line)) return line;
+
+        const [, newLine] = line.match(/^\++(.*$)/);
+        return newLine;
+      }).map(line => {
+        if (!MINUS_REGEXP.test(line)) return line;
+
+        const [, newLine] = line.match(/^-+(.*$)/);
+        return newLine;
+      });
+    return newLines.join('\n');
+  }
+
   static infoLog(...messages) {
     messages.unshift('');
     let resultMessage = 'Q Accelerator' + messages.join(' | ');
