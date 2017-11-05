@@ -15,9 +15,9 @@ export default class ShowStockCountsContent {
       // プライベート記事はストック不可なので不要
       if (itemKind === 'private') return;
 
-      axios.get(`https://qiita.com/api/v1/items/${itemId}`)
+      axios.get(`https://qiita.com/api/v2/items/${itemId}/stockers?per_page=100`)
       .then(response => {
-        handler.prependCountToStock(response.data.stock_count);
+        handler.prependCountToStock(response.data.length >= 100 ? '100+' : response.data.length);
       })
       .catch(error => {
         Util.infoLog('ストック数を表示', error.response.data.error);
