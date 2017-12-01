@@ -1,10 +1,9 @@
-.markdownContent .code-frame pre.qa-khsk-codeNumber { 
+.code-frame pre.qa-khsk-codeNumber { 
   float: left;
   user-select: none; /* 追加した行番号は選択不可にする */
   overflow-x: hidden !important; /* スクロールバーはあるのもないのも不自然 */
-  padding-right: 0px;
+  padding-right: 10px;
   padding-left: 10px;
-  color: rgba(0,0,0,0.4);
   
   &:after {
     clear: both;
