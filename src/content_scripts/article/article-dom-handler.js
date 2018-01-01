@@ -4,11 +4,11 @@ import Util from '../../common/util';
 export default class ArticleDomHandler {
 
   static getLikeObserverElement() {
-    return document.getElementsByClassName('js-likebutton')[0];
+    return document.getElementsByClassName('p-items_stickyMenu')[0];
   }
 
   static getStockObserverElement() {
-    return document.getElementsByClassName('js-stockbutton')[0];
+    return document.getElementsByClassName('p-items_stickyMenu')[0];
   }
 
   constructor() {
@@ -23,16 +23,31 @@ export default class ArticleDomHandler {
     };
 
     // タイトル
-    this.article.titleElement = document.querySelector('.col-sm-9 > h1');
+    this.article.titleElement = document.querySelector('.it-Header_title');
 
     // いいねボタン
-    this.article.likeButtonElements = document.querySelectorAll('div.js-likebutton button.p-button');
+    const leftAreaLikeButton = document.querySelector('div.it-Actions_item-like button');
+    const footerLikeButton = document.querySelector('div.u-flex-align-center div.LikeButton button.p-button');
+
+    if (leftAreaLikeButton) {
+      this.article.likeButtonElements.push(leftAreaLikeButton);
+    }
+    if (footerLikeButton) {
+      this.article.likeButtonElements.push(footerLikeButton);
+    }
 
     // ストックボタン
-    this.article.stockButtonElements = document.querySelectorAll('div.js-stockbutton button');
+    const leftAreaStockButton = document.querySelector('div.it-Actions_item-stock button');
+    const footerStockButton = document.querySelector('div.it-Footer_stock div.StockButton button');
+    if (leftAreaStockButton) {
+      this.article.stockButtonElements.push(leftAreaStockButton);
+    }
+    if (footerStockButton) {
+      this.article.stockButtonElements.push(footerStockButton);
+    }
 
     // 記事の更新日時
-    this.article.articleUpdateTimeElement = document.querySelector('.ArticleAsideHeader__date time');
+    this.article.articleUpdateTimeElement = document.querySelector('div.it-Header_time time');
 
     // コードフレーム
     const codeFrameElements = Array.from(document.getElementsByClassName('code-frame'));
@@ -154,18 +169,23 @@ export default class ArticleDomHandler {
   }
 
   prependCountToStock(count) {
-    this.getStockButtons().forEach(stockButton => {
-      const label = stockButton.querySelector('.StockButton__label');
-      label.prepend(count);
-    });
+    const div = document.createElement('div');
+    div.className = 'qa-stock-counter';
+    div.style.fontSize = '16px';
+    div.style.fontWeight = '700';
+    div.style.color = 'grey';
+    div.style.textAlign = 'center';
+    div.textContent = count;
+
+    this.getStockButtons()[0].parentElement.insertBefore(div, this.getStockButtons()[0]);
   }
 
   isLiked() {
-    return this.getLikeButtons()[0].className.indexOf('liked') > 0;
+    return this.getLikeButtons()[0].parentElement.className.indexOf('liked') > 0;
   }
 
   isStocked() {
-    return this.getStockButtons()[0].parentElement.className.indexOf('StockButton--stocked') > 0;
+    return this.getStockButtons()[0].querySelector('i').className.indexOf('fa-folder-open') < 0;
   }
 
   addLike() {

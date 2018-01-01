@@ -17,7 +17,7 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
 
   it('DOMの情報が取得できること', function () {
     expect(this.handler.getTitle()).to.equal('フロントエンドにテストを導入', 'タイトル');
-    expect(this.handler.getLikeButtons()).to.have.length(0, '自身の記事はいいねボタンなし');
+    expect(this.handler.getLikeButtons()).to.have.length(1, '自身の記事はいいねボタンが1つ');
     expect(this.handler.getStockButtons()).to.have.length(2, '公開記事はストックボタンあり');
     expect(this.handler.getArticleUpdateTime().toString()).to.not.equal(null, 'getArticleUpdateTime');
     expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
@@ -43,17 +43,17 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
 
   it('ストック数の変更ができること', function () {
     const stockButton = this.handler.getStockButtons()[0];
-    const label = stockButton.querySelector('.StockButton__label');
-    expect(label.textContent).to.equal('ストック');
+    let div = stockButton.parentElement.querySelector('div.qa-stock-counter');
+    expect(div).to.equal(null);
 
     this.handler.prependCountToStock(100);
-    expect(label.textContent).to.equal('100ストック');
+    div = stockButton.parentElement.querySelector('div.qa-stock-counter');
+    expect(div.textContent).to.equal('100');
   });
 
   it('記事の更新日時に時間を表示できること', function () {
     this.handler.showArticleUpdateTime();
     const text = this.handler.getArticleUpdateTimeTextContent();
-    console.log(text);
     expect(text).to.equal('2016年08月08日 07時30分');
   });
 
@@ -76,7 +76,7 @@ describe('自身の記事（限定共有）', function () {
 
   it('DOMの情報が取得できること', function () {
     expect(this.handler.getTitle()).to.equal('Q Accelerator用テスト記事', 'タイトル');
-    expect(this.handler.getLikeButtons()).to.have.length(0, '自身の記事はいいねボタンなし');
+    expect(this.handler.getLikeButtons()).to.have.length(0, 'プライベート記事はいいねボタンなし');
     expect(this.handler.getStockButtons()).to.have.length(0, 'プライベート記事はストックボタンなし');
     expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
     expect(this.handler.getComments()).to.have.length.above(0, 'コメントあり');
@@ -163,6 +163,7 @@ describe('他者の記事/いいね未/ストック未', function () {
 /**
  * codeFrame
  * 2番目のコードが javascript:javascriptです
+ * https://qiita.com/howdy39/private/d4c5eb44da359f618497
  */
 describe('codeFrame', function () {
 
@@ -179,8 +180,8 @@ describe('codeFrame', function () {
     expect(this.handler.getCodeFrames()).to.have.length.above(0);
   });
 
-  it('2番目のコードの情報が取得できること', function () {
-    const codeFrame = this.handler.getCodeFrames()[1];
+  it('5番目のコードの情報が取得できること', function () {
+    const codeFrame = this.handler.getCodeFrames()[4];
     expect(codeFrame.baseElement).to.not.equal(null);
     expect(codeFrame.dataLang).to.equal('javascript');
     expect(codeFrame.codeLang).to.equal('javascriptです');
@@ -195,6 +196,7 @@ describe('codeFrame', function () {
 
 /**
  * 削除されたコメントの場合、userIdがundefinedであること
+ * https://qiita.com/YudaiTsukamoto/items/42a8df22ca4c6b327dfd
  */
 describe('削除されたコメント', function () {
 
