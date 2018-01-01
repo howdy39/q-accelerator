@@ -20,7 +20,7 @@ export default class ShowStockCountsContent {
         handler.prependCountToStock(response.data.length >= 100 ? '100+' : response.data.length);
       })
       .catch(error => {
-        Util.infoLog('ストック数を表示', error.response.data.error);
+        Util.infoLog('ストック数を表示', error);
         Util.errorLog(error);
       });
 

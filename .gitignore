@@ -3,3 +3,5 @@ dest/
 extension/
 npm-debug.log
 webstore/*.zip
+
+.idea/
