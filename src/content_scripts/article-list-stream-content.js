@@ -7,6 +7,7 @@
  */
 
 import Util from '../common/util';
+import FixHeader from './article-list-stream/fix-header.js';
 import MuteUserArticleListStreamContent from './article-list-stream/mute-user-article-list-stream-content.js';
 
 Util.getSettings(settings => {
@@ -14,6 +15,14 @@ Util.getSettings(settings => {
   try {
     if (settings['mute-users'] && settings['mute-user-article']) {
       new MuteUserArticleListStreamContent().run(settings['mute-users']);
+    }
+  } catch (e) {
+    Util.errorLog(e);
+  }
+
+  try {
+    if (settings['fix-header']) { //FIXME: 実際の設定値を使用するように書き換えてください。
+      new FixHeader().run();
     }
   } catch (e) {
     Util.errorLog(e);
