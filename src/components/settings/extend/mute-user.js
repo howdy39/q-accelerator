@@ -1,12 +1,7 @@
 import Vue from 'vue';
-import Util from '../../../common/util';
 
 
-export default function (settings) {
-  let newUser = '';
-  let users = settings['mute-users'];
-  const articleInvisible = settings['mute-user-article'];
-  const commentInvisible = settings['mute-user-comment'];
+export default function () {
   const component = Vue.extend({
     template: `<div class="mdl-card mdl-cell mdl-cell--12-col">
                  <div class="mdl-card__supporting-text">
@@ -14,49 +9,12 @@ export default function (settings) {
                    <p>記事やコメントを非表示にします。<br>
                      ユーザーIDはURLのxxxの部分です。例）http://qiita.com/xxx/items/〜
                    </p>
-                   <mdl-switch :checked.sync="articleInvisible">記事を非表示にする</mdl-switch>
-                   <mdl-switch :checked.sync="commentInvisible">コメントを非表示にする</mdl-switch>
-                   <mdl-textfield floating-label="ユーザーIDを入力してEnter" :value.sync="newUser" @keyup.enter="addUser"></mdl-textfield>
-                   <ul>
-                     <li v-for="user in users">
-                       <span>{{user}}</span>
-                       <mdl-button icon class="icon" @click="removeUser($index)">
-                        <i class="material-icons">delete</i>
-                       </mdl-button>
-                     </li>
-                   </ul>
+                   <p>
+                    <strong>この機能は公式がミュート機能を用意したため廃止しました。</strong><br>
+                    <a href="http://blog.qiita.com/post/173120067699/trend-mute">トレンドロジック変更・ミュート機能についてお知らせ - Qiita Blog</a>
+                  </p>
                  </div>
                </div>`,
-    data: () => {
-      return {
-        newUser,
-        users,
-        articleInvisible,
-        commentInvisible
-      };
-    },
-    watch: {
-      articleInvisible: function (val) {
-        Util.saveSetting('mute-user-article', val);
-      },
-      commentInvisible: function (val) {
-        Util.saveSetting('mute-user-comment', val);
-      },
-    },
-    methods: {
-      addUser: function () {
-        const user = this.newUser.trim();
-        if (user && this.users.includes(user) === false) {
-          this.users.push(user);
-          Util.saveSetting('mute-users', this.users);
-          this.newUser = '';
-        }
-      },
-      removeUser: function (index) {
-        this.users.splice(index, 1);
-        Util.saveSetting('mute-users', this.users);
-      }
-    }
   });
   return component;
 }

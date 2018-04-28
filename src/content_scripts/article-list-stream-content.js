@@ -8,17 +8,8 @@
 
 import Util from '../common/util';
 import FixHeader from './article-list-stream/fix-header.js';
-import MuteUserArticleListStreamContent from './article-list-stream/mute-user-article-list-stream-content.js';
 
 Util.getSettings(settings => {
-
-  try {
-    if (settings['mute-users'] && settings['mute-user-article']) {
-      new MuteUserArticleListStreamContent().run(settings['mute-users']);
-    }
-  } catch (e) {
-    Util.errorLog(e);
-  }
 
   try {
     if (settings['fix-header']) {

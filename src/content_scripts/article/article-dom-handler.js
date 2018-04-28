@@ -214,18 +214,4 @@ export default class ArticleDomHandler {
     e.textContent = moment(d).utcOffset('+09:00').format('YYYY年MM月DD日 HH時mm分');
   }
 
-  unShowComment(comment) {
-    comment.commentHeaderElement.style.display = 'none';
-    comment.commentContentElement.style.display = 'none';
-
-    const messageElement = document.createElement('div');
-    messageElement.className = 'well';
-    messageElement.textContent = `${comment.userId}のコメントを非表示にしました。`;
-    comment.baseElement.appendChild(messageElement);
-  }
-
-  unShowReference(reference) {
-    reference.baseElement.style.display = 'none';
-  }
-
 }
