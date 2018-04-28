@@ -1,6 +1,7 @@
 import Util from '../common/util';
 import AutoLikeContent from './article/auto-like-content.js';
 import CopyCodeContent from './article/copy-code-content.js';
+import FixHeader from './article/fix-header.js';
 import MuteUserArticleContent from './article/mute-user-article-content.js';
 import MuteUserCommentContent from './article/mute-user-comment-content.js';
 import SaveHisotoryContent from './article/save-history.js';
@@ -71,6 +72,14 @@ Util.getSettings(settings => {
   try {
     if (settings['show-line-number']) {
       new ShowLineNumberContent().run();
+    }
+  } catch (e) {
+    Util.errorLog(e);
+  }
+
+  try {
+    if (settings['fix-header']) { //FIXME: 実際の設定値を使用するように書き換えてください。
+      new FixHeader().run();
     }
   } catch (e) {
     Util.errorLog(e);

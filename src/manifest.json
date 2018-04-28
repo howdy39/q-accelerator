@@ -61,6 +61,17 @@
         "https://qiita.com/drafts/new"
       ],
       "js": ["content_scripts/drafts-new-content.js"]
+    },
+    {
+      "matches": [
+        "http://qiita.com/trend",
+        "https://qiita.com/trend",
+        "http://qiita.com/timeline",
+        "https://qiita.com/timeline",
+        "http://qiita.com/tag-feed",
+        "https://qiita.com/tag-feed"
+      ],
+      "js": ["content_scripts/top-content.js"]
     }
   ],
   "permissions": [
