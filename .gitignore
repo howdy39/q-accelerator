@@ -2,6 +2,7 @@ node_modules/
 dest/
 extension/
 npm-debug.log
+yarn-error.log
 webstore/*.zip
 
 .idea/

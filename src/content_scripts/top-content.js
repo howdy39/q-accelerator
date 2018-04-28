@@ -11,7 +11,7 @@ import FixHeader from './top/fix-header.js';
 Util.getSettings(settings => {
 
   try {
-    if (settings['fix-header']) { //FIXME: 実際の設定値を使用するように書き換えてください。
+    if (settings['fix-header']) {
       new FixHeader().run();
     }
   } catch (e) {
