@@ -476,7 +476,6 @@ describe('Util.getSettings()', function () {
         'getSettings',
         (callback) => {
           callback({
-            'mute-user-comment': false,
             'default-body-template': '#上書き',
           });
         }
@@ -492,7 +491,6 @@ describe('Util.getSettings()', function () {
       const expectedSettings = {};
       Object.assign(expectedSettings, require('../../src/common/default-settings.json'));
       expectedSettings['default-body-template'] = '#上書き';
-      expectedSettings['mute-user-comment'] = false;
 
       Util.getSettings(callback);
 

@@ -14,7 +14,6 @@ module.exports = {
     'content_scripts/article-list-stream-content': CONTENT_SCRIPTS_DIR + 'article-list-stream-content.js',
     'content_scripts/article-list-tags-content': CONTENT_SCRIPTS_DIR + 'article-list-tags-content.js',
     'content_scripts/drafts-new-content': CONTENT_SCRIPTS_DIR + 'drafts-new-content.js',
-    'content_scripts/popular-items-content': CONTENT_SCRIPTS_DIR + 'popular-items-content.js',
     'content_scripts/top-content': CONTENT_SCRIPTS_DIR + 'top-content.js',
     'js/settings': COMPONENTS_DIR + 'settings.js' // components/settings.js -> js/settings.js
   },

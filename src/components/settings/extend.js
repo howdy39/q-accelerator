@@ -37,8 +37,8 @@ export default function (settings) {
     components: {
       'auto-like' : AutoLikeComponent(settings),
       'copy-code' : CopyCodeComponent(settings),
-      'mute-already-read-article': MuteAlreadyReadArticleComponent(settings),
-      'mute-user' : MuteUserComponent(settings),
+      'mute-already-read-article': MuteAlreadyReadArticleComponent(),
+      'mute-user' : MuteUserComponent(),
       'show-articles-up-to-time' : ShowArticlesUpToTimeComponent(settings),
       'show-line-number' : ShowLineNumberComponent(settings),
       'show-stock-counts' : ShowStockCountsComponent(settings),

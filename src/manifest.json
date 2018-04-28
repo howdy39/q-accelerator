@@ -50,13 +50,6 @@
     },
     {
       "matches": [
-        "http://qiita.com/popular-items",
-        "https://qiita.com/popular-items"
-      ],
-      "js": ["content_scripts/popular-items-content.js"]
-    },
-    {
-      "matches": [
         "http://qiita.com/drafts/new",
         "https://qiita.com/drafts/new"
       ],
