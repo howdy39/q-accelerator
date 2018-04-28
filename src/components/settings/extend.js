@@ -6,6 +6,7 @@ import MuteUserComponent from './extend/mute-user.js';
 import ShowArticlesUpToTimeComponent from './extend/show-articles-up-to-time.js';
 import ShowLineNumberComponent from './extend/show-line-number.js';
 import ShowStockCountsComponent from './extend/show-stock-counts.js';
+import FixHeaderComponent from './extend/fix-header.js';
 
 export default function (settings) {
   const component = Vue.extend({
@@ -29,6 +30,9 @@ export default function (settings) {
                </section>
                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                  <mute-user></mute-user>
+               </section>
+               <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                 <fix-header></fix-header>
                </section>`,
     components: {
       'auto-like' : AutoLikeComponent(settings),
@@ -38,6 +42,7 @@ export default function (settings) {
       'show-articles-up-to-time' : ShowArticlesUpToTimeComponent(settings),
       'show-line-number' : ShowLineNumberComponent(settings),
       'show-stock-counts' : ShowStockCountsComponent(settings),
+      'fix-header' : FixHeaderComponent(settings),
     }
   });
 
