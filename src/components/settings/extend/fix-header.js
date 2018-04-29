@@ -11,7 +11,7 @@ export default function (settings) {
                  <div class="mdl-card__supporting-text">
                    <h4>ヘッダーを固定</h4>
                    <p>
-                    ヘッダーを固定し、スクロールしてもが常に表示されるようにします。(主要なページのみ対応)
+                    ヘッダーを固定し、スクロールしても常に表示されるようにします。(主要なページのみ対応)
                    </p>
                    <mdl-switch :checked.sync="fixHeader">固定する</mdl-switch>
                  </div>

@@ -17,8 +17,8 @@ describe('自身の記事（公開）/コードあり/コメントあり/参照�
 
   it('DOMの情報が取得できること', function () {
     expect(this.handler.getTitle()).to.equal('フロントエンドにテストを導入', 'タイトル');
-    expect(this.handler.getLikeButtons()).to.have.length(1, '自身の記事はいいねボタンが1つ');
-    expect(this.handler.getStockButtons()).to.have.length(2, '公開記事はストックボタンあり');
+    expect(this.handler.getLikeButtons()).to.have.length(2, '自身の記事はいいねボタンが2つ');
+    expect(this.handler.getStockButtons()).to.have.length(3, '公開記事はストックボタンが3つ');
     expect(this.handler.getArticleUpdateTime().toString()).to.not.equal(null, 'getArticleUpdateTime');
     expect(this.handler.getCodeFrames()).to.have.length.above(0, 'コードあり');
     expect(this.handler.getComments()).to.have.length.above(0, 'コメントあり');
@@ -128,8 +128,8 @@ describe('他者の記事/いいね済/ストック済', function () {
   });
 
   it('DOMの情報が取得できること', function () {
-    expect(this.handler.getLikeButtons()).to.have.length(2, 'いいねボタンが2つ');
-    expect(this.handler.getStockButtons()).to.have.length(2, 'ストックボタンが2つ');
+    expect(this.handler.getLikeButtons()).to.have.length(3, 'いいねボタンが3つ');
+    expect(this.handler.getStockButtons()).to.have.length(3, 'ストックボタンが3つ');
     expect(this.handler.isLiked()).to.equal(true, 'いいねされている');
     expect(this.handler.isStocked()).to.equal(true, 'ストックされている');
   });
@@ -152,8 +152,8 @@ describe('他者の記事/いいね未/ストック未', function () {
   });
 
   it('DOMの情報が取得できること', function () {
-    expect(this.handler.getLikeButtons()).to.have.length(2, 'いいねボタンが2つ');
-    expect(this.handler.getStockButtons()).to.have.length(2, 'ストックボタンが2つ');
+    expect(this.handler.getLikeButtons()).to.have.length(3, 'いいねボタンが3つ');
+    expect(this.handler.getStockButtons()).to.have.length(3, 'ストックボタンが3つ');
     expect(this.handler.isLiked()).to.equal(false, 'いいねされていない');
     expect(this.handler.isStocked()).to.equal(false, 'ストックされていない');
   });
