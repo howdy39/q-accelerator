@@ -6,7 +6,7 @@ export default function (settings, histories) {
   const saveHistory = settings['save-history'];
   const component = Vue.extend({
     template: `
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="max-width:980px">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
                 <h4>閲覧履歴</h4>
@@ -18,9 +18,9 @@ export default function (settings, histories) {
                 <ul>
                   <template v-for="item in items | filterBy search">
                     <li>
+                      {{ item.date | moment "YYYY-MM-DD HH:mm"}}
                       <a href="http://qiita.com/{{item.userId}}/{{item.itemKind}}/{{item.itemId}}" target="_blank">{{ item.title }}</a>
                       @{{ item.userId }}
-                      {{ item.date | moment "YYYY-MM-DD HH:mm"}}
                     </li>
                   </template>
                 </ul>
