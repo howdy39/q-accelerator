@@ -27,10 +27,14 @@ export default class ArticleDomHandler {
 
     // いいねボタン
     const leftAreaLikeButton = document.querySelector('div.it-Actions_item-like button');
+    const headerLikeButton = document.querySelector('div.it-ActionsMobile_like');
     const footerLikeButton = document.querySelector('div.u-flex-align-center div.LikeButton button.p-button');
 
     if (leftAreaLikeButton) {
       this.article.likeButtonElements.push(leftAreaLikeButton);
+    }
+    if (headerLikeButton) {
+      this.article.likeButtonElements.push(headerLikeButton);
     }
     if (footerLikeButton) {
       this.article.likeButtonElements.push(footerLikeButton);
@@ -38,9 +42,13 @@ export default class ArticleDomHandler {
 
     // ストックボタン
     const leftAreaStockButton = document.querySelector('div.it-Actions_item-stock button');
+    const headerStockButton = document.querySelector('div.it-ActionsMobile_stock');
     const footerStockButton = document.querySelector('div.it-Footer_stock div.StockButton button');
     if (leftAreaStockButton) {
       this.article.stockButtonElements.push(leftAreaStockButton);
+    }
+    if (headerStockButton) {
+      this.article.stockButtonElements.push(headerStockButton);
     }
     if (footerStockButton) {
       this.article.stockButtonElements.push(footerStockButton);
