@@ -1,7 +1,6 @@
 import Util from '../common/util';
 import AutoLikeContent from './article/auto-like-content.js';
 import CopyCodeContent from './article/copy-code-content.js';
-import FixHeader from './article/fix-header.js';
 import SaveHisotoryContent from './article/save-history.js';
 import ShowArticlesUpToTimeContent from './article/show-articles-up-to-time-content.js';
 import ShowLineNumberContent from './article/show-line-number-content.js';
@@ -54,14 +53,6 @@ Util.getSettings(settings => {
   try {
     if (settings['show-line-number']) {
       new ShowLineNumberContent().run();
-    }
-  } catch (e) {
-    Util.errorLog(e);
-  }
-
-  try {
-    if (settings['fix-header']) {
-      new FixHeader().run();
     }
   } catch (e) {
     Util.errorLog(e);

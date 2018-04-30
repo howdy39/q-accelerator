@@ -1,12 +1,10 @@
 /**
  * 以下のURLで発火
- * http://qiita.com/trend
- * http://qiita.com/timeline
- * http://qiita.com/tag-feed
+ * http://qiita.com/*
  */
 
 import Util from '../common/util';
-import FixHeader from './top/fix-header.js';
+import FixHeader from './all/fix-header.js';
 
 Util.getSettings(settings => {
 
