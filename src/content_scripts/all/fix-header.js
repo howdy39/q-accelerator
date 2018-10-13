@@ -1,6 +1,6 @@
 import Util from '../../common/util';
 
-const URL_PATTERN_TOP = new RegExp('^https?://qiita\\.com/(trend|timeline|tag-feed)$');
+const URL_PATTERN_TOP = new RegExp('^https?://qiita\\.com/(|timeline|tag-feed|milestones)$');
 const URL_PATTERN_ARTICLE = new RegExp('^https?://qiita\\.com/[^/]+/(items|private)/[^/#?]+$');
 
 export default class FixHeader {
