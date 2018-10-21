@@ -177,15 +177,24 @@ export default class ArticleDomHandler {
   }
 
   prependCountToStock(count) {
+    const parentElement = this.getStockButtons()[0].parentElement;
+    parentElement.style.display = 'flex';
+    parentElement.style.alignItems = 'center';
+    parentElement.style.justifyContent = 'center';
+    parentElement.style.position = 'relative';
+    parentElement.style.marginTop = '40px';
+
     const div = document.createElement('div');
     div.className = 'qa-stock-counter';
     div.style.fontSize = '16px';
     div.style.fontWeight = '700';
     div.style.color = 'grey';
     div.style.textAlign = 'center';
+    div.style.position = 'absolute';
+    div.style.top = '-30px';
     div.textContent = count;
 
-    this.getStockButtons()[0].parentElement.insertBefore(div, this.getStockButtons()[0]);
+    parentElement.insertBefore(div, this.getStockButtons()[0]);
   }
 
   isLiked() {
