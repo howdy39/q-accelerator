@@ -64,7 +64,8 @@
     "show-article-update-time": 記事の更新時間を表示（true or false),
     "show-line-number": 行番号を表示（true or false）,
     "show-stock-counts": ストック数を表示（true or false）,
-    "fix-header": ヘッダー固定（true or false）
+    "fix-header": ヘッダー固定（true or false）,
+    "show-lang-name": 言語名を表示（true or false）
   }
 }
 ```
@@ -88,7 +89,8 @@
     "show-article-update-time": true,
     "show-line-number":true,
     "show-stock-counts": true,
-    "fix-header": true
+    "fix-header": true,
+    "show-lang-name": true
   }
 }
 ```

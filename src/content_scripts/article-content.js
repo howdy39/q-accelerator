@@ -5,6 +5,7 @@ import SaveHisotoryContent from './article/save-history.js';
 import ShowArticlesUpToTimeContent from './article/show-articles-up-to-time-content.js';
 import ShowLineNumberContent from './article/show-line-number-content.js';
 import ShowStockCountsContent from './article/show-stock-counts-content.js';
+import ShowLangNameContent from './article/show-lang-name-content.js';
 
 Util.getSettings(settings => {
   try {
@@ -44,7 +45,7 @@ Util.getSettings(settings => {
 
   try {
     if (settings['copy-code']) {
-      new CopyCodeContent().run(settings['show-line-number']);
+      new CopyCodeContent().run(settings['show-line-number'], settings['show-lang-name']);
     }
   } catch (e) {
     Util.errorLog(e);
@@ -53,6 +54,14 @@ Util.getSettings(settings => {
   try {
     if (settings['show-line-number']) {
       new ShowLineNumberContent().run();
+    }
+  } catch (e) {
+    Util.errorLog(e);
+  }
+
+  try {
+    if (settings['show-lang-name']) {
+      new ShowLangNameContent().run();
     }
   } catch (e) {
     Util.errorLog(e);
