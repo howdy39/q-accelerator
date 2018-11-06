@@ -11,7 +11,7 @@ export default function (settings) {
                  <div class="mdl-card__supporting-text">
                    <h4>言語名を表示</h4>
                    <p>コードブロックの言語名を表示します。</p>
-                   <mdl-switch :checked.sync="showLangName">固定する</mdl-switch>
+                   <mdl-switch :checked.sync="showLangName">表示する</mdl-switch>
                  </div>
                </div>`,
     data: () => {
