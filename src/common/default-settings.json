@@ -10,5 +10,6 @@
   "show-article-update-time": true,
   "show-line-number": true,
   "show-stock-counts": true,
-  "fix-header": true
+  "fix-header": true,
+  "show-lang-name": true
 }

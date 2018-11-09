@@ -4,7 +4,7 @@ import ArticleDomHandler from './article-dom-handler.js';
 
 export default class CopyCodeContent {
 
-  run(showLineNumber) {
+  run(showLineNumber, showLangName) {
     require('style-loader!./copy-code-content.css');
 
     const handler = new ArticleDomHandler();
@@ -12,8 +12,8 @@ export default class CopyCodeContent {
 
     for (let codeFrame of codeFrames) {
 
-      // 行番号が非表示設定かつタイトルがない場合
-      if (!showLineNumber && codeFrame.codeLang === '') {
+      // 行番号、言語名が非表示設定かつタイトルがない場合
+      if (!showLineNumber && !showLangName && codeFrame.codeLang === '') {
         codeFrame.codeElement.style = 'padding-top: 1.4em';
       }
       const svg = document.createElement('img');
