@@ -8,7 +8,7 @@
     "48": "assets/images/qa_icon48.png",
     "128": "assets/images/qa_icon128.png"
   },
-  "version": "2.1.1",
+  "version": "2.2.0",
   "homepage_url": "https://github.com/howdy39/q-accelerator",
   "background": {
     "persistent": false,
