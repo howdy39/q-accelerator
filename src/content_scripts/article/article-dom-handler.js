@@ -195,6 +195,11 @@ export default class ArticleDomHandler {
     div.textContent = count;
 
     parentElement.insertBefore(div, this.getStockButtons()[0]);
+
+    this.getStockButtons()[0].addEventListener('click', () => {
+      if (div.textContent === '100+') return;
+      div.textContent = Number(div.textContent) + (this.isStocked() ? -1 : 1);
+    });
   }
 
   isLiked() {
