@@ -12,6 +12,14 @@
   }
 }
 
+.code-frame button.qa-copy-code:hover {
+  opacity: 0.8;
+}
+
+.code-frame button.qa-copy-code:active {
+  opacity: 0.6;
+}
+
 .tooltipped {
     position: relative
 }
